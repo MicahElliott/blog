@@ -1,0 +1,48 @@
+<div id="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-6"><b>{{post.date|date:longDate}}</b>
+
+    {% if post.tags|not-empty %}
+    <span id="post-tags">
+        <!-- <i>tagged:</i> -->
+        <i> — </i>
+        <b><i class="fa fa-tags"></i> </b>
+        <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
+        {% for tag in post.tags %}
+        <a href="{{tag.uri}}"> {{tag.name}}</a>
+        {% endfor %}
+    </span>
+    {% endif %}
+
+        </div>
+
+        <!-- {% if post.author %} -->
+        <!-- <span class="col-lg-6 right">By: {{post.author}}</span> -->
+        <!-- {% endif %} -->
+
+    </div>
+
+    <h1>{{post.title}}</h1>
+
+<!--     {% if post.tags|not-empty %} -->
+<!--     <div id="post-tags"> -->
+<!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
+<!--         {% for tag in post.tags %} -->
+<!--         <a href="{{tag.uri}}"> {{tag.name}}</a> -->
+<!--         {% endfor %} -->
+<!--     </div> -->
+<!--     {% endif %} -->
+
+</div>
+<div>
+    {% if post.toc %}{{post.toc|safe}}{% endif %}
+    {{post.content|safe}}
+</div>
+<!-- {% if post.tags|not-empty %} -->
+<!-- <div id="post-tags"> -->
+<!--     <b>Tags: </b> -->
+<!--     {% for tag in post.tags %} -->
+<!--     <a href="{{tag.uri}}">{{tag.name}}</a> -->
+<!--     {% endfor %} -->
+<!-- </div> -->
+<!-- {% endif %} -->

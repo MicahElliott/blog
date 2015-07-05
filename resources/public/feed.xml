@@ -1,0 +1,394 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
+<channel>
+<atom:link href='http://micahelliott.com/' rel='self' type='application/rss+xml'/>
+<generator>
+clj-rss
+</generator>
+<title>
+Micah Elliott
+</title>
+<link>
+http://micahelliott.com/
+</link>
+<description>
+A Tech Journal
+</description>
+<lastBuildDate>
+Sun, 05 Jul 2015 14:46:44 -0700
+</lastBuildDate>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-05-docker-systemd-ansible.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-05-docker-systemd-ansible.html
+</link>
+<title>
+Use Docker as a full Systemd CentOS
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Docker has arrived. It&amp;#8217;s a &quot;container&quot; system for isolating services. It&amp;#8217;s
+simpler and lighter than a VM, yet easier to use than a jail. But it&amp;#8217;s not
+quite a full OS: it usually lacks things like systemd, cron, sshd, and syslog.
+(Some folks are trying to address this for Ubuntu)&lt;a href=&quot;http://phusion.github.io/baseimage-docker/&quot; class=&quot;bare&quot;&gt;http://phusion.github.io/baseimage-docker/&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Docker can be a way to take snapshots of a blessed machine config, and can be
+shared around a team and used for CI.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ubuntu wasn&amp;#8217;t going to work for my needs, but I found a minimal CentOS 7
+version of this: &lt;a href=&quot;https://github.com/maci0/docker-systemd-unpriv&quot; class=&quot;bare&quot;&gt;https://github.com/maci0/docker-systemd-unpriv&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So now Docker can actually be used for testing deployments with almost real
+full OSs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_how_to&quot;&gt;How to&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Stop (to reset IPs) and start up docker service:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;systemctl stop docker.service
+systemctl start docker.service&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This guy provided an article and repo to get centos7 working with docker:
+&lt;a href=&quot;http://maci0.wordpress.com/2014/07/23/run-systemd-in-an-unprivileged-docker-container/&quot; class=&quot;bare&quot;&gt;http://maci0.wordpress.com/2014/07/23/run-systemd-in-an-unprivileged-docker-container/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Get it (one time ever):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;git clone https://github.com/maci0/docker-systemd-unpriv
+cd docker-systemd-unpriv&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Build (one time ever):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;alias dk=docker  # put in ~/.zshrc
+dk build --rm -t maci/systemd .&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Fire up an instance any time, setting hostname etc:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;dk run -h dk2 --rm -t -i -p 2222:22 -v /sys/fs/cgroup:/sys/fs/cgroup:ro maci/systemd /usr/lib/systemd/systemd&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Switch to other term.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;See the IP:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;dk ps
+dk inspect 097241cd8024 |grep IPAddress&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Wipe existing/offending key:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Test login:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;#ssh root@172.17.0.2
+sshpass -p root ssh dk2
+sed -i '47d' ~/.ssh/known_hosts
+sshpass -p root ssh dk2&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Run ansible toward it:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ansible-playbook -u root -l offsvrs:172.17.0.2 -k site.yml -v&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Watch progress:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;journalctl -xaf&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Shut down instance:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;dk ps
+dk stop ea970de7e735&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Save the image:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;dk save -o centos7-systemd-maci.img.tar maci/systemd:latest
+gzip centos7-systemd-maci.img.tar&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Archive it to S3:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;s3.sh put centos7-systemd-maci.img.tar.gz s3://dockers.membean.com&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_helpers&quot;&gt;Helpers&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Generate hashed password:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;python2 -c &quot;from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())&quot;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_vagrant_virtualbox&quot;&gt;Vagrant/Virtualbox&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Install:
+    y -S vagrant&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Set up kernel: &lt;a href=&quot;http://unix.stackexchange.com/questions/131792/&quot; class=&quot;bare&quot;&gt;http://unix.stackexchange.com/questions/131792/&lt;/a&gt;
+    sudo depmod [3.19.2-1-ARCH]
+    sudo modprobe vboxdrv&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Choose work area:
+    md ~/exp/vagrant/t1&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Find a box: &lt;a href=&quot;http://www.vagrantbox.es/&quot; class=&quot;bare&quot;&gt;http://www.vagrantbox.es/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;vagrant init hashicorp/precise32 # OR
+vagrant init https://f0fff3908f081cb6461b407be80daf97f07ac418.googledrive.com/host/0BwtuV7VyVTSkUG1PM3pCeDJ4dVE/centos7.box
+[vagrant up]??&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Log in:
+    vagrant ssh&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Better:
+    sshpass -p vagrant ssh -p 2200 vagrant@127.0.0.1&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Consult: &lt;a href=&quot;http://docs.ansible.com/guide_vagrant.html&quot; class=&quot;bare&quot;&gt;http://docs.ansible.com/guide_vagrant.html&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Add to generated &lt;code&gt;Vagrantfile&lt;/code&gt;:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;config.vm.provision &quot;ansible&quot; do |ans|
+  ans.playbook = &quot;playbook.yaml&quot;
+end&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Start it:
+    vagrant up&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Create hosts file:
+    &amp;gt;hosts
+    [foos]
+    127.0.0.1:2200&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Create a playbook.yaml:
+        - hosts: foos
+          tasks:
+            - name: install zsh
+              yum: name=zsh state=present&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Run ansible:
+    ansible-playbook -i ./hosts -u vagrant playbook.yml -ksK&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Sun, 05 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-05-interesting-major-vulnerabilities.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-05-interesting-major-vulnerabilities.html
+</link>
+<title>
+Interesting Modern Vulnerabilities
+</title>
+<description>
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_heartbleed&quot;&gt;Heartbleed&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_ghost&quot;&gt;GHOST&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_poodle&quot;&gt;POODLE&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_shellshock&quot;&gt;ShellShock&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Sun, 05 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-05-networking-tools.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-05-networking-tools.html
+</link>
+<title>
+Networking Tools
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ansible snippets to install these.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;iperf3&lt;/code&gt; is a great tool for testing transfer speed. With its help, I was able to convince a network engineer at our data center that there was an issue. She eventually got our rate up to nearly 1 Gbps across remote centers.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock tip&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Tip&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+use iperf.
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Some Tools&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;# a comment
+iperf3&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;    netstat -tulpn
+
+netcat
+
+sudo traceroute
+
+mtr
+
+nethogs
+
+iftop
+
+nmon&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Sun, 05 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-02-stop-using-markdown.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-02-stop-using-markdown.html
+</link>
+<title>
+Stop Using Markdown
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Markdown has become the de facto standard for plain text syntax. It&amp;#8217;s supported
+in the webform editors of StackOverflow, Github, and &amp;#8230;&amp;#8203;. It’s build into most
+static site generators. You can even use it to write a
+book. It&amp;#8217;s fantastic that it has raised awareness of text-based markup, but it’s
+not enough.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_markdown_shortcomings&quot;&gt;Markdown Shortcomings&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You’re probably aware of most of these, but maybe don’t notice the pain as much
+as you should.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_comments&quot;&gt;Comments&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_definition_lists&quot;&gt;Definition lists&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_too_much_html&quot;&gt;Too much HTML&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc is much richer, and not significantly harder to learn.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_markdown_to_asciidoc_conversion_guide&quot;&gt;Markdown-to-Asciidoc Conversion Guide&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 02 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
+</channel>
+</rss>

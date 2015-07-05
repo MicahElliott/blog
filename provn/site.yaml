@@ -1,0 +1,39 @@
+---
+### Set up and deploy the Cryogen blog
+
+- hosts: blogs
+  #roles: [common]
+  # Used to have this set up in a roles/ hierarchy
+
+  vars:
+    duser: mde
+    tmp:   /var/tmp
+    # FreeBSD quirk. Actually, need to install python before running this!
+    ansible_python_interpreter: /usr/local/bin/python
+
+  tasks:
+    - name: install common packages
+      pkgng: name=zsh,vim,htop,tmux,nginx state=present
+
+    - name: create deploy user
+      user: name={{duser}} shell=/usr/local/bin/zsh generate_ssh_key=yes
+
+    - name: create local user dirs
+      file: path=~{{duser}}/{{item}} state=directory owner={{duser}} group={{duser}}
+      with_items: [tmp, site, bin, log]
+
+    - name: deploy site static files
+      synchronize: src=../resources/public/ dest=~{{duser}}/site recursive=yes checksum=yes set_remote_user=no
+      notify: reload nginx
+      tags: deploy
+
+    - name: copy nginx config
+      copy: src=nginx.conf dest=/usr/local/etc/nginx/ backup=yes
+      notify: restart nginx
+
+  handlers:
+    - name: restart nginx
+      service: name=nginx state=restarted
+
+    - name: reload nginx
+      service: name=nginx state=reloaded

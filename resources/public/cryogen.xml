@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
+<channel>
+<atom:link href='http://micahelliott.com/' rel='self' type='application/rss+xml'/>
+<generator>
+clj-rss
+</generator>
+<title>
+Micah Elliott
+</title>
+<link>
+http://micahelliott.com/
+</link>
+<description>
+A Tech Journal
+</description>
+<lastBuildDate>
+Sun, 05 Jul 2015 14:46:44 -0700
+</lastBuildDate>
+</channel>
+</rss>
