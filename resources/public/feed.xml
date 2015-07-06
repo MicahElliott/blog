@@ -15,7 +15,7 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Sun, 05 Jul 2015 14:46:44 -0700
+Mon, 06 Jul 2015 08:46:26 -0700
 </lastBuildDate>
 <item>
 <guid>
@@ -25,15 +25,17 @@ http://micahelliott.com/posts/2015-07-05-docker-systemd-ansible.html
 http://micahelliott.com/posts/2015-07-05-docker-systemd-ansible.html
 </link>
 <title>
-Use Docker as a full Systemd CentOS
+Docker as a Full CentOS
 </title>
 <description>
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Docker has arrived. It&amp;#8217;s a &quot;container&quot; system for isolating services. It&amp;#8217;s
 simpler and lighter than a VM, yet easier to use than a jail. But it&amp;#8217;s not
 quite a full OS: it usually lacks things like systemd, cron, sshd, and syslog.
-(Some folks are trying to address this for Ubuntu)&lt;a href=&quot;http://phusion.github.io/baseimage-docker/&quot; class=&quot;bare&quot;&gt;http://phusion.github.io/baseimage-docker/&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&quot;http://phusion.github.io/baseimage-docker/&quot;&gt;Some folks are trying to address this for Ubuntu&lt;/a&gt;.
+It turns out that this can also be done with CentOS!&lt;/p&gt;
 &lt;/div&gt;
+&lt;!-- more --&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Docker can be a way to take snapshots of a blessed machine config, and can be
 shared around a team and used for CI.&lt;/p&gt;
@@ -46,8 +48,9 @@ version of this: &lt;a href=&quot;https://github.com/maci0/docker-systemd-unpriv
 &lt;p&gt;So now Docker can actually be used for testing deployments with almost real
 full OSs.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_how_to&quot;&gt;How to&lt;/h3&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_how_to&quot;&gt;How to&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Stop (to reset IPs) and start up docker service:&lt;/p&gt;
 &lt;/div&gt;
@@ -100,15 +103,12 @@ dk inspect 097241cd8024 |grep IPAddress&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Wipe existing/offending key:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Test login:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;#ssh root@172.17.0.2
-sshpass -p root ssh dk2
+&lt;pre&gt;sshpass -p root ssh dk2
+# Oops. Wipe existing/offending key.
 sed -i '47d' ~/.ssh/known_hosts
 sshpass -p root ssh dk2&lt;/pre&gt;
 &lt;/div&gt;
@@ -135,6 +135,7 @@ sshpass -p root ssh dk2&lt;/pre&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre&gt;dk ps
+...
 dk stop ea970de7e735&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -152,12 +153,14 @@ gzip centos7-systemd-maci.img.tar&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;s3.sh put centos7-systemd-maci.img.tar.gz s3://dockers.membean.com&lt;/pre&gt;
+&lt;pre&gt;s3.sh put centos7-systemd-maci.img.tar.gz s3://dockers.example.com&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_helpers&quot;&gt;Helpers&lt;/h3&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_helpers&quot;&gt;Helpers&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Generate hashed password:&lt;/p&gt;
 &lt;/div&gt;
@@ -166,17 +169,43 @@ gzip centos7-systemd-maci.img.tar&lt;/pre&gt;
 &lt;pre&gt;python2 -c &quot;from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())&quot;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_vagrant_virtualbox&quot;&gt;Vagrant/Virtualbox&lt;/h3&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Install:
-    y -S vagrant&lt;/p&gt;
+&lt;p&gt;Script to quickly remove a key:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;#! /usr/bin/env zsh
+# sshrmkey — delete a line containing stale/offending key
+line=${1?Must provide offending line}
+sed -i &quot;${line}d&quot; ~/.ssh/known_hosts&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;% sshrmkey 42&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_vagrant_virtualbox&quot;&gt;Vagrant/Virtualbox&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Install:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;y -S vagrant&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Set up kernel: &lt;a href=&quot;http://unix.stackexchange.com/questions/131792/&quot; class=&quot;bare&quot;&gt;http://unix.stackexchange.com/questions/131792/&lt;/a&gt;
-    sudo depmod [3.19.2-1-ARCH]
-    sudo modprobe vboxdrv&lt;/p&gt;
+&lt;p&gt;Set up kernel: &lt;a href=&quot;http://unix.stackexchange.com/questions/131792/&quot; class=&quot;bare&quot;&gt;http://unix.stackexchange.com/questions/131792/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;sudo depmod [3.19.2-1-ARCH]
+sudo modprobe vboxdrv&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Choose work area:
@@ -193,12 +222,20 @@ vagrant init https://f0fff3908f081cb6461b407be80daf97f07ac418.googledrive.com/ho
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Log in:
-    vagrant ssh&lt;/p&gt;
+&lt;p&gt;Log in:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;vagrant ssh&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Better:
-    sshpass -p vagrant ssh -p 2200 vagrant@127.0.0.1&lt;/p&gt;
+&lt;p&gt;Better:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;sshpass -p vagrant ssh -p 2200 vagrant@127.0.0.1&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Consult: &lt;a href=&quot;http://docs.ansible.com/guide_vagrant.html&quot; class=&quot;bare&quot;&gt;http://docs.ansible.com/guide_vagrant.html&lt;/a&gt;&lt;/p&gt;
@@ -214,25 +251,46 @@ end&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Start it:
-    vagrant up&lt;/p&gt;
+&lt;p&gt;Start it:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;vagrant up&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Create hosts file:
-    &amp;gt;hosts
-    [foos]
-    127.0.0.1:2200&lt;/p&gt;
+&lt;p&gt;Create hosts file:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;&amp;gt;hosts
+[foos]
+127.0.0.1:2200&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Create a playbook.yaml:
-        - hosts: foos
-          tasks:
-            - name: install zsh
-              yum: name=zsh state=present&lt;/p&gt;
+&lt;p&gt;Create a playbook.yaml:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;hosts: foos
+tasks:&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;name: install zsh
+yum: name=zsh state=present&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Run ansible:
-    ansible-playbook -i ./hosts -u vagrant playbook.yml -ksK&lt;/p&gt;
+&lt;p&gt;Run ansible:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ansible-playbook -i ./hosts -u vagrant playbook.yml -ksK&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
@@ -297,6 +355,7 @@ Networking Tools
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;code&gt;iperf3&lt;/code&gt; is a great tool for testing transfer speed. With its help, I was able to convince a network engineer at our data center that there was an issue. She eventually got our rate up to nearly 1 Gbps across remote centers.&lt;/p&gt;
 &lt;/div&gt;
+&lt;!-- more --&gt;
 &lt;div class=&quot;admonitionblock tip&quot;&gt;
 &lt;table&gt;
 &lt;tr&gt;

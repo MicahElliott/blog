@@ -1,7 +1,7 @@
 # Cryogen Blog
 
 ## Create an empty blog
-Instructions http://cryogenweb.org/docs/getting-started.html[here].
+Instructions [here](http://cryogenweb.org/docs/getting-started.html).
 
 ## Provisioning
 Create a FreeBSD droplet (or some server), and run `ansible-playbook` (shown

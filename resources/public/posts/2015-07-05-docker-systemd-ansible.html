@@ -2,13 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott: Use Docker as a full Systemd CentOS</title>
+    <title>Micah Elliott: Docker as a Full CentOS</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css">
+    <link href="/favicon.png" rel="shortcut icon">
     <link href="../css/screen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -113,7 +114,7 @@
 
     </div>
 
-    <h1>Use Docker as a full Systemd CentOS</h1>
+    <h1>Docker as a Full CentOS</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
@@ -135,8 +136,10 @@
 <p>Docker has arrived. It&#8217;s a "container" system for isolating services. It&#8217;s
 simpler and lighter than a VM, yet easier to use than a jail. But it&#8217;s not
 quite a full OS: it usually lacks things like systemd, cron, sshd, and syslog.
-(Some folks are trying to address this for Ubuntu)<a href="http://phusion.github.io/baseimage-docker/" class="bare">http://phusion.github.io/baseimage-docker/</a>.</p>
+<a href="http://phusion.github.io/baseimage-docker/">Some folks are trying to address this for Ubuntu</a>.
+It turns out that this can also be done with CentOS!</p>
 </div>
+<!-- more -->
 <div class="paragraph">
 <p>Docker can be a way to take snapshots of a blessed machine config, and can be
 shared around a team and used for CI.</p>
@@ -149,8 +152,9 @@ version of this: <a href="https://github.com/maci0/docker-systemd-unpriv" class=
 <p>So now Docker can actually be used for testing deployments with almost real
 full OSs.</p>
 </div>
-<div class="sect2">
-<h3 id="_how_to">How to</h3>
+<div class="sect1">
+<h2 id="_how_to">How to</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Stop (to reset IPs) and start up docker service:</p>
 </div>
@@ -203,15 +207,12 @@ dk inspect 097241cd8024 |grep IPAddress</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Wipe existing/offending key:</p>
-</div>
-<div class="paragraph">
 <p>Test login:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>#ssh root@172.17.0.2
-sshpass -p root ssh dk2
+<pre>sshpass -p root ssh dk2
+# Oops. Wipe existing/offending key.
 sed -i '47d' ~/.ssh/known_hosts
 sshpass -p root ssh dk2</pre>
 </div>
@@ -238,6 +239,7 @@ sshpass -p root ssh dk2</pre>
 <div class="literalblock">
 <div class="content">
 <pre>dk ps
+...
 dk stop ea970de7e735</pre>
 </div>
 </div>
@@ -255,12 +257,14 @@ gzip centos7-systemd-maci.img.tar</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>s3.sh put centos7-systemd-maci.img.tar.gz s3://dockers.membean.com</pre>
+<pre>s3.sh put centos7-systemd-maci.img.tar.gz s3://dockers.example.com</pre>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_helpers">Helpers</h3>
+</div>
+<div class="sect1">
+<h2 id="_helpers">Helpers</h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>Generate hashed password:</p>
 </div>
@@ -269,17 +273,43 @@ gzip centos7-systemd-maci.img.tar</pre>
 <pre>python2 -c "from passlib.hash import sha512_crypt; import getpass; print sha512_crypt.encrypt(getpass.getpass())"</pre>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_vagrant_virtualbox">Vagrant/Virtualbox</h3>
 <div class="paragraph">
-<p>Install:
-    y -S vagrant</p>
+<p>Script to quickly remove a key:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>#! /usr/bin/env zsh
+# sshrmkey — delete a line containing stale/offending key
+line=${1?Must provide offending line}
+sed -i "${line}d" ~/.ssh/known_hosts</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>% sshrmkey 42</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vagrant_virtualbox">Vagrant/Virtualbox</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Install:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>y -S vagrant</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Set up kernel: <a href="http://unix.stackexchange.com/questions/131792/" class="bare">http://unix.stackexchange.com/questions/131792/</a>
-    sudo depmod [3.19.2-1-ARCH]
-    sudo modprobe vboxdrv</p>
+<p>Set up kernel: <a href="http://unix.stackexchange.com/questions/131792/" class="bare">http://unix.stackexchange.com/questions/131792/</a></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo depmod [3.19.2-1-ARCH]
+sudo modprobe vboxdrv</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Choose work area:
@@ -296,12 +326,20 @@ vagrant init https://f0fff3908f081cb6461b407be80daf97f07ac418.googledrive.com/ho
 </div>
 </div>
 <div class="paragraph">
-<p>Log in:
-    vagrant ssh</p>
+<p>Log in:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>vagrant ssh</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Better:
-    sshpass -p vagrant ssh -p 2200 vagrant@127.0.0.1</p>
+<p>Better:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sshpass -p vagrant ssh -p 2200 vagrant@127.0.0.1</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Consult: <a href="http://docs.ansible.com/guide_vagrant.html" class="bare">http://docs.ansible.com/guide_vagrant.html</a></p>
@@ -317,25 +355,46 @@ end</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Start it:
-    vagrant up</p>
+<p>Start it:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>vagrant up</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Create hosts file:
-    &gt;hosts
-    [foos]
-    127.0.0.1:2200</p>
+<p>Create hosts file:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>&gt;hosts
+[foos]
+127.0.0.1:2200</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Create a playbook.yaml:
-        - hosts: foos
-          tasks:
-            - name: install zsh
-              yum: name=zsh state=present</p>
+<p>Create a playbook.yaml:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>hosts: foos
+tasks:</p>
+</li>
+<li>
+<p>name: install zsh
+yum: name=zsh state=present</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Run ansible:
-    ansible-playbook -i ./hosts -u vagrant playbook.yml -ksK</p>
+<p>Run ansible:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ansible-playbook -i ./hosts -u vagrant playbook.yml -ksK</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -388,7 +447,7 @@ end</pre>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-07-05-docker-systemd-ansible.html">Use Docker as a full Systemd CentOS</a></li>
+                        <li><a href="/posts/2015-07-05-docker-systemd-ansible.html">Docker as a Full CentOS</a></li>
                         
                         <li><a href="/posts/2015-07-05-interesting-major-vulnerabilities.html">Interesting Modern Vulnerabilities</a></li>
                         
