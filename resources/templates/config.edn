@@ -15,7 +15,7 @@
  :sass-dest        nil
  :theme            "blue"
  :resources        ["img"]
- :keep-files       [".git"]
+ :keep-files       [".git" "favicon.png" "pubkey.mde@micahelliott.com.gpg.asc" "robots.txt"]
  :disqus?          false
  :disqus-shortname ""
  :ignored-files    [#"\.#.*" #".*\.swp$"]}

@@ -15,8 +15,112 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Mon, 06 Jul 2015 08:46:26 -0700
+Mon, 06 Jul 2015 15:23:21 -0700
 </lastBuildDate>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-09-i3-nuc-office-dashboard.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-09-i3-nuc-office-dashboard.html
+</link>
+<title>
+Live Office Dashboard with i3 and a NUC
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In this post I&amp;#8217;ll show you how to set up a live dashboard to display your
+company (or house) metrics. It&amp;#8217;s as simple as writing a little i3 script to
+rotate through a set of open browsers. You&amp;#8217;ll need to run X, i3, a fast
+browser. The required hardware is a TV and a NUC.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;lt;!-- more -&amp;#8594;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 09 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-07-gists-as-blog.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-07-gists-as-blog.html
+</link>
+<title>
+Using Gist As Your Blog
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Github&amp;#8217;s Gist is almost good enough as a blog. If you don&amp;#8217;t want to take the
+time to set up your own blog, you could probably get away with using gists. As
+an example, &lt;a href=&quot;https://gist.github.com/MicahElliott&quot;&gt;this&lt;/a&gt; is a pretty nice
+listing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_where_it_shines&quot;&gt;Where it shines&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;nice comment system (&lt;a href=&quot;https://gist.github.com/MicahElliott/3048622&quot;&gt;example&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;markdown support&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;auto-abstracts (shortened posts in index)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;built-in editor or use git&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;store associated files with your article&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nothing to host yourself&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_where_it_falls_short&quot;&gt;Where it falls short&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;no global feed&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;people don&amp;#8217;t expect it to serve as your blog&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;gets cluttered with other snippets&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;google will not index these well&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Gists are great. Even if you set up a real blog, you&amp;#8217;ll still want to&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Tue, 07 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-07-05-docker-systemd-ansible.html
@@ -31,28 +135,24 @@ Docker as a Full CentOS
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Docker has arrived. It&amp;#8217;s a &quot;container&quot; system for isolating services. It&amp;#8217;s
 simpler and lighter than a VM, yet easier to use than a jail. But it&amp;#8217;s not
-quite a full OS: it usually lacks things like systemd, cron, sshd, and syslog.
+quite a full OS: it usually lacks things like systemd, cron, sshd, syslog, etc.
 &lt;a href=&quot;http://phusion.github.io/baseimage-docker/&quot;&gt;Some folks are trying to address this for Ubuntu&lt;/a&gt;.
-It turns out that this can also be done with CentOS!&lt;/p&gt;
+It turns out that this can also be done with CentOS 7! This all-in-one docker
+instance becomes a great vehicle for testing deploys (and probably much more).&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- more --&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Docker can be a way to take snapshots of a blessed machine config, and can be
-shared around a team and used for CI.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Ubuntu wasn&amp;#8217;t going to work for my needs, but I found a minimal CentOS 7
-version of this: &lt;a href=&quot;https://github.com/maci0/docker-systemd-unpriv&quot; class=&quot;bare&quot;&gt;https://github.com/maci0/docker-systemd-unpriv&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;So now Docker can actually be used for testing deployments with almost real
-full OSs.&lt;/p&gt;
+&lt;p&gt;Ubuntu wasn&amp;#8217;t going to work for my needs, but I found
+&lt;a href=&quot;https://github.com/maci0/docker-systemd-unpriv&quot;&gt;a minimal CentOS 7&lt;/a&gt;
+version of the Ubuntu approach. So now Docker can actually be used for testing
+deployments with almost real full OSs.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;_how_to&quot;&gt;How to&lt;/h2&gt;
+&lt;h2 id=&quot;_docker_with_centos_7&quot;&gt;Docker With CentOS 7&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Stop (to reset IPs) and start up docker service:&lt;/p&gt;
+&lt;p&gt;On your local host, stop docker if running (to reset IPs) and start up the
+docker service:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -61,8 +161,9 @@ systemctl start docker.service&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;This guy provided an article and repo to get centos7 working with docker:
-&lt;a href=&quot;http://maci0.wordpress.com/2014/07/23/run-systemd-in-an-unprivileged-docker-container/&quot; class=&quot;bare&quot;&gt;http://maci0.wordpress.com/2014/07/23/run-systemd-in-an-unprivileged-docker-container/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Maci has provided
+&lt;a href=&quot;http://maci0.wordpress.com/2014/07/23/run-systemd-in-an-unprivileged-docker-container/&quot;&gt;an article&lt;/a&gt;
+and repo to get centos7 working with docker, which this article extends.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Get it (one time ever):&lt;/p&gt;
@@ -170,7 +271,7 @@ gzip centos7-systemd-maci.img.tar&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Script to quickly remove a key:&lt;/p&gt;
+&lt;p&gt;Script to quickly remove a key, &lt;code&gt;~/bin/sshrmkey&lt;/code&gt;:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
@@ -191,6 +292,10 @@ sed -i &quot;${line}d&quot; ~/.ssh/known_hosts&lt;/pre&gt;
 &lt;h2 id=&quot;_vagrant_virtualbox&quot;&gt;Vagrant/Virtualbox&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you really want to avoid Docker but still test your deploy on CentOS 7, you
+can accomplish much of the same setup with Vagrant.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Install:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
@@ -208,8 +313,12 @@ sudo modprobe vboxdrv&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Choose work area:
-    md ~/exp/vagrant/t1&lt;/p&gt;
+&lt;p&gt;Choose work area:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;md ~/exp/vagrant/t1&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Find a box: &lt;a href=&quot;http://www.vagrantbox.es/&quot; class=&quot;bare&quot;&gt;http://www.vagrantbox.es/&lt;/a&gt;&lt;/p&gt;
@@ -271,18 +380,10 @@ end&lt;/pre&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Create a playbook.yaml:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;hosts: foos
-tasks:&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;name: install zsh
-yum: name=zsh state=present&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
+- hosts: foos
+  tasks:
+    - name: install zsh
+      yum: name=zsh state=present
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Run ansible:&lt;/p&gt;
 &lt;/div&gt;
