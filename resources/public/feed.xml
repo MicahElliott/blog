@@ -15,8 +15,121 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Mon, 06 Jul 2015 17:25:26 -0700
+Mon, 06 Jul 2015 20:06:46 -0700
 </lastBuildDate>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-20-stackoverflow-motivation-engine.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-20-stackoverflow-motivation-engine.html
+</link>
+<title>
+Stack Overflow’s Motivation Engine
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You’ve spent plenty of time on Stack Overflow. Google loves it. Several visits
+per day? But unless you’re one who answers questions there, you’re probably not
+aware of how they get so much participation.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’ve recently been answering questions on Stack Overflow. Well, I &lt;em&gt;had to&lt;/em&gt; in
+order to be able to do things like upvoting. Aren’t we obligated to upvote when
+someone has taken the time to teach us something valuable? And that was the
+first hook. But it turns out that SO has a very sophisticated set of motivators
+to keep you participating &amp;#8230;&amp;#8203; &lt;em&gt;frequently&lt;/em&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;What first puzzled me was how so many other users there had such high
+reputation. You might think that 1,000 points came from answering 1,000
+questions. But it’s an elaborate point system. You feel yourself growing points
+at a fairly rapid clip. It would sure be nice to have a &lt;em&gt;k&lt;/em&gt; (thousand) next to
+your name!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_get_busy&quot;&gt;Get Busy!&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You eventually realize that you’re never going to be the first to answer a
+question unless you’re tuned into a near real-time picture of what’s happening
+with your tags of interest. The best way to earn points is to be the first to
+answer and get your answer accepted. So you subscribe to be updated via email.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Every site requires another set of reputation. You’ll quickly find yourself
+trying to answer questions on other Stack Exchange sites.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_way_more_than_badges&quot;&gt;Way More than Badges&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Sure, you earn badges. But you have to do more and more to earn the next type of
+badge. You even have your “next badge” dangled from your profile. The badges
+are more like &lt;em&gt;abilities&lt;/em&gt;. And there are three categories of them: bronze,
+silver, and gold. It’s pretty challenging to get even a silver.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Each badge is documented. You know what you have to do to earn the
+&lt;em&gt;archaeologist&lt;/em&gt; badge: edit some old posts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You’re given a pleasant surprise when they tell you that they’ve removed ads
+since you’re such a great participant.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ultimately, people are on SO to prove their worth and get hired. So the&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_not_social&quot;&gt;Not Social&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It’s pretty interesting that there is no notion of “following”. You can’t even
+“message” someone.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_gaming_it&quot;&gt;Gaming It&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’m not going to bother trying to game this, because I don’t (think) I care too
+much about my reputation points. But it can be done. I see people asking
+questions that they shortly thereafter answer themselves.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I suppose you could also create a dummy account that spends a lot of its time
+upvoting your real posts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Mon, 20 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-17-why-centos.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-17-why-centos.html
+</link>
+<title>
+CentOS vs the Rest
+</title>
+<description>
+
+</description>
+<pubDate>
+Fri, 17 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html
@@ -215,6 +328,9 @@ display.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;no analytics&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it seems unlikely that someone will like your post and decide to go explore your other gists&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -659,7 +775,7 @@ as you should.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;_asciidoc_niceties&quot;&gt;Asciidoc Niceties&lt;/h2&gt;
+&lt;h2 id=&quot;_asciidoc_extras_and_general_niceties&quot;&gt;Asciidoc Extras and General Niceties&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Consistency of section delimiters. All are four characters and delineate blocks:
@@ -671,6 +787,12 @@ line-wise pairs of quadruples &lt;code&gt;-&lt;/code&gt; (code), &lt;code&gt;_&l
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Auto-up-converting of some punctuation, like the pedant&amp;#8217;s apostrophes&amp;#8201;&amp;#8212;&amp;#8201;and yes, even dashes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can add anchors.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Auto-generated Table Of Contents.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -711,7 +833,8 @@ line-wise pairs of quadruples &lt;code&gt;-&lt;/code&gt; (code), &lt;code&gt;_&l
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;http://google.com[This is Google]&lt;/pre&gt;
+&lt;pre&gt;http://google.com[This is Google]
+link:/relative-page[some relative page]&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -719,6 +842,25 @@ line-wise pairs of quadruples &lt;code&gt;-&lt;/code&gt; (code), &lt;code&gt;_&l
 is to insert the link itself. It&amp;#8217;s also nice to avoid the parens. Also, I often
 will type a paragraph that has a few things that need to be linked after the
 fact. It&amp;#8217;s really easy to paste the link just before the text in Asciidoc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_images&quot;&gt;Images&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Markdown:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;![Mittens is my fave](/img/kitty1.jpg &quot;My Cat&quot;)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;image:/img/kitty1.jpg[My Cat]  Mittens is my fave] &quot;My Cat&quot;)&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect2&quot;&gt;
@@ -801,6 +943,198 @@ explicit is less susceptible to ambiguous translating.&lt;/p&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Asciidoc is much richer, and not significantly harder to learn.&lt;/p&gt;
 &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 02 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-02-cryogen-on-freebsd-with-ansible.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-02-cryogen-on-freebsd-with-ansible.html
+</link>
+<title>
+Cryogen Blog Setup
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The tech running this blog is described on the &lt;a href=&quot;/about.html&quot;&gt;About page&lt;/a&gt;. This
+recipes explains what I did to set it all up.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_infrastructure&quot;&gt;Infrastructure&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can set up a static site easily enough with Github pages, but I think it’s
+nice to manage a server yourself. You might want it for other things, and you
+get to control it completely. Your learnings there will apply to any other
+site/server you host.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can get yourself a “Droplet” at &lt;a href=&quot;http://digitalocean.com&quot;&gt;DigitalOcean&lt;/a&gt; for $5
+USD per month. That’s cheap. It’s just a matter of a few clicks on their simple
+control panel. I’m somewhat near San Francisco, so I chose that data center.
+&lt;a href=&quot;/posts/2015-07-17-why-centos.html&quot;&gt;I like CentOS&lt;/a&gt; quite a bit as a server
+OS, but I also like to play around with FreeBSD, so I chose that. It’s a recent
+addition to the DO arsenal, and is a rock-solid OS with a fantastic security
+record and a very famous file system: ZFS.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_deployment&quot;&gt;Deployment&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’ve configured Ansible to push changes to the Droplet. Take a look at
+&lt;a href=&quot;https://github.com/MicahElliott/blog/blob/master/provn/site.yaml&quot;&gt;the simple playbook&lt;/a&gt;.
+I’d normally have set this up
+&lt;a href=&quot;https://docs.ansible.com/playbooks_roles.html&quot;&gt;hierarchically with roles&lt;/a&gt;,
+but this machine’s config is simple enough to fit in a single file.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Any time I feel like deploying, I can simple run &lt;code&gt;deploy.zsh&lt;/code&gt; to fire the
+&lt;code&gt;ansible-playbook&lt;/code&gt; command.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_git_versioning&quot;&gt;Git Versioning&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I like to commit often, but I don’t rely on git for updating the blog. I do
+maintain the engine, styling, and text all in
+&lt;a href=&quot;https://github.com/MicahElliott/blog&quot;&gt;a single repository&lt;/a&gt;. I usually commit when
+a new post is added, and more frequently as it nears completion. Probably a good
+idea to have a deploy cadence that’s in line with git-commits.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_cryogen&quot;&gt;Cryogen&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Although I’ve looked at Jekyll, Octopress, and several others over the years,
+Cryogen is looking like a winner for a few reasons.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;minimal code base&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;one of the developers is the most prolific author of clojure web dev&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;they’re very responsive to issues&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it’s already got bootstrap, and is thus mobile-friendly&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;no engine to run on the server; just deploy the static &lt;code&gt;public/&lt;/code&gt; directory&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it supports
+&lt;a href=&quot;/posts/2015-07-02-stop-using-markdown.html&quot;&gt;Asciidoc, which is superior to Markdown&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;it comes with a base theme that is easy to style; just tweak the existing
+HTML template files that are in your project.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Google Fonts are included. I really like
+&lt;a href=&quot;https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en&quot;&gt;WhatFont
+for Chrome&lt;/a&gt; for showing fonts. Try it here to see what I’ve chosen.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The documentation is small and great, and you can start running your blog
+locally by following
+&lt;a href=&quot;http://cryogenweb.org/docs/getting-started.html&quot;&gt;this tiny guide&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_things_you_can_add&quot;&gt;Things you can add&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Add feedburner as the RSS feed. This takes load off your server as you start
+getting subscribers who may hit your feed frequently/automatically. You just
+need to edit your &lt;code&gt;base.html&lt;/code&gt; to replace the feed link to point to your
+feedburner XML.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Google Analytics is a simple way to see your site traffic. It’s a simple matter
+of pasting a tiny javascript snippet in the bottom of your &lt;code&gt;base.html&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Videos can be embedded. You could use Youtube, but Vimeo might be better at not
+pointing to random, odd videos as recommendations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_things_that_are_not_needed&quot;&gt;Things that are not needed&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;tag clouds&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ads&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;wysiwyg editing&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;user management&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;a comment system (spam is insidious), but Disqus is an option&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;backups (they’re already in git)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;blogrolls&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;emailer&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;categories&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;widgets for “like”ing or twitter updates&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Although I use CloudFlare elsewhere to protect from DDoS attacks (been hit
+before) I don’t see much need for it for a blog. It could be added.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_things_that_may_be_coming_to_cryogen&quot;&gt;Things that may be coming to Cryogen&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;a &lt;em&gt;read more&lt;/em&gt; abstract mechanism&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;smarter recompilation&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

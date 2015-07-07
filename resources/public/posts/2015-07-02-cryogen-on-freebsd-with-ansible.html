@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott: About</title>
+    <title>Micah Elliott: Cryogen Blog Setup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -47,7 +47,7 @@
 
                 <!--  -->
                 <!-- <li -->
-                <!--  class="active" > -->
+                <!-- > -->
                 <!-- <a href="/pages/about.html"> -->
                 <!--   <i class="glyphicon glyphicon-new-window"></i> -->
                 <!--   About -->
@@ -64,7 +64,7 @@
                 <!--  -->
 
                 <li
-                   class="active" >
+                  >
                   <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li>
 
                 <li
@@ -88,127 +88,251 @@
         <div class="col-lg-9">
             <div id="content">
                 
-<div id="custom-page">
-    <div id="page-header">
-        <h1>About</h1>
+<div id="post">
+    <div id="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-6"><b>July 2, 2015</b>
+
+    
+    <span id="post-tags">
+        <!-- <i>tagged:</i> -->
+        <i> — </i>
+        <b><i class="fa fa-tags"></i> </b>
+        <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
+        
+        <a href="/tags/setup.html"> setup</a>
+        
+        <a href="/tags/unfinished.html"> unfinished</a>
+        
+        <a href="/tags/blogging.html"> blogging</a>
+        
+    </span>
+    
+
+        </div>
+
+        <!--  -->
+
     </div>
+
+    <h1>Cryogen Blog Setup</h1>
+
+<!--      -->
+<!--     <div id="post-tags"> -->
+<!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
+<!--          -->
+<!--         <a href="/tags/setup.html"> setup</a> -->
+<!--          -->
+<!--         <a href="/tags/unfinished.html"> unfinished</a> -->
+<!--          -->
+<!--         <a href="/tags/blogging.html"> blogging</a> -->
+<!--          -->
+<!--     </div> -->
+<!--      -->
+
+</div>
+<div>
     
     <div class="paragraph">
-<p>Thanks for visiting my blog! My name is Micah Elliott, and I live in Portland,
-Oregon, USA. I&#8217;m an entrepreneur and founder of <a href="http://membean.com">Membean</a>: an
-online vocabulary training program used by schools in all 50 states and around
-the globe. I spend much of my time there coding and managing infrastructure.
-You should sign up for <a href="http://membean.com/products/Personal/plans">a free Membean
-account</a>; let me know how it goes!</p>
+<p>The tech running this blog is described on the <a href="/about.html">About page</a>. This
+recipes explains what I did to set it all up.</p>
 </div>
-<div class="paragraph">
-<p><strong>My goal for this blog is to share technical knowledge and discoveries in
-hopes that we can all continue learning. There is a focus on infrastructure,
-Linux, programming, and teaching.</strong></p>
-</div>
-<div class="paragraph">
-<p><em>(You&#8217;ll find a lot of unfinished work on this “blog”. Some sections are a
-dumping ground. When something comes to mind I&#8217;ll sketch out here in public.
-There is no real notion of “publish”&#8201;&#8212;&#8201;that becomes too formal and I end up
-sitting on things. So I write, save, and push frequently. Sorry.)</em></p>
-</div>
-<div class="paragraph">
-<p>Beyond Membean, my interests include programming in
-<a href="http://clojure.org/">Clojure</a>, learning about statistics (mostly with
-<a href="http://www.r-project.org/">R</a>), triathlons and marathons, and bookkeeping at
-my kids’ baseball games.</p>
-</div>
+<!-- more -->
 <div class="sect1">
-<h2 id="_contact">Contact</h2>
+<h2 id="_infrastructure">Infrastructure</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can email me: <code>&lt;mde@this-blog&#8217;s-domain&gt;</code></p>
+<p>You can set up a static site easily enough with Github pages, but I think it’s
+nice to manage a server yourself. You might want it for other things, and you
+get to control it completely. Your learnings there will apply to any other
+site/server you host.</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../img/fam1.jpg" alt="Hiking near Rainier">
-</div>
-<div class="title">Figure 1. That’s me with the wife and kids.</div>
+<div class="paragraph">
+<p>You can get yourself a “Droplet” at <a href="http://digitalocean.com">DigitalOcean</a> for $5
+USD per month. That’s cheap. It’s just a matter of a few clicks on their simple
+control panel. I’m somewhat near San Francisco, so I chose that data center.
+<a href="/posts/2015-07-17-why-centos.html">I like CentOS</a> quite a bit as a server
+OS, but I also like to play around with FreeBSD, so I chose that. It’s a recent
+addition to the DO arsenal, and is a rock-solid OS with a fantastic security
+record and a very famous file system: ZFS.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_colophon">Colophon</h2>
+<h2 id="_deployment">Deployment</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This blog
-<a href="http://www.quickanddirtytips.com/education/grammar/comprise-versus-compose">comprises</a>
-a mix of my favorite tech (which I also like to write about). It’s hosted on
-<a href="https://www.freebsd.org/">FreeBSD</a> 10.1 by a
-<a href="https://www.digitalocean.com/">DigitalOcean</a> droplet running
-<a href="http://nginx.org/">Nginx</a>, and is
-deployed via <a href="http://www.ansible.com/">Ansible</a>. The blog engine is
-<a href="http://cryogenweb.org/docs/deploying-with-nginx-VPS.html">Cryogen</a>, written in
-Clojure, and it is nice to look at mostly because it came that way (including
-<a href="http://getbootstrap.com/">Bootstrap</a>). Posts are written in
-<a href="http://asciidoc.org/">Asciidoc</a> with <a href="http://www.vim.org/">Vim</a>.
-Changes are managed and shared on <a href="https://github.com/MicahElliott/blog">Github</a>.
-Read my <a href="/2015-07-02-cryogen-on-freebsd-with-ansible.html">recipe</a>
-on how to set it up if you want one, too.</p>
+<p>I’ve configured Ansible to push changes to the Droplet. Take a look at
+<a href="https://github.com/MicahElliott/blog/blob/master/provn/site.yaml">the simple playbook</a>.
+I’d normally have set this up
+<a href="https://docs.ansible.com/playbooks_roles.html">hierarchically with roles</a>,
+but this machine’s config is simple enough to fit in a single file.</p>
 </div>
 <div class="paragraph">
-<p>Videos here are captured with
-<a href="http://www.maartenbaert.be/simplescreenrecorder/">SSR</a> (simple screen recorder)
-or <a href="http://z24.github.io/tty2gif/">tty2gif</a>. They are sometimes edited with
-<a href="https://kdenlive.org/">Kdenlive</a>. Audio is recorded and edited with
-<a href="http://web.audacityteam.org/">Audacity</a>. You may have noticed that everything I
-use is <a href="https://en.wikipedia.org/wiki/Open_source">Open Source</a>. I spend nearly
-all my working time on an <a href="https://www.archlinux.org/">Arch Linux</a> system.</p>
+<p>Any time I feel like deploying, I can simple run <code>deploy.zsh</code> to fire the
+<code>ansible-playbook</code> command.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_projects">Projects</h2>
+<h2 id="_git_versioning">Git Versioning</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>I like to commit often, but I don’t rely on git for updating the blog. I do
+maintain the engine, styling, and text all in
+<a href="https://github.com/MicahElliott/blog">a single repository</a>. I usually commit when
+a new post is added, and more frequently as it nears completion. Probably a good
+idea to have a deploy cadence that’s in line with git-commits.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cryogen">Cryogen</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Although I’ve looked at Jekyll, Octopress, and several others over the years,
+Cryogen is looking like a winner for a few reasons.</p>
+</div>
 <div class="ulist">
-<div class="title">My small but interesting projects:</div>
 <ul>
 <li>
-<p>flickpapr</p>
+<p>minimal code base</p>
 </li>
 <li>
-<p>orp font</p>
+<p>one of the developers is the most prolific author of clojure web dev</p>
 </li>
 <li>
-<p>Rocannon for vim/ansible</p>
+<p>they’re very responsive to issues</p>
 </li>
 <li>
-<p>zsh-ansible</p>
+<p>it’s already got bootstrap, and is thus mobile-friendly</p>
+</li>
+<li>
+<p>no engine to run on the server; just deploy the static <code>public/</code> directory</p>
+</li>
+<li>
+<p>it supports
+<a href="/posts/2015-07-02-stop-using-markdown.html">Asciidoc, which is superior to Markdown</a></p>
+</li>
+<li>
+<p>it comes with a base theme that is easy to style; just tweak the existing
+HTML template files that are in your project.</p>
+</li>
+<li>
+<p>Google Fonts are included. I really like
+<a href="https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en">WhatFont
+for Chrome</a> for showing fonts. Try it here to see what I’ve chosen.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The documentation is small and great, and you can start running your blog
+locally by following
+<a href="http://cryogenweb.org/docs/getting-started.html">this tiny guide</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_things_you_can_add">Things you can add</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Add feedburner as the RSS feed. This takes load off your server as you start
+getting subscribers who may hit your feed frequently/automatically. You just
+need to edit your <code>base.html</code> to replace the feed link to point to your
+feedburner XML.</p>
+</div>
+<div class="paragraph">
+<p>Google Analytics is a simple way to see your site traffic. It’s a simple matter
+of pasting a tiny javascript snippet in the bottom of your <code>base.html</code>.</p>
+</div>
+<div class="paragraph">
+<p>Videos can be embedded. You could use Youtube, but Vimeo might be better at not
+pointing to random, odd videos as recommendations.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_things_that_are_not_needed">Things that are not needed</h2>
+<div class="sectionbody">
 <div class="ulist">
-<div class="title">Very small, unfinished, unpopular</div>
 <ul>
 <li>
-<p>upper-decker</p>
+<p>tag clouds</p>
 </li>
 <li>
-<p>versionary</p>
+<p>ads</p>
 </li>
 <li>
-<p>vim-cterm-highlight</p>
+<p>wysiwyg editing</p>
 </li>
 <li>
-<p>vaulti</p>
+<p>user management</p>
+</li>
+<li>
+<p>a comment system (spam is insidious), but Disqus is an option</p>
+</li>
+<li>
+<p>backups (they’re already in git)</p>
+</li>
+<li>
+<p>blogrolls</p>
+</li>
+<li>
+<p>emailer</p>
+</li>
+<li>
+<p>categories</p>
+</li>
+<li>
+<p>widgets for “like”ing or twitter updates</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Although I use CloudFlare elsewhere to protect from DDoS attacks (been hit
+before) I don’t see much need for it for a blog. It could be added.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_things_that_may_be_coming_to_cryogen">Things that may be coming to Cryogen</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>a <em>read more</em> abstract mechanism</p>
+</li>
+<li>
+<p>smarter recompilation</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+</div>
+<!--  -->
+<!-- <div id="post-tags"> -->
+<!--     <b>Tags: </b> -->
+<!--      -->
+<!--     <a href="/tags/setup.html">setup</a> -->
+<!--      -->
+<!--     <a href="/tags/unfinished.html">unfinished</a> -->
+<!--      -->
+<!--     <a href="/tags/blogging.html">blogging</a> -->
+<!--      -->
+<!-- </div> -->
+<!--  -->
 
     <div id="prev-next">
         
+        <a href="/posts/2015-07-02-stop-using-markdown.html">&laquo; From Markdown to Asciidoc</a>
         
-        
-        <a href="/pages/topics.html">Future Topics &raquo;</a>
         
     </div>
+
+    
+
+
 </div>
 
             </div>

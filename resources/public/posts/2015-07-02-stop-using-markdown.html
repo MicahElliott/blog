@@ -128,7 +128,7 @@
 
 </div>
 <div>
-    <ol class="contents"><li><a href="#_markdown_shortcomings">Markdown Shortcomings</a></li><li><a href="#_asciidoc_niceties">Asciidoc Niceties</a></li><li><a href="#_markdown_to_asciidoc_conversion_guide">Markdown-to-Asciidoc Conversion Guide</a></li><ol><li><a href="#_headings">Headings</a></li><li><a href="#_links">Links</a></li><li><a href="#_comments">Comments</a></li><li><a href="#_code_fragments">Code Fragments</a></li><li><a href="#_hrs">HRs</a></li><li><a href="#_definition_lists">Definition lists</a></li></ol>
+    
     <div class="paragraph">
 <p>Markdown has become the de facto standard for plain text syntax. It&#8217;s supported
 in the webform editors of Stack Overflow, Github, and many blogs, wikis, and
@@ -167,7 +167,7 @@ as you should.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_asciidoc_niceties">Asciidoc Niceties</h2>
+<h2 id="_asciidoc_extras_and_general_niceties">Asciidoc Extras and General Niceties</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Consistency of section delimiters. All are four characters and delineate blocks:
@@ -179,6 +179,12 @@ line-wise pairs of quadruples <code>-</code> (code), <code>_</code> (quote), <co
 </div>
 <div class="paragraph">
 <p>Auto-up-converting of some punctuation, like the pedant&#8217;s apostrophes&#8201;&#8212;&#8201;and yes, even dashes.</p>
+</div>
+<div class="paragraph">
+<p>You can add anchors.</p>
+</div>
+<div class="paragraph">
+<p>Auto-generated Table Of Contents.</p>
 </div>
 </div>
 </div>
@@ -219,7 +225,8 @@ line-wise pairs of quadruples <code>-</code> (code), <code>_</code> (quote), <co
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>http://google.com[This is Google]</pre>
+<pre>http://google.com[This is Google]
+link:/relative-page[some relative page]</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -227,6 +234,25 @@ line-wise pairs of quadruples <code>-</code> (code), <code>_</code> (quote), <co
 is to insert the link itself. It&#8217;s also nice to avoid the parens. Also, I often
 will type a paragraph that has a few things that need to be linked after the
 fact. It&#8217;s really easy to paste the link just before the text in Asciidoc.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_images">Images</h3>
+<div class="paragraph">
+<p>Markdown:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>![Mittens is my fave](/img/kitty1.jpg "My Cat")</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Asciidoc:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>image:/img/kitty1.jpg[My Cat]  Mittens is my fave] "My Cat")</pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -329,6 +355,8 @@ explicit is less susceptible to ambiguous translating.</p>
         <a href="/posts/2015-07-05-networking-tools.html">&laquo; Networking Tools</a>
         
         
+        <a class="right" href="/posts/2015-07-02-cryogen-on-freebsd-with-ansible.html">Cryogen Blog Setup &raquo;</a>
+        
     </div>
 
     
@@ -360,15 +388,15 @@ explicit is less susceptible to ambiguous translating.</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></li>
+                        
+                        <li><a href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest</a></li>
+                        
                         <li><a href="/posts/2015-07-13-clojure-vim-setup.html">Clojure with Vim Setup</a></li>
                         
                         <li><a href="/posts/2015-07-09-i3-nuc-office-dashboard.html">Live Office Dashboard with i3 and a NUC</a></li>
                         
                         <li><a href="/posts/2015-07-07-gists-as-blog.html">Using Gist As Your Blog</a></li>
-                        
-                        <li><a href="/posts/2015-07-05-docker-systemd-ansible.html">Docker as a Full CentOS</a></li>
-                        
-                        <li><a href="/posts/2015-07-05-interesting-major-vulnerabilities.html">Interesting Modern Vulnerabilities</a></li>
                         
                     </ul>
                 </div>
@@ -384,6 +412,8 @@ explicit is less susceptible to ambiguous translating.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/rewards.html">rewards</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/security.html">security</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/clojure.html">clojure</a></li> -->
@@ -392,7 +422,13 @@ explicit is less susceptible to ambiguous translating.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/centos.html">centos</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/setup.html">setup</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/unfinished.html">unfinished</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
                         <!--  -->
@@ -404,9 +440,13 @@ explicit is less susceptible to ambiguous translating.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/motivation.html">motivation</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/blogging.html">blogging</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/systemd.html">systemd</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
                         <!--  -->
                         
                         <a href="/tags/foo.html">foo</a>
@@ -414,6 +454,8 @@ explicit is less susceptible to ambiguous translating.</p>
                         <a href="/tags/deploy.html">deploy</a>
                         
                         <a href="/tags/github.html">github</a>
+                        
+                        <a href="/tags/rewards.html">rewards</a>
                         
                         <a href="/tags/security.html">security</a>
                         
@@ -423,7 +465,13 @@ explicit is less susceptible to ambiguous translating.</p>
                         
                         <a href="/tags/i3.html">i3</a>
                         
+                        <a href="/tags/centos.html">centos</a>
+                        
                         <a href="/tags/asciidoc.html">asciidoc</a>
+                        
+                        <a href="/tags/setup.html">setup</a>
+                        
+                        <a href="/tags/unfinished.html">unfinished</a>
                         
                         <a href="/tags/networking.html">networking</a>
                         
@@ -435,9 +483,13 @@ explicit is less susceptible to ambiguous translating.</p>
                         
                         <a href="/tags/nuc.html">nuc</a>
                         
+                        <a href="/tags/motivation.html">motivation</a>
+                        
                         <a href="/tags/blogging.html">blogging</a>
                         
                         <a href="/tags/systemd.html">systemd</a>
+                        
+                        <a href="/tags/infrastructure.html">infrastructure</a>
                         
                     </ul>
                 </div>
