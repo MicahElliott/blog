@@ -91,7 +91,7 @@
 <div id="post">
     <div id="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-6"><b>July 9, 2015</b>
+        <div class="col-lg-6"><b>July 13, 2015</b>
 
     
     <span id="post-tags">
@@ -100,9 +100,9 @@
         <b><i class="fa fa-tags"></i> </b>
         <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
         
-        <a href="/tags/i3.html"> i3</a>
+        <a href="/tags/clojure.html"> clojure</a>
         
-        <a href="/tags/nuc.html"> nuc</a>
+        <a href="/tags/vim.html"> vim</a>
         
     </span>
     
@@ -113,39 +113,122 @@
 
     </div>
 
-    <h1>Live Office Dashboard with i3 and a NUC</h1>
+    <h1>Clojure with Vim Setup</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
 <!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
 <!--          -->
-<!--         <a href="/tags/i3.html"> i3</a> -->
+<!--         <a href="/tags/clojure.html"> clojure</a> -->
 <!--          -->
-<!--         <a href="/tags/nuc.html"> nuc</a> -->
+<!--         <a href="/tags/vim.html"> vim</a> -->
 <!--          -->
 <!--     </div> -->
 <!--      -->
 
 </div>
 <div>
-    </ol class="contents">
+    
     <div class="paragraph">
-<p>In this post I&#8217;ll show you how to set up a live dashboard to display your
-company (or house) metrics. It&#8217;s as simple as writing a little i3 script to
-rotate through a set of open browsers. You&#8217;ll need to run X, i3, a fast
-browser. The required hardware is a TV and a NUC.</p>
+<p>These are the steps I take to set up a new Arch system with a Clojure
+environment for vim.</p>
 </div>
-<div class="paragraph">
-<p>&lt;!-- more -&#8594;</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Get lein up to date</p>
+<div class="literalblock">
+<div class="content">
+<pre>lein update</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Install new version of clojure, eg, Arch: <code>yaourt -S clojure</code></p>
+</li>
+<li>
+<p>Update lein search index: <code>lein search whatever</code></p>
+</li>
+<li>
+<p>Set up fireplace, highlighting, mappings, sexp into <code>.vimrc</code> with Vundle:</p>
+<div class="literalblock">
+<div class="content">
+<pre>Bundle 'guns/vim-clojure-static.git'
+Bundle 'guns/vim-clojure-highlight.git'
+Bundle 'tpope/vim-leiningen.git'
+Bundle 'tpope/vim-projectionist.git'
+Bundle 'tpope/vim-dispatch.git'
+Bundle 'tpope/vim-fireplace.git'
+Bundle 'tpope/vim-sexp-mappings-for-regular-people'
+Bundle 'guns/vim-sexp'
+Bundle 'dgrnbrg/redl'</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add to <code>~/.lein/profiles.clj</code>:</p>
+<div class="literalblock">
+<div class="content">
+<pre>{:user {:plugins [[lein-pprint "1.1.1"]
+                  [cider/cider-nrepl "0.7.0"]]
+        :dependencies [[slamhound "1.3.1"]
+                       [org.thnetos/cd-client "0.3.6"]]}}</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Create new project:</p>
+<div class="literalblock">
+<div class="content">
+<pre>lein new foo</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Add to each project:</p>
+<div class="literalblock">
+<div class="content">
+<pre>:main foo.core
+:repl-options {:init-ns foo.core})</pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run <code>lein deps</code></p>
+</li>
+<li>
+<p>Start tmux? Maybe not; slime not working now anyway</p>
+</li>
+<li>
+<p>Start <code>lein repl</code></p>
+</li>
+<li>
+<p>Fire up vim</p>
+</li>
+<li>
+<p>Run a repl in vim: <code>:Console</code></p>
+</li>
+<li>
+<p>Start <a href="https://github.com/dgrnbrg/vim-redl">redl</a> with <code>:ReplHere</code></p>
+</li>
+<li>
+<p>Start drip (optional)</p>
+<div class="literalblock">
+<div class="content">
+<pre>export LEIN_JAVA_CMD=drip  # could make lein hang on app template</pre>
+</div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <!--  -->
 <!-- <div id="post-tags"> -->
 <!--     <b>Tags: </b> -->
 <!--      -->
-<!--     <a href="/tags/i3.html">i3</a> -->
+<!--     <a href="/tags/clojure.html">clojure</a> -->
 <!--      -->
-<!--     <a href="/tags/nuc.html">nuc</a> -->
+<!--     <a href="/tags/vim.html">vim</a> -->
 <!--      -->
 <!-- </div> -->
 <!--  -->
@@ -155,7 +238,7 @@ browser. The required hardware is a TV and a NUC.</p>
     <div id="prev-next">
         
         
-        <a class="right" href="/posts/2015-07-07-gists-as-blog.html">Using Gist As Your Blog &raquo;</a>
+        <a class="right" href="/posts/2015-07-09-i3-nuc-office-dashboard.html">Live Office Dashboard with i3 and a NUC &raquo;</a>
         
     </div>
 </div>
@@ -184,6 +267,8 @@ browser. The required hardware is a TV and a NUC.</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts/2015-07-13-clojure-vim-setup.html">Clojure with Vim Setup</a></li>
+                        
                         <li><a href="/posts/2015-07-09-i3-nuc-office-dashboard.html">Live Office Dashboard with i3 and a NUC</a></li>
                         
                         <li><a href="/posts/2015-07-07-gists-as-blog.html">Using Gist As Your Blog</a></li>
@@ -191,8 +276,6 @@ browser. The required hardware is a TV and a NUC.</p>
                         <li><a href="/posts/2015-07-05-docker-systemd-ansible.html">Docker as a Full CentOS</a></li>
                         
                         <li><a href="/posts/2015-07-05-interesting-major-vulnerabilities.html">Interesting Modern Vulnerabilities</a></li>
-                        
-                        <li><a href="/posts/2015-07-05-networking-tools.html">Networking Tools</a></li>
                         
                     </ul>
                 </div>
@@ -210,6 +293,8 @@ browser. The required hardware is a TV and a NUC.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/security.html">security</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/clojure.html">clojure</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
@@ -219,6 +304,8 @@ browser. The required hardware is a TV and a NUC.</p>
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/docker.html">docker</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/vim.html">vim</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
                         <!--  -->
@@ -237,6 +324,8 @@ browser. The required hardware is a TV and a NUC.</p>
                         
                         <a href="/tags/security.html">security</a>
                         
+                        <a href="/tags/clojure.html">clojure</a>
+                        
                         <a href="/tags/ansible.html">ansible</a>
                         
                         <a href="/tags/i3.html">i3</a>
@@ -246,6 +335,8 @@ browser. The required hardware is a TV and a NUC.</p>
                         <a href="/tags/networking.html">networking</a>
                         
                         <a href="/tags/docker.html">docker</a>
+                        
+                        <a href="/tags/vim.html">vim</a>
                         
                         <a href="/tags/markdown.html">markdown</a>
                         

@@ -4,8 +4,10 @@
 Instructions [here](http://cryogenweb.org/docs/getting-started.html).
 
 ## Provisioning
-Create a FreeBSD droplet (or some server), and run `ansible-playbook` (shown
-below).
+Create a FreeBSD droplet (or some server), and run `ansible-playbook`.
+
+    cd provn
+    ansible-playbook site.yaml -b -v
 
 ## Workflow
 Fire up `lein`.
@@ -21,7 +23,6 @@ Write some pages and posts.
 
 Reprovision (push changes to web server).
 
-    cd provn
-    ansible-playbook site.yaml -b -v
+    ./deploy.zsh  # run ansible-playbook deploy tag
 
 If your generated files have changed, Ansible will deploy the changes.

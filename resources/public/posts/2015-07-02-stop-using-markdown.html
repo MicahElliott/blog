@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott: Stop Using Markdown</title>
+    <title>Micah Elliott: From Markdown to Asciidoc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -113,7 +113,7 @@
 
     </div>
 
-    <h1>Stop Using Markdown</h1>
+    <h1>From Markdown to Asciidoc</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
@@ -128,14 +128,20 @@
 
 </div>
 <div>
-    <ol class="contents"><li><a href="#_markdown_shortcomings">Markdown Shortcomings</a></li><ol><li><a href="#_comments">Comments</a></li><li><a href="#_definition_lists">Definition lists</a></li><li><a href="#_too_much_html">Too much HTML</a></li></ol><li><a href="#_markdown_to_asciidoc_conversion_guide">Markdown-to-Asciidoc Conversion Guide</a></li></ol>
+    <ol class="contents"><li><a href="#_markdown_shortcomings">Markdown Shortcomings</a></li><li><a href="#_asciidoc_niceties">Asciidoc Niceties</a></li><li><a href="#_markdown_to_asciidoc_conversion_guide">Markdown-to-Asciidoc Conversion Guide</a></li><ol><li><a href="#_headings">Headings</a></li><li><a href="#_links">Links</a></li><li><a href="#_comments">Comments</a></li><li><a href="#_code_fragments">Code Fragments</a></li><li><a href="#_hrs">HRs</a></li><li><a href="#_definition_lists">Definition lists</a></li></ol>
     <div class="paragraph">
 <p>Markdown has become the de facto standard for plain text syntax. It&#8217;s supported
-in the webform editors of StackOverflow, Github, and &#8230;&#8203;. It’s build into most
-static site generators. You can even use it to write a
-book. It&#8217;s fantastic that it has raised awareness of text-based markup, but it’s
-not enough.</p>
+in the webform editors of Stack Overflow, Github, and many blogs, wikis, and
+forums. It’s built into most static site generators. You can even use it to
+write a book. It&#8217;s fantastic that it has raised awareness of text-based markup,
+but it’s not enough.</p>
 </div>
+<div class="paragraph">
+<p>Asciidoc fills in many of the shortcomings of Markdown. Here&#8217;s a
+<a href="http://powerman.name/doc/asciidoc">cheat-sheet</a> to give you a feel for its
+syntax. It&#8217;s almost as simple as Markdown, and thus quick to learn.</p>
+</div>
+<!-- more -->
 <div class="sect1">
 <h2 id="_markdown_shortcomings">Markdown Shortcomings</h2>
 <div class="sectionbody">
@@ -143,26 +149,167 @@ not enough.</p>
 <p>You’re probably aware of most of these, but maybe don’t notice the pain as much
 as you should.</p>
 </div>
-<div class="sect2">
-<h3 id="_comments">Comments</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_definition_lists">Definition lists</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_too_much_html">Too much HTML</h3>
 <div class="paragraph">
-<p>Asciidoc is much richer, and not significantly harder to learn.</p>
+<p>Comments are clumsy. And multi-line becomes a mess.</p>
 </div>
+<div class="paragraph">
+<p>Vim ends up loading its HTML syntax which clutters functionality and causes confusion.</p>
+</div>
+<div class="paragraph">
+<p>No good way to add extra markup without dropping into HTML.</p>
+</div>
+<div class="paragraph">
+<p>No tables, citations, footnotes, or sub-/super-scripting.</p>
+</div>
+<div class="paragraph">
+<p>Inferior to Asciidoc&#8217;s Docbook toolchain.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asciidoc_niceties">Asciidoc Niceties</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Consistency of section delimiters. All are four characters and delineate blocks:
+line-wise pairs of quadruples <code>-</code> (code), <code>_</code> (quote), <code>/</code> (comment), <code>=</code>
+(caption), <code>+</code> (pass-through HTML).</p>
+</div>
+<div class="paragraph">
+<p>Titles can be added to most sections.</p>
+</div>
+<div class="paragraph">
+<p>Auto-up-converting of some punctuation, like the pedant&#8217;s apostrophes&#8201;&#8212;&#8201;and yes, even dashes.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_markdown_to_asciidoc_conversion_guide">Markdown-to-Asciidoc Conversion Guide</h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="_headings">Headings</h3>
+<div class="paragraph">
+<p>Markdown:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>## Foo</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Asciidoc:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>== Foo</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_links">Links</h3>
+<div class="paragraph">
+<p>Markdown:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[This is Google](http://google.com)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Asciidoc:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>http://google.com[This is Google]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Asciidoc feels more natural to me. My first instinct when inserting a link
+is to insert the link itself. It&#8217;s also nice to avoid the parens. Also, I often
+will type a paragraph that has a few things that need to be linked after the
+fact. It&#8217;s really easy to paste the link just before the text in Asciidoc.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_comments">Comments</h3>
+<div class="paragraph">
+<p>Markdown:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>&lt;!-- just a comment --&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Asciidoc:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>// just a comment</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or multi-line (yay!):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>////
+a bunch
+of comment
+lines
+////</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_code_fragments">Code Fragments</h3>
+<div class="paragraph">
+<p>Markdown:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>    This is indented, yet subtle and easily mishandled when mixing with lists.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Asciidoc (weird but easy enough):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  ----
+  This is left-aligned, or wherever you want. It is explicit.
+  ----</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Asciidoc also supports Markdown-style indents, but I&#8217;m finding that being
+explicit is less susceptible to ambiguous translating.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hrs">HRs</h3>
+<div class="paragraph">
+<p>Markdown:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  ----</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Asciidoc (weird but easy enough):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  ''''</pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_definition_lists">Definition lists</h3>
+<div class="paragraph">
+<p>Asciidoc is much richer, and not significantly harder to learn.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -213,6 +360,8 @@ as you should.</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts/2015-07-13-clojure-vim-setup.html">Clojure with Vim Setup</a></li>
+                        
                         <li><a href="/posts/2015-07-09-i3-nuc-office-dashboard.html">Live Office Dashboard with i3 and a NUC</a></li>
                         
                         <li><a href="/posts/2015-07-07-gists-as-blog.html">Using Gist As Your Blog</a></li>
@@ -220,8 +369,6 @@ as you should.</p>
                         <li><a href="/posts/2015-07-05-docker-systemd-ansible.html">Docker as a Full CentOS</a></li>
                         
                         <li><a href="/posts/2015-07-05-interesting-major-vulnerabilities.html">Interesting Modern Vulnerabilities</a></li>
-                        
-                        <li><a href="/posts/2015-07-05-networking-tools.html">Networking Tools</a></li>
                         
                     </ul>
                 </div>
@@ -239,6 +386,8 @@ as you should.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/security.html">security</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/clojure.html">clojure</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
@@ -248,6 +397,8 @@ as you should.</p>
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/docker.html">docker</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/vim.html">vim</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
                         <!--  -->
@@ -266,6 +417,8 @@ as you should.</p>
                         
                         <a href="/tags/security.html">security</a>
                         
+                        <a href="/tags/clojure.html">clojure</a>
+                        
                         <a href="/tags/ansible.html">ansible</a>
                         
                         <a href="/tags/i3.html">i3</a>
@@ -275,6 +428,8 @@ as you should.</p>
                         <a href="/tags/networking.html">networking</a>
                         
                         <a href="/tags/docker.html">docker</a>
+                        
+                        <a href="/tags/vim.html">vim</a>
                         
                         <a href="/tags/markdown.html">markdown</a>
                         

@@ -15,8 +15,116 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Mon, 06 Jul 2015 15:23:21 -0700
+Mon, 06 Jul 2015 17:25:26 -0700
 </lastBuildDate>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html
+</link>
+<title>
+Clojure with Vim Setup
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;These are the steps I take to set up a new Arch system with a Clojure
+environment for vim.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Get lein up to date&lt;/p&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;lein update&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install new version of clojure, eg, Arch: &lt;code&gt;yaourt -S clojure&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Update lein search index: &lt;code&gt;lein search whatever&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Set up fireplace, highlighting, mappings, sexp into &lt;code&gt;.vimrc&lt;/code&gt; with Vundle:&lt;/p&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;Bundle 'guns/vim-clojure-static.git'
+Bundle 'guns/vim-clojure-highlight.git'
+Bundle 'tpope/vim-leiningen.git'
+Bundle 'tpope/vim-projectionist.git'
+Bundle 'tpope/vim-dispatch.git'
+Bundle 'tpope/vim-fireplace.git'
+Bundle 'tpope/vim-sexp-mappings-for-regular-people'
+Bundle 'guns/vim-sexp'
+Bundle 'dgrnbrg/redl'&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add to &lt;code&gt;~/.lein/profiles.clj&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;{:user {:plugins [[lein-pprint &quot;1.1.1&quot;]
+                  [cider/cider-nrepl &quot;0.7.0&quot;]]
+        :dependencies [[slamhound &quot;1.3.1&quot;]
+                       [org.thnetos/cd-client &quot;0.3.6&quot;]]}}&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Create new project:&lt;/p&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;lein new foo&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add to each project:&lt;/p&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;:main foo.core
+:repl-options {:init-ns foo.core})&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run &lt;code&gt;lein deps&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start tmux? Maybe not; slime not working now anyway&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start &lt;code&gt;lein repl&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Fire up vim&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Run a repl in vim: &lt;code&gt;:Console&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start &lt;a href=&quot;https://github.com/dgrnbrg/vim-redl&quot;&gt;redl&lt;/a&gt; with &lt;code&gt;:ReplHere&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Start drip (optional)&lt;/p&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;export LEIN_JAVA_CMD=drip  # could make lein hang on app template&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Mon, 13 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-07-09-i3-nuc-office-dashboard.html
@@ -34,9 +142,7 @@ company (or house) metrics. It&amp;#8217;s as simple as writing a little i3 scri
 rotate through a set of open browsers. You&amp;#8217;ll need to run X, i3, a fast
 browser. The required hardware is a TV and a NUC.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&amp;lt;!-- more -&amp;#8594;&lt;/p&gt;
-&lt;/div&gt;
+&lt;!-- more --&gt;
 </description>
 <pubDate>
 Thu, 09 Jul 2015 00:00:00 -0700
@@ -56,10 +162,13 @@ Using Gist As Your Blog
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Github&amp;#8217;s Gist is almost good enough as a blog. If you don&amp;#8217;t want to take the
 time to set up your own blog, you could probably get away with using gists. As
-an example, &lt;a href=&quot;https://gist.github.com/MicahElliott&quot;&gt;this&lt;/a&gt; is a pretty nice
-listing.&lt;/p&gt;
+an example, &lt;a href=&quot;https://gist.github.com/MicahElliott&quot;&gt;this&lt;/a&gt; is a pretty decent index
+display.&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- more --&gt;
+
+
+&lt;!-- &lt;iframe src=&quot;https://player.vimeo.com/video/82339989&quot; width=&quot;500&quot; height=&quot;529&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; --&gt;
 &lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;_where_it_shines&quot;&gt;Where it shines&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
@@ -78,7 +187,7 @@ listing.&lt;/p&gt;
 &lt;p&gt;built-in editor or use git&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;store associated files with your article&lt;/p&gt;
+&lt;p&gt;store associated files with your article in a real git repo&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;nothing to host yourself&lt;/p&gt;
@@ -104,6 +213,9 @@ listing.&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;google will not index these well&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;no analytics&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -112,7 +224,7 @@ listing.&lt;/p&gt;
 &lt;h2 id=&quot;_conclusion&quot;&gt;Conclusion&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Gists are great. Even if you set up a real blog, you&amp;#8217;ll still want to&lt;/p&gt;
+&lt;p&gt;Gists are great. Even if you set up a real blog, you&amp;#8217;ll still want to use gists to host code samples.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -506,16 +618,22 @@ http://micahelliott.com/posts/2015-07-02-stop-using-markdown.html
 http://micahelliott.com/posts/2015-07-02-stop-using-markdown.html
 </link>
 <title>
-Stop Using Markdown
+From Markdown to Asciidoc
 </title>
 <description>
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Markdown has become the de facto standard for plain text syntax. It&amp;#8217;s supported
-in the webform editors of StackOverflow, Github, and &amp;#8230;&amp;#8203;. It’s build into most
-static site generators. You can even use it to write a
-book. It&amp;#8217;s fantastic that it has raised awareness of text-based markup, but it’s
-not enough.&lt;/p&gt;
+in the webform editors of Stack Overflow, Github, and many blogs, wikis, and
+forums. It’s built into most static site generators. You can even use it to
+write a book. It&amp;#8217;s fantastic that it has raised awareness of text-based markup,
+but it’s not enough.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc fills in many of the shortcomings of Markdown. Here&amp;#8217;s a
+&lt;a href=&quot;http://powerman.name/doc/asciidoc&quot;&gt;cheat-sheet&lt;/a&gt; to give you a feel for its
+syntax. It&amp;#8217;s almost as simple as Markdown, and thus quick to learn.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
 &lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;_markdown_shortcomings&quot;&gt;Markdown Shortcomings&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
@@ -523,26 +641,167 @@ not enough.&lt;/p&gt;
 &lt;p&gt;You’re probably aware of most of these, but maybe don’t notice the pain as much
 as you should.&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_comments&quot;&gt;Comments&lt;/h3&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_definition_lists&quot;&gt;Definition lists&lt;/h3&gt;
-
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_too_much_html&quot;&gt;Too much HTML&lt;/h3&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Asciidoc is much richer, and not significantly harder to learn.&lt;/p&gt;
+&lt;p&gt;Comments are clumsy. And multi-line becomes a mess.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vim ends up loading its HTML syntax which clutters functionality and causes confusion.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No good way to add extra markup without dropping into HTML.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;No tables, citations, footnotes, or sub-/super-scripting.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Inferior to Asciidoc&amp;#8217;s Docbook toolchain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_asciidoc_niceties&quot;&gt;Asciidoc Niceties&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Consistency of section delimiters. All are four characters and delineate blocks:
+line-wise pairs of quadruples &lt;code&gt;-&lt;/code&gt; (code), &lt;code&gt;_&lt;/code&gt; (quote), &lt;code&gt;/&lt;/code&gt; (comment), &lt;code&gt;=&lt;/code&gt;
+(caption), &lt;code&gt;+&lt;/code&gt; (pass-through HTML).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Titles can be added to most sections.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Auto-up-converting of some punctuation, like the pedant&amp;#8217;s apostrophes&amp;#8201;&amp;#8212;&amp;#8201;and yes, even dashes.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;_markdown_to_asciidoc_conversion_guide&quot;&gt;Markdown-to-Asciidoc Conversion Guide&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
-
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_headings&quot;&gt;Headings&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Markdown:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;## Foo&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;== Foo&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_links&quot;&gt;Links&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Markdown:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;[This is Google](http://google.com)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;http://google.com[This is Google]&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The Asciidoc feels more natural to me. My first instinct when inserting a link
+is to insert the link itself. It&amp;#8217;s also nice to avoid the parens. Also, I often
+will type a paragraph that has a few things that need to be linked after the
+fact. It&amp;#8217;s really easy to paste the link just before the text in Asciidoc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_comments&quot;&gt;Comments&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Markdown:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;&amp;lt;!-- just a comment --&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;// just a comment&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;or multi-line (yay!):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;////
+a bunch
+of comment
+lines
+////&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_code_fragments&quot;&gt;Code Fragments&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Markdown:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;    This is indented, yet subtle and easily mishandled when mixing with lists.&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc (weird but easy enough):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;  ----
+  This is left-aligned, or wherever you want. It is explicit.
+  ----&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc also supports Markdown-style indents, but I&amp;#8217;m finding that being
+explicit is less susceptible to ambiguous translating.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_hrs&quot;&gt;HRs&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Markdown:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;  ----&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc (weird but easy enough):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;  ''''&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_definition_lists&quot;&gt;Definition lists&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Asciidoc is much richer, and not significantly harder to learn.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
