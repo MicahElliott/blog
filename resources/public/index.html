@@ -24,10 +24,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/index.html">
-              <span>
+            <a class="navbar-brand" href="/index.html" title="Micah Elliott">
+              <span class="whoami">
                 <!-- <img src="/img/mde-50x.png"> -->
-                Micah Elliott
+                <!-- Micah Elliott -->
+                <span class="zshprompt">%</span> whoami<span class="zshcursor">_</span>
               </span>
 
               </img>
@@ -62,10 +63,22 @@
                 <!-- </a> -->
                 <!-- </li> -->
                 <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/projects.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   Projects -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
 
                 <li
                   >
                   <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+
+                <li
+                  >
+                  <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> Projects</a></li>
 
                 <li
                   >
@@ -91,7 +104,7 @@
 <div id="post">
     <div id="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-6"><b>July 20, 2015</b>
+        <div class="col-lg-8"><b>August 8, 2015</b>
 
     
     <span id="post-tags">
@@ -100,11 +113,9 @@
         <b><i class="fa fa-tags"></i> </b>
         <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
         
-        <a href="/tags/rewards.html"> rewards</a>
+        <a href="/tags/security.html"> security</a>
         
-        <a href="/tags/unfinished.html"> unfinished</a>
-        
-        <a href="/tags/motivation.html"> motivation</a>
+        <a href="/tags/gpg.html"> gpg</a>
         
     </span>
     
@@ -115,17 +126,15 @@
 
     </div>
 
-    <h1>Stack Overflow’s Motivation Engine</h1>
+    <h1>GPG Howto</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
 <!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
 <!--          -->
-<!--         <a href="/tags/rewards.html"> rewards</a> -->
+<!--         <a href="/tags/security.html"> security</a> -->
 <!--          -->
-<!--         <a href="/tags/unfinished.html"> unfinished</a> -->
-<!--          -->
-<!--         <a href="/tags/motivation.html"> motivation</a> -->
+<!--         <a href="/tags/gpg.html"> gpg</a> -->
 <!--          -->
 <!--     </div> -->
 <!--      -->
@@ -134,82 +143,458 @@
 <div>
     
     <div class="paragraph">
-<p>You’ve spent plenty of time on Stack Overflow. Google loves it. Several visits
-per day? But unless you’re one who answers questions there, you’re probably not
-aware of how they get so much participation.</p>
+<p><strong>Audience:</strong> <em>anyone</em></p>
 </div>
 <div class="paragraph">
-<p>I’ve recently been answering questions on Stack Overflow. Well, I <em>had to</em> in
-order to be able to do things like upvoting. Aren’t we obligated to upvote when
-someone has taken the time to teach us something valuable? And that was the
-first hook. But it turns out that SO has a very sophisticated set of motivators
-to keep you participating &#8230;&#8203; <em>frequently</em>!</p>
+<p><strong>Keywords:</strong> <em>gpg security privacy encryption</em></p>
+</div>
+<div class="paragraph">
+<p>❧❧❧</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>At one point I thought changing my name might help with privacy, but that was
+before the Internet. <em>— Olivia Wilde</em></p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Have you ever told a secret to a friend? Made a transaction at your bank?
+Wrote an entry in your diary? Invented a secret handshake? Been to the doctor?
+Got a "steal" sign from your baseball coach? All of these should
+be private&#8201;&#8212;&#8201;between you and the person or thing you&#8217;re communicating with.
+There are two main technical standards for privacy: TLS/SSL and OpenPGP.
+TLS/SSL are what&#8217;s used to secure the forms you fill out on web pages, and
+handle secure "connections". In this episode we&#8217;ll learn all about OpenPGP,
+AKA Pretty Good Privacy. This is what&#8217;s used to encrypt, sign, and verify
+(prove who the person is) any message or file you write or read. It uses a
+pair of "keys" to do these jobs.</p>
 </div>
 <!-- more -->
 <div class="paragraph">
-<p>What first puzzled me was how so many other users there had such high
-reputation. You might think that 1,000 points came from answering 1,000
-questions. But it’s an elaborate point system. You feel yourself growing points
-at a fairly rapid clip. It would sure be nice to have a <em>k</em> (thousand) next to
-your name!</p>
+<p>GPG is the tool we&#8217;ll focus on that implements the OpenPGP standard. It&#8217;s been
+around for 20+ years and is <em>the</em> industry standard for encrypting, signing,
+and verifying the contents and senders of messages and files. It&#8217;s also pretty
+fun to use.</p>
+</div>
+<div class="paragraph">
+<p>The users of OpenPGP form a club of folks who want to build a "Web Of Trust"
+(WOT). Anyone can get in; all you need is:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>A little knowledge of the <code>gpg</code> tool (which you&#8217;ll get here)</p>
+</li>
+<li>
+<p>Some official identification for yourself</p>
+</li>
+<li>
+<p>A willingness to meet people to verify their identity and sign their keys</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>(I hope you&#8217;re already using Zsh. If not, see previous episodes to get up to
+speed.)</p>
+</div>
+<div class="paragraph">
+<p>Zsh has great command completion for <code>gpg</code>. Make sure you&#8217;re <code>tab</code>-ing all the
+time to auto-complete options and arguments.</p>
 </div>
 <div class="sect1">
-<h2 id="_get_busy">Get Busy!</h2>
+<h2 id="_is_it_worth_the_effort_trouble">Is it worth the effort/trouble?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You eventually realize that you’re never going to be the first to answer a
-question unless you’re tuned into a near real-time picture of what’s happening
-with your tags of interest. The best way to earn points is to be the first to
-answer and get your answer accepted. So you subscribe to be updated via email.</p>
+<p>In order to join certain mailing lists and development groups (fedora), the
+first thing you may be asked for is your GPG public key.</p>
 </div>
 <div class="paragraph">
-<p>Every site requires another set of reputation. You’ll quickly find yourself
-trying to answer questions on other Stack Exchange sites.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_way_more_than_badges">Way More than Badges</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Sure, you earn badges. But you have to do more and more to earn the next type of
-badge. You even have your “next badge” dangled from your profile. The badges
-are more like <em>abilities</em>. And there are three categories of them: bronze,
-silver, and gold. It’s pretty challenging to get even a silver.</p>
+<p>Some people you work with are going to require that your emails to them be
+signed.</p>
 </div>
 <div class="paragraph">
-<p>Each badge is documented. You know what you have to do to earn the
-<em>archaeologist</em> badge: edit some old posts.</p>
-</div>
-<div class="paragraph">
-<p>You’re given a pleasant surprise when they tell you that they’ve removed ads
-since you’re such a great participant.</p>
-</div>
-<div class="paragraph">
-<p>Ultimately, people are on SO to prove their worth and get hired. So the</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_not_social">Not Social</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>It’s pretty interesting that there is no notion of “following”. You can’t even
-“message” someone.</p>
+<p>If you develop and distribute a software package, many of your users may
+expect to be able to download your public key in order to verify that the
+software comes from you. (<code>pacman -Qi coreutils</code>).
+(<a href="https://wiki.archlinux.org/index.php/pacman-key" class="bare">https://wiki.archlinux.org/index.php/pacman-key</a>) Though it&#8217;s more typically
+just a hash (MD5/SHA1).</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_gaming_it">Gaming It</h2>
+<h2 id="_go_get_some_official_identification">Go get some official identification</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>I’m not going to bother trying to game this, because I don’t (think) I care too
-much about my reputation points. But it can be done. I see people asking
-questions that they shortly thereafter answer themselves.</p>
+<p>To make any of this OpenPGP stuff legit, you&#8217;re going to need some real ID.
+Many kids don&#8217;t have ready access to a common ID card. But they should.</p>
 </div>
 <div class="paragraph">
-<p>I suppose you could also create a dummy account that spends a lot of its time
-upvoting your real posts.</p>
+<p>You absolutely need some sort of official ID. This could be a driver&#8217;s
+licence, identification card (get this from your local DMV; no age
+requirement), school student-body card, birth certificate/card, social
+security card.
+([ID cards in California](<a href="http://www.dmv.ca.gov/dl/dl_info.htm#idcard)" class="bare">http://www.dmv.ca.gov/dl/dl_info.htm#idcard)</a>)</p>
+</div>
+<div class="paragraph">
+<p>If you don&#8217;t think you have a need for a passport, just pick up a state ID
+card from your DMV. It&#8217;s easy and cheap. Too many kids don&#8217;t have ID
+that they can readily show. So go get one.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_commands_not_options">Commands (not options)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>GPG has several <strong>commands</strong>. They come near the end of the invocation. The ones
+we&#8217;ll care about are:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>--gen-key
+--gen-revoke
+--list-keys    -k
+--verify
+--encrypt      -e
+--decrypt      -d
+--sign         -s
+--cl(earsign)
+--fin(gerprint)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Some later uses:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>--fingerprint
+--recv-keys
+--send-keys
+--edit-key</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Options</strong> alter the way commands behave. Most of the options we can set
+permanently in our config file. We&#8217;ll get to that later. But here are some
+important ones:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>--armor
+--recipient   -r</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_creating_your_own_key">Creating your own key</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When creating your keys, you&#8217;ll want to ensure that your name is identical to
+what&#8217;s on your ID cards. If you use your middle name or initial on them, type
+it exactly as it shows on them.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>% gpg --gen-key
+&gt; 1
+&gt; 4096
+&gt; 1y
+&gt; Your Full Real Name
+&gt; you@yourmail.com
+&gt; student and hacker
+&gt; confirm</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now you need to generate some entropy! Moving your mouse around as instructed
+might not be enough. Here&#8217;s something to run which will speed things up.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>% haveged -n 0 | dieharder -g 200 -a</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Take a look at your new key!</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>gpg --list-keys</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>gpg --list-keys you«tab»</pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_revocation_key">Revocation key</h3>
+
+</div>
+<div class="sect2">
+<h3 id="_adding_a_picture">Adding a picture</h3>
+<div class="paragraph">
+<p>Your pic should be a JPEG of dimensions 240 wide by 288 tall. Aim for 4 KB in
+size. If you don&#8217;t have a good headshot, use your webcam with a solid
+background. Capture part of your shoulderblades, and all of your head. Crop it
+down, and export to a fairly low resolution/quality. I like <code>gimp</code> for this.
+Tune the size until you get down to ~4KB. (show vid of how to do this)</p>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s add it.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>gpg --edit-key &lt;your-key-ID&gt; addphoto
+&gt; /full/path/to/you.jpg
+&gt; save</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>GnuPG will then ask you for the filename of your JPEG image. Specify the
+complete path.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration">Configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There&#8217;s a file in your <code>~/.gnupg</code> directory called <code>gpg.conf</code>. This contains
+several settings that affect the way <code>gpg</code> behaves. Here are the settings
+you&#8217;ll want to enable:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>% vim ~/.gnupg/gpg.conf
+---
+keyserver hkp://keys.gnupg.net
+no-greeting
+keyserver-options auto-key-retrieve
+armor
+list-options show-photos
+photo-viewer "feh --title 'GPG: KeyID 0x%k' %i"
+keyid-format long</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_upload_your_key_to_a_key_server">Upload your key to a key server</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Upload your key after once you&#8217;re absolutely certain you&#8217;ve done this as
+described. Once a key gets posted, the only way to remove it is with a
+revocation key.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_getting_others_keys">Getting others' keys</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>gpg --recv-keys</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>gpg --import</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Get a [well trusted GPG guru&#8217;s key](<a href="http://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x9CDD9A214EBA9723" class="bare">http://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x9CDD9A214EBA9723</a>). Take a look at that page and note that his <em>keyID</em> is <code>4EBA9723</code>. Grab it.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>gpg --recv-keys 4EBA9723</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s search for someone else&#8217;s key. Visit
+[the GPG search tool](<a href="http://pgp.mit.edu/" class="bare">http://pgp.mit.edu/</a>).</p>
+</div>
+<div class="paragraph">
+<p>Actually, we can do it from the command line:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>gpg --sea(rch-keys)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Search for "Richard Stallman". Notice that there are several of them. How do
+you know which to trust? Head over to his site and note his message:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>"to be really sure which key is mine, you need to get my key fingerprint
+from me or follow a chain of signatures."</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here&#8217;s a security legend: Bruce Schneier</p>
+</div>
+<div class="paragraph">
+<p>Some people post their pubkeys on their websites. Here are a couple examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bruce Schneier: <a href="https://www.schneier.com/contact.html" class="bare">https://www.schneier.com/contact.html</a></p>
+</li>
+<li>
+<p>Postmodern: <a href="http://postmodern.github.io/contact.html" class="bare">http://postmodern.github.io/contact.html</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_make_sense_of_gpg_output">How to make sense of gpg output</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bruce Schneier no longer keeps his current valid key on a key server. You have
+to go to his site to download it. Actually, select and copy it from that page
+and paste it into <code>pubkey.schneier.com.asc</code>.</p>
+</div>
+<div class="paragraph">
+<p>Now let&#8217;s import it. This is essentially the same thing as a <code>--recv-keys</code> does.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>gpg --import pubkey.schneier.com.asc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s look at Bruce Schneier&#8217;s GPG info:</p>
+</div>
+<div class="paragraph">
+<p>9A98966F</p>
+</div>
+<div class="paragraph">
+<p>Notice that both of these luminaries are now using 4096-bit keys. That&#8217;s why
+we bumped ours up, too.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_testing_dummy_keys">Testing dummy keys</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Generate a new user on your system, or partner up with a friend.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_exchanging_keys_with_people_you_meet">Exchanging keys with people you meet</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You should only sign keys for persons you meet face-to-face. The goal is to
+verify their <em>identity</em>, not how good of a person she is. Here&#8217;s what you
+need from them.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_inspecting_someone_s_key">Inspecting someone&#8217;s key</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Check their fingerprint</p>
+</div>
+<div class="paragraph">
+<p>View their picture.
+    gpg --list-keys --list-options show-photo mde</p>
+</div>
+<div class="sect2">
+<h3 id="_key_signing_parties">Key-signing parties</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_tools">Other tools</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Entropy generation (haveged, dieharder):
+    haveged -n 0 | dieharder -g 200 -a</p>
+</div>
+<div class="paragraph">
+<p>Seahorse key manager GUI</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_other_cool_uses_for_gpg">Other cool uses for GPG</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>bitcoin privacy</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_terminology">Terminology</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Web Of Trust (WOT)&#8201;&#8212;&#8201;a network of folks who have signed each others' keys</p>
+</li>
+<li>
+<p>subkey&#8201;&#8212;&#8201;same as a pubkey (public key); pub and priv are each "sub"-keys
+since it takes them both together to make the "full" key.</p>
+</li>
+<li>
+<p>key server&#8201;&#8212;&#8201;keys.gnupg.net, pgp.mit.edu</p>
+</li>
+<li>
+<p>PKI&#8201;&#8212;&#8201;Public Key Infrastructure (the systems, people, and keys that service the WOT)</p>
+</li>
+<li>
+<p><code>gpg</code>&#8201;&#8212;&#8201;CLI interface with a lot of options</p>
+</li>
+<li>
+<p><code>.asc</code>&#8201;&#8212;&#8201;a plain ASCII file encoding; basically plain readable (not binary) text</p>
+</li>
+<li>
+<p><code>.sig</code></p>
+</li>
+<li>
+<p>fingerprint&#8201;&#8212;&#8201;a long hex string identifying they person/key; view with:</p>
+</li>
+<li>
+<p>keyID&#8201;&#8212;&#8201;a short version of the fingerprint; these are shown everywhere! eg, <code>299C28F0</code></p>
+</li>
+<li>
+<p>signature&#8201;&#8212;&#8201;the signings of a given key, the more the better</p>
+</li>
+<li>
+<p>signing</p>
+</li>
+<li>
+<p>hkp&#8201;&#8212;&#8201;Horowitz Key Protocol, eg: hkp://pgp.mit.edu</p>
+</li>
+<li>
+<p>certificate</p>
+</li>
+<li>
+<p>non-repudiation</p>
+</li>
+<li>
+<p>rsa&#8201;&#8212;&#8201;the only algorithm you&#8217;ll want to use</p>
+</li>
+<li>
+<p>base64&#8201;&#8212;&#8201;the encoding of ascii you can read</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -218,11 +603,9 @@ upvoting your real posts.</p>
 <!-- <div id="post-tags"> -->
 <!--     <b>Tags: </b> -->
 <!--      -->
-<!--     <a href="/tags/rewards.html">rewards</a> -->
+<!--     <a href="/tags/security.html">security</a> -->
 <!--      -->
-<!--     <a href="/tags/unfinished.html">unfinished</a> -->
-<!--      -->
-<!--     <a href="/tags/motivation.html">motivation</a> -->
+<!--     <a href="/tags/gpg.html">gpg</a> -->
 <!--      -->
 <!-- </div> -->
 <!--  -->
@@ -232,7 +615,7 @@ upvoting your real posts.</p>
     <div id="prev-next">
         
         
-        <a class="right" href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest &raquo;</a>
+        <a class="right" href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine &raquo;</a>
         
     </div>
 </div>
@@ -261,15 +644,15 @@ upvoting your real posts.</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts/2015-08-08-gpg-howto.html">GPG Howto</a></li>
+                        
                         <li><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></li>
                         
                         <li><a href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest</a></li>
                         
                         <li><a href="/posts/2015-07-13-clojure-vim-setup.html">Clojure with Vim Setup</a></li>
                         
-                        <li><a href="/posts/2015-07-09-i3-nuc-office-dashboard.html">Live Office Dashboard with i3 and a NUC</a></li>
-                        
-                        <li><a href="/posts/2015-07-07-gists-as-blog.html">Using Gist As Your Blog</a></li>
+                        <li><a href="/posts/2015-07-09-awesome-awk.html">Awesome Awk</a></li>
                         
                     </ul>
                 </div>
@@ -295,23 +678,31 @@ upvoting your real posts.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/gpg.html">gpg</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/draft.html">draft</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/centos.html">centos</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/setup.html">setup</a></li> -->
                         <!--  -->
-                        <!-- <li><a href="/tags/unfinished.html">unfinished</a></li> -->
-                        <!--  -->
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/teaching.html">teaching</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/docker.html">docker</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/vim.html">vim</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/awk.html">awk</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/notes.html">notes</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/motivation.html">motivation</a></li> -->
                         <!--  -->
@@ -338,23 +729,31 @@ upvoting your real posts.</p>
                         
                         <a href="/tags/i3.html">i3</a>
                         
+                        <a href="/tags/gpg.html">gpg</a>
+                        
+                        <a href="/tags/draft.html">draft</a>
+                        
                         <a href="/tags/centos.html">centos</a>
                         
                         <a href="/tags/asciidoc.html">asciidoc</a>
                         
                         <a href="/tags/setup.html">setup</a>
                         
-                        <a href="/tags/unfinished.html">unfinished</a>
-                        
                         <a href="/tags/networking.html">networking</a>
+                        
+                        <a href="/tags/teaching.html">teaching</a>
                         
                         <a href="/tags/docker.html">docker</a>
                         
                         <a href="/tags/vim.html">vim</a>
                         
+                        <a href="/tags/awk.html">awk</a>
+                        
                         <a href="/tags/markdown.html">markdown</a>
                         
                         <a href="/tags/nuc.html">nuc</a>
+                        
+                        <a href="/tags/notes.html">notes</a>
                         
                         <a href="/tags/motivation.html">motivation</a>
                         

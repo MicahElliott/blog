@@ -9,16 +9,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
+    font-family: 'shadows into light';
+    font-style: italic;
 }
 
 h2, h3, h4, h5, h6 {
     /* margin-top: 10px; */
+    font-family: 'shadows into light';
 }
 
 body {
     color: #333;
-    background-color: #f2f2f2;
+    /* background-color: #f2f2f2; */
+    background-color: #ddd;
     /* font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; */
     /* font-family: 'Alegreya'; */
     font-family: 'indie flower';
@@ -46,7 +50,9 @@ body {
 
 .navbar-default {
     /* background-color: #428bca; */
-    background-color: #333;
+    /* background-color: #333; */
+    /* background-color: #777; */
+    background-color: #000;
     border: none;
 }
 
@@ -57,7 +63,14 @@ body {
     font-family: 'muli';
     font-family: 'cabin';
     font-family: 'pt sans';
+    font-family: 'shadows into light';
+    font-family: 'pt serif';
+    font-family: 'pt mono';
+    /* text-transform: uppercase; */
 }
+
+.zshprompt { color: red; }
+.zshcursor { color: lightgreen; }
 
 .navbar-default .navbar-brand:hover {
     color: #fff;
@@ -92,6 +105,10 @@ body {
 #sidebar {
     margin-left: 15px;
     margin-top: 50px;
+}
+
+#sidebar h3 {
+    font-family: 'shadows into light';
 }
 
 #content {
@@ -135,6 +152,11 @@ footer {
     font-size: 32px;
 }
 
+.imageblock img {
+    /* float: left; */
+    padding: 0 20px 15px 0;
+}
+
 pre {
     overflow-x: auto;
 }
@@ -155,6 +177,15 @@ i.fa {
     font-size: smaller;
 }
 
+a {
+    color: dodgerblue;
+}
+
+#sidebar a, #prev-next a {
+    font-family: 'helvetica';
+    font-family: 'pt sans';
+}
+
 @media (min-width: 768px) {
     .navbar {
         /* min-height: 70px; */
@@ -168,8 +199,9 @@ i.fa {
 
 @media (min-width: 400px) {
     .navbar-default .navbar-brand {
-        font-size: 36px;
-        font-size: 24px;
+        /* font-size: 36px; */
+        /* font-size: 28px; */
+        font-size: 22px;
         /* padding: 25px 15px; */
         /* padding: 20px 15px; */
         /* padding: 4px 15px; */

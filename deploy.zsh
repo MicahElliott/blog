@@ -4,5 +4,7 @@
 
 # enables most work to be done from top level dir
 
+#git push
+
 cd provn
 time ansible-playbook site.yaml -b -v -t deploy

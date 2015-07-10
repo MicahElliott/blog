@@ -24,10 +24,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{index-uri}}">
-              <span>
+            <a class="navbar-brand" href="{{index-uri}}" title="Micah Elliott">
+              <span class="whoami">
                 <!-- <img src="/img/mde-50x.png"> -->
-                {{title}}
+                <!-- {{title}} -->
+                <span class="zshprompt">%</span> whoami<span class="zshcursor">_</span>
               </span>
 
               </img>
@@ -58,6 +59,10 @@
                 <li
                   {%ifequal page.uri "/pages/about.html" %} class="active" {% endifequal %}>
                   <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+
+                <li
+                  {%ifequal page.uri "/pages/projects.html" %} class="active" {% endifequal %}>
+                  <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> Projects</a></li>
 
                 <li
                   {%ifequal page.uri "/pages/gpg-key.html" %} class="active" {% endifequal %}>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott: Stack Overflow’s Motivation Engine</title>
+    <title>Micah Elliott: LiveScript vs ClojureScript</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -104,7 +104,7 @@
 <div id="post">
     <div id="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-8"><b>July 20, 2015</b>
+        <div class="col-lg-8"><b>February 1, 2015</b>
 
     
     <span id="post-tags">
@@ -113,11 +113,9 @@
         <b><i class="fa fa-tags"></i> </b>
         <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
         
-        <a href="/tags/rewards.html"> rewards</a>
+        <a href="/tags/clojure.html"> clojure</a>
         
-        <a href="/tags/draft.html"> draft</a>
-        
-        <a href="/tags/motivation.html"> motivation</a>
+        <a href="/tags/notes.html"> notes</a>
         
     </span>
     
@@ -128,104 +126,541 @@
 
     </div>
 
-    <h1>Stack Overflow’s Motivation Engine</h1>
+    <h1>LiveScript vs ClojureScript</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
 <!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
 <!--          -->
-<!--         <a href="/tags/rewards.html"> rewards</a> -->
+<!--         <a href="/tags/clojure.html"> clojure</a> -->
 <!--          -->
-<!--         <a href="/tags/draft.html"> draft</a> -->
-<!--          -->
-<!--         <a href="/tags/motivation.html"> motivation</a> -->
+<!--         <a href="/tags/notes.html"> notes</a> -->
 <!--          -->
 <!--     </div> -->
 <!--      -->
 
 </div>
 <div>
-    
+    <ol class="contents"><li><a href="#_ls">LS</a></li><ol><li><a href="#_pros">Pros</a></li><li><a href="#_cons">Cons</a></li></ol><li><a href="#_clj_s">CLJ(S)</a></li><ol><li><a href="#_pros_2">Pros</a></li><li><a href="#_cons_2">Cons</a></li></ol><li><a href="#_racket">Racket</a></li><ol><li><a href="#_pros_3">Pros</a></li><li><a href="#_cons_3">Cons</a></li></ol><li><a href="#_es6">ES6</a></li><ol><li><a href="#_cons_4">Cons</a></li></ol><li><a href="#_r">R</a></li><ol><li><a href="#_pros_4">Pros</a></li><li><a href="#_cons_5">Cons</a></li></ol><li><a href="#_but_what_do_they_want_to_build">But what do they want to build?</a></li><li><a href="#_requirements">Requirements</a></li></ol>
     <div class="paragraph">
-<p><strong>Audience:</strong> <em>programmers</em></p>
-</div>
-<div class="paragraph">
-<p>You’ve spent plenty of time on Stack Overflow. Google loves it. Several visits
-per day? But unless you’re one who answers questions there, you’re probably not
-aware of how they get so much participation.</p>
-</div>
-<div class="paragraph">
-<p>I’ve recently been answering questions on Stack Overflow. Well, I <em>had to</em> in
-order to be able to do things like upvoting. Aren’t we obligated to upvote when
-someone has taken the time to teach us something valuable? And that was the
-first hook. But it turns out that SO has a very sophisticated set of motivators
-to keep you participating &#8230;&#8203; <em>frequently</em>!</p>
-</div>
-<!-- more -->
-<div class="paragraph">
-<p>What first puzzled me was how so many other users there had such high
-reputation. You might think that 1,000 points came from answering 1,000
-questions. But it’s an elaborate point system. You feel yourself growing points
-at a fairly rapid clip. It would sure be nice to have a <em>k</em> (thousand) next to
-your name!</p>
+<p>The following are my pros/cons notes comparing LiveScript (which I really loved
+using) to Clojure(Script), and eventually to Racket. The conclusion was that
+ClojureScript wins, partly because of my other biases toward Clojure.</p>
 </div>
 <div class="sect1">
-<h2 id="_get_busy">Get Busy!</h2>
+<h2 id="_ls">LS</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>You eventually realize that you’re never going to be the first to answer a
-question unless you’re tuned into a near real-time picture of what’s happening
-with your tags of interest. The best way to earn points is to be the first to
-answer and get your answer accepted. So you subscribe to be updated via email.</p>
+<div class="sect2">
+<h3 id="_pros">Pros</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>concise, haskell-like</p>
+</li>
+<li>
+<p>improved coffee, a very popular language</p>
+</li>
+<li>
+<p>npm</p>
+</li>
+<li>
+<p>node is fast</p>
+</li>
+<li>
+<p>beautifully simple standard node lib</p>
+</li>
+<li>
+<p>brunch et al</p>
+</li>
+<li>
+<p>jade (hiccup might suffice, but there is clj-jade)</p>
+</li>
+<li>
+<p>angular/backbone</p>
+</li>
+<li>
+<p>express</p>
+</li>
+<li>
+<p>socket.io</p>
+</li>
+<li>
+<p>d3 (but c2)</p>
+</li>
+<li>
+<p>native json</p>
+</li>
+<li>
+<p>many lessons/projects already written in ls</p>
+</li>
+<li>
+<p>put into any proj that uses coffee</p>
+</li>
+<li>
+<p>testing frameworks</p>
+</li>
+<li>
+<p>plugs into everything where js is used with minimal change</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Every site requires another set of reputation. You’ll quickly find yourself
-trying to answer questions on other Stack Exchange sites.</p>
+</div>
+<div class="sect2">
+<h3 id="_cons">Cons</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>callback hell</p>
+</li>
+<li>
+<p>impossible async recursion (and no tco)</p>
+</li>
+<li>
+<p>not multi-threaded so maybe harder to scale for production</p>
+</li>
+<li>
+<p>poor repl</p>
+</li>
+<li>
+<p>too many npm pkgs to choose from</p>
+</li>
+<li>
+<p>won&#8217;t paste into browser repl</p>
+</li>
+<li>
+<p>bad vim syntax highlighting (fixable)</p>
+</li>
+<li>
+<p>node won&#8217;t go on windows (anyone care?)</p>
+</li>
+<li>
+<p>prelude confused with underscore/lodash/async/nimble</p>
+</li>
+<li>
+<p>obscure</p>
+</li>
+<li>
+<p>syntax heavy; a bit quirky</p>
+</li>
+<li>
+<p>surprising scope issues</p>
+</li>
+<li>
+<p>JavaScript\* community fragmented among langs/tools</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_way_more_than_badges">Way More than Badges</h2>
+<h2 id="_clj_s">CLJ(S)</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Sure, you earn badges. But you have to do more and more to earn the next type of
-badge. You even have your “next badge” dangled from your profile. The badges
-are more like <em>abilities</em>. And there are three categories of them: bronze,
-silver, and gold. It’s pretty challenging to get even a silver.</p>
+<div class="sect2">
+<h3 id="_pros_2">Pros</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>lisp, beautiful functional</p>
+</li>
+<li>
+<p>a fit for every domain</p>
+</li>
+<li>
+<p>immutability</p>
+</li>
+<li>
+<p>avoids node event loop</p>
+</li>
+<li>
+<p>multi-runtime options (java, node, browser)</p>
+</li>
+<li>
+<p>maybe preferred by academics</p>
+</li>
+<li>
+<p>clojureone</p>
+</li>
+<li>
+<p>browser repl?</p>
+</li>
+<li>
+<p>native structures more expressive/concise than json and racket&#8217;s</p>
+</li>
+<li>
+<p>concurrency</p>
+</li>
+<li>
+<p>sensible scoping</p>
+</li>
+<li>
+<p>easier to teach (vs ls), been done many times</p>
+</li>
+<li>
+<p>laziness</p>
+</li>
+<li>
+<p>macros</p>
+</li>
+<li>
+<p>clojure toolbox (nicely settles on a few tools for any job)</p>
+</li>
+<li>
+<p>many settled libs: korma/sql, hiccup/templating, luminus/web, incanter/stats, midje/testing</p>
+</li>
+<li>
+<p>obviates ChucK with Overtone</p>
+</li>
+<li>
+<p>lighttable as drracket competitor</p>
+</li>
+<li>
+<p>om/reagent/react</p>
+</li>
+<li>
+<p>practical real-world, employable skillset</p>
+</li>
+<li>
+<p>js compatible (ClojureScript)</p>
+</li>
+<li>
+<p>simple web deployment via uberjar/uberwar to jetty, tomcat, or nginx</p>
+</li>
+<li>
+<p>4clojure for practice/competition</p>
+</li>
+<li>
+<p>google closure compiler/optimizer (though heavy)</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Each badge is documented. You know what you have to do to earn the
-<em>archaeologist</em> badge: edit some old posts.</p>
 </div>
-<div class="paragraph">
-<p>You’re given a pleasant surprise when they tell you that they’ve removed ads
-since you’re such a great participant.</p>
+<div class="sect2">
+<h3 id="_cons_2">Cons</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>lots of parens, more verbose</p>
+</li>
+<li>
+<p>slow startup?</p>
+</li>
+<li>
+<p>memory hogging beast! so not good for kids learning on limited hw</p>
+</li>
+<li>
+<p>prefers emacs (but PG uses vi)</p>
+</li>
+<li>
+<p>heavy on java and suffers from its limitations</p>
+</li>
+<li>
+<p>RPN opaque for beginners</p>
+</li>
+<li>
+<p>lacking JavaScript/node/npm ecosystem?</p>
+</li>
+<li>
+<p>terrible error messages, but <a href="https://github.com/mmcgrana/clj-stacktrace">clj-stacktrace</a></p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>Ultimately, people are on SO to prove their worth and get hired. So the</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_not_social">Not Social</h2>
+<h2 id="_racket">Racket</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_pros_3">Pros</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>fast and light and easy to generate executables (for meager hardware)</p>
+</li>
+<li>
+<p>nice, kid-friendly starter book (Realm of Racket), plus HtDP</p>
+</li>
+<li>
+<p>actually is plt-scheme, so little schemer and sicp also apply</p>
+</li>
+<li>
+<p>well accepted as academic/teaching language, with scheme history</p>
+</li>
+<li>
+<p>many teaching resources, maybe even full course</p>
+</li>
+<li>
+<p>well contained/organized documentation</p>
+</li>
+<li>
+<p>might want to build everything from scratch anyway, for teaching purposes</p>
+</li>
+<li>
+<p>DrRacket</p>
+</li>
+<li>
+<p>nice repl(?)</p>
+</li>
+<li>
+<p>scribble documentation</p>
+</li>
+<li>
+<p><a href="https://github.com/greghendershott/frog">a scribble-based blog engine</a></p>
+</li>
+<li>
+<p>friendly error messages</p>
+</li>
+<li>
+<p>most flexible language (toolkit)</p>
+</li>
+<li>
+<p>accepts [] in place of ()</p>
+</li>
+<li>
+<p>language "teach" packs</p>
+</li>
+<li>
+<p>decent startup time: 230ms for hello.rkt, 46ms with just racket/base</p>
+</li>
+<li>
+<p>no java to deal with</p>
+</li>
+<li>
+<p>probably nice small install with racket-minimal from aur, excluding DrRacket</p>
+</li>
+<li>
+<p>pretty simple to move to clojure from racket, later on</p>
+</li>
+<li>
+<p>probably does recursion right</p>
+</li>
+<li>
+<p>true pattern matching(?)</p>
+</li>
+<li>
+<p>nice unicode identifier support, even as symbols! use λ instead of lambda</p>
+</li>
+<li>
+<p>raco (lein equivalent?)</p>
+</li>
+<li>
+<p>lang hosted on github</p>
+</li>
+<li>
+<p>browsable package repo: <a href="http://pkgs.racket-lang.org/" class="bare">http://pkgs.racket-lang.org/</a> and <a href="http://planet.racket-lang.org" class="bare">http://planet.racket-lang.org</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cons_3">Cons</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>syntax not as brief as Clojure</p>
+</li>
+<li>
+<p>lacking ecosystem (web framework, templating, overtone, etc)</p>
+</li>
+<li>
+<p>no vim plugins like fireplace/vim-sexp?</p>
+</li>
+<li>
+<p>lacking libraries (mongo, etc)</p>
+</li>
+<li>
+<p>lacking syntax; everything is parens: harder to read (but <code>[]</code> accepted)</p>
+</li>
+<li>
+<p>less powerful data structures</p>
+</li>
+<li>
+<p>maybe not scalable? well, people claim it&#8217;s faster than python</p>
+</li>
+<li>
+<p>no good js transpiler story (whalesong?)</p>
+</li>
+<li>
+<p>a little bulky to install at 400 MB (but sans-DrRacket pkg available</p>
+</li>
+<li>
+<p>docs not as friendly as <a href="http://clojuredocs.org/" class="bare">http://clojuredocs.org/</a></p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>It’s pretty interesting that there is no notion of “following”. You can’t even
-“message” someone.</p>
+<p>? npm equivalent? maybe <code>raco planet</code></p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_gaming_it">Gaming It</h2>
+<h2 id="_es6">ES6</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>I’m not going to bother trying to game this, because I don’t (think) I care too
-much about my reputation points. But it can be done. I see people asking
-questions that they shortly thereafter answer themselves.</p>
+<div class="sect2">
+<h3 id="_cons_4">Cons</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>still just an ugly and verbose [braces and semicolons] syntax</p>
+</li>
+<li>
+<p>will need transpilation for some time, so might as well use another lang</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>I suppose you could also create a dummy account that spends a lot of its time
-upvoting your real posts.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_r">R</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_pros_4">Pros</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>vector oriented</p>
+</li>
+<li>
+<p>libraries</p>
+</li>
+<li>
+<p>graphing</p>
+</li>
+<li>
+<p>shiny</p>
+</li>
+<li>
+<p>fast and light</p>
+</li>
+<li>
+<p>fantastic repl and help system</p>
+</li>
+<li>
+<p>math and data oriented</p>
+</li>
+<li>
+<p>fits math/stats curriculum</p>
+</li>
+<li>
+<p>so many books/learning resources</p>
+</li>
+<li>
+<p>industry standard</p>
+</li>
+<li>
+<p>rstudio(?)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cons_5">Cons</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>not a lisp</p>
+</li>
+<li>
+<p>syntax can be awkward and a bit ugly</p>
+</li>
+<li>
+<p>not very web oriented(?)</p>
+</li>
+<li>
+<p>have to know stats to do much</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_but_what_do_they_want_to_build">But what do they want to build?</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>web apps</p>
+</li>
+<li>
+<p>graphs/stats/analytics/reporting/journalism</p>
+</li>
+<li>
+<p>parallel/fast improvements</p>
+</li>
+<li>
+<p>games</p>
+</li>
+<li>
+<p>robots</p>
+</li>
+<li>
+<p>back-end service</p>
+</li>
+<li>
+<p>cars</p>
+</li>
+<li>
+<p>automation</p>
+</li>
+<li>
+<p>system tools</p>
+</li>
+<li>
+<p>interfaces</p>
+</li>
+<li>
+<p>iot/devices (home automation)</p>
+</li>
+<li>
+<p>making music</p>
+</li>
+<li>
+<p>language processing</p>
+</li>
+<li>
+<p>measuring instruments (farming, atmosphere, seismology, etc)</p>
+</li>
+<li>
+<p>or whatever, there are lots of jobs if that’s the end goal</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_requirements">Requirements</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>concise</p>
+</li>
+<li>
+<p>functional</p>
+</li>
+<li>
+<p>easy enough to learn</p>
+</li>
+<li>
+<p>simple environment</p>
+</li>
+<li>
+<p>minimal machine/$ resources</p>
+</li>
+<li>
+<p>multi-domain</p>
+</li>
+<li>
+<p>somewhat visual</p>
+</li>
+<li>
+<p>fun and not painful</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -234,21 +669,19 @@ upvoting your real posts.</p>
 <!-- <div id="post-tags"> -->
 <!--     <b>Tags: </b> -->
 <!--      -->
-<!--     <a href="/tags/rewards.html">rewards</a> -->
+<!--     <a href="/tags/clojure.html">clojure</a> -->
 <!--      -->
-<!--     <a href="/tags/draft.html">draft</a> -->
-<!--      -->
-<!--     <a href="/tags/motivation.html">motivation</a> -->
+<!--     <a href="/tags/notes.html">notes</a> -->
 <!--      -->
 <!-- </div> -->
 <!--  -->
 
     <div id="prev-next">
         
-        <a href="/posts/2015-08-08-gpg-howto.html">&laquo; GPG Howto</a>
+        <a href="/posts/2015-07-02-cryogen-on-freebsd-with-ansible.html">&laquo; Cryogen Blog Setup</a>
         
         
-        <a class="right" href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest &raquo;</a>
+        <a class="right" href="/posts/2015-01-10-choosing-an-os.html">Choosing your Everyday Operating System &raquo;</a>
         
     </div>
 
