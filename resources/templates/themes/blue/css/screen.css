@@ -10,13 +10,17 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     /* text-transform: uppercase; */
+    margin-bottom: 0px;
     font-family: 'shadows into light';
-    font-style: italic;
+    /* font-style: italic; */
+    font-weight: bold;
+    text-shadow: 1px 1px 0 #ee6, 2px 2px 0 #ccc;
 }
 
 h2, h3, h4, h5, h6 {
     /* margin-top: 10px; */
     font-family: 'shadows into light';
+    margin: 18px 0 6px 0;
 }
 
 body {
@@ -74,6 +78,12 @@ body {
 
 .navbar-default .navbar-brand:hover {
     color: #fff;
+}
+
+/* Won't work */
+.navbar-default .navbar-brand a:hover {
+    transition-delay: 0s;
+    transition: 0s display;
 }
 
 .navbar-default .navbar-nav li a {

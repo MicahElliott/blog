@@ -39,12 +39,14 @@
                 <li {% if home %} class="active" {% endif %}>
                   <a href="{{index-uri}}">
                     <i class="fa fa-home"></i>
-                    Home</a></li>
+                    <!-- Home</a></li> -->
+                    ~</a></li>
                 <li
                 {% if archives %} class="active" {% endif %}>
                   <a href="{{archives-uri}}">
                   <i class="fa fa-archive"></i>
-                  Archives</a></li>
+                  <!-- Archives</a></li> -->
+                  ~/doc</a></li>
 
                 <!-- {% for nav-page in navbar-pages %} -->
                 <!-- <li -->
@@ -58,20 +60,24 @@
 
                 <li
                   {%ifequal page.uri "/pages/about.html" %} class="active" {% endifequal %}>
-                  <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+                  <!-- <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li> -->
+                  <a href="/pages/about.html"><i class="fa fa-info-circle"></i> README</a></li>
 
                 <li
                   {%ifequal page.uri "/pages/projects.html" %} class="active" {% endifequal %}>
-                  <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> Projects</a></li>
+                  <!-- <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> Projects</a></li> -->
+                  <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> ~/src/proj</a></li>
 
                 <li
                   {%ifequal page.uri "/pages/gpg-key.html" %} class="active" {% endifequal %}>
-                  <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> GPG Key</a></li>
+                  <!-- <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> GPG Key</a></li> -->
+                  <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> gpg.asc</a></li>
 
                 <!-- <li><a href="{{rss-uri}}"> -->
                 <li><a href="http://feeds.feedburner.com/micahelliott/blog">
                     <i class="fa fa-rss"></i>
-                    RSS</a></li>
+                    <!-- RSS</a></li> -->
+                    rss.xml</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott</title>
+    <title>Micah Elliott: Vi-Mode Ubiquitous Cursor Indicator</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -10,7 +10,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css">
     <link href="/favicon.png" rel="shortcut icon">
-    <link href="css/screen.css" rel="stylesheet" type="text/css" />
+    <link href="../css/screen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -36,7 +36,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li  class="active" >
+                <li >
                   <a href="/index.html">
                     <i class="fa fa-home"></i>
                     <!-- Home</a></li> -->
@@ -110,7 +110,7 @@
 <div id="post">
     <div id="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-8"><b>August 8, 2015</b>
+        <div class="col-lg-8"><b>July 20, 2015</b>
 
     
     <span id="post-tags">
@@ -119,9 +119,13 @@
         <b><i class="fa fa-tags"></i> </b>
         <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
         
-        <a href="/tags/security.html"> security</a>
+        <a href="/tags/urxvt.html"> urxvt</a>
         
-        <a href="/tags/gpg.html"> gpg</a>
+        <a href="/tags/zsh.html"> zsh</a>
+        
+        <a href="/tags/tmux.html"> tmux</a>
+        
+        <a href="/tags/vim.html"> vim</a>
         
     </span>
     
@@ -132,15 +136,19 @@
 
     </div>
 
-    <h1>GPG Howto</h1>
+    <h1>Vi-Mode Ubiquitous Cursor Indicator</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
 <!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
 <!--          -->
-<!--         <a href="/tags/security.html"> security</a> -->
+<!--         <a href="/tags/urxvt.html"> urxvt</a> -->
 <!--          -->
-<!--         <a href="/tags/gpg.html"> gpg</a> -->
+<!--         <a href="/tags/zsh.html"> zsh</a> -->
+<!--          -->
+<!--         <a href="/tags/tmux.html"> tmux</a> -->
+<!--          -->
+<!--         <a href="/tags/vim.html"> vim</a> -->
 <!--          -->
 <!--     </div> -->
 <!--      -->
@@ -149,458 +157,133 @@
 <div>
     
     <div class="paragraph">
-<p><strong>Audience:</strong> <em>anyone</em></p>
+<p><strong>Audience:</strong> <em>programmers</em></p>
 </div>
 <div class="paragraph">
-<p><strong>Keywords:</strong> <em>gpg security privacy encryption</em></p>
+<p>It should be as easy as possible to tell if you’re in normal or insert mode.
+Your eye tends to be on your cursor, so you’ll find the cursor to be the best
+indicator of your mode. Of course, you’re effectively in Vim when in Zsh
+(<code>bindkey -v</code>, right?), too, so it should have the same cursor indicator.</p>
 </div>
 <div class="paragraph">
-<p>❧❧❧</p>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>At one point I thought changing my name might help with privacy, but that was
-before the Internet. <em>— Olivia Wilde</em></p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>Have you ever told a secret to a friend? Made a transaction at your bank?
-Wrote an entry in your diary? Invented a secret handshake? Been to the doctor?
-Got a "steal" sign from your baseball coach? All of these should
-be private&#8201;&#8212;&#8201;between you and the person or thing you&#8217;re communicating with.
-There are two main technical standards for privacy: TLS/SSL and OpenPGP.
-TLS/SSL are what&#8217;s used to secure the forms you fill out on web pages, and
-handle secure "connections". In this episode we&#8217;ll learn all about OpenPGP,
-AKA Pretty Good Privacy. This is what&#8217;s used to encrypt, sign, and verify
-(prove who the person is) any message or file you write or read. It uses a
-pair of "keys" to do these jobs.</p>
+<p>This recipe has been described scattershot in various places, but never
+comprehensively. This version will give you a solid block cursor in normal
+mode, and a blinking, gray underscore cursor in insert mode. I’ve also set it to
+green block for Zsh, blue for Vim. Change it to whatever you like. It’s big and
+bright so you can easily find it. Then it’s small and flashing to remind you to
+get out of insert mode. Whatever colors/styles you choose, rejoice that it now
+works!</p>
 </div>
 <!-- more -->
 <div class="paragraph">
-<p>GPG is the tool we&#8217;ll focus on that implements the OpenPGP standard. It&#8217;s been
-around for 20+ years and is <em>the</em> industry standard for encrypting, signing,
-and verifying the contents and senders of messages and files. It&#8217;s also pretty
-fun to use.</p>
+<p>I worked for a couple years without having this working in Tmux and it drove me
+crazy. Now that it works well, I find myself using Tmux much more often.</p>
 </div>
 <div class="paragraph">
-<p>The users of OpenPGP form a club of folks who want to build a "Web Of Trust"
-(WOT). Anyone can get in; all you need is:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>A little knowledge of the <code>gpg</code> tool (which you&#8217;ll get here)</p>
-</li>
-<li>
-<p>Some official identification for yourself</p>
-</li>
-<li>
-<p>A willingness to meet people to verify their identity and sign their keys</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>(I hope you&#8217;re already using Zsh. If not, see previous episodes to get up to
-speed.)</p>
-</div>
-<div class="paragraph">
-<p>Zsh has great command completion for <code>gpg</code>. Make sure you&#8217;re <code>tab</code>-ing all the
-time to auto-complete options and arguments.</p>
+<p>This has been battle tested in URxvt, but it also seems to work in Xterm and
+Termite.</p>
 </div>
 <div class="sect1">
-<h2 id="_is_it_worth_the_effort_trouble">Is it worth the effort/trouble?</h2>
+<h2 id="_zsh">Zsh</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>In order to join certain mailing lists and development groups (fedora), the
-first thing you may be asked for is your GPG public key.</p>
-</div>
-<div class="paragraph">
-<p>Some people you work with are going to require that your emails to them be
-signed.</p>
-</div>
-<div class="paragraph">
-<p>If you develop and distribute a software package, many of your users may
-expect to be able to download your public key in order to verify that the
-software comes from you. (<code>pacman -Qi coreutils</code>).
-(<a href="https://wiki.archlinux.org/index.php/pacman-key" class="bare">https://wiki.archlinux.org/index.php/pacman-key</a>) Though it&#8217;s more typically
-just a hash (MD5/SHA1).</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_go_get_some_official_identification">Go get some official identification</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>To make any of this OpenPGP stuff legit, you&#8217;re going to need some real ID.
-Many kids don&#8217;t have ready access to a common ID card. But they should.</p>
-</div>
-<div class="paragraph">
-<p>You absolutely need some sort of official ID. This could be a driver&#8217;s
-licence, identification card (get this from your local DMV; no age
-requirement), school student-body card, birth certificate/card, social
-security card.
-([ID cards in California](<a href="http://www.dmv.ca.gov/dl/dl_info.htm#idcard)" class="bare">http://www.dmv.ca.gov/dl/dl_info.htm#idcard)</a>)</p>
-</div>
-<div class="paragraph">
-<p>If you don&#8217;t think you have a need for a passport, just pick up a state ID
-card from your DMV. It&#8217;s easy and cheap. Too many kids don&#8217;t have ID
-that they can readily show. So go get one.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_commands_not_options">Commands (not options)</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>GPG has several <strong>commands</strong>. They come near the end of the invocation. The ones
-we&#8217;ll care about are:</p>
-</div>
-<div class="literalblock">
+<div class="listingblock">
+<div class="title"><code>~/.zshrc</code></div>
 <div class="content">
-<pre>--gen-key
---gen-revoke
---list-keys    -k
---verify
---encrypt      -e
---decrypt      -d
---sign         -s
---cl(earsign)
---fin(gerprint)</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Some later uses:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>--fingerprint
---recv-keys
---send-keys
---edit-key</pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Options</strong> alter the way commands behave. Most of the options we can set
-permanently in our config file. We&#8217;ll get to that later. But here are some
-important ones:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>--armor
---recipient   -r</pre>
+<pre># Modal cursor color for vi's insert/normal modes.
+# http://stackoverflow.com/questions/30985436/
+# https://bbs.archlinux.org/viewtopic.php?id=95078
+# http://unix.stackexchange.com/questions/115009/how-to-change-the-cursor-theme-in-cli
+zle-line-init () {
+  zle -K viins
+  #echo -ne "\033]12;Grey\007"
+  #echo -n 'grayline1'
+  echo -ne "\033]12;Gray\007"
+  echo -ne "\033[4 q"
+  #print 'did init' &gt;/dev/pts/16
+}
+zle -N zle-line-init
+zle-keymap-select () {
+  if [[ $KEYMAP == vicmd ]]; then
+    if [[ -z $TMUX ]]; then
+      printf "\033]12;Green\007"
+      printf "\033[2 q"
+    else
+      printf "\033Ptmux;\033\033]12;red\007\033\\"
+      printf "\033Ptmux;\033\033[2 q\033\\"
+    fi
+  else
+    if [[ -z $TMUX ]]; then
+      printf "\033]12;Grey\007"
+      printf "\033[4 q"
+    else
+      printf "\033Ptmux;\033\033]12;grey\007\033\\"
+      printf "\033Ptmux;\033\033[4 q\033\\"
+    fi
+  fi
+  #print 'did select' &gt;/dev/pts/16
+}
+zle -N zle-keymap-select</pre>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_creating_your_own_key">Creating your own key</h2>
+<h2 id="_vim">Vim</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="title"><code>~/.vimrc</code></div>
+<div class="content">
+<pre>" http://vim.wikia.com/wiki/Configuring_the_cursor
+" Tmux details: http://reza.jelveh.me/2011/09/18/zsh-tmux-vi-mode-cursor
+if &amp;term =~ "xterm\\|rxvt"
+  " Insert
+  let &amp;t_SI  = "\&lt;Esc&gt;]12;gray\x7"
+  let &amp;t_SI .= "\&lt;Esc&gt;[3 q"
+  " Normal
+  let &amp;t_EI  = "\&lt;Esc&gt;]12;green\x7"
+  let &amp;t_EI .= "\&lt;Esc&gt;[2 q"
+  autocmd VimLeave * silent !echo -ne "\033]112\007"
+elseif &amp;term =~ "screen-it"
+  " Insert
+  let &amp;t_SI  = "\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]12;gray\x7\&lt;Esc&gt;\\"
+  let &amp;t_SI .= "\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[3 q\&lt;Esc&gt;\\"
+  " Normal
+  let &amp;t_EI  = "\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]12;blue\x7\&lt;Esc&gt;\\"
+  let &amp;t_EI .= "\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[2 q\&lt;Esc&gt;\\"
+  autocmd VimLeave * silent !echo -ne "\033Ptmux;\033\033]112\007\&lt;Esc&gt;\\"
+endif</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_tmux">Tmux</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>When creating your keys, you&#8217;ll want to ensure that your name is identical to
-what&#8217;s on your ID cards. If you use your middle name or initial on them, type
-it exactly as it shows on them.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>% gpg --gen-key
-&gt; 1
-&gt; 4096
-&gt; 1y
-&gt; Your Full Real Name
-&gt; you@yourmail.com
-&gt; student and hacker
-&gt; confirm</pre>
-</div>
+<p>I like to keep these lines in my <code>.tmux.conf</code> so I can easily access the
+<code>infocmp</code> and <code>tic</code> commands to run on new machines.</p>
 </div>
 <div class="paragraph">
-<p>Now you need to generate some entropy! Moving your mouse around as instructed
-might not be enough. Here&#8217;s something to run which will speed things up.</p>
+<p>Note that <code>TERM</code> will be auto-set by Tmux now to <code>screen-it</code>.</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
+<div class="title">One time tmux setup commands (keep around in <code>~/.tmux.conf</code>)</div>
 <div class="content">
-<pre>% haveged -n 0 | dieharder -g 200 -a</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Take a look at your new key!</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>gpg --list-keys</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>gpg --list-keys you«tab»</pre>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_revocation_key">Revocation key</h3>
+<pre># One-time setup for italic support (instead of reverse).
+# http://tmux.svn.sourceforge.net/viewvc/tmux/trunk/FAQ
+# % infocmp screen-256color |
+#   sed -e 's/^screen[^|]*|[^,]*,/screen-it|screen with italics support,/' \
+#     -e 's/%?%p1%t;3%/%?%p1%t;7%/' \
+#     -e 's/smso=[^,]*,/smso=\\E[7m,/' \
+#     -e 's/rmso=[^,]*,/rmso=\\E[27m,/' \
+#     -e '$s/$/ sitm=\\E[3m, ritm=\\E[23m,/' \
+#     &gt;| /tmp/screen.terminfo
+# Compile and create binary file ~/.terminfo/s/screen-it
+# % tic /tmp/screen.terminfo
 
+# This is actually active.
+set -g default-terminal "screen-it"</pre>
 </div>
-<div class="sect2">
-<h3 id="_adding_a_picture">Adding a picture</h3>
-<div class="paragraph">
-<p>Your pic should be a JPEG of dimensions 240 wide by 288 tall. Aim for 4 KB in
-size. If you don&#8217;t have a good headshot, use your webcam with a solid
-background. Capture part of your shoulderblades, and all of your head. Crop it
-down, and export to a fairly low resolution/quality. I like <code>gimp</code> for this.
-Tune the size until you get down to ~4KB. (show vid of how to do this)</p>
-</div>
-<div class="paragraph">
-<p>Now let&#8217;s add it.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>gpg --edit-key &lt;your-key-ID&gt; addphoto
-&gt; /full/path/to/you.jpg
-&gt; save</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>GnuPG will then ask you for the filename of your JPEG image. Specify the
-complete path.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_configuration">Configuration</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>There&#8217;s a file in your <code>~/.gnupg</code> directory called <code>gpg.conf</code>. This contains
-several settings that affect the way <code>gpg</code> behaves. Here are the settings
-you&#8217;ll want to enable:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>% vim ~/.gnupg/gpg.conf
----
-keyserver hkp://keys.gnupg.net
-no-greeting
-keyserver-options auto-key-retrieve
-armor
-list-options show-photos
-photo-viewer "feh --title 'GPG: KeyID 0x%k' %i"
-keyid-format long</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_upload_your_key_to_a_key_server">Upload your key to a key server</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Upload your key after once you&#8217;re absolutely certain you&#8217;ve done this as
-described. Once a key gets posted, the only way to remove it is with a
-revocation key.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_getting_others_keys">Getting others' keys</h2>
-<div class="sectionbody">
-<div class="literalblock">
-<div class="content">
-<pre>gpg --recv-keys</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>gpg --import</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Get a [well trusted GPG guru&#8217;s key](<a href="http://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x9CDD9A214EBA9723" class="bare">http://pgp.mit.edu/pks/lookup?op=vindex&amp;search=0x9CDD9A214EBA9723</a>). Take a look at that page and note that his <em>keyID</em> is <code>4EBA9723</code>. Grab it.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>gpg --recv-keys 4EBA9723</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Now let&#8217;s search for someone else&#8217;s key. Visit
-[the GPG search tool](<a href="http://pgp.mit.edu/" class="bare">http://pgp.mit.edu/</a>).</p>
-</div>
-<div class="paragraph">
-<p>Actually, we can do it from the command line:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>gpg --sea(rch-keys)</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Search for "Richard Stallman". Notice that there are several of them. How do
-you know which to trust? Head over to his site and note his message:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>"to be really sure which key is mine, you need to get my key fingerprint
-from me or follow a chain of signatures."</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Here&#8217;s a security legend: Bruce Schneier</p>
-</div>
-<div class="paragraph">
-<p>Some people post their pubkeys on their websites. Here are a couple examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Bruce Schneier: <a href="https://www.schneier.com/contact.html" class="bare">https://www.schneier.com/contact.html</a></p>
-</li>
-<li>
-<p>Postmodern: <a href="http://postmodern.github.io/contact.html" class="bare">http://postmodern.github.io/contact.html</a></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_how_to_make_sense_of_gpg_output">How to make sense of gpg output</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Bruce Schneier no longer keeps his current valid key on a key server. You have
-to go to his site to download it. Actually, select and copy it from that page
-and paste it into <code>pubkey.schneier.com.asc</code>.</p>
-</div>
-<div class="paragraph">
-<p>Now let&#8217;s import it. This is essentially the same thing as a <code>--recv-keys</code> does.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>gpg --import pubkey.schneier.com.asc</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Let&#8217;s look at Bruce Schneier&#8217;s GPG info:</p>
-</div>
-<div class="paragraph">
-<p>9A98966F</p>
-</div>
-<div class="paragraph">
-<p>Notice that both of these luminaries are now using 4096-bit keys. That&#8217;s why
-we bumped ours up, too.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_testing_dummy_keys">Testing dummy keys</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Generate a new user on your system, or partner up with a friend.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_exchanging_keys_with_people_you_meet">Exchanging keys with people you meet</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>You should only sign keys for persons you meet face-to-face. The goal is to
-verify their <em>identity</em>, not how good of a person she is. Here&#8217;s what you
-need from them.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_inspecting_someone_s_key">Inspecting someone&#8217;s key</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Check their fingerprint</p>
-</div>
-<div class="paragraph">
-<p>View their picture.
-    gpg --list-keys --list-options show-photo mde</p>
-</div>
-<div class="sect2">
-<h3 id="_key_signing_parties">Key-signing parties</h3>
-
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_other_tools">Other tools</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Entropy generation (haveged, dieharder):
-    haveged -n 0 | dieharder -g 200 -a</p>
-</div>
-<div class="paragraph">
-<p>Seahorse key manager GUI</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_other_cool_uses_for_gpg">Other cool uses for GPG</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>bitcoin privacy</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_terminology">Terminology</h2>
-<div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p>Web Of Trust (WOT)&#8201;&#8212;&#8201;a network of folks who have signed each others' keys</p>
-</li>
-<li>
-<p>subkey&#8201;&#8212;&#8201;same as a pubkey (public key); pub and priv are each "sub"-keys
-since it takes them both together to make the "full" key.</p>
-</li>
-<li>
-<p>key server&#8201;&#8212;&#8201;keys.gnupg.net, pgp.mit.edu</p>
-</li>
-<li>
-<p>PKI&#8201;&#8212;&#8201;Public Key Infrastructure (the systems, people, and keys that service the WOT)</p>
-</li>
-<li>
-<p><code>gpg</code>&#8201;&#8212;&#8201;CLI interface with a lot of options</p>
-</li>
-<li>
-<p><code>.asc</code>&#8201;&#8212;&#8201;a plain ASCII file encoding; basically plain readable (not binary) text</p>
-</li>
-<li>
-<p><code>.sig</code></p>
-</li>
-<li>
-<p>fingerprint&#8201;&#8212;&#8201;a long hex string identifying they person/key; view with:</p>
-</li>
-<li>
-<p>keyID&#8201;&#8212;&#8201;a short version of the fingerprint; these are shown everywhere! eg, <code>299C28F0</code></p>
-</li>
-<li>
-<p>signature&#8201;&#8212;&#8201;the signings of a given key, the more the better</p>
-</li>
-<li>
-<p>signing</p>
-</li>
-<li>
-<p>hkp&#8201;&#8212;&#8201;Horowitz Key Protocol, eg: hkp://pgp.mit.edu</p>
-</li>
-<li>
-<p>certificate</p>
-</li>
-<li>
-<p>non-repudiation</p>
-</li>
-<li>
-<p>rsa&#8201;&#8212;&#8201;the only algorithm you&#8217;ll want to use</p>
-</li>
-<li>
-<p>base64&#8201;&#8212;&#8201;the encoding of ascii you can read</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
@@ -609,21 +292,29 @@ since it takes them both together to make the "full" key.</p>
 <!-- <div id="post-tags"> -->
 <!--     <b>Tags: </b> -->
 <!--      -->
-<!--     <a href="/tags/security.html">security</a> -->
+<!--     <a href="/tags/urxvt.html">urxvt</a> -->
 <!--      -->
-<!--     <a href="/tags/gpg.html">gpg</a> -->
+<!--     <a href="/tags/zsh.html">zsh</a> -->
+<!--      -->
+<!--     <a href="/tags/tmux.html">tmux</a> -->
+<!--      -->
+<!--     <a href="/tags/vim.html">vim</a> -->
 <!--      -->
 <!-- </div> -->
 <!--  -->
 
-    
-
     <div id="prev-next">
         
+        <a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">&laquo; Stack Overflow’s Motivation Engine</a>
         
-        <a class="right" href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine &raquo;</a>
+        
+        <a class="right" href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest &raquo;</a>
         
     </div>
+
+    
+
+
 </div>
 
             </div>
@@ -793,7 +484,7 @@ since it takes them both together to make the "full" key.</p>
 </div>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="js/highlight.pack.js" type="text/javascript"></script>
+<script src="../js/highlight.pack.js" type="text/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
 <script>

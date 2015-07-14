@@ -39,12 +39,14 @@
                 <li >
                   <a href="/index.html">
                     <i class="fa fa-home"></i>
-                    Home</a></li>
+                    <!-- Home</a></li> -->
+                    ~</a></li>
                 <li
                 >
                   <a href="/archives.html">
                   <i class="fa fa-archive"></i>
-                  Archives</a></li>
+                  <!-- Archives</a></li> -->
+                  ~/doc</a></li>
 
                 <!--  -->
                 <!-- <li -->
@@ -74,20 +76,24 @@
 
                 <li
                   >
-                  <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li>
+                  <!-- <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li> -->
+                  <a href="/pages/about.html"><i class="fa fa-info-circle"></i> README</a></li>
 
                 <li
                   >
-                  <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> Projects</a></li>
+                  <!-- <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> Projects</a></li> -->
+                  <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> ~/src/proj</a></li>
 
                 <li
                   >
-                  <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> GPG Key</a></li>
+                  <!-- <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> GPG Key</a></li> -->
+                  <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> gpg.asc</a></li>
 
                 <!-- <li><a href="/feed.xml"> -->
                 <li><a href="http://feeds.feedburner.com/micahelliott/blog">
                     <i class="fa fa-rss"></i>
-                    RSS</a></li>
+                    <!-- RSS</a></li> -->
+                    rss.xml</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
@@ -141,7 +147,7 @@
 
 </div>
 <div>
-    <ol class="contents"><li><a href="#_ls">LS</a></li><ol><li><a href="#_pros">Pros</a></li><li><a href="#_cons">Cons</a></li></ol><li><a href="#_clj_s">CLJ(S)</a></li><ol><li><a href="#_pros_2">Pros</a></li><li><a href="#_cons_2">Cons</a></li></ol><li><a href="#_racket">Racket</a></li><ol><li><a href="#_pros_3">Pros</a></li><li><a href="#_cons_3">Cons</a></li></ol><li><a href="#_es6">ES6</a></li><ol><li><a href="#_cons_4">Cons</a></li></ol><li><a href="#_r">R</a></li><ol><li><a href="#_pros_4">Pros</a></li><li><a href="#_cons_5">Cons</a></li></ol><li><a href="#_but_what_do_they_want_to_build">But what do they want to build?</a></li><li><a href="#_requirements">Requirements</a></li></ol>
+    <ol class="contents"><li><a href="#_ls">LS</a></li><ol><li><a href="#_pros">Pros</a></li><li><a href="#_cons">Cons</a></li></ol><li><a href="#_clj_s">CLJ(S)</a></li><ol><li><a href="#_pros_2">Pros</a></li><li><a href="#_cons_2">Cons</a></li></ol><li><a href="#_racket">Racket</a></li><ol><li><a href="#_pros_3">Pros</a></li><li><a href="#_cons_3">Cons</a></li></ol><li><a href="#_es6">ES6</a></li><ol><li><a href="#_cons_4">Cons</a></li></ol><li><a href="#_r">R</a></li><ol><li><a href="#_pros_4">Pros</a></li><li><a href="#_cons_5">Cons</a></li><li><a href="#_compelling_rstudio_features">Compelling RStudio Features</a></li><ol><li><a href="#_pros_5">Pros</a></li><li><a href="#_cons_6">Cons</a></li></ol></ol><li><a href="#_but_what_do_they_want_to_build">But what do they want to build?</a></li><li><a href="#_requirements">Requirements</a></li></ol>
     <div class="paragraph">
 <p>The following are my pros/cons notes comparing LiveScript (which I really loved
 using) to Clojure(Script), and eventually to Racket. The conclusion was that
@@ -273,19 +279,22 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <p>avoids node event loop</p>
 </li>
 <li>
+<p>4clojure for practice/competition</p>
+</li>
+<li>
 <p>multi-runtime options (java, node, browser)</p>
 </li>
 <li>
 <p>maybe preferred by academics</p>
 </li>
 <li>
-<p>clojureone</p>
-</li>
-<li>
 <p>browser repl?</p>
 </li>
 <li>
 <p>native structures more expressive/concise than json and racket&#8217;s</p>
+</li>
+<li>
+<p>edn</p>
 </li>
 <li>
 <p>concurrency</p>
@@ -298,9 +307,6 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 </li>
 <li>
 <p>laziness</p>
-</li>
-<li>
-<p>macros</p>
 </li>
 <li>
 <p>clojure toolbox (nicely settles on a few tools for any job)</p>
@@ -327,10 +333,10 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <p>simple web deployment via uberjar/uberwar to jetty, tomcat, or nginx</p>
 </li>
 <li>
-<p>4clojure for practice/competition</p>
+<p>google closure compiler/optimizer (though heavy)</p>
 </li>
 <li>
-<p>google closure compiler/optimizer (though heavy)</p>
+<p>macros</p>
 </li>
 </ul>
 </div>
@@ -340,13 +346,16 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>lots of parens, more verbose</p>
-</li>
-<li>
-<p>slow startup?</p>
+<p>too bulky for raspi!</p>
 </li>
 <li>
 <p>memory hogging beast! so not good for kids learning on limited hw</p>
+</li>
+<li>
+<p>slow startup? (but maybe okay since single repl stays alive for days)</p>
+</li>
+<li>
+<p>lots of parens, more verbose</p>
 </li>
 <li>
 <p>prefers emacs (but PG uses vi)</p>
@@ -359,6 +368,9 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 </li>
 <li>
 <p>lacking JavaScript/node/npm ecosystem?</p>
+</li>
+<li>
+<p>complexity of setup</p>
 </li>
 <li>
 <p>terrible error messages, but <a href="https://github.com/mmcgrana/clj-stacktrace">clj-stacktrace</a></p>
@@ -383,6 +395,9 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 </li>
 <li>
 <p>actually is plt-scheme, so little schemer and sicp also apply</p>
+</li>
+<li>
+<p>has graph plotting and math modules</p>
 </li>
 <li>
 <p>well accepted as academic/teaching language, with scheme history</p>
@@ -450,6 +465,12 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <li>
 <p>browsable package repo: <a href="http://pkgs.racket-lang.org/" class="bare">http://pkgs.racket-lang.org/</a> and <a href="http://planet.racket-lang.org" class="bare">http://planet.racket-lang.org</a></p>
 </li>
+<li>
+<p>only 20 MB for racket-minimal install</p>
+</li>
+<li>
+<p>probably great tdd testing utils</p>
+</li>
 </ul>
 </div>
 </div>
@@ -464,7 +485,7 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <p>lacking ecosystem (web framework, templating, overtone, etc)</p>
 </li>
 <li>
-<p>no vim plugins like fireplace/vim-sexp?</p>
+<p>no vim plugins like fireplace/vim-sexp? (workflow)</p>
 </li>
 <li>
 <p>lacking libraries (mongo, etc)</p>
@@ -524,6 +545,12 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <p>vector oriented</p>
 </li>
 <li>
+<p>replaces graphing calculator</p>
+</li>
+<li>
+<p>fits math/stats curriculum</p>
+</li>
+<li>
 <p>libraries</p>
 </li>
 <li>
@@ -542,9 +569,6 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <p>math and data oriented</p>
 </li>
 <li>
-<p>fits math/stats curriculum</p>
-</li>
-<li>
 <p>so many books/learning resources</p>
 </li>
 <li>
@@ -561,6 +585,9 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>no hash/dict native</p>
+</li>
+<li>
 <p>not a lisp</p>
 </li>
 <li>
@@ -572,7 +599,45 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <li>
 <p>have to know stats to do much</p>
 </li>
+<li>
+<p>probably not as good tdd testing utils</p>
+</li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_compelling_rstudio_features">Compelling RStudio Features</h3>
+<div class="sect3">
+<h4 id="_pros_5">Pros</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>spreadsheet</p>
+</li>
+<li>
+<p>searchable help and libs</p>
+</li>
+<li>
+<p>graphic window mgmt</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_cons_6">Cons</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>binary is 260 MB</p>
+</li>
+<li>
+<p>bad fonts and colors</p>
+</li>
+<li>
+<p>mouse-oriented</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -613,7 +678,7 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
 <p>interfaces</p>
 </li>
 <li>
-<p>iot/devices (home automation)</p>
+<p>iot/devices (home automation: lights, garage door)</p>
 </li>
 <li>
 <p>making music</p>
@@ -718,11 +783,11 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
                         
                         <li><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></li>
                         
+                        <li><a href="/posts/2015-07-20-vim-zsh-tmux-cursor.html">Vi-Mode Ubiquitous Cursor Indicator</a></li>
+                        
                         <li><a href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest</a></li>
                         
                         <li><a href="/posts/2015-07-13-clojure-vim-setup.html">Clojure with Vim Setup</a></li>
-                        
-                        <li><a href="/posts/2015-07-09-awesome-awk.html">Awesome Awk</a></li>
                         
                     </ul>
                 </div>
@@ -734,6 +799,8 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/foo.html">foo</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/urxvt.html">urxvt</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
@@ -744,6 +811,8 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/clojure.html">clojure</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/zsh.html">zsh</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
@@ -751,6 +820,8 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
                         <!-- <li><a href="/tags/gpg.html">gpg</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/centos.html">centos</a></li> -->
                         <!--  -->
@@ -785,6 +856,8 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
                         
                         <a href="/tags/foo.html">foo</a>
                         
+                        <a href="/tags/urxvt.html">urxvt</a>
+                        
                         <a href="/tags/deploy.html">deploy</a>
                         
                         <a href="/tags/github.html">github</a>
@@ -795,6 +868,8 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
                         
                         <a href="/tags/clojure.html">clojure</a>
                         
+                        <a href="/tags/zsh.html">zsh</a>
+                        
                         <a href="/tags/ansible.html">ansible</a>
                         
                         <a href="/tags/i3.html">i3</a>
@@ -802,6 +877,8 @@ ClojureScript wins, partly because of my other biases toward Clojure.</p>
                         <a href="/tags/gpg.html">gpg</a>
                         
                         <a href="/tags/draft.html">draft</a>
+                        
+                        <a href="/tags/tmux.html">tmux</a>
                         
                         <a href="/tags/centos.html">centos</a>
                         

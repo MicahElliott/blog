@@ -15,7 +15,7 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Thu, 09 Jul 2015 19:11:38 -0700
+Tue, 14 Jul 2015 16:48:13 -0700
 </lastBuildDate>
 <item>
 <guid>
@@ -552,11 +552,23 @@ silver, and gold. It’s pretty challenging to get even a silver.&lt;/p&gt;
 &lt;em&gt;archaeologist&lt;/em&gt; badge: edit some old posts.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ultimately, people are on SO to prove their worth and get hired. So the&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_surprises&quot;&gt;Surprises&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;You’re given a pleasant surprise when they tell you that they’ve removed ads
 since you’re such a great participant.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Ultimately, people are on SO to prove their worth and get hired. So the&lt;/p&gt;
+&lt;p&gt;There’s an invisible goal of getting to 200 points. It opens a few doors, but
+you have to poke around to discover that it’s a key number. When you finally hit
+it, you’re invited to join the “Careers” portal and create a resume. You also
+suddenly get a 100-point boost across all the sites in the network. This was
+huge!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -580,6 +592,153 @@ questions that they shortly thereafter answer themselves.&lt;/p&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;I suppose you could also create a dummy account that spends a lot of its time
 upvoting your real posts.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Mon, 20 Jul 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
+</link>
+<title>
+Vi-Mode Ubiquitous Cursor Indicator
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;programmers&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It should be as easy as possible to tell if you’re in normal or insert mode.
+Your eye tends to be on your cursor, so you’ll find the cursor to be the best
+indicator of your mode. Of course, you’re effectively in Vim when in Zsh
+(&lt;code&gt;bindkey -v&lt;/code&gt;, right?), too, so it should have the same cursor indicator.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This recipe has been described scattershot in various places, but never
+comprehensively. This version will give you a solid block cursor in normal
+mode, and a blinking, gray underscore cursor in insert mode. I’ve also set it to
+green block for Zsh, blue for Vim. Change it to whatever you like. It’s big and
+bright so you can easily find it. Then it’s small and flashing to remind you to
+get out of insert mode. Whatever colors/styles you choose, rejoice that it now
+works!&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I worked for a couple years without having this working in Tmux and it drove me
+crazy. Now that it works well, I find myself using Tmux much more often.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This has been battle tested in URxvt, but it also seems to work in Xterm and
+Termite.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_zsh&quot;&gt;Zsh&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;&lt;code&gt;~/.zshrc&lt;/code&gt;&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Modal cursor color for vi's insert/normal modes.
+# http://stackoverflow.com/questions/30985436/
+# https://bbs.archlinux.org/viewtopic.php?id=95078
+# http://unix.stackexchange.com/questions/115009/how-to-change-the-cursor-theme-in-cli
+zle-line-init () {
+  zle -K viins
+  #echo -ne &quot;\033]12;Grey\007&quot;
+  #echo -n 'grayline1'
+  echo -ne &quot;\033]12;Gray\007&quot;
+  echo -ne &quot;\033[4 q&quot;
+  #print 'did init' &amp;gt;/dev/pts/16
+}
+zle -N zle-line-init
+zle-keymap-select () {
+  if [[ $KEYMAP == vicmd ]]; then
+    if [[ -z $TMUX ]]; then
+      printf &quot;\033]12;Green\007&quot;
+      printf &quot;\033[2 q&quot;
+    else
+      printf &quot;\033Ptmux;\033\033]12;red\007\033\\&quot;
+      printf &quot;\033Ptmux;\033\033[2 q\033\\&quot;
+    fi
+  else
+    if [[ -z $TMUX ]]; then
+      printf &quot;\033]12;Grey\007&quot;
+      printf &quot;\033[4 q&quot;
+    else
+      printf &quot;\033Ptmux;\033\033]12;grey\007\033\\&quot;
+      printf &quot;\033Ptmux;\033\033[4 q\033\\&quot;
+    fi
+  fi
+  #print 'did select' &amp;gt;/dev/pts/16
+}
+zle -N zle-keymap-select&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_vim&quot;&gt;Vim&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;&lt;code&gt;~/.vimrc&lt;/code&gt;&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;&quot; http://vim.wikia.com/wiki/Configuring_the_cursor
+&quot; Tmux details: http://reza.jelveh.me/2011/09/18/zsh-tmux-vi-mode-cursor
+if &amp;amp;term =~ &quot;xterm\\|rxvt&quot;
+  &quot; Insert
+  let &amp;amp;t_SI  = &quot;\&amp;lt;Esc&amp;gt;]12;gray\x7&quot;
+  let &amp;amp;t_SI .= &quot;\&amp;lt;Esc&amp;gt;[3 q&quot;
+  &quot; Normal
+  let &amp;amp;t_EI  = &quot;\&amp;lt;Esc&amp;gt;]12;green\x7&quot;
+  let &amp;amp;t_EI .= &quot;\&amp;lt;Esc&amp;gt;[2 q&quot;
+  autocmd VimLeave * silent !echo -ne &quot;\033]112\007&quot;
+elseif &amp;amp;term =~ &quot;screen-it&quot;
+  &quot; Insert
+  let &amp;amp;t_SI  = &quot;\&amp;lt;Esc&amp;gt;Ptmux;\&amp;lt;Esc&amp;gt;\&amp;lt;Esc&amp;gt;]12;gray\x7\&amp;lt;Esc&amp;gt;\\&quot;
+  let &amp;amp;t_SI .= &quot;\&amp;lt;Esc&amp;gt;Ptmux;\&amp;lt;Esc&amp;gt;\&amp;lt;Esc&amp;gt;[3 q\&amp;lt;Esc&amp;gt;\\&quot;
+  &quot; Normal
+  let &amp;amp;t_EI  = &quot;\&amp;lt;Esc&amp;gt;Ptmux;\&amp;lt;Esc&amp;gt;\&amp;lt;Esc&amp;gt;]12;blue\x7\&amp;lt;Esc&amp;gt;\\&quot;
+  let &amp;amp;t_EI .= &quot;\&amp;lt;Esc&amp;gt;Ptmux;\&amp;lt;Esc&amp;gt;\&amp;lt;Esc&amp;gt;[2 q\&amp;lt;Esc&amp;gt;\\&quot;
+  autocmd VimLeave * silent !echo -ne &quot;\033Ptmux;\033\033]112\007\&amp;lt;Esc&amp;gt;\\&quot;
+endif&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_tmux&quot;&gt;Tmux&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I like to keep these lines in my &lt;code&gt;.tmux.conf&lt;/code&gt; so I can easily access the
+&lt;code&gt;infocmp&lt;/code&gt; and &lt;code&gt;tic&lt;/code&gt; commands to run on new machines.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Note that &lt;code&gt;TERM&lt;/code&gt; will be auto-set by Tmux now to &lt;code&gt;screen-it&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;One time tmux setup commands (keep around in &lt;code&gt;~/.tmux.conf&lt;/code&gt;)&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# One-time setup for italic support (instead of reverse).
+# http://tmux.svn.sourceforge.net/viewvc/tmux/trunk/FAQ
+# % infocmp screen-256color |
+#   sed -e 's/^screen[^|]*|[^,]*,/screen-it|screen with italics support,/' \
+#     -e 's/%?%p1%t;3%/%?%p1%t;7%/' \
+#     -e 's/smso=[^,]*,/smso=\\E[7m,/' \
+#     -e 's/rmso=[^,]*,/rmso=\\E[27m,/' \
+#     -e '$s/$/ sitm=\\E[3m, ritm=\\E[23m,/' \
+#     &amp;gt;| /tmp/screen.terminfo
+# Compile and create binary file ~/.terminfo/s/screen-it
+# % tic /tmp/screen.terminfo
+
+# This is actually active.
+set -g default-terminal &quot;screen-it&quot;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1977,19 +2136,22 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;p&gt;avoids node event loop&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;4clojure for practice/competition&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;multi-runtime options (java, node, browser)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;maybe preferred by academics&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;clojureone&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;browser repl?&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;native structures more expressive/concise than json and racket&amp;#8217;s&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;edn&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;concurrency&lt;/p&gt;
@@ -2002,9 +2164,6 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;laziness&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;macros&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;clojure toolbox (nicely settles on a few tools for any job)&lt;/p&gt;
@@ -2031,10 +2190,10 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;p&gt;simple web deployment via uberjar/uberwar to jetty, tomcat, or nginx&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;4clojure for practice/competition&lt;/p&gt;
+&lt;p&gt;google closure compiler/optimizer (though heavy)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;google closure compiler/optimizer (though heavy)&lt;/p&gt;
+&lt;p&gt;macros&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -2044,13 +2203,16 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;lots of parens, more verbose&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;slow startup?&lt;/p&gt;
+&lt;p&gt;too bulky for raspi!&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;memory hogging beast! so not good for kids learning on limited hw&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;slow startup? (but maybe okay since single repl stays alive for days)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lots of parens, more verbose&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;prefers emacs (but PG uses vi)&lt;/p&gt;
@@ -2063,6 +2225,9 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;lacking JavaScript/node/npm ecosystem?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;complexity of setup&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;terrible error messages, but &lt;a href=&quot;https://github.com/mmcgrana/clj-stacktrace&quot;&gt;clj-stacktrace&lt;/a&gt;&lt;/p&gt;
@@ -2087,6 +2252,9 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;actually is plt-scheme, so little schemer and sicp also apply&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;has graph plotting and math modules&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;well accepted as academic/teaching language, with scheme history&lt;/p&gt;
@@ -2154,6 +2322,12 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;browsable package repo: &lt;a href=&quot;http://pkgs.racket-lang.org/&quot; class=&quot;bare&quot;&gt;http://pkgs.racket-lang.org/&lt;/a&gt; and &lt;a href=&quot;http://planet.racket-lang.org&quot; class=&quot;bare&quot;&gt;http://planet.racket-lang.org&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;only 20 MB for racket-minimal install&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;probably great tdd testing utils&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2168,7 +2342,7 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;p&gt;lacking ecosystem (web framework, templating, overtone, etc)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;no vim plugins like fireplace/vim-sexp?&lt;/p&gt;
+&lt;p&gt;no vim plugins like fireplace/vim-sexp? (workflow)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;lacking libraries (mongo, etc)&lt;/p&gt;
@@ -2228,6 +2402,12 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;p&gt;vector oriented&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;replaces graphing calculator&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;fits math/stats curriculum&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;libraries&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2246,9 +2426,6 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;p&gt;math and data oriented&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;fits math/stats curriculum&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
 &lt;p&gt;so many books/learning resources&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2265,6 +2442,9 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
+&lt;p&gt;no hash/dict native&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;not a lisp&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -2276,7 +2456,45 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;li&gt;
 &lt;p&gt;have to know stats to do much&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;probably not as good tdd testing utils&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_compelling_rstudio_features&quot;&gt;Compelling RStudio Features&lt;/h3&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;_pros_5&quot;&gt;Pros&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;spreadsheet&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;searchable help and libs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;graphic window mgmt&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect3&quot;&gt;
+&lt;h4 id=&quot;_cons_6&quot;&gt;Cons&lt;/h4&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;binary is 260 MB&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;bad fonts and colors&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;mouse-oriented&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2317,7 +2535,7 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;p&gt;interfaces&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;iot/devices (home automation)&lt;/p&gt;
+&lt;p&gt;iot/devices (home automation: lights, garage door)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;making music&lt;/p&gt;
