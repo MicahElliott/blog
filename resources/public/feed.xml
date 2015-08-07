@@ -15,8 +15,41 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Tue, 14 Jul 2015 16:48:13 -0700
+Fri, 07 Aug 2015 13:27:39 -0700
 </lastBuildDate>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-08-20-remap-lisp-keys.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-08-20-remap-lisp-keys.html
+</link>
+<title>
+Keyboard Remapping for Lisp
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Do you find that &lt;code&gt;(&lt;/code&gt; and &lt;code&gt;)&lt;/code&gt; are a pain to constantly reach for? You may have
+already swapped your &lt;em&gt;Ctrl&lt;/em&gt; and &lt;em&gt;CapsLock&lt;/em&gt; keys, but in the post I’ll show you a
+sensible way to take it to the next level. Rearranging a few important keys can
+really improve your comfort level and productivity.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I keep a personal script file that takes care of all my mappings:
+&lt;code&gt;~/bin/modmap&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_how_code_xmodmap_code_works&quot;&gt;How &lt;code&gt;xmodmap&lt;/code&gt; works&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 20 Aug 2015 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-08-08-gpg-howto.html
@@ -705,7 +738,7 @@ elseif &amp;amp;term =~ &quot;screen-it&quot;
   &quot; Normal
   let &amp;amp;t_EI  = &quot;\&amp;lt;Esc&amp;gt;Ptmux;\&amp;lt;Esc&amp;gt;\&amp;lt;Esc&amp;gt;]12;blue\x7\&amp;lt;Esc&amp;gt;\\&quot;
   let &amp;amp;t_EI .= &quot;\&amp;lt;Esc&amp;gt;Ptmux;\&amp;lt;Esc&amp;gt;\&amp;lt;Esc&amp;gt;[2 q\&amp;lt;Esc&amp;gt;\\&quot;
-  autocmd VimLeave * silent !echo -ne &quot;\033Ptmux;\033\033]112\007\&amp;lt;Esc&amp;gt;\\&quot;
+  autocmd VimLeave * silent !printf “\033Ptmux;\033\033]12;grey\007\033\\”
 endif&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1264,7 +1297,7 @@ dk build --rm -t maci/systemd .&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;dk run -h dk2 --rm -t -i -p 2222:22 -v /sys/fs/cgroup:/sys/fs/cgroup:ro maci/systemd /usr/lib/systemd/systemd&lt;/pre&gt;
+&lt;pre&gt;dk run -h dk1 --rm -t -i -p 2221:22 -v /sys/fs/cgroup:/sys/fs/cgroup:ro maci/systemd /usr/lib/systemd/systemd&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -1284,10 +1317,44 @@ dk inspect 097241cd8024 |grep IPAddress&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;sshpass -p root ssh dk2
+&lt;pre&gt;sshpass -p root ssh dk1
 # Oops. Wipe existing/offending key.
 sed -i '47d' ~/.ssh/known_hosts
-sshpass -p root ssh dk2&lt;/pre&gt;
+sshpass -p root ssh dk1&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Manually install the very basics, and set up a deploy user, say “dummy”:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# yum -y install openssh-clients sudo; useradd -m -G wheel dummy; passwd dummy&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Get dummy into a good state:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# su - dummy
+% ssh somewhere-valid
+&amp;gt; yes  # then ^c, just wanted proper .ssh/ dir created&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Set up to watch progress in a logged in shell:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;% sudo journalctl -xaf&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Copy your ssh key onto it:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;scp ~/.ssh/id_rsa.pub dk1:~/.ssh/authorized_keys&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -1295,19 +1362,11 @@ sshpass -p root ssh dk2&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;ansible-playbook -u root -l offsvrs:172.17.0.2 -k site.yml -v&lt;/pre&gt;
+&lt;pre&gt;time ansible-playbook --skip=skip,security,nondocker -u dummy -b --ask-become-pass -l offsvrs:172.17.0.1 site.yml -v ; beep&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Watch progress:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;journalctl -xaf&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Shut down instance:&lt;/p&gt;
+&lt;p&gt;When you’re done testing, shut down instance:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;

@@ -212,7 +212,7 @@ dk build --rm -t maci/systemd .</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>dk run -h dk2 --rm -t -i -p 2222:22 -v /sys/fs/cgroup:/sys/fs/cgroup:ro maci/systemd /usr/lib/systemd/systemd</pre>
+<pre>dk run -h dk1 --rm -t -i -p 2221:22 -v /sys/fs/cgroup:/sys/fs/cgroup:ro maci/systemd /usr/lib/systemd/systemd</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -232,10 +232,44 @@ dk inspect 097241cd8024 |grep IPAddress</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>sshpass -p root ssh dk2
+<pre>sshpass -p root ssh dk1
 # Oops. Wipe existing/offending key.
 sed -i '47d' ~/.ssh/known_hosts
-sshpass -p root ssh dk2</pre>
+sshpass -p root ssh dk1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Manually install the very basics, and set up a deploy user, say “dummy”:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># yum -y install openssh-clients sudo; useradd -m -G wheel dummy; passwd dummy</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Get dummy into a good state:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># su - dummy
+% ssh somewhere-valid
+&gt; yes  # then ^c, just wanted proper .ssh/ dir created</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Set up to watch progress in a logged in shell:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>% sudo journalctl -xaf</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Copy your ssh key onto it:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>scp ~/.ssh/id_rsa.pub dk1:~/.ssh/authorized_keys</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -243,19 +277,11 @@ sshpass -p root ssh dk2</pre>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>ansible-playbook -u root -l offsvrs:172.17.0.2 -k site.yml -v</pre>
+<pre>time ansible-playbook --skip=skip,security,nondocker -u dummy -b --ask-become-pass -l offsvrs:172.17.0.1 site.yml -v ; beep</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Watch progress:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>journalctl -xaf</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Shut down instance:</p>
+<p>When you’re done testing, shut down instance:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -463,6 +489,8 @@ end</pre>
                     <li><a href="https://www.linkedin.com/in/micahelliott">Micah’s LinkedIn</a></li>
                     <li><a href="http://stackoverflow.com/users/326516/micah-elliott">Micah’s Stack Overflow</a></li>
                     <!--  -->
+                    <!-- <li><a href="/pages/hireme.html">Hire Me</a></li> -->
+                    <!--  -->
                     <!-- <li><a href="/pages/topics.html">Future Topics</a></li> -->
                     <!--  -->
                 </ul>
@@ -472,6 +500,8 @@ end</pre>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp</a></li>
+                        
                         <li><a href="/posts/2015-08-08-gpg-howto.html">GPG Howto</a></li>
                         
                         <li><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></li>
@@ -479,8 +509,6 @@ end</pre>
                         <li><a href="/posts/2015-07-20-vim-zsh-tmux-cursor.html">Vi-Mode Ubiquitous Cursor Indicator</a></li>
                         
                         <li><a href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest</a></li>
-                        
-                        <li><a href="/posts/2015-07-13-clojure-vim-setup.html">Clojure with Vim Setup</a></li>
                         
                     </ul>
                 </div>
@@ -528,11 +556,15 @@ end</pre>
                         <!--  -->
                         <!-- <li><a href="/tags/docker.html">docker</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/keyboard.html">keyboard</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/vim.html">vim</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/lisp.html">lisp</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
                         <!--  -->
@@ -585,11 +617,15 @@ end</pre>
                         
                         <a href="/tags/docker.html">docker</a>
                         
+                        <a href="/tags/keyboard.html">keyboard</a>
+                        
                         <a href="/tags/vim.html">vim</a>
                         
                         <a href="/tags/awk.html">awk</a>
                         
                         <a href="/tags/markdown.html">markdown</a>
+                        
+                        <a href="/tags/lisp.html">lisp</a>
                         
                         <a href="/tags/nuc.html">nuc</a>
                         
