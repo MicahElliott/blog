@@ -203,6 +203,20 @@ a {
     color: dodgerblue;
 }
 
+blockquote p {
+    font-style: italic;
+    font-size: 15px;
+}
+
+pre, code, .hljs {
+    background-color: #EEE;
+}
+
+pre {
+  border: 1px solid #c7254e;
+}
+
+
 #sidebar a, #prev-next a {
     font-family: 'helvetica';
     font-family: 'pt sans';

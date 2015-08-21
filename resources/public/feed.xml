@@ -15,8 +15,144 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Fri, 07 Aug 2015 13:27:39 -0700
+Thu, 20 Aug 2015 18:11:13 -0700
 </lastBuildDate>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-08-20-vim-sexp-cheat-sheet.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-08-20-vim-sexp-cheat-sheet.html
+</link>
+<title>
+Vim Sexp Cheat Sheet
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are two fantastic Vim plugins that make editing parentheses-heavy Lisp
+code (e.g., Racket or Clojure) a delight. I don’t know I lived without
+making much use of these for years: &lt;em&gt;parentheses can be terribly unwieldy&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/guns/vim-sexp&quot;&gt;Vim-Sexp&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/tpope/vim-sexp-mappings-for-regular-people&quot;&gt;Sexp for Regular People&lt;/a&gt;,
+aka SRP, pronounced “Syrup”&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Install them both now if you haven’t already! And read on for &lt;strong&gt;the cheat sheet
+that makes wrangling parentheses a walk in the park&lt;/strong&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Emacs users know that what appear to be a preponderance of brackets are
+really hooks the editor may use to effortlessly transform the text before
+them.&amp;#8201;&amp;#8212;&amp;#8201;guns (author of vim-sexp)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;SRP has a short README that describes all of its mappings, and it gets you most
+of the way to bliss. But there are a few from Sexp that are still very handy.
+Unlike SRP, Sexp has a lot of documentation, in both its README and vimdoc. This
+guide puts together the docs from both projects into a short, memorizable cheat
+sheet, choosing what I feel are the simplest/best set. These mostly avoid the
+&lt;a href=&quot;http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim&quot;&gt;troublesome
+Alt/Meta&lt;/a&gt;, leader (which tpope doesn’t like much), and visual selection
+(sometimes a crutch). Where &lt;code&gt;&amp;lt;leader&amp;gt;&lt;/code&gt; is still needed, I’ve just marked &lt;code&gt;,&lt;/code&gt; (my
+leader) for brevity.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Movement
+()      move cursor to matching paren (same as % but easier) _[SEXP]_
+[[ ]]   move cursor to top-level element _[SEXP]_
+W B E   move cursor element/form-wise&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Indent
+==      indent form  _[SEXP]_
+=-      indent top level _[SEXP]_
+=&amp;lt;movement&amp;gt;  indent whatever&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Move elements/forms around
+&amp;gt;e &amp;lt;e     move element right/left
+&amp;gt;f &amp;lt;f     move form right/left
+&amp;lt;m- j h&amp;gt;  move elt left/right _[SEXP nice/fast alternative]_
+&amp;lt;m- k l&amp;gt;  move elt left/right _[SEXP nice/fast alternative]_&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Slurpage and barfage
+&amp;lt;( &amp;gt;)       slurp (push paren out wider)
+&amp;gt;( &amp;lt;)       barf  (pull paren in narrower)
+&amp;lt;m-s- H L&amp;gt;  slurp _[SEXP alternative]_
+&amp;lt;m-s- K J&amp;gt;  barf  _[SEXP alternative]_&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Insertion, some with new parens
+cse)     add surround form (seems weird, yse) also works)
+&amp;gt;I &amp;lt;I    insert front/end
+,i ,I    insert front/end, add surround form _[SEXP]_
+,w ,W    insert front/end, add surround element _[SEXP]_&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Deletion
+dsf      delete form (splice ,@)
+daf dif  delete around/in form (,o)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Note that SRP builds off of another of tpope’s concepts:
+&lt;a href=&quot;https://github.com/tpope/vim-surround&quot;&gt;Surround&lt;/a&gt;. That’s a
+good one to install and learn for any type of editing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I struggled with these for many hours. The slurp and barf are especially hard
+to get your head around, so be patient. Get a simple function to experiment
+with, and add some extra spacing to make forms/elements stand apart. Then
+try out every mapping listed above.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You probably also want to install &lt;a href=&quot;https://github.com/tpope/vim-repeat&quot;&gt;Repeat&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_caveats&quot;&gt;Caveats&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;inline comments can get in the way&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;undo is funky since some commands do multiple things&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 20 Aug 2015 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-08-20-remap-lisp-keys.html

@@ -119,11 +119,11 @@
         <b><i class="fa fa-tags"></i> </b>
         <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
         
-        <a href="/tags/draft.html"> draft</a>
+        <a href="/tags/clojure.html"> clojure</a>
         
-        <a href="/tags/keyboard.html"> keyboard</a>
+        <a href="/tags/racket.html"> racket</a>
         
-        <a href="/tags/lisp.html"> lisp</a>
+        <a href="/tags/vim.html"> vim</a>
         
     </span>
     
@@ -134,17 +134,17 @@
 
     </div>
 
-    <h1>Keyboard Remapping for Lisp</h1>
+    <h1>Vim Sexp Cheat Sheet</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
 <!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
 <!--          -->
-<!--         <a href="/tags/draft.html"> draft</a> -->
+<!--         <a href="/tags/clojure.html"> clojure</a> -->
 <!--          -->
-<!--         <a href="/tags/keyboard.html"> keyboard</a> -->
+<!--         <a href="/tags/racket.html"> racket</a> -->
 <!--          -->
-<!--         <a href="/tags/lisp.html"> lisp</a> -->
+<!--         <a href="/tags/vim.html"> vim</a> -->
 <!--          -->
 <!--     </div> -->
 <!--      -->
@@ -153,20 +153,123 @@
 <div>
     
     <div class="paragraph">
-<p>Do you find that <code>(</code> and <code>)</code> are a pain to constantly reach for? You may have
-already swapped your <em>Ctrl</em> and <em>CapsLock</em> keys, but in the post I’ll show you a
-sensible way to take it to the next level. Rearranging a few important keys can
-really improve your comfort level and productivity.</p>
+<p>There are two fantastic Vim plugins that make editing parentheses-heavy Lisp
+code (e.g., Racket or Clojure) a delight. I don’t know I lived without
+making much use of these for years: <em>parentheses can be terribly unwieldy</em>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/guns/vim-sexp">Vim-Sexp</a></p>
+</li>
+<li>
+<p><a href="https://github.com/tpope/vim-sexp-mappings-for-regular-people">Sexp for Regular People</a>,
+aka SRP, pronounced “Syrup”</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Install them both now if you haven’t already! And read on for <strong>the cheat sheet
+that makes wrangling parentheses a walk in the park</strong>.</p>
 </div>
 <!-- more -->
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
-<p>I keep a personal script file that takes care of all my mappings:
-<code>~/bin/modmap</code>.</p>
+<p>Emacs users know that what appear to be a preponderance of brackets are
+really hooks the editor may use to effortlessly transform the text before
+them.&#8201;&#8212;&#8201;guns (author of vim-sexp)</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>SRP has a short README that describes all of its mappings, and it gets you most
+of the way to bliss. But there are a few from Sexp that are still very handy.
+Unlike SRP, Sexp has a lot of documentation, in both its README and vimdoc. This
+guide puts together the docs from both projects into a short, memorizable cheat
+sheet, choosing what I feel are the simplest/best set. These mostly avoid the
+<a href="http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim">troublesome
+Alt/Meta</a>, leader (which tpope doesn’t like much), and visual selection
+(sometimes a crutch). Where <code>&lt;leader&gt;</code> is still needed, I’ve just marked <code>,</code> (my
+leader) for brevity.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Movement
+()      move cursor to matching paren (same as % but easier) _[SEXP]_
+[[ ]]   move cursor to top-level element _[SEXP]_
+W B E   move cursor element/form-wise</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Indent
+==      indent form  _[SEXP]_
+=-      indent top level _[SEXP]_
+=&lt;movement&gt;  indent whatever</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Move elements/forms around
+&gt;e &lt;e     move element right/left
+&gt;f &lt;f     move form right/left
+&lt;m- j h&gt;  move elt left/right _[SEXP nice/fast alternative]_
+&lt;m- k l&gt;  move elt left/right _[SEXP nice/fast alternative]_</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Slurpage and barfage
+&lt;( &gt;)       slurp (push paren out wider)
+&gt;( &lt;)       barf  (pull paren in narrower)
+&lt;m-s- H L&gt;  slurp _[SEXP alternative]_
+&lt;m-s- K J&gt;  barf  _[SEXP alternative]_</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Insertion, some with new parens
+cse)     add surround form (seems weird, yse) also works)
+&gt;I &lt;I    insert front/end
+,i ,I    insert front/end, add surround form _[SEXP]_
+,w ,W    insert front/end, add surround element _[SEXP]_</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Deletion
+dsf      delete form (splice ,@)
+daf dif  delete around/in form (,o)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that SRP builds off of another of tpope’s concepts:
+<a href="https://github.com/tpope/vim-surround">Surround</a>. That’s a
+good one to install and learn for any type of editing.</p>
+</div>
+<div class="paragraph">
+<p>I struggled with these for many hours. The slurp and barf are especially hard
+to get your head around, so be patient. Get a simple function to experiment
+with, and add some extra spacing to make forms/elements stand apart. Then
+try out every mapping listed above.</p>
+</div>
+<div class="paragraph">
+<p>You probably also want to install <a href="https://github.com/tpope/vim-repeat">Repeat</a>.</p>
 </div>
 <div class="sect1">
-<h2 id="_how_code_xmodmap_code_works">How <code>xmodmap</code> works</h2>
+<h2 id="_caveats">Caveats</h2>
 <div class="sectionbody">
-
+<div class="ulist">
+<ul>
+<li>
+<p>inline comments can get in the way</p>
+</li>
+<li>
+<p>undo is funky since some commands do multiple things</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -174,11 +277,11 @@ really improve your comfort level and productivity.</p>
 <!-- <div id="post-tags"> -->
 <!--     <b>Tags: </b> -->
 <!--      -->
-<!--     <a href="/tags/draft.html">draft</a> -->
+<!--     <a href="/tags/clojure.html">clojure</a> -->
 <!--      -->
-<!--     <a href="/tags/keyboard.html">keyboard</a> -->
+<!--     <a href="/tags/racket.html">racket</a> -->
 <!--      -->
-<!--     <a href="/tags/lisp.html">lisp</a> -->
+<!--     <a href="/tags/vim.html">vim</a> -->
 <!--      -->
 <!-- </div> -->
 <!--  -->
@@ -188,7 +291,7 @@ really improve your comfort level and productivity.</p>
     <div id="prev-next">
         
         
-        <a class="right" href="/posts/2015-08-08-gpg-howto.html">GPG Howto &raquo;</a>
+        <a class="right" href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp &raquo;</a>
         
     </div>
 </div>
@@ -219,6 +322,8 @@ really improve your comfort level and productivity.</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts/2015-08-20-vim-sexp-cheat-sheet.html">Vim Sexp Cheat Sheet</a></li>
+                        
                         <li><a href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp</a></li>
                         
                         <li><a href="/posts/2015-08-08-gpg-howto.html">GPG Howto</a></li>
@@ -226,8 +331,6 @@ really improve your comfort level and productivity.</p>
                         <li><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></li>
                         
                         <li><a href="/posts/2015-07-20-vim-zsh-tmux-cursor.html">Vi-Mode Ubiquitous Cursor Indicator</a></li>
-                        
-                        <li><a href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest</a></li>
                         
                     </ul>
                 </div>
@@ -260,6 +363,8 @@ really improve your comfort level and productivity.</p>
                         <!-- <li><a href="/tags/gpg.html">gpg</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/racket.html">racket</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
                         <!--  -->
@@ -321,6 +426,8 @@ really improve your comfort level and productivity.</p>
                         <a href="/tags/gpg.html">gpg</a>
                         
                         <a href="/tags/draft.html">draft</a>
+                        
+                        <a href="/tags/racket.html">racket</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
                         
