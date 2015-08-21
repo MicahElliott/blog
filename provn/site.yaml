@@ -24,6 +24,7 @@
 
     - name: deploy site static files
       synchronize: src=../resources/public/ dest=~{{duser}}/site recursive=yes checksum=yes set_remote_user=no
+      #command: ls ~{{duser}}
       notify: reload nginx
       tags: deploy
 

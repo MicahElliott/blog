@@ -7,4 +7,5 @@
 #git push
 
 cd provn
+export ANSIBLE_HOSTS=./hosts
 time ansible-playbook site.yaml -b -v -t deploy
