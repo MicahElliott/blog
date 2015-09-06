@@ -153,9 +153,10 @@
 <div>
     
     <div class="paragraph">
-<p>There are two fantastic Vim plugins that make editing parentheses-heavy Lisp
-code (e.g., Racket or Clojure) a delight. I don’t know I lived without
-making much use of these for years: <em>parentheses can be terribly unwieldy</em>.</p>
+<p>There are two fantastic Vim plugins that make it delightful to edit
+parentheses-heavy Lisp code (e.g., Racket or Clojure). I don’t know
+how I lived without making much use of these for years: <em>parentheses can be
+terribly unwieldy</em>.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -172,6 +173,10 @@ aka SRP, pronounced “Syrup”</p>
 <p>Install them both now if you haven’t already! And read on for <strong>the cheat sheet
 that makes wrangling parentheses a walk in the park</strong>.</p>
 </div>
+<div class="paragraph">
+<p>If you don’t grok Vim yet, there is surprisingly little you need to know to get
+started editing a Lisp with Vim. [Read this post to get started.]</p>
+</div>
 <!-- more -->
 <div class="quoteblock">
 <blockquote>
@@ -183,13 +188,19 @@ them.&#8201;&#8212;&#8201;guns (author of vim-sexp)</p>
 </blockquote>
 </div>
 <div class="paragraph">
+<p>Emacs has been the go-to environment for Lisp hackers for years. One of its
+particularly compelling features is “paredit”. Vim has a paredit, too, which is
+used as part of the SLIMV stack. I feel that SLIMV tries to do too much to your
+Vim, so now I’m telling you about a lighter solution: the Sexp/SRP combo.</p>
+</div>
+<div class="paragraph">
 <p>SRP has a short README that describes all of its mappings, and it gets you most
 of the way to bliss. But there are a few from Sexp that are still very handy.
 Unlike SRP, Sexp has a lot of documentation, in both its README and vimdoc. This
 guide puts together the docs from both projects into a short, memorizable cheat
 sheet, choosing what I feel are the simplest/best set. These mostly avoid the
 <a href="http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim">troublesome
-Alt/Meta</a>, leader (which tpope doesn’t like much), and visual selection
+Alt/Meta</a> leader (which tpope doesn’t like much), and visual selection
 (sometimes a crutch). Where <code>&lt;leader&gt;</code> is still needed, I’ve just marked <code>,</code> (my
 leader) for brevity.</p>
 </div>
@@ -230,8 +241,9 @@ W B E   move cursor element/form-wise</pre>
 <div class="literalblock">
 <div class="content">
 <pre># Insertion, some with new parens
-cse)     add surround form (seems weird, yse) also works)
-&gt;I &lt;I    insert front/end
+cse)     add surround form (easier than ysie)
+&lt;I &gt;I    insert front/end
+,h ,l    insert front/end _[SEXP alternative]_
 ,i ,I    insert front/end, add surround form _[SEXP]_
 ,w ,W    insert front/end, add surround element _[SEXP]_</pre>
 </div>
@@ -240,7 +252,8 @@ cse)     add surround form (seems weird, yse) also works)
 <div class="content">
 <pre># Deletion
 dsf      delete form (splice ,@)
-daf dif  delete around/in form (,o)</pre>
+daf dif  delete around/in form
+,o       delete outer form _[SEXP]_</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -257,6 +270,10 @@ try out every mapping listed above.</p>
 <div class="paragraph">
 <p>You probably also want to install <a href="https://github.com/tpope/vim-repeat">Repeat</a>.</p>
 </div>
+<div class="paragraph">
+<p>Also <a href="http://stackoverflow.com/a/31999765/326516">read this answer</a> for more info
+on using Vim to edit Lisp.</p>
+</div>
 <div class="sect1">
 <h2 id="_caveats">Caveats</h2>
 <div class="sectionbody">
@@ -269,6 +286,110 @@ try out every mapping listed above.</p>
 <p>undo is funky since some commands do multiple things</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_demo">Demo</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Similar to the <a href="http://emacswiki.org/emacs/PareditCheatsheet">Emacs Wiki Cheat Sheet</a>.
+But this is way better than Emacs’ paredit where various things are mapped to
+arrow keys, forcing an atrocious hand move. Oh, for shame.</p>
+</div>
+<div class="paragraph">
+<p>You need to actually try these&#8230;&#8203; a lot. But to give you an idea, see below. The
+<code>^</code> is where your cursor is. The <code><em></code> is where your cursor is in _insert</em> mode.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa bbb)
+        ^       (
+(aaa bbb)
+^</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa bbb)
+      ^         &lt;e
+(bbb aaa)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa bbb) (ccc ddd)
+      ^                 &gt;f
+(ccc ddd) (aaa bbb)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>((aaa bbb) ccc)
+       ^                &gt;)  slurp
+((aaa bbb ccc))</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>((aaa bbb) ccc)
+   ^                    &lt;)  barf
+((aaa) bbb ccc)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa bbb) (ccc ddd)
+            ^           yss)
+((aaa bbb) (ccc ddd))</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa bbb)
+      ^         &lt;I  insert
+(_ aaa bbb)
+ ^</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa bbb)
+      ^         ,i  surround and insert
+(_ (aaa bbb))
+ ^</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa bbb)
+      ^         ,w  surround and insert word
+(aaa (_ bbb))
+      ^</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa (bbb ccc))
+       ^        dsf
+(aaa bbb ccc)</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa (bbb ccc))
+       ^        daf
+(aaa )
+     ^</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>(aaa (bbb ccc))
+       ^        ,o
+(bbb ccc)
+        ^</pre>
+</div>
 </div>
 </div>
 </div>
@@ -287,6 +408,8 @@ try out every mapping listed above.</p>
 <!--  -->
 
     <div id="prev-next">
+        
+        <a href="/posts/2015-08-27-firewalld-best-practices.html">&laquo; Firewalld Best Practices</a>
         
         
         <a class="right" href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp &raquo;</a>
@@ -324,15 +447,15 @@ try out every mapping listed above.</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-08-20-vim-sexp-cheat-sheet.html">Vim Sexp Cheat Sheet</a></li>
+                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
                         
-                        <li><a href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp</a></li>
+                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
                         
-                        <li><a href="/posts/2015-08-08-gpg-howto.html">GPG Howto</a></li>
+                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
                         
-                        <li><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></li>
+                        <li><a href="/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html">Vim Bare Essentials for Editing Lisp</a></li>
                         
-                        <li><a href="/posts/2015-07-20-vim-zsh-tmux-cursor.html">Vi-Mode Ubiquitous Cursor Indicator</a></li>
+                        <li><a href="/posts/2015-08-30-lisp-glossary.html">Lisp Jargon</a></li>
                         
                     </ul>
                 </div>
@@ -362,6 +485,8 @@ try out every mapping listed above.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/linux.html">linux</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/gpg.html">gpg</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
@@ -369,6 +494,8 @@ try out every mapping listed above.</p>
                         <!-- <li><a href="/tags/racket.html">racket</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/jargon.html">jargon</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/centos.html">centos</a></li> -->
                         <!--  -->
@@ -384,7 +511,13 @@ try out every mapping listed above.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/keyboard.html">keyboard</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/aur.html">aur</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/vim.html">vim</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/arch.html">arch</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/firewalld.html">firewalld</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
@@ -403,6 +536,8 @@ try out every mapping listed above.</p>
                         <!-- <li><a href="/tags/systemd.html">systemd</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
                         <!--  -->
                         
                         <a href="/tags/foo.html">foo</a>
@@ -425,6 +560,8 @@ try out every mapping listed above.</p>
                         
                         <a href="/tags/i3.html">i3</a>
                         
+                        <a href="/tags/linux.html">linux</a>
+                        
                         <a href="/tags/gpg.html">gpg</a>
                         
                         <a href="/tags/draft.html">draft</a>
@@ -432,6 +569,8 @@ try out every mapping listed above.</p>
                         <a href="/tags/racket.html">racket</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
+                        
+                        <a href="/tags/jargon.html">jargon</a>
                         
                         <a href="/tags/centos.html">centos</a>
                         
@@ -447,7 +586,13 @@ try out every mapping listed above.</p>
                         
                         <a href="/tags/keyboard.html">keyboard</a>
                         
+                        <a href="/tags/aur.html">aur</a>
+                        
                         <a href="/tags/vim.html">vim</a>
+                        
+                        <a href="/tags/arch.html">arch</a>
+                        
+                        <a href="/tags/firewalld.html">firewalld</a>
                         
                         <a href="/tags/awk.html">awk</a>
                         
@@ -466,6 +611,8 @@ try out every mapping listed above.</p>
                         <a href="/tags/systemd.html">systemd</a>
                         
                         <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/bcp.html">bcp</a>
                         
                     </ul>
                 </div>

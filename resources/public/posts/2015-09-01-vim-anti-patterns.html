@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott: About</title>
+    <title>Micah Elliott: Vim Anti-Patterns</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -50,7 +50,7 @@
 
                 <!--  -->
                 <!-- <li -->
-                <!--  class="active" > -->
+                <!-- > -->
                 <!-- <a href="/pages/about.html"> -->
                 <!--   <i class="glyphicon glyphicon-new-window"></i> -->
                 <!--   About -->
@@ -75,7 +75,7 @@
                 <!--  -->
 
                 <li
-                   class="active" >
+                  >
                   <!-- <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li> -->
                   <a href="/pages/about.html"><i class="fa fa-info-circle"></i> README</a></li>
 
@@ -107,100 +107,253 @@
         <div class="col-lg-9">
             <div id="content">
                 
-<div id="custom-page">
-    <div id="page-header">
-        <h1>About</h1>
-    </div>
+<div id="post">
+    <div id="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-8"><b>September 1, 2015</b>
+
     
-    <div class="imageblock" style="float: left">
-<div class="content">
-<img src="../img/mde1.jpg" alt="mde1" height="200">
+    <span id="post-tags">
+        <!-- <i>tagged:</i> -->
+        <i> — </i>
+        <b><i class="fa fa-tags"></i> </b>
+        <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
+        
+        <a href="/tags/draft.html"> draft</a>
+        
+        <a href="/tags/vim.html"> vim</a>
+        
+    </span>
+    
+
+        </div>
+
+        <!--  -->
+
+    </div>
+
+    <h1>Vim Anti-Patterns</h1>
+
+<!--      -->
+<!--     <div id="post-tags"> -->
+<!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
+<!--          -->
+<!--         <a href="/tags/draft.html"> draft</a> -->
+<!--          -->
+<!--         <a href="/tags/vim.html"> vim</a> -->
+<!--          -->
+<!--     </div> -->
+<!--      -->
+
 </div>
+<div>
+    
+    <div class="paragraph">
+<p><strong>Audience:</strong> <em>intermediate</em></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>Some quote</p>
+</div>
+</blockquote>
 </div>
 <div class="paragraph">
-<p>Thanks for visiting my blog! My name is Micah Elliott, and I live in Portland,
-Oregon, USA. I&#8217;m an entrepreneur and founder of <a href="http://membean.com">Membean</a>: an
-online vocabulary training program used by schools in all 50 states and around
-the globe. I spend much of my time there coding and managing infrastructure.
-You should sign up for <a href="http://membean.com/products/Personal/plans">a free Membean
-account</a>; let me know how it goes!</p>
+<p>Vim is such a rich editor. So rich that there are many ways to do things. And
+many ways some wrong ways, or at least inefficient ways.</p>
 </div>
-<div class="paragraph">
-<p><strong>My goal for this blog is to share technical knowledge and discoveries in
-hopes that we can all continue learning. There is a focus on infrastructure,
-Linux, programming, and teaching.</strong></p>
+<!-- more -->
+<div class="sect1">
+<h2 id="_not_understanding_transactional_editing">Not understanding transactional editing</h2>
+<div class="sectionbody">
+
 </div>
-<div class="paragraph">
-<p><em>(You&#8217;ll find a some unfinished work on this “blog”. Some sections are a
-dumping ground. When something comes to mind I&#8217;ll sketch it out here in public.
-There is no real notion of “publish”&#8201;&#8212;&#8201;that becomes too formal and I end up
-sitting on things. So I write, save, and push frequently. Sorry.)</em></p>
-</div>
-<div class="paragraph">
-<p>Beyond Membean, my interests include programming in
-<a href="http://clojure.org/">Clojure</a>, learning about statistics (mostly with
-<a href="http://www.r-project.org/">R</a>), triathlons and marathons, and bookkeeping at
-my kids’ baseball games.</p>
-</div>
-<div class="paragraph">
-<p>View <a href="/pages/projects.html">the projects I work on</a>.</p>
 </div>
 <div class="sect1">
-<h2 id="_contact">Contact</h2>
+<h2 id="_arrow_keys">Arrow Keys</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_default_qwerty_keyboards">Default QWERTY keyboards</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can email me: <code>&lt;mde@this-blog&#8217;s-domain&gt;</code></p>
+<p>You may have heard some history about the QWERTY layout being suboptimal, but
+even worse than its layout is the
+<a href="https://en.wikipedia.org/wiki/IBM_PC_keyboard">IBM PC Model-M Keyboard Standard</a>
+from 1986 we all got forced. Many programmers were lucky enough back then to use
+UNIX keyboards that had sensible Ctrl, Esc, and others. But today we all use
+laptops with horrible layouts. There are a few egregious issues with the</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="../img/fam1.jpg" alt="Hiking near Rainier">
-</div>
-<div class="title">Figure 1. That’s me with the wife and kids.</div>
+<div class="paragraph">
+<p>If you have not modified your mappings, you are not meeting your potential.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_colophon">Colophon</h2>
+<h2 id="_enter_key">Enter key</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This blog
-<a href="http://www.quickanddirtytips.com/education/grammar/comprise-versus-compose">comprises</a>
-a mix of my favorite tech (which I also like to write about). It’s hosted on
-<a href="https://www.freebsd.org/">FreeBSD</a> 10.1 by a
-<a href="https://www.digitalocean.com/">DigitalOcean</a> droplet running
-<a href="http://nginx.org/">Nginx</a>, and is
-deployed via <a href="http://www.ansible.com/">Ansible</a>. The blog engine is
-<a href="http://cryogenweb.org/docs/deploying-with-nginx-VPS.html">Cryogen</a>, written in
-Clojure, and it is nice to look at because it mostly came that way (including
-<a href="http://getbootstrap.com/">Bootstrap</a>). Posts are written in
-<a href="http://asciidoc.org/">Asciidoc</a> with <a href="http://www.vim.org/">Vim</a>.
-Changes are managed and shared on <a href="https://github.com/MicahElliott/blog">Github</a>.
-Read my <a href="/2015-07-02-cryogen-on-freebsd-with-ansible.html">recipe</a>
-on how to set it up if you want one, too.</p>
+<p>You may kill you wrist. Look how it pivots to reach your pinky. <code>Enter</code> is in a
+terrible position.</p>
+</div>
+<div class="sect2">
+<h3 id="_a_better_way">A Better Way</h3>
+
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_surrounding_things_manually">Surrounding things manually</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Put quotes around a word.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>The quick brown fox...
+            ^</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>Bi"&lt;esc&gt;ea"</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Videos here are captured with
-<a href="http://www.maartenbaert.be/simplescreenrecorder/">SSR</a> (simple screen recorder)
-or <a href="http://z24.github.io/tty2gif/">tty2gif</a>. They are sometimes edited with
-<a href="https://kdenlive.org/">Kdenlive</a>. Audio is recorded and edited with
-<a href="http://web.audacityteam.org/">Audacity</a>. You may have noticed that everything I
-use is <a href="https://en.wikipedia.org/wiki/Open_source">Open Source</a>. I spend nearly
-all my working time on an <a href="https://www.archlinux.org/">Arch Linux</a> system.</p>
+<p>That’s 7 keystrokes, 10 if you count the <code>Shift`s. What a pain. With the
+[Surround] plugin you can just type `csw"</code>.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_x">x</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Too easy to make a habit out of <code>xxx</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_excessive_hjkl">Excessive hjkl</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_leaving_the_window_in_insert_mode">Leaving the window in INSERT mode</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_staying_in_insert_mode">Staying in insert mode</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Need to Esc in order to save transaction.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_ignoring_bold_italic_and_256_colors">Ignoring bold, italic, and 256 colors</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_repeating">Repeating</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_a_better_way_2">A Better Way</h3>
+<div class="paragraph">
+<p>Use <code>Ctrl-J</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_not_learning_about_objects">Not learning about “objects”</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The first thing most of us were taught about Vim was movement.</p>
+</div>
+<div class="paragraph">
+<p>Vim knows about objects: sentences, words, quotes, paragraphs, and more. You can
+even define your own.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>gqap
+daw
+dis
+ysiw</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_using_the_mouse">Using the mouse</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_not_using_built_in_help">Not using built-in help</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_not_leveraging_the_powerful_repeat">Not leveraging the powerful “repeat”</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_adopting_a_distribution_you_don_t_understand">Adopting a distribution you don’t understand</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_relying_too_much_on_visual_mode">Relying too much on visual mode</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_save_change_window_refresh_browser_suite_back_to_window_edit">Save, Change window, refresh browser/suite, back to window, edit</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use write hooks.</p>
+</div>
+</div>
+</div>
+</div>
+<!--  -->
+<!-- <div id="post-tags"> -->
+<!--     <b>Tags: </b> -->
+<!--      -->
+<!--     <a href="/tags/draft.html">draft</a> -->
+<!--      -->
+<!--     <a href="/tags/vim.html">vim</a> -->
+<!--      -->
+<!-- </div> -->
+<!--  -->
 
     <div id="prev-next">
         
-        <a href="/pages/hireme.html">&laquo; Hire Me</a>
+        <a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">&laquo; AUR Getting Started Guide</a>
         
         
-        ||
-        
-        
-        <a href="/pages/topics.html">Future Topics &raquo;</a>
+        <a class="right" href="/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html">Vim Bare Essentials for Editing Lisp &raquo;</a>
         
     </div>
+
+    
+
+
 </div>
 
             </div>

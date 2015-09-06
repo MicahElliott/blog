@@ -192,7 +192,7 @@ Termite.</p>
 <pre># Modal cursor color for vi's insert/normal modes.
 # http://stackoverflow.com/questions/30985436/
 # https://bbs.archlinux.org/viewtopic.php?id=95078
-# http://unix.stackexchange.com/questions/115009/how-to-change-the-cursor-theme-in-cli
+# http://unix.stackexchange.com/questions/115009/
 zle-line-init () {
   zle -K viins
   #echo -ne "\033]12;Grey\007"
@@ -250,7 +250,7 @@ elseif &amp;term =~ "screen-it"
   " Normal
   let &amp;t_EI  = "\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;]12;blue\x7\&lt;Esc&gt;\\"
   let &amp;t_EI .= "\&lt;Esc&gt;Ptmux;\&lt;Esc&gt;\&lt;Esc&gt;[2 q\&lt;Esc&gt;\\"
-  autocmd VimLeave * silent !printf “\033Ptmux;\033\033]12;grey\007\033\\”
+  autocmd VimLeave * silent !printf "\033Ptmux;\033\033]12;grey\007\033\\"
 endif</pre>
 </div>
 </div>
@@ -343,15 +343,15 @@ set -g default-terminal "screen-it"</pre>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-08-20-vim-sexp-cheat-sheet.html">Vim Sexp Cheat Sheet</a></li>
+                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
                         
-                        <li><a href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp</a></li>
+                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
                         
-                        <li><a href="/posts/2015-08-08-gpg-howto.html">GPG Howto</a></li>
+                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
                         
-                        <li><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></li>
+                        <li><a href="/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html">Vim Bare Essentials for Editing Lisp</a></li>
                         
-                        <li><a href="/posts/2015-07-20-vim-zsh-tmux-cursor.html">Vi-Mode Ubiquitous Cursor Indicator</a></li>
+                        <li><a href="/posts/2015-08-30-lisp-glossary.html">Lisp Jargon</a></li>
                         
                     </ul>
                 </div>
@@ -381,6 +381,8 @@ set -g default-terminal "screen-it"</pre>
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/linux.html">linux</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/gpg.html">gpg</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
@@ -388,6 +390,8 @@ set -g default-terminal "screen-it"</pre>
                         <!-- <li><a href="/tags/racket.html">racket</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/jargon.html">jargon</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/centos.html">centos</a></li> -->
                         <!--  -->
@@ -403,7 +407,13 @@ set -g default-terminal "screen-it"</pre>
                         <!--  -->
                         <!-- <li><a href="/tags/keyboard.html">keyboard</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/aur.html">aur</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/vim.html">vim</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/arch.html">arch</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/firewalld.html">firewalld</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
@@ -422,6 +432,8 @@ set -g default-terminal "screen-it"</pre>
                         <!-- <li><a href="/tags/systemd.html">systemd</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
                         <!--  -->
                         
                         <a href="/tags/foo.html">foo</a>
@@ -444,6 +456,8 @@ set -g default-terminal "screen-it"</pre>
                         
                         <a href="/tags/i3.html">i3</a>
                         
+                        <a href="/tags/linux.html">linux</a>
+                        
                         <a href="/tags/gpg.html">gpg</a>
                         
                         <a href="/tags/draft.html">draft</a>
@@ -451,6 +465,8 @@ set -g default-terminal "screen-it"</pre>
                         <a href="/tags/racket.html">racket</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
+                        
+                        <a href="/tags/jargon.html">jargon</a>
                         
                         <a href="/tags/centos.html">centos</a>
                         
@@ -466,7 +482,13 @@ set -g default-terminal "screen-it"</pre>
                         
                         <a href="/tags/keyboard.html">keyboard</a>
                         
+                        <a href="/tags/aur.html">aur</a>
+                        
                         <a href="/tags/vim.html">vim</a>
+                        
+                        <a href="/tags/arch.html">arch</a>
+                        
+                        <a href="/tags/firewalld.html">firewalld</a>
                         
                         <a href="/tags/awk.html">awk</a>
                         
@@ -485,6 +507,8 @@ set -g default-terminal "screen-it"</pre>
                         <a href="/tags/systemd.html">systemd</a>
                         
                         <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/bcp.html">bcp</a>
                         
                     </ul>
                 </div>

@@ -110,7 +110,7 @@
 <div id="post">
     <div id="post-header">
     <div id="post-meta" class="row">
-        <div class="col-lg-8"><b>August 20, 2015</b>
+        <div class="col-lg-8"><b>September 10, 2015</b>
 
     
     <span id="post-tags">
@@ -123,7 +123,7 @@
         
         <a href="/tags/racket.html"> racket</a>
         
-        <a href="/tags/vim.html"> vim</a>
+        <a href="/tags/lisp.html"> lisp</a>
         
     </span>
     
@@ -134,7 +134,7 @@
 
     </div>
 
-    <h1>Vim Sexp Cheat Sheet</h1>
+    <h1>Why Learn a Lisp?</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
@@ -144,7 +144,7 @@
 <!--          -->
 <!--         <a href="/tags/racket.html"> racket</a> -->
 <!--          -->
-<!--         <a href="/tags/vim.html"> vim</a> -->
+<!--         <a href="/tags/lisp.html"> lisp</a> -->
 <!--          -->
 <!--     </div> -->
 <!--      -->
@@ -153,120 +153,180 @@
 <div>
     
     <div class="paragraph">
-<p>There are two fantastic Vim plugins that make editing parentheses-heavy Lisp
-code (e.g., Racket or Clojure) a delight. I don’t know I lived without
-making much use of these for years: <em>parentheses can be terribly unwieldy</em>.</p>
+<p>Programming in Lisp is a different kind of programming. Some things seem similar
+to your daily imperative treadmill, but mostly it’s different. There’s a
+different lexicon of terms, REPL-driven (or rather, -dominated) programming,
+there’s immutability, a really different type of (par)editing, a higher level of
+conciseness, a naturalness to using HoFs, a leaning on a small set of primitives,
+recursion as the norm, and so on.</p>
 </div>
+<div class="paragraph">
+<p>It’s worth gaining some proficiency with a Lisp, if anything, to change the way
+you think about programming. In this post I explore the Lisp landscape, and try
+to convince you to get in on the Racket, for edification, fun, and even profit.</p>
+</div>
+<!-- more -->
+<div class="sect1">
+<h2 id="_lisp_engines">Lisp Engines</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Lisp is embedded in a lot of places.</p>
+</div>
+<div class="paragraph">
+<p>Despite Lua being often recognized as being The Embeddable Language,
+surprisingly many tools are programmable in Lisp. Some examples include: Gimp,
+<a href="http://www.gnu.org/software/guix/">Guix</a>, Emacs, <a href="https://en.m.wikipedia.org/wiki/AutoLISP">AutoCAD</a>, LilyPond,
+GnuCash,</p>
+</div>
+<div class="paragraph">
+<p>There are several Lisps designed especially for embedding, such as
+<a href="http://synthcode.com/wiki/chibi-scheme">Chibi-scheme</a>,
+<a href="http://www.software-lab.de/down.html">PicoLisp</a>,
+<a href="http://tinyscheme.sourceforge.net/home.html">TinyScheme</a>, and
+<a href="https://github.com/sbp/hedgehog">Hedgehog</a>.</p>
+</div>
+<div class="paragraph">
+<p><em>BTW, I don’t discredit Vim for not having an embedded Lisp. I see most of Vim
+(even VimL) as a very special DSL. Even with Lisp, you just can’t get as
+concise as Vim commands.</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scheme_learning_resources">Scheme learning resources</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_books">Books</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/guns/vim-sexp">Vim-Sexp</a></p>
+<p><a href="https://mitpress.mit.edu/sicp/">Structure and Interpretation of Computer Programs</a>(SICP)</p>
 </li>
 <li>
-<p><a href="https://github.com/tpope/vim-sexp-mappings-for-regular-people">Sexp for Regular People</a>,
-aka SRP, pronounced “Syrup”</p>
+<p><a href="https://mitpress.mit.edu/books/little-schemer">The Little Schemer</a> (TLS)</p>
+</li>
+<li>
+<p><a href="https://www.cs.berkeley.edu/~bh/ss-toc2.html">Simply Scheme: Introducing CS</a> (SSICS)</p>
+</li>
+<li>
+<p><a href="http://www.ccs.neu.edu/home/matthias/HtDP2e/">How to Design Programs</a> (HtDP)</p>
+</li>
+<li>
+<p><a href="http://www.scheme.com/tspl4/">The Scheme Programming Language</a> (TSPL4)</p>
+</li>
+<li>
+<p><a href="http://realmofracket.com/">Realm of Racket</a> (RoR)</p>
+</li>
+<li>
+<p><a href="http://cs.brown.edu/~sk/Publications/Books/ProgLangs/2007-04-26/">Programming Languages: Application and Interpretation</a> (PLAI)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Install them both now if you haven’t already! And read on for <strong>the cheat sheet
-that makes wrangling parentheses a walk in the park</strong>.</p>
-</div>
-<!-- more -->
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>Emacs users know that what appear to be a preponderance of brackets are
-really hooks the editor may use to effortlessly transform the text before
-them.&#8201;&#8212;&#8201;guns (author of vim-sexp)</p>
-</div>
-</blockquote>
+<p>Some of those are seminal classics that can teach you how to program like almost
+no other book. Notice that bent towards Scheme. That’s the beauty of Racket:
+decades of academic knowledge still applicable to a modern language. Most of
+those books available for free in web form.</p>
 </div>
 <div class="paragraph">
-<p>SRP has a short README that describes all of its mappings, and it gets you most
-of the way to bliss. But there are a few from Sexp that are still very handy.
-Unlike SRP, Sexp has a lot of documentation, in both its README and vimdoc. This
-guide puts together the docs from both projects into a short, memorizable cheat
-sheet, choosing what I feel are the simplest/best set. These mostly avoid the
-<a href="http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim">troublesome
-Alt/Meta</a>, leader (which tpope doesn’t like much), and visual selection
-(sometimes a crutch). Where <code>&lt;leader&gt;</code> is still needed, I’ve just marked <code>,</code> (my
-leader) for brevity.</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># Movement
-()      move cursor to matching paren (same as % but easier) _[SEXP]_
-[[ ]]   move cursor to top-level element _[SEXP]_
-W B E   move cursor element/form-wise</pre>
+<p>If you want to get into Artificial Intelligence (AI), you’ll surely spend some
+time in Lisp.</p>
 </div>
 </div>
-<div class="literalblock">
-<div class="content">
-<pre># Indent
-==      indent form  _[SEXP]_
-=-      indent top level _[SEXP]_
-=&lt;movement&gt;  indent whatever</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># Move elements/forms around
-&gt;e &lt;e     move element right/left
-&gt;f &lt;f     move form right/left
-&lt;m- j h&gt;  move elt left/right _[SEXP nice/fast alternative]_
-&lt;m- k l&gt;  move elt left/right _[SEXP nice/fast alternative]_</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># Slurpage and barfage
-&lt;( &gt;)       slurp (push paren out wider)
-&gt;( &lt;)       barf  (pull paren in narrower)
-&lt;m-s- H L&gt;  slurp _[SEXP alternative]_
-&lt;m-s- K J&gt;  barf  _[SEXP alternative]_</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># Insertion, some with new parens
-cse)     add surround form (seems weird, yse) also works)
-&gt;I &lt;I    insert front/end
-,i ,I    insert front/end, add surround form _[SEXP]_
-,w ,W    insert front/end, add surround element _[SEXP]_</pre>
-</div>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre># Deletion
-dsf      delete form (splice ,@)
-daf dif  delete around/in form (,o)</pre>
-</div>
-</div>
+<div class="sect2">
+<h3 id="_web">Web</h3>
 <div class="paragraph">
-<p>Note that SRP builds off of another of tpope’s concepts:
-<a href="https://github.com/tpope/vim-surround">Surround</a>. That’s a
-good one to install and learn for any type of editing.</p>
+<p>A few invaluable web resources are:</p>
 </div>
-<div class="paragraph">
-<p>I struggled with these for many hours. The slurp and barf are especially hard
-to get your head around, so be patient. Get a simple function to experiment
-with, and add some extra spacing to make forms/elements stand apart. Then
-try out every mapping listed above.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://docs.racket-lang.org/guide/">The Racket Guide</a>; extensive</p>
+</li>
+<li>
+<p><a href="http://rosettacode.org/wiki/Category:Racket">Racket on Rosetta Code</a>; a
+<a href="http://blog.racket-lang.org/2015/05/king-of-hill-on-rosetta-code.html">top language</a></p>
+</li>
+<li>
+<p><a href="http://learnxinyminutes.com/docs/racket/">Racket on “Learn X in Y minutes”</a>;
+brief feature/language overview</p>
+</li>
+</ul>
 </div>
-<div class="paragraph">
-<p>You probably also want to install <a href="https://github.com/tpope/vim-repeat">Repeat</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="_videos">Videos</h3>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://www.youtube.com/watch?v=vJGV7HaTdbg">Randall Schwartz intro on Twit</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="_caveats">Caveats</h2>
+<h2 id="_lightweight">Lightweight</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Racket installs everywhere. It has a small footprint and starts up quickly. Very
+modest student machines can run it without hitting any resource limits.</p>
+</div>
+<div class="paragraph">
+<p>Although the community heavily supports their own IDE, there’s no reason you
+have to use it. It has some nice graphical-oriented features, but Vim and Emacs
+are great for editing Racket.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_decent_repl">Decent REPL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nice little REPL can do completion, and features a vi-mode. Works well with
+vim-slime.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_but_can_you_get_paid_to_code_in_lisp">But can you get paid to code in Lisp?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Yes. I think the most likely route right now is through
+<a href="http://clojure.org/Companies">Clojure</a>. I loved my couple of years with it, but
+it’s a little too beastly to be promoting for student adoption.</p>
+</div>
+<div class="paragraph">
+<p>ClojureScript (and Om/Reagent) is also sure to open up more webdev jobs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_so_why_learn_racket">So why learn Racket?</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_successful_lisp_companies_sites">Successful Lisp companies/sites</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>inline comments can get in the way</p>
+<p>Cognitect</p>
 </li>
 <li>
-<p>undo is funky since some commands do multiple things</p>
+<p><a href="https://www.youtube.com/watch?v=GAmZIgs72wA">Airstash</a></p>
+</li>
+<li>
+<p><a href="https://www.youpatch.com/">YouPatch</a> (startup)</p>
+</li>
+<li>
+<p><a href="http://www.paulgraham.com/carl.html">Orbitz</a></p>
+</li>
+<li>
+<p><a href="http://flightcaster.com">Flightcaster</a> (much of it in Clojure, now acquired)</p>
 </li>
 </ul>
 </div>
@@ -281,7 +341,7 @@ try out every mapping listed above.</p>
 <!--      -->
 <!--     <a href="/tags/racket.html">racket</a> -->
 <!--      -->
-<!--     <a href="/tags/vim.html">vim</a> -->
+<!--     <a href="/tags/lisp.html">lisp</a> -->
 <!--      -->
 <!-- </div> -->
 <!--  -->
@@ -291,7 +351,7 @@ try out every mapping listed above.</p>
     <div id="prev-next">
         
         
-        <a class="right" href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp &raquo;</a>
+        <a class="right" href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide &raquo;</a>
         
     </div>
 </div>
@@ -322,15 +382,15 @@ try out every mapping listed above.</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-08-20-vim-sexp-cheat-sheet.html">Vim Sexp Cheat Sheet</a></li>
+                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
                         
-                        <li><a href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp</a></li>
+                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
                         
-                        <li><a href="/posts/2015-08-08-gpg-howto.html">GPG Howto</a></li>
+                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
                         
-                        <li><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></li>
+                        <li><a href="/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html">Vim Bare Essentials for Editing Lisp</a></li>
                         
-                        <li><a href="/posts/2015-07-20-vim-zsh-tmux-cursor.html">Vi-Mode Ubiquitous Cursor Indicator</a></li>
+                        <li><a href="/posts/2015-08-30-lisp-glossary.html">Lisp Jargon</a></li>
                         
                     </ul>
                 </div>
@@ -360,6 +420,8 @@ try out every mapping listed above.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/linux.html">linux</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/gpg.html">gpg</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
@@ -367,6 +429,8 @@ try out every mapping listed above.</p>
                         <!-- <li><a href="/tags/racket.html">racket</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/jargon.html">jargon</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/centos.html">centos</a></li> -->
                         <!--  -->
@@ -382,7 +446,13 @@ try out every mapping listed above.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/keyboard.html">keyboard</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/aur.html">aur</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/vim.html">vim</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/arch.html">arch</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/firewalld.html">firewalld</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
@@ -401,6 +471,8 @@ try out every mapping listed above.</p>
                         <!-- <li><a href="/tags/systemd.html">systemd</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
                         <!--  -->
                         
                         <a href="/tags/foo.html">foo</a>
@@ -423,6 +495,8 @@ try out every mapping listed above.</p>
                         
                         <a href="/tags/i3.html">i3</a>
                         
+                        <a href="/tags/linux.html">linux</a>
+                        
                         <a href="/tags/gpg.html">gpg</a>
                         
                         <a href="/tags/draft.html">draft</a>
@@ -430,6 +504,8 @@ try out every mapping listed above.</p>
                         <a href="/tags/racket.html">racket</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
+                        
+                        <a href="/tags/jargon.html">jargon</a>
                         
                         <a href="/tags/centos.html">centos</a>
                         
@@ -445,7 +521,13 @@ try out every mapping listed above.</p>
                         
                         <a href="/tags/keyboard.html">keyboard</a>
                         
+                        <a href="/tags/aur.html">aur</a>
+                        
                         <a href="/tags/vim.html">vim</a>
+                        
+                        <a href="/tags/arch.html">arch</a>
+                        
+                        <a href="/tags/firewalld.html">firewalld</a>
                         
                         <a href="/tags/awk.html">awk</a>
                         
@@ -464,6 +546,8 @@ try out every mapping listed above.</p>
                         <a href="/tags/systemd.html">systemd</a>
                         
                         <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/bcp.html">bcp</a>
                         
                     </ul>
                 </div>

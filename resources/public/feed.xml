@@ -15,8 +15,1271 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Thu, 20 Aug 2015 18:11:13 -0700
+Sun, 06 Sep 2015 10:06:57 -0700
 </lastBuildDate>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-09-10-why-learn-a-lisp.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-09-10-why-learn-a-lisp.html
+</link>
+<title>
+Why Learn a Lisp?
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Programming in Lisp is a different kind of programming. Some things seem similar
+to your daily imperative treadmill, but mostly it’s different. There’s a
+different lexicon of terms, REPL-driven (or rather, -dominated) programming,
+there’s immutability, a really different type of (par)editing, a higher level of
+conciseness, a naturalness to using HoFs, a leaning on a small set of primitives,
+recursion as the norm, and so on.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It’s worth gaining some proficiency with a Lisp, if anything, to change the way
+you think about programming. In this post I explore the Lisp landscape, and try
+to convince you to get in on the Racket, for edification, fun, and even profit.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_lisp_engines&quot;&gt;Lisp Engines&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Lisp is embedded in a lot of places.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Despite Lua being often recognized as being The Embeddable Language,
+surprisingly many tools are programmable in Lisp. Some examples include: Gimp,
+&lt;a href=&quot;http://www.gnu.org/software/guix/&quot;&gt;Guix&lt;/a&gt;, Emacs, &lt;a href=&quot;https://en.m.wikipedia.org/wiki/AutoLISP&quot;&gt;AutoCAD&lt;/a&gt;, LilyPond,
+GnuCash,&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are several Lisps designed especially for embedding, such as
+&lt;a href=&quot;http://synthcode.com/wiki/chibi-scheme&quot;&gt;Chibi-scheme&lt;/a&gt;,
+&lt;a href=&quot;http://www.software-lab.de/down.html&quot;&gt;PicoLisp&lt;/a&gt;,
+&lt;a href=&quot;http://tinyscheme.sourceforge.net/home.html&quot;&gt;TinyScheme&lt;/a&gt;, and
+&lt;a href=&quot;https://github.com/sbp/hedgehog&quot;&gt;Hedgehog&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;BTW, I don’t discredit Vim for not having an embedded Lisp. I see most of Vim
+(even VimL) as a very special DSL. Even with Lisp, you just can’t get as
+concise as Vim commands.&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_scheme_learning_resources&quot;&gt;Scheme learning resources&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_books&quot;&gt;Books&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://mitpress.mit.edu/sicp/&quot;&gt;Structure and Interpretation of Computer Programs&lt;/a&gt;(SICP)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://mitpress.mit.edu/books/little-schemer&quot;&gt;The Little Schemer&lt;/a&gt; (TLS)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.cs.berkeley.edu/~bh/ss-toc2.html&quot;&gt;Simply Scheme: Introducing CS&lt;/a&gt; (SSICS)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.ccs.neu.edu/home/matthias/HtDP2e/&quot;&gt;How to Design Programs&lt;/a&gt; (HtDP)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.scheme.com/tspl4/&quot;&gt;The Scheme Programming Language&lt;/a&gt; (TSPL4)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://realmofracket.com/&quot;&gt;Realm of Racket&lt;/a&gt; (RoR)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://cs.brown.edu/~sk/Publications/Books/ProgLangs/2007-04-26/&quot;&gt;Programming Languages: Application and Interpretation&lt;/a&gt; (PLAI)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Some of those are seminal classics that can teach you how to program like almost
+no other book. Notice that bent towards Scheme. That’s the beauty of Racket:
+decades of academic knowledge still applicable to a modern language. Most of
+those books available for free in web form.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you want to get into Artificial Intelligence (AI), you’ll surely spend some
+time in Lisp.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_web&quot;&gt;Web&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;A few invaluable web resources are:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://docs.racket-lang.org/guide/&quot;&gt;The Racket Guide&lt;/a&gt;; extensive&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://rosettacode.org/wiki/Category:Racket&quot;&gt;Racket on Rosetta Code&lt;/a&gt;; a
+&lt;a href=&quot;http://blog.racket-lang.org/2015/05/king-of-hill-on-rosetta-code.html&quot;&gt;top language&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://learnxinyminutes.com/docs/racket/&quot;&gt;Racket on “Learn X in Y minutes”&lt;/a&gt;;
+brief feature/language overview&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_videos&quot;&gt;Videos&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=vJGV7HaTdbg&quot;&gt;Randall Schwartz intro on Twit&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_lightweight&quot;&gt;Lightweight&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Racket installs everywhere. It has a small footprint and starts up quickly. Very
+modest student machines can run it without hitting any resource limits.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Although the community heavily supports their own IDE, there’s no reason you
+have to use it. It has some nice graphical-oriented features, but Vim and Emacs
+are great for editing Racket.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_decent_repl&quot;&gt;Decent REPL&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nice little REPL can do completion, and features a vi-mode. Works well with
+vim-slime.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_but_can_you_get_paid_to_code_in_lisp&quot;&gt;But can you get paid to code in Lisp?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Yes. I think the most likely route right now is through
+&lt;a href=&quot;http://clojure.org/Companies&quot;&gt;Clojure&lt;/a&gt;. I loved my couple of years with it, but
+it’s a little too beastly to be promoting for student adoption.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;ClojureScript (and Om/Reagent) is also sure to open up more webdev jobs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_so_why_learn_racket&quot;&gt;So why learn Racket?&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_successful_lisp_companies_sites&quot;&gt;Successful Lisp companies/sites&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Cognitect&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=GAmZIgs72wA&quot;&gt;Airstash&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youpatch.com/&quot;&gt;YouPatch&lt;/a&gt; (startup)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.paulgraham.com/carl.html&quot;&gt;Orbitz&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;http://flightcaster.com&quot;&gt;Flightcaster&lt;/a&gt; (much of it in Clojure, now acquired)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 10 Sep 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-09-01-arch-aur-getting-started-guide.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-09-01-arch-aur-getting-started-guide.html
+</link>
+<title>
+AUR Getting Started Guide
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;intermediate&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are many options to access Arch’s User Repository (AUR). The AUR is one of
+the most compelling features of Arch Linux. I’ll walk you through the simplest
+path to getting started with the AUR, with minimal bootstrapping effort.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The most primitive yet useful tool I’ve found for first accessing the AUR is
+&lt;a href=&quot;https://aur.archlinux.org/packages/cower/&quot;&gt;cower&lt;/a&gt;. On the right side of that page
+you’ll see a link to “Download snapshot”. It’s
+&lt;a href=&quot;https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz&quot;&gt;https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Grab/extract/install it with:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;cd $TMPDIR
+wget https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz
+tar xzvf cower.tar.gz
+cd cower
+makepkg -si&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You could continue to search the AUR website for packages to install, and
+continue to run &lt;code&gt;wget/tar/cur/makepkg&lt;/code&gt; on them. But AUR managers make life much
+better than that. And now with &lt;code&gt;cower&lt;/code&gt; (and soon more) you have full
+command-line access to the AUR!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Let’s search for a more featureful AUR
+manager. &lt;code&gt;cower&lt;/code&gt; is cool. You can use it directly, and it’s the simple base
+command underlying a few of the other managers. It’s also a good tool for
+learning about the low-level details of the AUR (now right now). But we’ll
+prefer those managers that conform to &lt;code&gt;pacman&lt;/code&gt;’s option syntax.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;cower -s aurget
+cower -s pacaur
+cower -s yaourt&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;These also all happen to support nice Zsh completions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Let’s find and install something useful.
+&lt;a href=&quot;https://aur.archlinux.org/packages/?SB=p&amp;amp;SO=d&amp;amp;O=0&amp;amp;PP=50&quot;&gt;Here&lt;/a&gt; is the list of
+packages, sorted by popularity. You’ll notice &lt;code&gt;yaourt&lt;/code&gt; is at the top.
+Interesting. Install &lt;code&gt;archey&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;aurget -S --noconfirm --noedit archey&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Tue, 01 Sep 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-09-01-vim-anti-patterns.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-09-01-vim-anti-patterns.html
+</link>
+<title>
+Vim Anti-Patterns
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;intermediate&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Some quote&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vim is such a rich editor. So rich that there are many ways to do things. And
+many ways some wrong ways, or at least inefficient ways.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_not_understanding_transactional_editing&quot;&gt;Not understanding transactional editing&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_arrow_keys&quot;&gt;Arrow Keys&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_default_qwerty_keyboards&quot;&gt;Default QWERTY keyboards&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You may have heard some history about the QWERTY layout being suboptimal, but
+even worse than its layout is the
+&lt;a href=&quot;https://en.wikipedia.org/wiki/IBM_PC_keyboard&quot;&gt;IBM PC Model-M Keyboard Standard&lt;/a&gt;
+from 1986 we all got forced. Many programmers were lucky enough back then to use
+UNIX keyboards that had sensible Ctrl, Esc, and others. But today we all use
+laptops with horrible layouts. There are a few egregious issues with the&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you have not modified your mappings, you are not meeting your potential.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_enter_key&quot;&gt;Enter key&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You may kill you wrist. Look how it pivots to reach your pinky. &lt;code&gt;Enter&lt;/code&gt; is in a
+terrible position.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_a_better_way&quot;&gt;A Better Way&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_surrounding_things_manually&quot;&gt;Surrounding things manually&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Put quotes around a word.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;The quick brown fox...
+            ^&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;Bi&quot;&amp;lt;esc&amp;gt;ea&quot;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That’s 7 keystrokes, 10 if you count the &lt;code&gt;Shift`s. What a pain. With the
+[Surround] plugin you can just type `csw&quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_x&quot;&gt;x&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Too easy to make a habit out of &lt;code&gt;xxx&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_excessive_hjkl&quot;&gt;Excessive hjkl&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_leaving_the_window_in_insert_mode&quot;&gt;Leaving the window in INSERT mode&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_staying_in_insert_mode&quot;&gt;Staying in insert mode&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Need to Esc in order to save transaction.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_ignoring_bold_italic_and_256_colors&quot;&gt;Ignoring bold, italic, and 256 colors&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_repeating&quot;&gt;Repeating&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_a_better_way_2&quot;&gt;A Better Way&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Use &lt;code&gt;Ctrl-J&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_not_learning_about_objects&quot;&gt;Not learning about “objects”&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The first thing most of us were taught about Vim was movement.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vim knows about objects: sentences, words, quotes, paragraphs, and more. You can
+even define your own.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;gqap
+daw
+dis
+ysiw&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_using_the_mouse&quot;&gt;Using the mouse&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_not_using_built_in_help&quot;&gt;Not using built-in help&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_not_leveraging_the_powerful_repeat&quot;&gt;Not leveraging the powerful “repeat”&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_adopting_a_distribution_you_don_t_understand&quot;&gt;Adopting a distribution you don’t understand&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_relying_too_much_on_visual_mode&quot;&gt;Relying too much on visual mode&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_save_change_window_refresh_browser_suite_back_to_window_edit&quot;&gt;Save, Change window, refresh browser/suite, back to window, edit&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Use write hooks.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Tue, 01 Sep 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html
+</link>
+<title>
+Vim Bare Essentials for Editing Lisp
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;beginners&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vim can feel daunting when you first hop into it. But there’s not all that much you
+need to learn in order to be able to do very powerful operations with complex
+code. This is a whirlwind tour of the essentials of Vim for total noobs to
+competently edit things with lots of parentheses.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_navigation&quot;&gt;Navigation&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;hjkl
+w b e
+W B E&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;C-f C-b
+C-e C-y&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;gg
+G
+12G
+H M L
+zz&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;( )
+{ }&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_insert_mode&quot;&gt;Insert mode&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;i a o/O
+Esc&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;C-w C-h&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_count_operators&quot;&gt;Count operators&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;4w
+12j&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_search_mode&quot;&gt;Search mode&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;f F
+/
+*
+n N&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_delete_change_yank&quot;&gt;Delete/Change/Yank&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;d c y
+dw
+c2W
+yf;
+p P&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;r R&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_command_mode&quot;&gt;Command mode&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;:
+:w
+:q
+:wq
+:x
+:e&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_files&quot;&gt;Files&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;:w myfile
+% #&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_buffers&quot;&gt;Buffers&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;:ls
+]b
+[b&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_options&quot;&gt;Options&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;:set
+coi
+cos
+cox&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_save_options&quot;&gt;Save options&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;:e ~/.vimrc
+:w&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_objects&quot;&gt;Objects&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;code&gt;in&lt;/code&gt; and &lt;code&gt;around&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;iw aw if&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_special&quot;&gt;Special&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;J
+u
+C-r
+ma 'a
+C-l
+C-g&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_help&quot;&gt;Help&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;:h
+:h foo
+:h fo&amp;lt;C-d&amp;gt;
+K
+C-]
+C-t&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_surround&quot;&gt;Surround&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_slime&quot;&gt;Slime&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;&amp;lt;C-c-c&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_settings&quot;&gt;Settings&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;set nocompatible
+set exrc
+set autowrite
+set tabstop=2
+set shiftwidth=2
+set backspace=2
+set history=500
+set ruler
+set showmode
+set showcmd
+set showmatch
+set hlsearch
+set mousehide
+set autoindent
+set incsearch
+set textwidth=78
+set wrap
+set encoding=utf8
+set relativenumber
+set number
+set numberwidth=1
+set laststatus=2
+set switchbuf=split
+set ignorecase
+set lisp&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Tue, 01 Sep 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-08-30-lisp-glossary.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-08-30-lisp-glossary.html
+</link>
+<title>
+Lisp Jargon
+</title>
+<description>
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_lisp_jargon&quot;&gt;Lisp Jargon&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8201;&amp;#8212;&amp;#8201;&lt;a href=&quot;http://www.lispworks.com/documentation/lw51/CLHS/Body/26_glo_b.htm&quot; class=&quot;bare&quot;&gt;http://www.lispworks.com/documentation/lw51/CLHS/Body/26_glo_b.htm&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The following is a glossary of fundamental lisp terms that may be somewhat
+foreign to someone who is not versed in a lisp. I have cherry-picked the terms
+that I find to be most productive.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;They are intentionally not alphabetical, but are ordered and grouped into
+logical sections.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;dlist&quot;&gt;
+&lt;dl&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;sexp&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;s-expression, symbolic expression&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;statement&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;nothing&amp;#8201;&amp;#8212;&amp;#8201;everything is an expression&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;expression&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;form&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;(vim)&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;string&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;(vim)&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;element&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;like atom (vim)&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;redex&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;reducible expression&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;regex(p)&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;regular expression&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;lisp&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;list processor&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;list&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;()&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;sequence&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;singleton&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;a sequence with only one element&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;pair&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;rpn&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;reverse polish notation: operator first&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;quoting&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;boolean&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;homoiconic&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;code is data&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;scheme&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;academic lisp dialect&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;racket&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;another scheme implementation&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;clojure&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;modern lisp on java/javascript&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;clisp&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;common lisp; old, robust lisp dialect/implementation&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;repl&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;read, eval, print, loop&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;emacs&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;most common way to edit lisp&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;vim&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;another powerful editor&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;slime&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;an editor mode that enables immediate transfer of forms from editor to repl&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;tree&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;leaves, nodes&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;recursion&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;iteration&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;loop&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;tco&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;tail call optimization for recursive functions&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;lexical (scoping)&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;referring to scope of visibility, done through &lt;em&gt;textual analysis&lt;/em&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;formal parameter&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;actual argument&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;splice&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;slurp&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;barf&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;name&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;an identifier bound to an object&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;object&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;any lisp datum&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;atom&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;identifier&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;a symbol used to identify names&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;variable&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;symbol&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;value&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;the result of an evaluation&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;reference&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;refer to an object or binding by name&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;binding&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;association between a name and its value (e.g., “let-binding”)&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;literal&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;keyword&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;vector&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;hash table&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;mapping of keys to values&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;macro&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;reader&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;eval&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;immutable&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;concurrency&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;parallelism&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;primitive/built-in&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;ex: car, cdr, cond, cons, map, null?, add1, sub1&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;null&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;map&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;apply&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;rest list&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;cdr&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;operator/operand&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;predicate&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;lambda&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;function&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;procedure&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;application&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;continuation&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;signature&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;descirption of the parameters of a method&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;block&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;begin/do&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;implicit block&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;&lt;code&gt;if&lt;/code&gt; has these&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;currying&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;closure&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;hof&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;higher-order function, passed in to another func or returned&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;declaration&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;definition&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;htdp&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;tls&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;sicp&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;ror&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;exception&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;environment&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;set of bindings&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;package&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;bundle of reusable, installable code&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;rank&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;number of dimensions of an array&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;R5RS&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;revision 5 report on scheme&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;fingernail clippings and oatmeal&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;lambda calculus&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;srfi&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;scheme requests for implementation; see the &lt;a href=&quot;http://srfi.schemers.org/srfi-faq.html&quot;&gt;SRFI FAQs&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;(The definitions herein are mostly my own, but much of what I know is inevitably
+copied from others.)&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Sun, 30 Aug 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-08-27-ansible-best-practices.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-08-27-ansible-best-practices.html
+</link>
+<title>
+Ansible Best Practices
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;sysadmins&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ansible lets you set things up somewhat flexibly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_create_a_multi_purpose_ssh_config_file&quot;&gt;Create a multi-purpose ssh config file&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_editor_shortcuts&quot;&gt;Editor shortcuts&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_zsh_helpers&quot;&gt;Zsh helpers&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_special_files&quot;&gt;Special files&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the top of your Ansible project, keep the following files:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;hosts
+site.yaml
+ssh-inventory.config
+ansible.config&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Rather than spread files around your machine (&lt;code&gt;~/.ssh/config&lt;/code&gt;, &lt;code&gt;/etc/hosts&lt;/code&gt;,
+etc), set your own &lt;code&gt;hosts&lt;/code&gt; file:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;export ANSIBLE_HOSTS=/root/of/your/proj&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_vim_helpers&quot;&gt;Vim helpers&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Edit ansible with key files open
+alias vi-ans='v -o hosts site.yaml group_vars/all.yaml ssh-inventory.config ansible.cfg'&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;# Let zsh auto-complete all membean servers; ssh mnemonic: “ssh membean”
+alias ssm=”ssh -F ${ANSIBLE_HOSTS:h}/ssh-inventory.config”&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_recipes&quot;&gt;Recipes&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Simplest test to reach all servers&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ansible bases -m command -a date -u dummy -b -v&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Create an app server&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ansible-playbook --skip-tags=slow,skip,nondocker -l appsvrs site.yaml -b
+SSH password: root&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ansible-playbook --skip-tags=skip -l bases site.yaml -v -u dummy -b --ask-become-pass&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Update all systems:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Always have a &lt;code&gt;main.yaml&lt;/code&gt; that is a bunch of &lt;code&gt;include`s. This way, you can add a
+`cur&lt;/code&gt; tag to any other sub-&lt;code&gt;yaml&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Sprinkle tags liberally. You might have a single type of change that applies to
+several roles, like updating a set of crontabs across servers. Add a &lt;code&gt;cron&lt;/code&gt; tag
+for this.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 27 Aug 2015 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-08-27-firewalld-best-practices.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-08-27-firewalld-best-practices.html
+</link>
+<title>
+Firewalld Best Practices
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;sysadmins&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Firewalld is the replacement for iptables in RedHat-family distros. Like it or
+not, you’ll probably end up having to wrestle with it at some point. I’ve read
+several articles describing it with an overview, but most miss out on
+important subtleties of a tool that’s in production but maybe not friendly
+enough for prime time. Here you’ll find my guide to getting the most out of
+Firewalld and avoiding its gotchas.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The commands get long, long, and very long to type frequently. What’s worse is
+that it seems you usually need to repeat them with a &lt;code&gt;--permanent&lt;/code&gt; option, which
+is painful and easy to forget.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_command_line_completion&quot;&gt;Command line completion&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There appears to be a bash completer. I haven’t tried it since I’m fully in Zsh
+land these days for all activities. It’s not any RH repo I’m aware of anyway, so
+let’s forget it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Firewalld supports a poor man’s version of completion. Instead of typing
+&lt;code&gt;--zone&lt;/code&gt;, you can just type &lt;code&gt;--zo&lt;/code&gt; or even &lt;code&gt;--z&lt;/code&gt;. You’d have to memorize how
+much of each option is unambiguous. So you still have to type &lt;code&gt;--list-all-z&lt;/code&gt; to
+get &lt;code&gt;--list-all-zones&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So aliases are the way to go.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I did write a Zsh completer here, if you want to use it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_ansible_support&quot;&gt;Ansible support&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;TLDR: don’t bother with Ansible for Firewalld. Even if you do, you’ll likely
+need to experiment with &lt;code&gt;firewall-cmd&lt;/code&gt; to get your rules right.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Ansible’s new version 2 purports to support most of the full set of options,
+including &lt;code&gt;--source&lt;/code&gt;, which I use frequently. Unfortunately, I’ve found this
+bleeding edge Ansible to be way too buggy to use. However, you can actually copy
+the newest firewalld add-on python module into Ansible v1.9. However, I don’t
+think it actually words, whatever version of the module your get.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_really_understanding_zones&quot;&gt;Really understanding “zones”&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can actually create your own new zone:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_creating_a_services_file&quot;&gt;Creating a services file&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It should look like this:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;
+&amp;lt;service&amp;gt;
+  &amp;lt;short&amp;gt;Some Service&amp;lt;/short&amp;gt;
+  &amp;lt;description&amp;gt;Something very descriptive&amp;lt;/description&amp;gt;
+  &amp;lt;port port=&quot;1234&quot; protocol=&quot;tcp&quot;/&amp;gt;
+  &amp;lt;source ip=&quot;10.1.10.10&quot; /&amp;gt;
+&amp;lt;/service&amp;gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Put it into &lt;code&gt;/usr/lib/firewalld/services&lt;/code&gt; and run &lt;code&gt;fwr&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_needed_aliases&quot;&gt;Needed aliases&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;alias fw='firewall-cmd'
+alias fwz='fw --zone'
+alias fwp='fw --permanent'
+alias fwr='fw --runtime-to-permanent'
+alias fwpz='fw --permanent --zone'
+alias fwl='fw --list-all-zones'&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_gotchas&quot;&gt;Gotchas&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Sometimes you want to specify a &lt;em&gt;source&lt;/em&gt; and &lt;em&gt;port&lt;/em&gt;. But it’s not at all obvious
+when it’s an &lt;em&gt;AND&lt;/em&gt; or &lt;em&gt;OR&lt;/em&gt; specification. No one seems to mention this. But I
+did find this gem in the &lt;code&gt;firewalld.zone&lt;/code&gt; man page:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The default target is {chain}_ZONE_{zone} and will be used if the target is not
+specified. If other than the default target is used, all settings except
+interface and source are ignored, because the first rule created in firewall for
+this zone is 'jump to target'.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;To discover all the man pages, in Zsh do &lt;code&gt;man firewalld«tab»&lt;/code&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;firewalld                     firewalld.lockdown-whitelist
+firewalld.conf                firewalld.richlanguage
+firewalld.dbus                firewalld.service
+firewalld.direct              firewalld.zone
+firewalld.icmptype            firewalld.zones&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 27 Aug 2015 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-08-20-vim-sexp-cheat-sheet.html
@@ -29,9 +1292,10 @@ Vim Sexp Cheat Sheet
 </title>
 <description>
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;There are two fantastic Vim plugins that make editing parentheses-heavy Lisp
-code (e.g., Racket or Clojure) a delight. I don’t know I lived without
-making much use of these for years: &lt;em&gt;parentheses can be terribly unwieldy&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;There are two fantastic Vim plugins that make it delightful to edit
+parentheses-heavy Lisp code (e.g., Racket or Clojure). I don’t know
+how I lived without making much use of these for years: &lt;em&gt;parentheses can be
+terribly unwieldy&lt;/em&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
@@ -48,6 +1312,10 @@ aka SRP, pronounced “Syrup”&lt;/p&gt;
 &lt;p&gt;Install them both now if you haven’t already! And read on for &lt;strong&gt;the cheat sheet
 that makes wrangling parentheses a walk in the park&lt;/strong&gt;.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you don’t grok Vim yet, there is surprisingly little you need to know to get
+started editing a Lisp with Vim. [Read this post to get started.]&lt;/p&gt;
+&lt;/div&gt;
 &lt;!-- more --&gt;
 &lt;div class=&quot;quoteblock&quot;&gt;
 &lt;blockquote&gt;
@@ -59,13 +1327,19 @@ them.&amp;#8201;&amp;#8212;&amp;#8201;guns (author of vim-sexp)&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Emacs has been the go-to environment for Lisp hackers for years. One of its
+particularly compelling features is “paredit”. Vim has a paredit, too, which is
+used as part of the SLIMV stack. I feel that SLIMV tries to do too much to your
+Vim, so now I’m telling you about a lighter solution: the Sexp/SRP combo.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;SRP has a short README that describes all of its mappings, and it gets you most
 of the way to bliss. But there are a few from Sexp that are still very handy.
 Unlike SRP, Sexp has a lot of documentation, in both its README and vimdoc. This
 guide puts together the docs from both projects into a short, memorizable cheat
 sheet, choosing what I feel are the simplest/best set. These mostly avoid the
 &lt;a href=&quot;http://stackoverflow.com/questions/7501092/can-i-map-alt-key-in-vim&quot;&gt;troublesome
-Alt/Meta&lt;/a&gt;, leader (which tpope doesn’t like much), and visual selection
+Alt/Meta&lt;/a&gt; leader (which tpope doesn’t like much), and visual selection
 (sometimes a crutch). Where &lt;code&gt;&amp;lt;leader&amp;gt;&lt;/code&gt; is still needed, I’ve just marked &lt;code&gt;,&lt;/code&gt; (my
 leader) for brevity.&lt;/p&gt;
 &lt;/div&gt;
@@ -106,8 +1380,9 @@ W B E   move cursor element/form-wise&lt;/pre&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre&gt;# Insertion, some with new parens
-cse)     add surround form (seems weird, yse) also works)
-&amp;gt;I &amp;lt;I    insert front/end
+cse)     add surround form (easier than ysie)
+&amp;lt;I &amp;gt;I    insert front/end
+,h ,l    insert front/end _[SEXP alternative]_
 ,i ,I    insert front/end, add surround form _[SEXP]_
 ,w ,W    insert front/end, add surround element _[SEXP]_&lt;/pre&gt;
 &lt;/div&gt;
@@ -116,7 +1391,8 @@ cse)     add surround form (seems weird, yse) also works)
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre&gt;# Deletion
 dsf      delete form (splice ,@)
-daf dif  delete around/in form (,o)&lt;/pre&gt;
+daf dif  delete around/in form
+,o       delete outer form _[SEXP]_&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -133,6 +1409,10 @@ try out every mapping listed above.&lt;/p&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;You probably also want to install &lt;a href=&quot;https://github.com/tpope/vim-repeat&quot;&gt;Repeat&lt;/a&gt;.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Also &lt;a href=&quot;http://stackoverflow.com/a/31999765/326516&quot;&gt;read this answer&lt;/a&gt; for more info
+on using Vim to edit Lisp.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;_caveats&quot;&gt;Caveats&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
@@ -145,6 +1425,110 @@ try out every mapping listed above.&lt;/p&gt;
 &lt;p&gt;undo is funky since some commands do multiple things&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_demo&quot;&gt;Demo&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Similar to the &lt;a href=&quot;http://emacswiki.org/emacs/PareditCheatsheet&quot;&gt;Emacs Wiki Cheat Sheet&lt;/a&gt;.
+But this is way better than Emacs’ paredit where various things are mapped to
+arrow keys, forcing an atrocious hand move. Oh, for shame.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You need to actually try these&amp;#8230;&amp;#8203; a lot. But to give you an idea, see below. The
+&lt;code&gt;^&lt;/code&gt; is where your cursor is. The &lt;code&gt;&lt;em&gt;&lt;/code&gt; is where your cursor is in _insert&lt;/em&gt; mode.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa bbb)
+        ^       (
+(aaa bbb)
+^&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa bbb)
+      ^         &amp;lt;e
+(bbb aaa)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa bbb) (ccc ddd)
+      ^                 &amp;gt;f
+(ccc ddd) (aaa bbb)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;((aaa bbb) ccc)
+       ^                &amp;gt;)  slurp
+((aaa bbb ccc))&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;((aaa bbb) ccc)
+   ^                    &amp;lt;)  barf
+((aaa) bbb ccc)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa bbb) (ccc ddd)
+            ^           yss)
+((aaa bbb) (ccc ddd))&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa bbb)
+      ^         &amp;lt;I  insert
+(_ aaa bbb)
+ ^&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa bbb)
+      ^         ,i  surround and insert
+(_ (aaa bbb))
+ ^&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa bbb)
+      ^         ,w  surround and insert word
+(aaa (_ bbb))
+      ^&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa (bbb ccc))
+       ^        dsf
+(aaa bbb ccc)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa (bbb ccc))
+       ^        daf
+(aaa )
+     ^&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;(aaa (bbb ccc))
+       ^        ,o
+(bbb ccc)
+        ^&lt;/pre&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -816,7 +2200,7 @@ Termite.&lt;/p&gt;
 &lt;pre&gt;# Modal cursor color for vi's insert/normal modes.
 # http://stackoverflow.com/questions/30985436/
 # https://bbs.archlinux.org/viewtopic.php?id=95078
-# http://unix.stackexchange.com/questions/115009/how-to-change-the-cursor-theme-in-cli
+# http://unix.stackexchange.com/questions/115009/
 zle-line-init () {
   zle -K viins
   #echo -ne &quot;\033]12;Grey\007&quot;
@@ -874,7 +2258,7 @@ elseif &amp;amp;term =~ &quot;screen-it&quot;
   &quot; Normal
   let &amp;amp;t_EI  = &quot;\&amp;lt;Esc&amp;gt;Ptmux;\&amp;lt;Esc&amp;gt;\&amp;lt;Esc&amp;gt;]12;blue\x7\&amp;lt;Esc&amp;gt;\\&quot;
   let &amp;amp;t_EI .= &quot;\&amp;lt;Esc&amp;gt;Ptmux;\&amp;lt;Esc&amp;gt;\&amp;lt;Esc&amp;gt;[2 q\&amp;lt;Esc&amp;gt;\\&quot;
-  autocmd VimLeave * silent !printf “\033Ptmux;\033\033]12;grey\007\033\\”
+  autocmd VimLeave * silent !printf &quot;\033Ptmux;\033\033]12;grey\007\033\\&quot;
 endif&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;

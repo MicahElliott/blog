@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott: About</title>
+    <title>Micah Elliott: Vim Bare Essentials for Editing Lisp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -50,7 +50,7 @@
 
                 <!--  -->
                 <!-- <li -->
-                <!--  class="active" > -->
+                <!-- > -->
                 <!-- <a href="/pages/about.html"> -->
                 <!--   <i class="glyphicon glyphicon-new-window"></i> -->
                 <!--   About -->
@@ -75,7 +75,7 @@
                 <!--  -->
 
                 <li
-                   class="active" >
+                  >
                   <!-- <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li> -->
                   <a href="/pages/about.html"><i class="fa fa-info-circle"></i> README</a></li>
 
@@ -107,100 +107,334 @@
         <div class="col-lg-9">
             <div id="content">
                 
-<div id="custom-page">
-    <div id="page-header">
-        <h1>About</h1>
-    </div>
+<div id="post">
+    <div id="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-8"><b>September 1, 2015</b>
+
     
-    <div class="imageblock" style="float: left">
+    <span id="post-tags">
+        <!-- <i>tagged:</i> -->
+        <i> — </i>
+        <b><i class="fa fa-tags"></i> </b>
+        <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
+        
+        <a href="/tags/draft.html"> draft</a>
+        
+        <a href="/tags/vim.html"> vim</a>
+        
+        <a href="/tags/lisp.html"> lisp</a>
+        
+    </span>
+    
+
+        </div>
+
+        <!--  -->
+
+    </div>
+
+    <h1>Vim Bare Essentials for Editing Lisp</h1>
+
+<!--      -->
+<!--     <div id="post-tags"> -->
+<!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
+<!--          -->
+<!--         <a href="/tags/draft.html"> draft</a> -->
+<!--          -->
+<!--         <a href="/tags/vim.html"> vim</a> -->
+<!--          -->
+<!--         <a href="/tags/lisp.html"> lisp</a> -->
+<!--          -->
+<!--     </div> -->
+<!--      -->
+
+</div>
+<div>
+    
+    <div class="paragraph">
+<p><strong>Audience:</strong> <em>beginners</em></p>
+</div>
+<div class="paragraph">
+<p>Vim can feel daunting when you first hop into it. But there’s not all that much you
+need to learn in order to be able to do very powerful operations with complex
+code. This is a whirlwind tour of the essentials of Vim for total noobs to
+competently edit things with lots of parentheses.</p>
+</div>
+<!-- more -->
+<div class="sect1">
+<h2 id="_navigation">Navigation</h2>
+<div class="sectionbody">
+<div class="literalblock">
 <div class="content">
-<img src="../img/mde1.jpg" alt="mde1" height="200">
+<pre>hjkl
+w b e
+W B E</pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Thanks for visiting my blog! My name is Micah Elliott, and I live in Portland,
-Oregon, USA. I&#8217;m an entrepreneur and founder of <a href="http://membean.com">Membean</a>: an
-online vocabulary training program used by schools in all 50 states and around
-the globe. I spend much of my time there coding and managing infrastructure.
-You should sign up for <a href="http://membean.com/products/Personal/plans">a free Membean
-account</a>; let me know how it goes!</p>
+<div class="literalblock">
+<div class="content">
+<pre>C-f C-b
+C-e C-y</pre>
 </div>
-<div class="paragraph">
-<p><strong>My goal for this blog is to share technical knowledge and discoveries in
-hopes that we can all continue learning. There is a focus on infrastructure,
-Linux, programming, and teaching.</strong></p>
 </div>
-<div class="paragraph">
-<p><em>(You&#8217;ll find a some unfinished work on this “blog”. Some sections are a
-dumping ground. When something comes to mind I&#8217;ll sketch it out here in public.
-There is no real notion of “publish”&#8201;&#8212;&#8201;that becomes too formal and I end up
-sitting on things. So I write, save, and push frequently. Sorry.)</em></p>
+<div class="literalblock">
+<div class="content">
+<pre>gg
+G
+12G
+H M L
+zz</pre>
 </div>
-<div class="paragraph">
-<p>Beyond Membean, my interests include programming in
-<a href="http://clojure.org/">Clojure</a>, learning about statistics (mostly with
-<a href="http://www.r-project.org/">R</a>), triathlons and marathons, and bookkeeping at
-my kids’ baseball games.</p>
 </div>
-<div class="paragraph">
-<p>View <a href="/pages/projects.html">the projects I work on</a>.</p>
+<div class="literalblock">
+<div class="content">
+<pre>( )
+{ }</pre>
+</div>
+</div>
+</div>
 </div>
 <div class="sect1">
-<h2 id="_contact">Contact</h2>
+<h2 id="_insert_mode">Insert mode</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>You can email me: <code>&lt;mde@this-blog&#8217;s-domain&gt;</code></p>
-</div>
-<div class="imageblock">
+<div class="literalblock">
 <div class="content">
-<img src="../img/fam1.jpg" alt="Hiking near Rainier">
+<pre>i a o/O
+Esc</pre>
 </div>
-<div class="title">Figure 1. That’s me with the wife and kids.</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>C-w C-h</pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_colophon">Colophon</h2>
+<h2 id="_count_operators">Count operators</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>4w
+12j</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_search_mode">Search mode</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>f F
+/
+*
+n N</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_delete_change_yank">Delete/Change/Yank</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>d c y
+dw
+c2W
+yf;
+p P</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>r R</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_mode">Command mode</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>:
+:w
+:q
+:wq
+:x
+:e</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_files">Files</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>:w myfile
+% #</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_buffers">Buffers</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>:ls
+]b
+[b</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">Options</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>:set
+coi
+cos
+cox</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_save_options">Save options</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>:e ~/.vimrc
+:w</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_objects">Objects</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This blog
-<a href="http://www.quickanddirtytips.com/education/grammar/comprise-versus-compose">comprises</a>
-a mix of my favorite tech (which I also like to write about). It’s hosted on
-<a href="https://www.freebsd.org/">FreeBSD</a> 10.1 by a
-<a href="https://www.digitalocean.com/">DigitalOcean</a> droplet running
-<a href="http://nginx.org/">Nginx</a>, and is
-deployed via <a href="http://www.ansible.com/">Ansible</a>. The blog engine is
-<a href="http://cryogenweb.org/docs/deploying-with-nginx-VPS.html">Cryogen</a>, written in
-Clojure, and it is nice to look at because it mostly came that way (including
-<a href="http://getbootstrap.com/">Bootstrap</a>). Posts are written in
-<a href="http://asciidoc.org/">Asciidoc</a> with <a href="http://www.vim.org/">Vim</a>.
-Changes are managed and shared on <a href="https://github.com/MicahElliott/blog">Github</a>.
-Read my <a href="/2015-07-02-cryogen-on-freebsd-with-ansible.html">recipe</a>
-on how to set it up if you want one, too.</p>
+<p><code>in</code> and <code>around</code></p>
 </div>
-<div class="paragraph">
-<p>Videos here are captured with
-<a href="http://www.maartenbaert.be/simplescreenrecorder/">SSR</a> (simple screen recorder)
-or <a href="http://z24.github.io/tty2gif/">tty2gif</a>. They are sometimes edited with
-<a href="https://kdenlive.org/">Kdenlive</a>. Audio is recorded and edited with
-<a href="http://web.audacityteam.org/">Audacity</a>. You may have noticed that everything I
-use is <a href="https://en.wikipedia.org/wiki/Open_source">Open Source</a>. I spend nearly
-all my working time on an <a href="https://www.archlinux.org/">Arch Linux</a> system.</p>
+<div class="literalblock">
+<div class="content">
+<pre>iw aw if</pre>
 </div>
 </div>
 </div>
+</div>
+<div class="sect1">
+<h2 id="_special">Special</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>J
+u
+C-r
+ma 'a
+C-l
+C-g</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_help">Help</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>:h
+:h foo
+:h fo&lt;C-d&gt;
+K
+C-]
+C-t</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_surround">Surround</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_slime">Slime</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>&lt;C-c-c&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_settings">Settings</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>set nocompatible
+set exrc
+set autowrite
+set tabstop=2
+set shiftwidth=2
+set backspace=2
+set history=500
+set ruler
+set showmode
+set showcmd
+set showmatch
+set hlsearch
+set mousehide
+set autoindent
+set incsearch
+set textwidth=78
+set wrap
+set encoding=utf8
+set relativenumber
+set number
+set numberwidth=1
+set laststatus=2
+set switchbuf=split
+set ignorecase
+set lisp</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--  -->
+<!-- <div id="post-tags"> -->
+<!--     <b>Tags: </b> -->
+<!--      -->
+<!--     <a href="/tags/draft.html">draft</a> -->
+<!--      -->
+<!--     <a href="/tags/vim.html">vim</a> -->
+<!--      -->
+<!--     <a href="/tags/lisp.html">lisp</a> -->
+<!--      -->
+<!-- </div> -->
+<!--  -->
 
     <div id="prev-next">
         
-        <a href="/pages/hireme.html">&laquo; Hire Me</a>
+        <a href="/posts/2015-09-01-vim-anti-patterns.html">&laquo; Vim Anti-Patterns</a>
         
         
-        ||
-        
-        
-        <a href="/pages/topics.html">Future Topics &raquo;</a>
+        <a class="right" href="/posts/2015-08-30-lisp-glossary.html">Lisp Jargon &raquo;</a>
         
     </div>
+
+    
+
+
 </div>
 
             </div>

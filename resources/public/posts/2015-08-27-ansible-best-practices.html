@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott: About</title>
+    <title>Micah Elliott: Ansible Best Practices</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -50,7 +50,7 @@
 
                 <!--  -->
                 <!-- <li -->
-                <!--  class="active" > -->
+                <!-- > -->
                 <!-- <a href="/pages/about.html"> -->
                 <!--   <i class="glyphicon glyphicon-new-window"></i> -->
                 <!--   About -->
@@ -75,7 +75,7 @@
                 <!--  -->
 
                 <li
-                   class="active" >
+                  >
                   <!-- <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li> -->
                   <a href="/pages/about.html"><i class="fa fa-info-circle"></i> README</a></li>
 
@@ -107,100 +107,183 @@
         <div class="col-lg-9">
             <div id="content">
                 
-<div id="custom-page">
-    <div id="page-header">
-        <h1>About</h1>
-    </div>
+<div id="post">
+    <div id="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-8"><b>August 27, 2015</b>
+
     
-    <div class="imageblock" style="float: left">
-<div class="content">
-<img src="../img/mde1.jpg" alt="mde1" height="200">
+    <span id="post-tags">
+        <!-- <i>tagged:</i> -->
+        <i> — </i>
+        <b><i class="fa fa-tags"></i> </b>
+        <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
+        
+        <a href="/tags/ansible.html"> ansible</a>
+        
+        <a href="/tags/draft.html"> draft</a>
+        
+        <a href="/tags/bcp.html"> bcp</a>
+        
+    </span>
+    
+
+        </div>
+
+        <!--  -->
+
+    </div>
+
+    <h1>Ansible Best Practices</h1>
+
+<!--      -->
+<!--     <div id="post-tags"> -->
+<!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
+<!--          -->
+<!--         <a href="/tags/ansible.html"> ansible</a> -->
+<!--          -->
+<!--         <a href="/tags/draft.html"> draft</a> -->
+<!--          -->
+<!--         <a href="/tags/bcp.html"> bcp</a> -->
+<!--          -->
+<!--     </div> -->
+<!--      -->
+
 </div>
+<div>
+    
+    <div class="paragraph">
+<p><strong>Audience:</strong> <em>sysadmins</em></p>
 </div>
 <div class="paragraph">
-<p>Thanks for visiting my blog! My name is Micah Elliott, and I live in Portland,
-Oregon, USA. I&#8217;m an entrepreneur and founder of <a href="http://membean.com">Membean</a>: an
-online vocabulary training program used by schools in all 50 states and around
-the globe. I spend much of my time there coding and managing infrastructure.
-You should sign up for <a href="http://membean.com/products/Personal/plans">a free Membean
-account</a>; let me know how it goes!</p>
+<p>Ansible lets you set things up somewhat flexibly.</p>
 </div>
-<div class="paragraph">
-<p><strong>My goal for this blog is to share technical knowledge and discoveries in
-hopes that we can all continue learning. There is a focus on infrastructure,
-Linux, programming, and teaching.</strong></p>
+<!-- more -->
+<div class="sect1">
+<h2 id="_create_a_multi_purpose_ssh_config_file">Create a multi-purpose ssh config file</h2>
+<div class="sectionbody">
+
 </div>
-<div class="paragraph">
-<p><em>(You&#8217;ll find a some unfinished work on this “blog”. Some sections are a
-dumping ground. When something comes to mind I&#8217;ll sketch it out here in public.
-There is no real notion of “publish”&#8201;&#8212;&#8201;that becomes too formal and I end up
-sitting on things. So I write, save, and push frequently. Sorry.)</em></p>
-</div>
-<div class="paragraph">
-<p>Beyond Membean, my interests include programming in
-<a href="http://clojure.org/">Clojure</a>, learning about statistics (mostly with
-<a href="http://www.r-project.org/">R</a>), triathlons and marathons, and bookkeeping at
-my kids’ baseball games.</p>
-</div>
-<div class="paragraph">
-<p>View <a href="/pages/projects.html">the projects I work on</a>.</p>
 </div>
 <div class="sect1">
-<h2 id="_contact">Contact</h2>
+<h2 id="_editor_shortcuts">Editor shortcuts</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_zsh_helpers">Zsh helpers</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_special_files">Special files</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can email me: <code>&lt;mde@this-blog&#8217;s-domain&gt;</code></p>
+<p>In the top of your Ansible project, keep the following files:</p>
 </div>
-<div class="imageblock">
+<div class="literalblock">
 <div class="content">
-<img src="../img/fam1.jpg" alt="Hiking near Rainier">
+<pre>hosts
+site.yaml
+ssh-inventory.config
+ansible.config</pre>
 </div>
-<div class="title">Figure 1. That’s me with the wife and kids.</div>
+</div>
+<div class="paragraph">
+<p>Rather than spread files around your machine (<code>~/.ssh/config</code>, <code>/etc/hosts</code>,
+etc), set your own <code>hosts</code> file:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>export ANSIBLE_HOSTS=/root/of/your/proj</pre>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_colophon">Colophon</h2>
+<h2 id="_vim_helpers">Vim helpers</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre># Edit ansible with key files open
+alias vi-ans='v -o hosts site.yaml group_vars/all.yaml ssh-inventory.config ansible.cfg'</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre># Let zsh auto-complete all membean servers; ssh mnemonic: “ssh membean”
+alias ssm=”ssh -F ${ANSIBLE_HOSTS:h}/ssh-inventory.config”</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_recipes">Recipes</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This blog
-<a href="http://www.quickanddirtytips.com/education/grammar/comprise-versus-compose">comprises</a>
-a mix of my favorite tech (which I also like to write about). It’s hosted on
-<a href="https://www.freebsd.org/">FreeBSD</a> 10.1 by a
-<a href="https://www.digitalocean.com/">DigitalOcean</a> droplet running
-<a href="http://nginx.org/">Nginx</a>, and is
-deployed via <a href="http://www.ansible.com/">Ansible</a>. The blog engine is
-<a href="http://cryogenweb.org/docs/deploying-with-nginx-VPS.html">Cryogen</a>, written in
-Clojure, and it is nice to look at because it mostly came that way (including
-<a href="http://getbootstrap.com/">Bootstrap</a>). Posts are written in
-<a href="http://asciidoc.org/">Asciidoc</a> with <a href="http://www.vim.org/">Vim</a>.
-Changes are managed and shared on <a href="https://github.com/MicahElliott/blog">Github</a>.
-Read my <a href="/2015-07-02-cryogen-on-freebsd-with-ansible.html">recipe</a>
-on how to set it up if you want one, too.</p>
+<p>Simplest test to reach all servers</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ansible bases -m command -a date -u dummy -b -v</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>Videos here are captured with
-<a href="http://www.maartenbaert.be/simplescreenrecorder/">SSR</a> (simple screen recorder)
-or <a href="http://z24.github.io/tty2gif/">tty2gif</a>. They are sometimes edited with
-<a href="https://kdenlive.org/">Kdenlive</a>. Audio is recorded and edited with
-<a href="http://web.audacityteam.org/">Audacity</a>. You may have noticed that everything I
-use is <a href="https://en.wikipedia.org/wiki/Open_source">Open Source</a>. I spend nearly
-all my working time on an <a href="https://www.archlinux.org/">Arch Linux</a> system.</p>
+<p>Create an app server</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ansible-playbook --skip-tags=slow,skip,nondocker -l appsvrs site.yaml -b
+SSH password: root</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>ansible-playbook --skip-tags=skip -l bases site.yaml -v -u dummy -b --ask-become-pass</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Update all systems:</p>
+</div>
+<div class="paragraph">
+<p>Always have a <code>main.yaml</code> that is a bunch of <code>include`s. This way, you can add a
+`cur</code> tag to any other sub-<code>yaml</code>.</p>
+</div>
+<div class="paragraph">
+<p>Sprinkle tags liberally. You might have a single type of change that applies to
+several roles, like updating a set of crontabs across servers. Add a <code>cron</code> tag
+for this.</p>
 </div>
 </div>
 </div>
+</div>
+<!--  -->
+<!-- <div id="post-tags"> -->
+<!--     <b>Tags: </b> -->
+<!--      -->
+<!--     <a href="/tags/ansible.html">ansible</a> -->
+<!--      -->
+<!--     <a href="/tags/draft.html">draft</a> -->
+<!--      -->
+<!--     <a href="/tags/bcp.html">bcp</a> -->
+<!--      -->
+<!-- </div> -->
+<!--  -->
 
     <div id="prev-next">
         
-        <a href="/pages/hireme.html">&laquo; Hire Me</a>
+        <a href="/posts/2015-08-30-lisp-glossary.html">&laquo; Lisp Jargon</a>
         
         
-        ||
-        
-        
-        <a href="/pages/topics.html">Future Topics &raquo;</a>
+        <a class="right" href="/posts/2015-08-27-firewalld-best-practices.html">Firewalld Best Practices &raquo;</a>
         
     </div>
+
+    
+
+
 </div>
 
             </div>

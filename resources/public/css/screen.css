@@ -24,14 +24,14 @@ h2, h3, h4, h5, h6 {
 }
 
 #custom-page .paragraph:nth-child(3) p::first-letter {
-    font-size: 4em;
+    /* font-size: 4em; */
     /* font-family: "Edwardian Script ITC", "Brush Script MT", cursive; */
     /* padding: 20px; */
-    padding-top: -10px;
-    margin-top: -10px;
-    font-family: "georgia";
-    color: red;
-    float: left;
+    /* padding-top: -10px; */
+    /* margin-top: -10px; */
+    /* font-family: "georgia"; */
+    /* color: red; */
+    /* float: left; */
 }
 /* #custom-page .paragraph:nth-child(3) p:first-line { line-height: 135%; } */ 
 
