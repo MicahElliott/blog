@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Micah Elliott: Clojure Annoyances</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css">
+    <link href="/favicon.png" rel="shortcut icon">
+    <link href="../css/screen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html" title="Micah Elliott">
+              <span class="whoami">
+                <!-- <img src="/img/mde-50x.png"> -->
+                <!-- Micah Elliott -->
+                <span class="zshprompt">%</span> whoami<span class="zshcursor">_</span>
+              </span>
+
+              </img>
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                  <a href="/index.html">
+                    <i class="fa fa-home"></i>
+                    <!-- Home</a></li> -->
+                    ~</a></li>
+                <li
+                >
+                  <a href="/archives.html">
+                  <i class="fa fa-archive"></i>
+                  <!-- Archives</a></li> -->
+                  ~/doc</a></li>
+
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/about.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   About -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/gpg-key.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   GPG Key -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/projects.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   Projects -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+
+                <li
+                  >
+                  <!-- <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li> -->
+                  <a href="/pages/about.html"><i class="fa fa-info-circle"></i> README</a></li>
+
+                <li
+                  >
+                  <!-- <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> Projects</a></li> -->
+                  <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> ~/src/proj</a></li>
+
+                <li
+                  >
+                  <!-- <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> GPG Key</a></li> -->
+                  <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> gpg.asc</a></li>
+
+                <!-- <li><a href="/feed.xml"> -->
+                <li><a href="http://feeds.feedburner.com/micahelliott/blog">
+                    <i class="fa fa-rss"></i>
+                    <!-- RSS</a></li> -->
+                    rss.xml</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-lg-9">
+            <div id="content">
+                
+<div id="post">
+    <div id="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-8"><b>December 3, 2015</b>
+
+    
+    <span id="post-tags">
+        <!-- <i>tagged:</i> -->
+        <i> — </i>
+        <b><i class="fa fa-tags"></i> </b>
+        <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
+        
+        <a href="/tags/clojure.html"> clojure</a>
+        
+    </span>
+    
+
+        </div>
+
+        <!--  -->
+
+    </div>
+
+    <h1>Clojure Annoyances</h1>
+
+<!--      -->
+<!--     <div id="post-tags"> -->
+<!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
+<!--          -->
+<!--         <a href="/tags/clojure.html"> clojure</a> -->
+<!--          -->
+<!--     </div> -->
+<!--      -->
+
+</div>
+<div>
+    
+    <div class="paragraph">
+<p><strong>Audience:</strong> <em>Clojure beginners</em></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>“You have to be quite heavily invested in someone to do them the honour of
+  telling them you’re annoyed with them.”
+  ― Alain de Botton</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Every language has warts. This is not the first wart piece written on Clojure,
+but it’s my unique take on it. There are some workarounds, but these will bite
+newbies. Despite these minor annoyances, I still find Clojure to be the best
+environment to work in for many years to come.</p>
+</div>
+<!-- more -->
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/title.jpg" alt="title" width="600">
+</div>
+</div>
+<div class="sect2">
+<h3 id="_memory_hogging">Memory hogging</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/memhog.jpg" alt="memhog" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>That’s a Raspberry Pi in his mouth. It’s being devoured.</p>
+</div>
+<div class="paragraph">
+<p>Every time this is brought up there are arguments that Clojure and the JVM alone
+don’t use too much memory. But once <code>lein</code> is starting an nREPL for a
+non-trivial project, you’ll want to have a 16+ GB machine. The situation would
+be even worse if you use a heavy IDE (like IntelliJ or Eclipse).</p>
+</div>
+<div class="paragraph">
+<p>I’m still sometimes clumsy with my setup, and may have a REPL going that’s not
+connected to Vim, plus a <code>lein run</code> server running. And then another for
+generating this blog (that one has some leak that gets it up to 5 GB after a few
+days!). Maybe another for testing and working through 4clojure. So if you’re not
+careful, you’ll want to limit yourself to running one project at a time.</p>
+</div>
+<div class="paragraph">
+<p>All this can make Clojure a non-starter for students with minimal systems, like
+older Linux laptops or Raspberry Pis.</p>
+</div>
+<div class="paragraph">
+<p><strong>Remedies:</strong> <a href="https://github.com/technomancy/leiningen/wiki/Faster" class="bare">https://github.com/technomancy/leiningen/wiki/Faster</a>, light/smart
+editors</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_slow_startup">Slow startup</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/slow-start.jpg" alt="slow start" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Clojure starts up quickly (relative to lein, anyway). But the full <code>lein</code>
+environment is taking me 17+ seconds in a default Luminus project.</p>
+</div>
+<div class="paragraph">
+<p>Clojure itself is super fast for a lot of things&#8230;&#8203;. once it’s started.</p>
+</div>
+<div class="paragraph">
+<p><strong>Remedies:</strong> Trampoline, Drip</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_lots_of_parentheses">Lots of parentheses</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/parens.jpg" alt="parens" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>These can drive a newbie crazy. But once you learn to paredit them, they’re
+quite a boon for moving code around. They’re also pretty easy to auto-add and
+auto-balance, and even auto-color.</p>
+</div>
+<div class="paragraph">
+<p><strong>Remedies:</strong> paredit, sexp, rainbow parentheses</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deal_with_java">Deal with Java</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/htop.jpg" alt="htop" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Process trees cluttered with really long invocations.</p>
+</div>
+<div class="paragraph">
+<p>This happens with a lot of other environments, too, though. I see it with Erlang
+when running RabbitMQ; with Rails running Passenger; with MySQL; etc.</p>
+</div>
+<div class="paragraph">
+<p><strong>Remedies:</strong> tree view, live with it, forget *top and use real monitoring tools</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_awful_backtraces">Awful backtraces</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/stacktrace.jpg" alt="stacktrace" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>I actually don’t see these very often. I’m not sure if it’s due to
+<code>clj-stacktrace</code> being everpresent in my setup.</p>
+</div>
+<div class="paragraph">
+<p><strong>Remedies:</strong> small fonts, scrolling</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_not_always_expressive">Not always expressive</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/py-vs-pi.jpg" alt="py vs pi" width="600">
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_heavy_setup">Heavy setup</h3>
+<div class="paragraph">
+<p>In Racket</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_everyone_uses_emacs">Everyone uses Emacs</h3>
+<div class="paragraph">
+<p>&#8230;&#8203;and maybe you don’t. But that’s okay.
+<a href="http://stackoverflow.com/questions/4248171/choosing-an-ide-editor-for-clojure-coding">Many</a>
+are also having success with
+<a href="http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html">Vim</a>,
+LightTable, and Cursive.</p>
+</div>
+<div class="paragraph">
+<p>You can watch <em>guns</em> in this video doing some cool things:
+<a href="https://vimeo.com/80650659https://vimeo.com/80650659" class="bare">https://vimeo.com/80650659https://vimeo.com/80650659</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_docstrings_require_an_extra_line">Docstrings require an extra line</h3>
+<div class="paragraph">
+<p>Python supports this style of coding:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>def fetch(dog):
+    "Get dog to grab my slippers."
+    dog.walk_to_bedroom() ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In Clojure, we have to write:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1 (defn fetch
+2   "Get dog to grab my slippers."
+3   [dog]
+4   (walk-to-bedroom ...) ...)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>But it would be much nicer to write:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1 (defn fetch [dog]
+2   "Get dog to grab my slippers."
+3   (walk-to-bedroom ...) ...)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This, of course, is due to multiple arity support, but still annoying. So I find
+myself resorting to:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>1 \;\; Get dog to grab my slippers.
+2 (defn fetch [dog]
+3   (walk-to-bedroom ...) ...)</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_but_clojure_is_still_the_best">But Clojure is still the best</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_only_two_compare">Only two compare</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/trinity.jpg" alt="trinity">
+</div>
+</div>
+<div class="paragraph">
+<p>I’ve grown persnickety after many years working with less satisfying
+environments, and now I value comfortable workflow above most things. This has
+brought me to only considering a few that have hope for joyful programming. They
+are Clojure, Racket, and OCaml. (Elm and LiveScript get honorable mentions as
+great languages.)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>expressive, succinct</p>
+</li>
+<li>
+<p>simple</p>
+</li>
+<li>
+<p>functional (and thus parallelizable)</p>
+</li>
+<li>
+<p>fast and light (Clojure almost doesn’t make the cut here)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Considerations that are secondary also, unfortunately, have strong impact:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>jobs available</p>
+</li>
+<li>
+<p>projects with many eyeballs</p>
+</li>
+<li>
+<p>widely adopted in usage</p>
+</li>
+<li>
+<p>tutorials, books, screencasts, discussions</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>In the end, Racket and OCaml both suffer from having communities that are too
+small, tools that are not widely enough adopted, projects without enough
+eyeballs, and tutorials not yet written. As much as I (and you) should work on
+addressing those shortcomings, most of us have other practical things presently
+pressing harder.</p>
+</div>
+<div class="paragraph">
+<p>So that leaves us with Clojure.</p>
+</div>
+<div class="paragraph">
+<p><em>(It’s not that I haven’t considered most of the up-and-coming languages that get
+a lot of attention. They just don’t satisfy the above constraints. So, I’m left
+not really considering: Scala, Elixir, Rust, Go, Haskell.)</em></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_summary_of_why_clojure_wins">Summary of Why Clojure Wins</h3>
+<div class="imageblock">
+<div class="content">
+<img src="../img/annoyances/pretty2.jpg" alt="pretty2">
+</div>
+</div>
+<div class="paragraph">
+<p>(Note: shown above is vim using the “conceal” feature for functions like
+partition, map, apply, etc. You either love or hate this.)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Aesthetics</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>code density</p>
+</li>
+<li>
+<p>beautiful rainbow parens (hooks for moving code)</p>
+</li>
+<li>
+<p>functional: <code>map</code>, <code>filter</code>, <code>reduce</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Paredit/Sexp: <strong>parentheses</strong> become hooks for moving code</p>
+</li>
+<li>
+<p>Trivial <strong>parallelism</strong> (sometimes, via <code>pmap</code>)</p>
+</li>
+<li>
+<p><strong>Isomorphic</strong> possibilities: server (web frameworks) and client (reagent, om).
+You’re probably not going to be a <em>great</em> developer in both
+JavaScript and some other language on the back end (Ruby, Python, Java), so
+why not just be great in Clojure/Script?</p>
+</li>
+<li>
+<p>Crazy <strong>REPL</strong> abilities</p>
+</li>
+<li>
+<p>Many <strong><a href="http://clojure.org/companies">companies</a></strong> are invested</p>
+</li>
+<li>
+<p>A better way to use Java libs</p>
+</li>
+<li>
+<p><strong>Lein</strong> is an all-in-one (cf. rails, gem, bundle, rake)</p>
+<div class="ulist">
+<ul>
+<li>
+<p>but also boot</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Many <strong>learning resources</strong> (books, podcasts, screencasts, newletters,
+discussions)</p>
+</li>
+<li>
+<p>A <strong><a href="https://yogthos.github.io/ClojureDistilled.html">simple language</a></strong> mostly
+grokkable in a day (by experienced programmers with some functional
+knowledge)</p>
+</li>
+<li>
+<p><strong><a href="http://www.clojure-toolbox.com/">Many tools</a></strong> (plus anything from java)</p>
+</li>
+<li>
+<p>Great data structures</p>
+</li>
+<li>
+<p>Functional code (referentially transparent) is most <strong>testable</strong></p>
+</li>
+<li>
+<p>All the fancy <strong>big data tools</strong> are now java (spark, storm, flink, hadoop&#8230;&#8203;)</p>
+</li>
+<li>
+<p><strong>Macros</strong> (there’s even a book on them)</p>
+</li>
+<li>
+<p>A <strong><a href="https://github.com/bbatsov/clojure-style-guide">style guide</a></strong> whose perfect
+sensibility says a lot</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--  -->
+<!-- <div id="post-tags"> -->
+<!--     <b>Tags: </b> -->
+<!--      -->
+<!--     <a href="/tags/clojure.html">clojure</a> -->
+<!--      -->
+<!-- </div> -->
+<!--  -->
+
+    <div id="prev-next">
+        
+        
+        <a class="right" href="/posts/2015-10-15-programming-heroes.html">Programming Heroes &raquo;</a>
+        
+    </div>
+
+    
+
+
+</div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div id="sidebar">
+                <!-- <h3>Links</h3> -->
+                <h3><i class="fa fa-external-link-square"></i> Links</h3>
+                <ul id="links">
+                    <!-- <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li> -->
+                    <!-- <li><a href="http://carmenla.me/blog/index.html">Carmen's Blog</a></li> -->
+                    <li><a href="http://membean.com/products/Personal/plans">Free Membean</a></li>
+                    <li><a href="https://github.com/MicahElliott">Micah’s Github</a></li>
+                    <li><a href="https://www.linkedin.com/in/micahelliott">Micah’s LinkedIn</a></li>
+                    <li><a href="http://stackoverflow.com/users/326516/micah-elliott">Micah’s Stack Overflow</a></li>
+                    <!--  -->
+                    <!-- <li><a href="/pages/why-freelancing.html">Why Freelancing?</a></li> -->
+                    <!--  -->
+                    <!-- <li><a href="/pages/hireme.html">Hire Me</a></li> -->
+                    <!--  -->
+                    <!-- <li><a href="/pages/topics.html">Future Topics</a></li> -->
+                    <!--  -->
+                </ul>
+                
+                <div id="recent">
+                    <!-- <h3>Recent Posts</h3> -->
+                    <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
+                    <ul>
+                        
+                        <li><a href="/posts/2015-12-03-clojure-annoyances.html">Clojure Annoyances</a></li>
+                        
+                        <li><a href="/posts/2015-10-15-programming-heroes.html">Programming Heroes</a></li>
+                        
+                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
+                        
+                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
+                        
+                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
+                        
+                    </ul>
+                </div>
+                
+                
+                <div id="tags">
+                    <h3><i class="fa fa-tags"></i> Tags</h3>
+                    <ul>
+                        <!--  -->
+                        <!-- <li><a href="/tags/foo.html">foo</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/urxvt.html">urxvt</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/github.html">github</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/rewards.html">rewards</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/security.html">security</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/clojure.html">clojure</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/zsh.html">zsh</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/i3.html">i3</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/linux.html">linux</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/gpg.html">gpg</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/draft.html">draft</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/racket.html">racket</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/jargon.html">jargon</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/centos.html">centos</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/setup.html">setup</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/networking.html">networking</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/teaching.html">teaching</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/docker.html">docker</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/keyboard.html">keyboard</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/aur.html">aur</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/vim.html">vim</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/arch.html">arch</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/firewalld.html">firewalld</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/awk.html">awk</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/lisp.html">lisp</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/notes.html">notes</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/motivation.html">motivation</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/blogging.html">blogging</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/systemd.html">systemd</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
+                        <!--  -->
+                        
+                        <a href="/tags/foo.html">foo</a>
+                        
+                        <a href="/tags/urxvt.html">urxvt</a>
+                        
+                        <a href="/tags/deploy.html">deploy</a>
+                        
+                        <a href="/tags/github.html">github</a>
+                        
+                        <a href="/tags/rewards.html">rewards</a>
+                        
+                        <a href="/tags/security.html">security</a>
+                        
+                        <a href="/tags/clojure.html">clojure</a>
+                        
+                        <a href="/tags/zsh.html">zsh</a>
+                        
+                        <a href="/tags/ansible.html">ansible</a>
+                        
+                        <a href="/tags/i3.html">i3</a>
+                        
+                        <a href="/tags/linux.html">linux</a>
+                        
+                        <a href="/tags/gpg.html">gpg</a>
+                        
+                        <a href="/tags/draft.html">draft</a>
+                        
+                        <a href="/tags/racket.html">racket</a>
+                        
+                        <a href="/tags/tmux.html">tmux</a>
+                        
+                        <a href="/tags/jargon.html">jargon</a>
+                        
+                        <a href="/tags/centos.html">centos</a>
+                        
+                        <a href="/tags/asciidoc.html">asciidoc</a>
+                        
+                        <a href="/tags/setup.html">setup</a>
+                        
+                        <a href="/tags/networking.html">networking</a>
+                        
+                        <a href="/tags/teaching.html">teaching</a>
+                        
+                        <a href="/tags/docker.html">docker</a>
+                        
+                        <a href="/tags/keyboard.html">keyboard</a>
+                        
+                        <a href="/tags/aur.html">aur</a>
+                        
+                        <a href="/tags/vim.html">vim</a>
+                        
+                        <a href="/tags/arch.html">arch</a>
+                        
+                        <a href="/tags/firewalld.html">firewalld</a>
+                        
+                        <a href="/tags/awk.html">awk</a>
+                        
+                        <a href="/tags/markdown.html">markdown</a>
+                        
+                        <a href="/tags/lisp.html">lisp</a>
+                        
+                        <a href="/tags/nuc.html">nuc</a>
+                        
+                        <a href="/tags/notes.html">notes</a>
+                        
+                        <a href="/tags/motivation.html">motivation</a>
+                        
+                        <a href="/tags/blogging.html">blogging</a>
+                        
+                        <a href="/tags/systemd.html">systemd</a>
+                        
+                        <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/bcp.html">bcp</a>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <footer>Copyright &copy; 2015 Micah Elliott
+        <!-- <p style="text-align: center;">Powered by <a href="http://cryogenweb.org">Cryogen</a></p> -->
+    </footer>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="../js/highlight.pack.js" type="text/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6906344-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>

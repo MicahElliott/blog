@@ -15,8 +15,589 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Sun, 06 Sep 2015 10:06:57 -0700
+Mon, 14 Dec 2015 11:43:02 -0800
 </lastBuildDate>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-12-03-clojure-annoyances.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-12-03-clojure-annoyances.html
+</link>
+<title>
+Clojure Annoyances
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;Clojure beginners&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;“You have to be quite heavily invested in someone to do them the honour of
+  telling them you’re annoyed with them.”
+  ― Alain de Botton&lt;/p&gt;
+&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Every language has warts. This is not the first wart piece written on Clojure,
+but it’s my unique take on it. There are some workarounds, but these will bite
+newbies. Despite these minor annoyances, I still find Clojure to be the best
+environment to work in for many years to come.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/title.jpg&quot; alt=&quot;title&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_memory_hogging&quot;&gt;Memory hogging&lt;/h3&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/memhog.jpg&quot; alt=&quot;memhog&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That’s a Raspberry Pi in his mouth. It’s being devoured.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Every time this is brought up there are arguments that Clojure and the JVM alone
+don’t use too much memory. But once &lt;code&gt;lein&lt;/code&gt; is starting an nREPL for a
+non-trivial project, you’ll want to have a 16+ GB machine. The situation would
+be even worse if you use a heavy IDE (like IntelliJ or Eclipse).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’m still sometimes clumsy with my setup, and may have a REPL going that’s not
+connected to Vim, plus a &lt;code&gt;lein run&lt;/code&gt; server running. And then another for
+generating this blog (that one has some leak that gets it up to 5 GB after a few
+days!). Maybe another for testing and working through 4clojure. So if you’re not
+careful, you’ll want to limit yourself to running one project at a time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;All this can make Clojure a non-starter for students with minimal systems, like
+older Linux laptops or Raspberry Pis.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Remedies:&lt;/strong&gt; &lt;a href=&quot;https://github.com/technomancy/leiningen/wiki/Faster&quot; class=&quot;bare&quot;&gt;https://github.com/technomancy/leiningen/wiki/Faster&lt;/a&gt;, light/smart
+editors&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_slow_startup&quot;&gt;Slow startup&lt;/h3&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/slow-start.jpg&quot; alt=&quot;slow start&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Clojure starts up quickly (relative to lein, anyway). But the full &lt;code&gt;lein&lt;/code&gt;
+environment is taking me 17+ seconds in a default Luminus project.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Clojure itself is super fast for a lot of things&amp;#8230;&amp;#8203;. once it’s started.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Remedies:&lt;/strong&gt; Trampoline, Drip&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_lots_of_parentheses&quot;&gt;Lots of parentheses&lt;/h3&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/parens.jpg&quot; alt=&quot;parens&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;These can drive a newbie crazy. But once you learn to paredit them, they’re
+quite a boon for moving code around. They’re also pretty easy to auto-add and
+auto-balance, and even auto-color.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Remedies:&lt;/strong&gt; paredit, sexp, rainbow parentheses&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_deal_with_java&quot;&gt;Deal with Java&lt;/h3&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/htop.jpg&quot; alt=&quot;htop&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Process trees cluttered with really long invocations.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This happens with a lot of other environments, too, though. I see it with Erlang
+when running RabbitMQ; with Rails running Passenger; with MySQL; etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Remedies:&lt;/strong&gt; tree view, live with it, forget *top and use real monitoring tools&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_awful_backtraces&quot;&gt;Awful backtraces&lt;/h3&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/stacktrace.jpg&quot; alt=&quot;stacktrace&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I actually don’t see these very often. I’m not sure if it’s due to
+&lt;code&gt;clj-stacktrace&lt;/code&gt; being everpresent in my setup.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Remedies:&lt;/strong&gt; small fonts, scrolling&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_not_always_expressive&quot;&gt;Not always expressive&lt;/h3&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/py-vs-pi.jpg&quot; alt=&quot;py vs pi&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_heavy_setup&quot;&gt;Heavy setup&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In Racket&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_everyone_uses_emacs&quot;&gt;Everyone uses Emacs&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&amp;#8230;&amp;#8203;and maybe you don’t. But that’s okay.
+&lt;a href=&quot;http://stackoverflow.com/questions/4248171/choosing-an-ide-editor-for-clojure-coding&quot;&gt;Many&lt;/a&gt;
+are also having success with
+&lt;a href=&quot;http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html&quot;&gt;Vim&lt;/a&gt;,
+LightTable, and Cursive.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can watch &lt;em&gt;guns&lt;/em&gt; in this video doing some cool things:
+&lt;a href=&quot;https://vimeo.com/80650659https://vimeo.com/80650659&quot; class=&quot;bare&quot;&gt;https://vimeo.com/80650659https://vimeo.com/80650659&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_docstrings_require_an_extra_line&quot;&gt;Docstrings require an extra line&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Python supports this style of coding:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;def fetch(dog):
+    &quot;Get dog to grab my slippers.&quot;
+    dog.walk_to_bedroom() ...&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In Clojure, we have to write:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;1 (defn fetch
+2   &quot;Get dog to grab my slippers.&quot;
+3   [dog]
+4   (walk-to-bedroom ...) ...)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;But it would be much nicer to write:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;1 (defn fetch [dog]
+2   &quot;Get dog to grab my slippers.&quot;
+3   (walk-to-bedroom ...) ...)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This, of course, is due to multiple arity support, but still annoying. So I find
+myself resorting to:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;1 \;\; Get dog to grab my slippers.
+2 (defn fetch [dog]
+3   (walk-to-bedroom ...) ...)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_but_clojure_is_still_the_best&quot;&gt;But Clojure is still the best&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_only_two_compare&quot;&gt;Only two compare&lt;/h3&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/trinity.jpg&quot; alt=&quot;trinity&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’ve grown persnickety after many years working with less satisfying
+environments, and now I value comfortable workflow above most things. This has
+brought me to only considering a few that have hope for joyful programming. They
+are Clojure, Racket, and OCaml. (Elm and LiveScript get honorable mentions as
+great languages.)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;expressive, succinct&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;simple&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;functional (and thus parallelizable)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;fast and light (Clojure almost doesn’t make the cut here)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Considerations that are secondary also, unfortunately, have strong impact:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;jobs available&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;projects with many eyeballs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;widely adopted in usage&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tutorials, books, screencasts, discussions&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In the end, Racket and OCaml both suffer from having communities that are too
+small, tools that are not widely enough adopted, projects without enough
+eyeballs, and tutorials not yet written. As much as I (and you) should work on
+addressing those shortcomings, most of us have other practical things presently
+pressing harder.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;So that leaves us with Clojure.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;(It’s not that I haven’t considered most of the up-and-coming languages that get
+a lot of attention. They just don’t satisfy the above constraints. So, I’m left
+not really considering: Scala, Elixir, Rust, Go, Haskell.)&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_summary_of_why_clojure_wins&quot;&gt;Summary of Why Clojure Wins&lt;/h3&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;../img/annoyances/pretty2.jpg&quot; alt=&quot;pretty2&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;(Note: shown above is vim using the “conceal” feature for functions like
+partition, map, apply, etc. You either love or hate this.)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Aesthetics&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;code density&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;beautiful rainbow parens (hooks for moving code)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;functional: &lt;code&gt;map&lt;/code&gt;, &lt;code&gt;filter&lt;/code&gt;, &lt;code&gt;reduce&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Paredit/Sexp: &lt;strong&gt;parentheses&lt;/strong&gt; become hooks for moving code&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Trivial &lt;strong&gt;parallelism&lt;/strong&gt; (sometimes, via &lt;code&gt;pmap&lt;/code&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Isomorphic&lt;/strong&gt; possibilities: server (web frameworks) and client (reagent, om).
+You’re probably not going to be a &lt;em&gt;great&lt;/em&gt; developer in both
+JavaScript and some other language on the back end (Ruby, Python, Java), so
+why not just be great in Clojure/Script?&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Crazy &lt;strong&gt;REPL&lt;/strong&gt; abilities&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Many &lt;strong&gt;&lt;a href=&quot;http://clojure.org/companies&quot;&gt;companies&lt;/a&gt;&lt;/strong&gt; are invested&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A better way to use Java libs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Lein&lt;/strong&gt; is an all-in-one (cf. rails, gem, bundle, rake)&lt;/p&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;but also boot&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Many &lt;strong&gt;learning resources&lt;/strong&gt; (books, podcasts, screencasts, newletters,
+discussions)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;&lt;a href=&quot;https://yogthos.github.io/ClojureDistilled.html&quot;&gt;simple language&lt;/a&gt;&lt;/strong&gt; mostly
+grokkable in a day (by experienced programmers with some functional
+knowledge)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.clojure-toolbox.com/&quot;&gt;Many tools&lt;/a&gt;&lt;/strong&gt; (plus anything from java)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Great data structures&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Functional code (referentially transparent) is most &lt;strong&gt;testable&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;All the fancy &lt;strong&gt;big data tools&lt;/strong&gt; are now java (spark, storm, flink, hadoop&amp;#8230;&amp;#8203;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Macros&lt;/strong&gt; (there’s even a book on them)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;A &lt;strong&gt;&lt;a href=&quot;https://github.com/bbatsov/clojure-style-guide&quot;&gt;style guide&lt;/a&gt;&lt;/strong&gt; whose perfect
+sensibility says a lot&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 03 Dec 2015 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-10-15-programming-heroes.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-10-15-programming-heroes.html
+</link>
+<title>
+Programming Heroes
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;anyone&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+To be a hero, you have to learn to be a deviant, because you’re always going
+against the conformity of the group. Heroes are ordinary people whose social
+actions are extraordinary. Who act.  — Philip Zimbardo
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The question of “who is your programming hero” comes up on episodes of
+[The Changelog], and it’s a good one. I have no means or aspirations to be
+asked, but it’s a fun question to answer, so here are my programming heroes&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- more --&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_john_mccarthy_1927_2011&quot;&gt;John McCarthy (1927-2011)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For conceiving of Lisp.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_gerald_sussman&quot;&gt;Gerald Sussman&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For co-creating Scheme and making lisp more accessible to students through
+his development, writing, and lecturing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_richard_stallman_1953&quot;&gt;Richard Stallman (1953-)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For GNU tools, Emacs, and indefatigable promotion of open source. And for being
+the one to really make us think different.
+&lt;a href=&quot;https://stallman.org/&quot; class=&quot;bare&quot;&gt;https://stallman.org/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_bram_moolenaar_1961&quot;&gt;Bram Moolenaar (1961-)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Bram_Moolenaar&quot; class=&quot;bare&quot;&gt;https://en.wikipedia.org/wiki/Bram_Moolenaar&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_linus_torvalds_1969&quot;&gt;Linus Torvalds (1969-)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Linus_Torvalds&quot; class=&quot;bare&quot;&gt;https://en.wikipedia.org/wiki/Linus_Torvalds&lt;/a&gt;
+Linux and Git.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_edgar_codd_1923_2003&quot;&gt;Edgar Codd (1923-2003)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For his &lt;a href=&quot;http://www.acm.org/classics/nov95/toc.html&quot;&gt;relational model&lt;/a&gt; which led
+to SQL.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_robin_milner_1934_2010&quot;&gt;Robin Milner (1934-2010)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Robin_Milner&quot;&gt;Robin Milner&lt;/a&gt; created ML, and ran
+with the ideas of type inference.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_steven_kleene_1909_1994&quot;&gt;Steven Kleene (1909-1994)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For basically inventing the regex.
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Stephen_Cole_Kleene&quot; class=&quot;bare&quot;&gt;https://en.wikipedia.org/wiki/Stephen_Cole_Kleene&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_ken_thompson&quot;&gt;Ken Thompson&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For putting the regex into practical use in editors. And for co-inventing UNIX.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_honorable_mentions&quot;&gt;Honorable mentions&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_rich_hickey&quot;&gt;Rich Hickey&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I spent a year with Clojure&amp;#8201;&amp;#8212;&amp;#8201;which was created by Rich&amp;#8201;&amp;#8212;&amp;#8201;and it opened my
+eyes to the beauty of lisp.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;After spending some more recent time with Racket, I believe Clojure is not a
+panacea. Racket is beautiful for its simplicity and regularity. It also doesn’t
+suffer from the bloat associated with sitting on top of the JVM.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_paul_graham&quot;&gt;Paul Graham&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Insights such as patterns being smells, the glory of Pride and Prejudice&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_john_backus&quot;&gt;John Backus&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;for his work on language specification (BNF). And for his
+&lt;a href=&quot;http://www.stanford.edu/class/cs242/readings/backus.pdf&quot;&gt;contributions&lt;/a&gt; to
+functional programming.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_ronald_rivest&quot;&gt;Ronald Rivest&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For voluminous contributions to literature on algorithms, and for giving us the
+security that we have today.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_paul_falstad&quot;&gt;Paul Falstad&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For creating Zsh, the shell that is both featureful and fast.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_george_boole&quot;&gt;George Boole&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For having managed to get his name and logic into every programming language.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_haskell_curry&quot;&gt;Haskell Curry&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For getting his name and ideas into almost as many languages and Boole.
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Haskell_Curry&quot; class=&quot;bare&quot;&gt;https://en.wikipedia.org/wiki/Haskell_Curry&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_george_zahariev_david_nolen_evan_czaplicki&quot;&gt;George Zahariev, David Nolen, Evan Czaplicki&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;For their continued efforts to make JavaScript sane via LiveScript,
+ClojureScript, and Elm, respectively.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_on_anti_heroes&quot;&gt;On anti-heroes&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I don’t think it’s productive to name names here, so use your imagination.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Despite the efforts of the heroes I’ve listed, many have come and been seen as
+heroes to the masses, and yet they often worked against the real heroes. Let’s
+eschew the “heroics” of those who have pushed languages, operating systems, and
+tools in directions that have done harm. Some were great experiments, and much
+was learned, but they have errantly gone mainstream. I’m speaking of languages
+where everything is an object, mutability is the norm, parallelism nears
+impossibility, functions are not first-class, state and behavior are conflated,
+and where we tell the machines &lt;em&gt;how&lt;/em&gt; to do things instead of &lt;em&gt;what&lt;/em&gt; to do. Of
+opaque systems where we have no way to know what they’re doing on our behalves.
+Of tools that lock us into perpetual agreements and eventual compromises and
+pain.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_resources&quot;&gt;Resources&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Turing_Award&quot;&gt;Winners of the Turing Award&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 15 Oct 2015 00:00:00 -0700
+</pubDate>
+</item>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-09-10-why-learn-a-lisp.html
@@ -52,7 +633,8 @@ to convince you to get in on the Racket, for edification, fun, and even profit.&
 &lt;p&gt;Despite Lua being often recognized as being The Embeddable Language,
 surprisingly many tools are programmable in Lisp. Some examples include: Gimp,
 &lt;a href=&quot;http://www.gnu.org/software/guix/&quot;&gt;Guix&lt;/a&gt;, Emacs, &lt;a href=&quot;https://en.m.wikipedia.org/wiki/AutoLISP&quot;&gt;AutoCAD&lt;/a&gt;, LilyPond,
-GnuCash,&lt;/p&gt;
+GnuCash,
+&lt;a href=&quot;http://www.cstr.ed.ac.uk/projects/festival/manual/festival_8.html&quot;&gt;Festival&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;There are several Lisps designed especially for embedding, such as
@@ -686,7 +1268,10 @@ u
 C-r
 ma 'a
 C-l
-C-g&lt;/pre&gt;
+C-g
+&amp;gt;&amp;gt; &amp;lt;&amp;lt;
+r R
+~&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -699,6 +1284,7 @@ C-g&lt;/pre&gt;
 &lt;pre&gt;:h
 :h foo
 :h fo&amp;lt;C-d&amp;gt;
+:h fo
 K
 C-]
 C-t&lt;/pre&gt;
@@ -1364,8 +1950,8 @@ W B E   move cursor element/form-wise&lt;/pre&gt;
 &lt;pre&gt;# Move elements/forms around
 &amp;gt;e &amp;lt;e     move element right/left
 &amp;gt;f &amp;lt;f     move form right/left
-&amp;lt;m- j h&amp;gt;  move elt left/right _[SEXP nice/fast alternative]_
-&amp;lt;m- k l&amp;gt;  move elt left/right _[SEXP nice/fast alternative]_&lt;/pre&gt;
+&amp;lt;m- j h&amp;gt;  move elt left/right _[SEXP fast alternative]_ — but don’t use meta
+&amp;lt;m- k l&amp;gt;  move elt left/right _[SEXP fast alternative]_ — but don’t use meta&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
@@ -1373,16 +1959,16 @@ W B E   move cursor element/form-wise&lt;/pre&gt;
 &lt;pre&gt;# Slurpage and barfage
 &amp;lt;( &amp;gt;)       slurp (push paren out wider)
 &amp;gt;( &amp;lt;)       barf  (pull paren in narrower)
-&amp;lt;m-s- H L&amp;gt;  slurp _[SEXP alternative]_
-&amp;lt;m-s- K J&amp;gt;  barf  _[SEXP alternative]_&lt;/pre&gt;
+&amp;lt;m-s- H L&amp;gt;  slurp _[SEXP alternative]_ — but don’t use meta
+&amp;lt;m-s- K J&amp;gt;  barf  _[SEXP alternative]_ — but don’t use meta&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre&gt;# Insertion, some with new parens
-cse)     add surround form (easier than ysie)
-&amp;lt;I &amp;gt;I    insert front/end
-,h ,l    insert front/end _[SEXP alternative]_
+cse)     add surround form — easier than ysie)
+&amp;lt;I &amp;gt;I    insert front/end — don’t use, too diff from ,i/,I
+,h ,l    insert front/end _[SEXP]_
 ,i ,I    insert front/end, add surround form _[SEXP]_
 ,w ,W    insert front/end, add surround element _[SEXP]_&lt;/pre&gt;
 &lt;/div&gt;
@@ -2295,6 +2881,15 @@ set -g default-terminal &quot;screen-it&quot;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_addendum&quot;&gt;Addendum&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There is still an issue where on Tmux pane/window changing, the cursor stays in
+the mode that its last pane/window was in.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 </description>
 <pubDate>
 Mon, 20 Jul 2015 00:00:00 -0700
@@ -2411,7 +3006,7 @@ http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html
 http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html
 </link>
 <title>
-Clojure with Vim Setup
+Clojure, Vim, nREPL, Fireplace, REDL Setup
 </title>
 <description>
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -2438,15 +3033,15 @@ environment for vim.&lt;/p&gt;
 &lt;p&gt;Set up fireplace, highlighting, mappings, sexp into &lt;code&gt;.vimrc&lt;/code&gt; with Vundle:&lt;/p&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;Bundle 'guns/vim-clojure-static.git'
-Bundle 'guns/vim-clojure-highlight.git'
-Bundle 'tpope/vim-leiningen.git'
-Bundle 'tpope/vim-projectionist.git'
-Bundle 'tpope/vim-dispatch.git'
-Bundle 'tpope/vim-fireplace.git'
-Bundle 'tpope/vim-sexp-mappings-for-regular-people'
-Bundle 'guns/vim-sexp'
-Bundle 'dgrnbrg/redl'&lt;/pre&gt;
+&lt;pre&gt;Plugin 'guns/vim-clojure-static.git'
+Plugin 'guns/vim-clojure-highlight.git'
+Plugin 'tpope/vim-leiningen.git'
+Plugin 'tpope/vim-dispatch.git'
+Plugin 'tpope/vim-fireplace.git'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'guns/vim-sexp'
+Plugin 'guns/vim-slamhound'
+Plugin 'dgrnbrg/redl'&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -2454,10 +3049,14 @@ Bundle 'dgrnbrg/redl'&lt;/pre&gt;
 &lt;p&gt;Add to &lt;code&gt;~/.lein/profiles.clj&lt;/code&gt;:&lt;/p&gt;
 &lt;div class=&quot;literalblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;{:user {:plugins [[lein-pprint &quot;1.1.1&quot;]
-                  [cider/cider-nrepl &quot;0.7.0&quot;]]
-        :dependencies [[slamhound &quot;1.3.1&quot;]
-                       [org.thnetos/cd-client &quot;0.3.6&quot;]]}}&lt;/pre&gt;
+&lt;pre&gt;{:user {:plugins [...
+                  [cider/cider-nrepl &quot;0.10.0&quot;] ]
+        :dependencies [...
+                       [spyscope &quot;0.1.5&quot;]
+                       [redl &quot;0.2.4&quot;] ]
+        :injections [...
+                     (require 'spyscope.core)
+                     (require '[redl complete core]) ]}}&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
@@ -2484,14 +3083,32 @@ Bundle 'dgrnbrg/redl'&lt;/pre&gt;
 &lt;li&gt;
 &lt;p&gt;Start tmux? Maybe not; slime not working now anyway&lt;/p&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now you need an nrepl running &lt;em&gt;somewhere&lt;/em&gt;. You can either:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Start &lt;code&gt;lein repl&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Start &lt;code&gt;lein repl&lt;/code&gt; in a terminal&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Fire up vim&lt;/p&gt;
+&lt;p&gt;Or, in vim, run: &lt;code&gt;:Console&lt;/code&gt; to fire up nrepl in a new shell (or tmux window if
+tmux is running)&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Now finally&amp;#8230;&amp;#8203;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Fire up vim if you haven’t already (fireplace will auto-connect to running nrepl)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Run a repl in vim: &lt;code&gt;:Console&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;In vim, run: &lt;code&gt;:Eval (require '[redl core complete])&lt;/code&gt; (might not be necessary for you)&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;Start &lt;a href=&quot;https://github.com/dgrnbrg/vim-redl&quot;&gt;redl&lt;/a&gt; with &lt;code&gt;:ReplHere&lt;/code&gt;&lt;/p&gt;
@@ -2504,7 +3121,26 @@ Bundle 'dgrnbrg/redl'&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Stop drip (later) with &lt;code&gt;drip kill&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_tldr_for_next_time&quot;&gt;TLDR for next time&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;% cd some-project
+% lein repl  # and twiddle your thumbs
+% vim src/.../foo.clj
+&quot; Play with fireplace commands, like cpp
+:Eval (require '[redl core complete])
+:ReplHere
+&quot; Do things in vim in the real nrepl!&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 </description>
 <pubDate>
@@ -3971,6 +4607,67 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_ocaml&quot;&gt;OCaml&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;fast&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;statically typed&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tools can be very good&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;immutable by default&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;growing in popularity&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;like haskell but better/simpler&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;great completion&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;utop repl&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ocsigen web&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;good error messages&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;interfaces are slick&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_cons_5&quot;&gt;Cons&lt;/h3&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;syntax heavy&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;no mixed types in lists (&lt;a href=&quot;http://www.paulgraham.com/lispfaq1.html&quot; class=&quot;bare&quot;&gt;http://www.paulgraham.com/lispfaq1.html&lt;/a&gt;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;slime is clumsy with &lt;code&gt;;;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lots/hard to teach&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;_r&quot;&gt;R&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;sect2&quot;&gt;
@@ -4017,7 +4714,7 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_cons_5&quot;&gt;Cons&lt;/h3&gt;
+&lt;h3 id=&quot;_cons_6&quot;&gt;Cons&lt;/h3&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -4037,6 +4734,9 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;probably not as good tdd testing utils&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;maybe slow for big data sets/crunching&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
@@ -4060,7 +4760,7 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect3&quot;&gt;
-&lt;h4 id=&quot;_cons_6&quot;&gt;Cons&lt;/h4&gt;
+&lt;h4 id=&quot;_cons_7&quot;&gt;Cons&lt;/h4&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;

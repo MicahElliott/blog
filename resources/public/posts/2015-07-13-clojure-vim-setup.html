@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>Micah Elliott: Clojure with Vim Setup</title>
+    <title>Micah Elliott: Clojure, Vim, nREPL, Fireplace, REDL Setup</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
           type='text/css'>
@@ -132,7 +132,7 @@
 
     </div>
 
-    <h1>Clojure with Vim Setup</h1>
+    <h1>Clojure, Vim, nREPL, Fireplace, REDL Setup</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
@@ -172,15 +172,15 @@ environment for vim.</p>
 <p>Set up fireplace, highlighting, mappings, sexp into <code>.vimrc</code> with Vundle:</p>
 <div class="literalblock">
 <div class="content">
-<pre>Bundle 'guns/vim-clojure-static.git'
-Bundle 'guns/vim-clojure-highlight.git'
-Bundle 'tpope/vim-leiningen.git'
-Bundle 'tpope/vim-projectionist.git'
-Bundle 'tpope/vim-dispatch.git'
-Bundle 'tpope/vim-fireplace.git'
-Bundle 'tpope/vim-sexp-mappings-for-regular-people'
-Bundle 'guns/vim-sexp'
-Bundle 'dgrnbrg/redl'</pre>
+<pre>Plugin 'guns/vim-clojure-static.git'
+Plugin 'guns/vim-clojure-highlight.git'
+Plugin 'tpope/vim-leiningen.git'
+Plugin 'tpope/vim-dispatch.git'
+Plugin 'tpope/vim-fireplace.git'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'guns/vim-sexp'
+Plugin 'guns/vim-slamhound'
+Plugin 'dgrnbrg/redl'</pre>
 </div>
 </div>
 </li>
@@ -188,10 +188,14 @@ Bundle 'dgrnbrg/redl'</pre>
 <p>Add to <code>~/.lein/profiles.clj</code>:</p>
 <div class="literalblock">
 <div class="content">
-<pre>{:user {:plugins [[lein-pprint "1.1.1"]
-                  [cider/cider-nrepl "0.7.0"]]
-        :dependencies [[slamhound "1.3.1"]
-                       [org.thnetos/cd-client "0.3.6"]]}}</pre>
+<pre>{:user {:plugins [...
+                  [cider/cider-nrepl "0.10.0"] ]
+        :dependencies [...
+                       [spyscope "0.1.5"]
+                       [redl "0.2.4"] ]
+        :injections [...
+                     (require 'spyscope.core)
+                     (require '[redl complete core]) ]}}</pre>
 </div>
 </div>
 </li>
@@ -218,14 +222,32 @@ Bundle 'dgrnbrg/redl'</pre>
 <li>
 <p>Start tmux? Maybe not; slime not working now anyway</p>
 </li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Now you need an nrepl running <em>somewhere</em>. You can either:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>Start <code>lein repl</code></p>
+<p>Start <code>lein repl</code> in a terminal</p>
 </li>
 <li>
-<p>Fire up vim</p>
+<p>Or, in vim, run: <code>:Console</code> to fire up nrepl in a new shell (or tmux window if
+tmux is running)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Now finally&#8230;&#8203;.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Fire up vim if you haven’t already (fireplace will auto-connect to running nrepl)</p>
 </li>
 <li>
-<p>Run a repl in vim: <code>:Console</code></p>
+<p>In vim, run: <code>:Eval (require '[redl core complete])</code> (might not be necessary for you)</p>
 </li>
 <li>
 <p>Start <a href="https://github.com/dgrnbrg/vim-redl">redl</a> with <code>:ReplHere</code></p>
@@ -238,7 +260,26 @@ Bundle 'dgrnbrg/redl'</pre>
 </div>
 </div>
 </li>
+<li>
+<p>Stop drip (later) with <code>drip kill</code></p>
+</li>
 </ul>
+</div>
+<div class="sect1">
+<h2 id="_tldr_for_next_time">TLDR for next time</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>% cd some-project
+% lein repl  # and twiddle your thumbs
+% vim src/.../foo.clj
+" Play with fireplace commands, like cpp
+:Eval (require '[redl core complete])
+:ReplHere
+" Do things in vim in the real nrepl!</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <!--  -->
@@ -281,6 +322,8 @@ Bundle 'dgrnbrg/redl'</pre>
                     <li><a href="https://www.linkedin.com/in/micahelliott">Micah’s LinkedIn</a></li>
                     <li><a href="http://stackoverflow.com/users/326516/micah-elliott">Micah’s Stack Overflow</a></li>
                     <!--  -->
+                    <!-- <li><a href="/pages/why-freelancing.html">Why Freelancing?</a></li> -->
+                    <!--  -->
                     <!-- <li><a href="/pages/hireme.html">Hire Me</a></li> -->
                     <!--  -->
                     <!-- <li><a href="/pages/topics.html">Future Topics</a></li> -->
@@ -292,15 +335,15 @@ Bundle 'dgrnbrg/redl'</pre>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
+                        <li><a href="/posts/2015-12-03-clojure-annoyances.html">Clojure Annoyances</a></li>
+                        
+                        <li><a href="/posts/2015-10-15-programming-heroes.html">Programming Heroes</a></li>
+                        
                         <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
                         
                         <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
                         
                         <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
-                        
-                        <li><a href="/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html">Vim Bare Essentials for Editing Lisp</a></li>
-                        
-                        <li><a href="/posts/2015-08-30-lisp-glossary.html">Lisp Jargon</a></li>
                         
                     </ul>
                 </div>

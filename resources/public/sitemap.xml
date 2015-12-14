@@ -5,7 +5,7 @@
 http://micahelliott.com/posts/2015-09-01-arch-aur-getting-started-guide.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -13,7 +13,7 @@ http://micahelliott.com/posts/2015-09-01-arch-aur-getting-started-guide.html
 http://micahelliott.com/posts/2015-01-10-choosing-an-os.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -21,7 +21,7 @@ http://micahelliott.com/posts/2015-01-10-choosing-an-os.html
 http://micahelliott.com/posts/2015-07-09-i3-nuc-office-dashboard.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -29,7 +29,7 @@ http://micahelliott.com/posts/2015-07-09-i3-nuc-office-dashboard.html
 http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -37,7 +37,15 @@ http://micahelliott.com/posts/2015-07-20-vim-zsh-tmux-cursor.html
 http://micahelliott.com/posts/2015-08-20-vim-sexp-cheat-sheet.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
+</lastmod>
+</url>
+<url>
+<loc>
+http://micahelliott.com/posts/2015-12-03-clojure-annoyances.html
+</loc>
+<lastmod>
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -45,7 +53,7 @@ http://micahelliott.com/posts/2015-08-20-vim-sexp-cheat-sheet.html
 http://micahelliott.com/posts/2015-07-02-cryogen-on-freebsd-with-ansible.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -53,7 +61,7 @@ http://micahelliott.com/posts/2015-07-02-cryogen-on-freebsd-with-ansible.html
 http://micahelliott.com/posts/2015-08-27-ansible-best-practices.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -61,7 +69,7 @@ http://micahelliott.com/posts/2015-08-27-ansible-best-practices.html
 http://micahelliott.com/posts/2015-07-20-stackoverflow-motivation-engine.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -69,7 +77,7 @@ http://micahelliott.com/posts/2015-07-20-stackoverflow-motivation-engine.html
 http://micahelliott.com/posts/2015-07-08-the-gift-of-gifs.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -77,7 +85,7 @@ http://micahelliott.com/posts/2015-07-08-the-gift-of-gifs.html
 http://micahelliott.com/posts/2015-08-20-remap-lisp-keys.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -85,7 +93,7 @@ http://micahelliott.com/posts/2015-08-20-remap-lisp-keys.html
 http://micahelliott.com/posts/2015-07-09-awesome-awk.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -93,7 +101,7 @@ http://micahelliott.com/posts/2015-07-09-awesome-awk.html
 http://micahelliott.com/posts/2015-09-10-why-learn-a-lisp.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -101,7 +109,7 @@ http://micahelliott.com/posts/2015-09-10-why-learn-a-lisp.html
 http://micahelliott.com/posts/2015-07-02-stop-using-markdown.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -109,7 +117,7 @@ http://micahelliott.com/posts/2015-07-02-stop-using-markdown.html
 http://micahelliott.com/posts/2015-07-05-networking-tools.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -117,7 +125,7 @@ http://micahelliott.com/posts/2015-07-05-networking-tools.html
 http://micahelliott.com/posts/2015-07-05-docker-systemd-ansible.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -125,7 +133,7 @@ http://micahelliott.com/posts/2015-07-05-docker-systemd-ansible.html
 http://micahelliott.com/posts/2015-08-30-lisp-glossary.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -133,7 +141,15 @@ http://micahelliott.com/posts/2015-08-30-lisp-glossary.html
 http://micahelliott.com/posts/2015-09-01-vim-anti-patterns.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
+</lastmod>
+</url>
+<url>
+<loc>
+http://micahelliott.com/posts/2015-10-15-programming-heroes.html
+</loc>
+<lastmod>
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -141,7 +157,7 @@ http://micahelliott.com/posts/2015-09-01-vim-anti-patterns.html
 http://micahelliott.com/posts/2015-08-27-firewalld-best-practices.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -149,7 +165,7 @@ http://micahelliott.com/posts/2015-08-27-firewalld-best-practices.html
 http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -157,7 +173,7 @@ http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html
 http://micahelliott.com/posts/2015-07-17-why-centos.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -165,7 +181,7 @@ http://micahelliott.com/posts/2015-07-17-why-centos.html
 http://micahelliott.com/posts/2015-07-05-interesting-major-vulnerabilities.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -173,7 +189,7 @@ http://micahelliott.com/posts/2015-07-05-interesting-major-vulnerabilities.html
 http://micahelliott.com/posts/2015-08-08-gpg-howto.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -181,7 +197,7 @@ http://micahelliott.com/posts/2015-08-08-gpg-howto.html
 http://micahelliott.com/posts/2015-07-07-handy-zsh-tabbing.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -189,7 +205,7 @@ http://micahelliott.com/posts/2015-07-07-handy-zsh-tabbing.html
 http://micahelliott.com/posts/2015-02-01-livescript-vs-clojurescript-vs-racket.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -197,7 +213,7 @@ http://micahelliott.com/posts/2015-02-01-livescript-vs-clojurescript-vs-racket.h
 http://micahelliott.com/posts/2015-07-07-gists-as-blog.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -205,7 +221,7 @@ http://micahelliott.com/posts/2015-07-07-gists-as-blog.html
 http://micahelliott.com/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -213,7 +229,7 @@ http://micahelliott.com/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.ht
 http://micahelliott.com/archives.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -221,7 +237,7 @@ http://micahelliott.com/archives.html
 http://micahelliott.com/index.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -229,7 +245,15 @@ http://micahelliott.com/index.html
 http://micahelliott.com/pages/gpg-key.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
+</lastmod>
+</url>
+<url>
+<loc>
+http://micahelliott.com/pages/why-freelancing.html
+</loc>
+<lastmod>
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -237,7 +261,7 @@ http://micahelliott.com/pages/gpg-key.html
 http://micahelliott.com/pages/hireme.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -245,7 +269,7 @@ http://micahelliott.com/pages/hireme.html
 http://micahelliott.com/pages/projects.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -253,7 +277,7 @@ http://micahelliott.com/pages/projects.html
 http://micahelliott.com/pages/topics.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -261,7 +285,7 @@ http://micahelliott.com/pages/topics.html
 http://micahelliott.com/pages/about.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -269,7 +293,7 @@ http://micahelliott.com/pages/about.html
 http://micahelliott.com/404.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -277,7 +301,7 @@ http://micahelliott.com/404.html
 http://micahelliott.com/tags/nuc.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -285,7 +309,7 @@ http://micahelliott.com/tags/nuc.html
 http://micahelliott.com/tags/notes.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -293,7 +317,7 @@ http://micahelliott.com/tags/notes.html
 http://micahelliott.com/tags/linux.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -301,7 +325,7 @@ http://micahelliott.com/tags/linux.html
 http://micahelliott.com/tags/docker.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -309,7 +333,7 @@ http://micahelliott.com/tags/docker.html
 http://micahelliott.com/tags/zsh.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -317,7 +341,7 @@ http://micahelliott.com/tags/zsh.html
 http://micahelliott.com/tags/racket.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -325,7 +349,7 @@ http://micahelliott.com/tags/racket.html
 http://micahelliott.com/tags/firewalld.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -333,7 +357,7 @@ http://micahelliott.com/tags/firewalld.html
 http://micahelliott.com/tags/bcp.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -341,7 +365,7 @@ http://micahelliott.com/tags/bcp.html
 http://micahelliott.com/tags/security.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -349,7 +373,7 @@ http://micahelliott.com/tags/security.html
 http://micahelliott.com/tags/aur.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -357,7 +381,7 @@ http://micahelliott.com/tags/aur.html
 http://micahelliott.com/tags/deploy.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -365,7 +389,7 @@ http://micahelliott.com/tags/deploy.html
 http://micahelliott.com/tags/networking.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -373,7 +397,7 @@ http://micahelliott.com/tags/networking.html
 http://micahelliott.com/tags/motivation.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -381,7 +405,7 @@ http://micahelliott.com/tags/motivation.html
 http://micahelliott.com/tags/keyboard.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -389,7 +413,7 @@ http://micahelliott.com/tags/keyboard.html
 http://micahelliott.com/tags/teaching.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -397,7 +421,7 @@ http://micahelliott.com/tags/teaching.html
 http://micahelliott.com/tags/infrastructure.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -405,7 +429,7 @@ http://micahelliott.com/tags/infrastructure.html
 http://micahelliott.com/tags/tmux.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -413,7 +437,7 @@ http://micahelliott.com/tags/tmux.html
 http://micahelliott.com/tags/setup.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -421,7 +445,7 @@ http://micahelliott.com/tags/setup.html
 http://micahelliott.com/tags/centos.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -429,7 +453,7 @@ http://micahelliott.com/tags/centos.html
 http://micahelliott.com/tags/rewards.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -437,7 +461,7 @@ http://micahelliott.com/tags/rewards.html
 http://micahelliott.com/tags/lisp.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -445,7 +469,7 @@ http://micahelliott.com/tags/lisp.html
 http://micahelliott.com/tags/foo.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -453,7 +477,7 @@ http://micahelliott.com/tags/foo.html
 http://micahelliott.com/tags/systemd.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -461,7 +485,7 @@ http://micahelliott.com/tags/systemd.html
 http://micahelliott.com/tags/urxvt.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -469,7 +493,7 @@ http://micahelliott.com/tags/urxvt.html
 http://micahelliott.com/tags/vim.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -477,7 +501,7 @@ http://micahelliott.com/tags/vim.html
 http://micahelliott.com/tags/blogging.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -485,7 +509,7 @@ http://micahelliott.com/tags/blogging.html
 http://micahelliott.com/tags/arch.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -493,7 +517,7 @@ http://micahelliott.com/tags/arch.html
 http://micahelliott.com/tags/awk.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -501,7 +525,7 @@ http://micahelliott.com/tags/awk.html
 http://micahelliott.com/tags/ansible.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -509,7 +533,7 @@ http://micahelliott.com/tags/ansible.html
 http://micahelliott.com/tags/github.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -517,7 +541,7 @@ http://micahelliott.com/tags/github.html
 http://micahelliott.com/tags/markdown.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -525,7 +549,7 @@ http://micahelliott.com/tags/markdown.html
 http://micahelliott.com/tags/gpg.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -533,7 +557,7 @@ http://micahelliott.com/tags/gpg.html
 http://micahelliott.com/tags/clojure.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -541,7 +565,7 @@ http://micahelliott.com/tags/clojure.html
 http://micahelliott.com/tags/i3.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -549,7 +573,7 @@ http://micahelliott.com/tags/i3.html
 http://micahelliott.com/tags/asciidoc.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -557,7 +581,7 @@ http://micahelliott.com/tags/asciidoc.html
 http://micahelliott.com/tags/draft.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 <url>
@@ -565,7 +589,7 @@ http://micahelliott.com/tags/draft.html
 http://micahelliott.com/tags/jargon.html
 </loc>
 <lastmod>
-2015-09-06
+2015-12-14
 </lastmod>
 </url>
 </urlset>
