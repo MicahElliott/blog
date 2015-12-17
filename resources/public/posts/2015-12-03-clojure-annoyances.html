@@ -59,6 +59,14 @@
                 <!--  -->
                 <!-- <li -->
                 <!-- > -->
+                <!-- <a href="/pages/adoc-page.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   Adoc Page -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
                 <!-- <a href="/pages/gpg-key.html"> -->
                 <!--   <i class="glyphicon glyphicon-new-window"></i> -->
                 <!--   GPG Key -->
@@ -130,7 +138,8 @@
 
     </div>
 
-    <h1>Clojure Annoyances</h1>
+    <!-- <h1>Clojure Annoyances</h1> -->
+    <h1><span class="flourish">'(</span>Clojure Annoyances<span class="flourish">)</span</h1>
 
 <!--      -->
 <!--     <div id="post-tags"> -->
@@ -149,11 +158,8 @@
 </div>
 <div class="quoteblock">
 <blockquote>
-<div class="paragraph">
-<p>“You have to be quite heavily invested in someone to do them the honour of
-  telling them you’re annoyed with them.”
-  ― Alain de Botton</p>
-</div>
+“You have to be quite heavily invested in someone to do them the honour of
+telling them you’re annoyed with them.” <em>― Alain de Botton</em>
 </blockquote>
 </div>
 <div class="paragraph">
@@ -297,46 +303,40 @@ LightTable, and Cursive.</p>
 </div>
 <div class="sect2">
 <h3 id="_docstrings_require_an_extra_line">Docstrings require an extra line</h3>
-<div class="paragraph">
-<p>Python supports this style of coding:</p>
-</div>
-<div class="literalblock">
+<div class="listingblock">
+<div class="title">Python supports this style of coding:</div>
 <div class="content">
-<pre>def fetch(dog):
+<pre class="highlight"><code class="language-python" data-lang="python">def fetch(dog):
     "Get dog to grab my slippers."
-    dog.walk_to_bedroom() ...</pre>
+    dog.walk_to_bedroom() ...</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>In Clojure, we have to write:</p>
-</div>
-<div class="literalblock">
+<div class="listingblock">
+<div class="title">In Clojure, we have to write:</div>
 <div class="content">
-<pre>1 (defn fetch
-2   "Get dog to grab my slippers."
-3   [dog]
-4   (walk-to-bedroom ...) ...)</pre>
+<pre class="highlight"><code class="language-clojure" data-lang="clojure">(defn fetch
+  "Get dog to grab my slippers."
+  [dog]
+  (walk-to-bedroom ...) ...)</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>But it would be much nicer to write:</p>
-</div>
-<div class="literalblock">
+<div class="listingblock">
+<div class="title">But it would be much nicer to write:</div>
 <div class="content">
-<pre>1 (defn fetch [dog]
-2   "Get dog to grab my slippers."
-3   (walk-to-bedroom ...) ...)</pre>
+<pre class="highlight"><code class="language-clojure" data-lang="clojure">(defn fetch [dog]
+  "Get dog to grab my slippers."
+  (walk-to-bedroom ...) ...)</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>This, of course, is due to multiple arity support, but still annoying. So I find
 myself resorting to:</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre>1 \;\; Get dog to grab my slippers.
-2 (defn fetch [dog]
-3   (walk-to-bedroom ...) ...)</pre>
+<pre class="highlight"><code class="language-clojure" data-lang="clojure">;; Get dog to grab my slippers.
+(defn fetch [dog]
+  (walk-to-bedroom ...) ...)</code></pre>
 </div>
 </div>
 </div>
@@ -344,7 +344,7 @@ myself resorting to:</p>
 <h2 id="_but_clojure_is_still_the_best">But Clojure is still the best</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_only_two_compare">Only two compare</h3>
+<h3 id="_the_criteria_only_three_really_in_the_race">The Criteria: Only three really in the race</h3>
 <div class="imageblock">
 <div class="content">
 <img src="../img/annoyances/trinity.jpg" alt="trinity">
@@ -529,6 +529,16 @@ sensibility says a lot</p>
         <div class="col-md-3">
             <div id="sidebar">
                 <!-- <h3>Links</h3> -->
+                <!-- <h3><i class="fa fa-info-circle"></i> About Micah</h3> -->
+                <h3><i class="fa fa-child"></i> About Micah</h3>
+                <p>
+                  Saluton! Welcome to my blog. I’m a developer, sysadmin, and
+                  entrepreneur interested in education, functional programming
+                  (Clojure, Racket, OCaml), Linux, FreeBSD,
+                  Vim, Ansible, and lots of other FOSS. Most of the content
+                  herein takes the form of recipes and biased opinions. See the
+                  <a href="/pages/about.html">README</a> for more.</p>
+
                 <h3><i class="fa fa-external-link-square"></i> Links</h3>
                 <ul id="links">
                     <!-- <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li> -->
@@ -574,6 +584,8 @@ sensibility says a lot</p>
                         <!-- <li><a href="/tags/urxvt.html">urxvt</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/cryogen.html">cryogen</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
                         <!--  -->
@@ -649,6 +661,8 @@ sensibility says a lot</p>
                         <a href="/tags/urxvt.html">urxvt</a>
                         
                         <a href="/tags/deploy.html">deploy</a>
+                        
+                        <a href="/tags/cryogen.html">cryogen</a>
                         
                         <a href="/tags/github.html">github</a>
                         

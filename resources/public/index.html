@@ -36,7 +36,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li  class="active" >
+                <li >
                   <a href="/index.html">
                     <i class="fa fa-home"></i>
                     <!-- Home</a></li> -->
@@ -54,6 +54,14 @@
                 <!-- <a href="/pages/about.html"> -->
                 <!--   <i class="glyphicon glyphicon-new-window"></i> -->
                 <!--   About -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/adoc-page.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   Adoc Page -->
                 <!-- </a> -->
                 <!-- </li> -->
                 <!--  -->
@@ -108,415 +116,81 @@
             <div id="content">
                 
 <div id="post">
-    <div id="post-header">
-    <div id="post-meta" class="row">
-        <div class="col-lg-8"><b>December 3, 2015</b>
-
     
-    <span id="post-tags">
-        <!-- <i>tagged:</i> -->
-        <i> — </i>
-        <b><i class="fa fa-tags"></i> </b>
-        <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
-        
-        <a href="/tags/clojure.html"> clojure</a>
-        
-    </span>
-    
-
+    <div class="post-header">
+        <h2>Clojure Annoyances</h2>
+        <div id="post-meta">
+            
+            <div class="date">December 3, 2015</div>
         </div>
-
-        <!--  -->
-
     </div>
-
-    <h1>Clojure Annoyances</h1>
-
-<!--      -->
-<!--     <div id="post-tags"> -->
-<!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
-<!--          -->
-<!--         <a href="/tags/clojure.html"> clojure</a> -->
-<!--          -->
-<!--     </div> -->
-<!--      -->
-
-</div>
-<div>
+    <div class="paragraph"><p><strong>Audience:</strong><em>Clojure beginners</em></p></div><div class="quoteblock"><blockquote>
+“You have to be quite heavily invested in someone to do them the honour of
+telling them you’re annoyed with them.” <em>― Alain de Botton</em></blockquote></div>
+    <a href="/posts/2015-12-03-clojure-annoyances.html">Continue reading &#8594;</a>
+    <hr>
     
-    <div class="paragraph">
-<p><strong>Audience:</strong> <em>Clojure beginners</em></p>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p>“You have to be quite heavily invested in someone to do them the honour of
-  telling them you’re annoyed with them.”
-  ― Alain de Botton</p>
-</div>
-</blockquote>
-</div>
-<div class="paragraph">
-<p>Every language has warts. This is not the first wart piece written on Clojure,
-but it’s my unique take on it. There are some workarounds, but these will bite
-newbies. Despite these minor annoyances, I still find Clojure to be the best
-environment to work in for many years to come.</p>
-</div>
-<!-- more -->
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/title.jpg" alt="title" width="600">
-</div>
-</div>
-<div class="sect2">
-<h3 id="_memory_hogging">Memory hogging</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/memhog.jpg" alt="memhog" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>That’s a Raspberry Pi in his mouth. It’s being devoured.</p>
-</div>
-<div class="paragraph">
-<p>Every time this is brought up there are arguments that Clojure and the JVM alone
-don’t use too much memory. But once <code>lein</code> is starting an nREPL for a
-non-trivial project, you’ll want to have a 16+ GB machine. The situation would
-be even worse if you use a heavy IDE (like IntelliJ or Eclipse).</p>
-</div>
-<div class="paragraph">
-<p>I’m still sometimes clumsy with my setup, and may have a REPL going that’s not
-connected to Vim, plus a <code>lein run</code> server running. And then another for
-generating this blog (that one has some leak that gets it up to 5 GB after a few
-days!). Maybe another for testing and working through 4clojure. So if you’re not
-careful, you’ll want to limit yourself to running one project at a time.</p>
-</div>
-<div class="paragraph">
-<p>All this can make Clojure a non-starter for students with minimal systems, like
-older Linux laptops or Raspberry Pis.</p>
-</div>
-<div class="paragraph">
-<p><strong>Remedies:</strong> <a href="https://github.com/technomancy/leiningen/wiki/Faster" class="bare">https://github.com/technomancy/leiningen/wiki/Faster</a>, light/smart
-editors</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_slow_startup">Slow startup</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/slow-start.jpg" alt="slow start" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Clojure starts up quickly (relative to lein, anyway). But the full <code>lein</code>
-environment is taking me 17+ seconds in a default Luminus project.</p>
-</div>
-<div class="paragraph">
-<p>Clojure itself is super fast for a lot of things&#8230;&#8203;. once it’s started.</p>
-</div>
-<div class="paragraph">
-<p><strong>Remedies:</strong> Trampoline, Drip</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_lots_of_parentheses">Lots of parentheses</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/parens.jpg" alt="parens" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>These can drive a newbie crazy. But once you learn to paredit them, they’re
-quite a boon for moving code around. They’re also pretty easy to auto-add and
-auto-balance, and even auto-color.</p>
-</div>
-<div class="paragraph">
-<p><strong>Remedies:</strong> paredit, sexp, rainbow parentheses</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_deal_with_java">Deal with Java</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/htop.jpg" alt="htop" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>Process trees cluttered with really long invocations.</p>
-</div>
-<div class="paragraph">
-<p>This happens with a lot of other environments, too, though. I see it with Erlang
-when running RabbitMQ; with Rails running Passenger; with MySQL; etc.</p>
-</div>
-<div class="paragraph">
-<p><strong>Remedies:</strong> tree view, live with it, forget *top and use real monitoring tools</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_awful_backtraces">Awful backtraces</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/stacktrace.jpg" alt="stacktrace" width="600">
-</div>
-</div>
-<div class="paragraph">
-<p>I actually don’t see these very often. I’m not sure if it’s due to
-<code>clj-stacktrace</code> being everpresent in my setup.</p>
-</div>
-<div class="paragraph">
-<p><strong>Remedies:</strong> small fonts, scrolling</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_not_always_expressive">Not always expressive</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/py-vs-pi.jpg" alt="py vs pi" width="600">
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_heavy_setup">Heavy setup</h3>
-<div class="paragraph">
-<p>In Racket</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_everyone_uses_emacs">Everyone uses Emacs</h3>
-<div class="paragraph">
-<p>&#8230;&#8203;and maybe you don’t. But that’s okay.
-<a href="http://stackoverflow.com/questions/4248171/choosing-an-ide-editor-for-clojure-coding">Many</a>
-are also having success with
-<a href="http://micahelliott.com/posts/2015-07-13-clojure-vim-setup.html">Vim</a>,
-LightTable, and Cursive.</p>
-</div>
-<div class="paragraph">
-<p>You can watch <em>guns</em> in this video doing some cool things:
-<a href="https://vimeo.com/80650659https://vimeo.com/80650659" class="bare">https://vimeo.com/80650659https://vimeo.com/80650659</a></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_docstrings_require_an_extra_line">Docstrings require an extra line</h3>
-<div class="paragraph">
-<p>Python supports this style of coding:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>def fetch(dog):
-    "Get dog to grab my slippers."
-    dog.walk_to_bedroom() ...</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>In Clojure, we have to write:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>1 (defn fetch
-2   "Get dog to grab my slippers."
-3   [dog]
-4   (walk-to-bedroom ...) ...)</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>But it would be much nicer to write:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>1 (defn fetch [dog]
-2   "Get dog to grab my slippers."
-3   (walk-to-bedroom ...) ...)</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>This, of course, is due to multiple arity support, but still annoying. So I find
-myself resorting to:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>1 \;\; Get dog to grab my slippers.
-2 (defn fetch [dog]
-3   (walk-to-bedroom ...) ...)</pre>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_but_clojure_is_still_the_best">But Clojure is still the best</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="_only_two_compare">Only two compare</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/trinity.jpg" alt="trinity">
-</div>
-</div>
-<div class="paragraph">
-<p>I’ve grown persnickety after many years working with less satisfying
-environments, and now I value comfortable workflow above most things. This has
-brought me to only considering a few that have hope for joyful programming. They
-are Clojure, Racket, and OCaml. (Elm and LiveScript get honorable mentions as
-great languages.)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>expressive, succinct</p>
-</li>
-<li>
-<p>simple</p>
-</li>
-<li>
-<p>functional (and thus parallelizable)</p>
-</li>
-<li>
-<p>fast and light (Clojure almost doesn’t make the cut here)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Considerations that are secondary also, unfortunately, have strong impact:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>jobs available</p>
-</li>
-<li>
-<p>projects with many eyeballs</p>
-</li>
-<li>
-<p>widely adopted in usage</p>
-</li>
-<li>
-<p>tutorials, books, screencasts, discussions</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>In the end, Racket and OCaml both suffer from having communities that are too
-small, tools that are not widely enough adopted, projects without enough
-eyeballs, and tutorials not yet written. As much as I (and you) should work on
-addressing those shortcomings, most of us have other practical things presently
-pressing harder.</p>
-</div>
-<div class="paragraph">
-<p>So that leaves us with Clojure.</p>
-</div>
-<div class="paragraph">
-<p><em>(It’s not that I haven’t considered most of the up-and-coming languages that get
-a lot of attention. They just don’t satisfy the above constraints. So, I’m left
-not really considering: Scala, Elixir, Rust, Go, Haskell.)</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_summary_of_why_clojure_wins">Summary of Why Clojure Wins</h3>
-<div class="imageblock">
-<div class="content">
-<img src="../img/annoyances/pretty2.jpg" alt="pretty2">
-</div>
-</div>
-<div class="paragraph">
-<p>(Note: shown above is vim using the “conceal” feature for functions like
-partition, map, apply, etc. You either love or hate this.)</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Aesthetics</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>code density</p>
-</li>
-<li>
-<p>beautiful rainbow parens (hooks for moving code)</p>
-</li>
-<li>
-<p>functional: <code>map</code>, <code>filter</code>, <code>reduce</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Paredit/Sexp: <strong>parentheses</strong> become hooks for moving code</p>
-</li>
-<li>
-<p>Trivial <strong>parallelism</strong> (sometimes, via <code>pmap</code>)</p>
-</li>
-<li>
-<p><strong>Isomorphic</strong> possibilities: server (web frameworks) and client (reagent, om).
-You’re probably not going to be a <em>great</em> developer in both
-JavaScript and some other language on the back end (Ruby, Python, Java), so
-why not just be great in Clojure/Script?</p>
-</li>
-<li>
-<p>Crazy <strong>REPL</strong> abilities</p>
-</li>
-<li>
-<p>Many <strong><a href="http://clojure.org/companies">companies</a></strong> are invested</p>
-</li>
-<li>
-<p>A better way to use Java libs</p>
-</li>
-<li>
-<p><strong>Lein</strong> is an all-in-one (cf. rails, gem, bundle, rake)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>but also boot</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Many <strong>learning resources</strong> (books, podcasts, screencasts, newletters,
-discussions)</p>
-</li>
-<li>
-<p>A <strong><a href="https://yogthos.github.io/ClojureDistilled.html">simple language</a></strong> mostly
-grokkable in a day (by experienced programmers with some functional
-knowledge)</p>
-</li>
-<li>
-<p><strong><a href="http://www.clojure-toolbox.com/">Many tools</a></strong> (plus anything from java)</p>
-</li>
-<li>
-<p>Great data structures</p>
-</li>
-<li>
-<p>Functional code (referentially transparent) is most <strong>testable</strong></p>
-</li>
-<li>
-<p>All the fancy <strong>big data tools</strong> are now java (spark, storm, flink, hadoop&#8230;&#8203;)</p>
-</li>
-<li>
-<p><strong>Macros</strong> (there’s even a book on them)</p>
-</li>
-<li>
-<p>A <strong><a href="https://github.com/bbatsov/clojure-style-guide">style guide</a></strong> whose perfect
-sensibility says a lot</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!--  -->
-<!-- <div id="post-tags"> -->
-<!--     <b>Tags: </b> -->
-<!--      -->
-<!--     <a href="/tags/clojure.html">clojure</a> -->
-<!--      -->
-<!-- </div> -->
-<!--  -->
-
+    <div class="post-header">
+        <h2>Programming Heroes</h2>
+        <div id="post-meta">
+            
+            <div class="date">October 15, 2015</div>
+        </div>
+    </div>
+    <div class="paragraph"><p><strong>Audience:</strong><em>anyone</em></p></div><div class="quoteblock"><blockquote>
+“To be a hero, you have to learn to be a deviant, because you’re always going
+against the conformity of the group. Heroes are ordinary people whose social
+actions are extraordinary. Who act.”  <em>— Philip Zimbardo</em></blockquote></div>
+    <a href="/posts/2015-10-15-programming-heroes.html">Continue reading &#8594;</a>
+    <hr>
+    
+    <div class="post-header">
+        <h2>Why Learn a Lisp?</h2>
+        <div id="post-meta">
+            
+            <div class="date">September 10, 2015</div>
+        </div>
+    </div>
+    <div class="paragraph"><p>Programming in Lisp is a different kind of programming. Some things seem similar
+to your daily imperative treadmill, but mostly it’s different. There’s a
+different lexicon of terms, REPL-driven (or rather, -dominated) programming,
+there’s immutability, a really different type of (par)editing, a higher level of
+conciseness, a naturalness to using HoFs, a leaning on a small set of primitives,
+recursion as the norm, and so on.</p></div><div class="paragraph"><p>It’s worth gaining some proficiency with a Lisp, if anything, to change the way
+you think about programming. In this post I explore the Lisp landscape, and try
+to convince you to get in on the Racket, for edification, fun, and even profit.</p></div>
+    <a href="/posts/2015-09-10-why-learn-a-lisp.html">Continue reading &#8594;</a>
+    <hr>
+    
+    <div class="post-header">
+        <h2>AUR Getting Started Guide</h2>
+        <div id="post-meta">
+            
+            <div class="date">September 1, 2015</div>
+        </div>
+    </div>
+    <div class="paragraph"><p><strong>Audience:</strong><em>intermediate</em></p></div><div class="paragraph"><p>There are many options to access Arch’s User Repository (AUR). The AUR is one of
+the most compelling features of Arch Linux. I’ll walk you through the simplest
+path to getting started with the AUR, with minimal bootstrapping effort.</p></div>
+    <a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">Continue reading &#8594;</a>
+    <hr>
+    
+    <div class="post-header">
+        <h2>Vim Anti-Patterns</h2>
+        <div id="post-meta">
+            
+            <div class="date">September 1, 2015</div>
+        </div>
+    </div>
+    <div class="paragraph"><p><strong>Audience:</strong><em>intermediate</em></p></div><div class="quoteblock"><blockquote><div class="paragraph"><p>Some quote</p></div></blockquote></div>
+    <a href="/posts/2015-09-01-vim-anti-patterns.html">Continue reading &#8594;</a>
+    <hr>
     
 
     <div id="prev-next">
         
         
-        <a class="right" href="/posts/2015-10-15-programming-heroes.html">Programming Heroes &raquo;</a>
+        <a class="right" href="/p/2.html">Next &raquo;</a>
         
     </div>
 </div>
@@ -527,6 +201,16 @@ sensibility says a lot</p>
         <div class="col-md-3">
             <div id="sidebar">
                 <!-- <h3>Links</h3> -->
+                <!-- <h3><i class="fa fa-info-circle"></i> About Micah</h3> -->
+                <h3><i class="fa fa-child"></i> About Micah</h3>
+                <p>
+                  Saluton! Welcome to my blog. I’m a developer, sysadmin, and
+                  entrepreneur interested in education, functional programming
+                  (Clojure, Racket, OCaml), Linux, FreeBSD,
+                  Vim, Ansible, and lots of other FOSS. Most of the content
+                  herein takes the form of recipes and biased opinions. See the
+                  <a href="/pages/about.html">README</a> for more.</p>
+
                 <h3><i class="fa fa-external-link-square"></i> Links</h3>
                 <ul id="links">
                     <!-- <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li> -->
@@ -572,6 +256,8 @@ sensibility says a lot</p>
                         <!-- <li><a href="/tags/urxvt.html">urxvt</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/cryogen.html">cryogen</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
                         <!--  -->
@@ -647,6 +333,8 @@ sensibility says a lot</p>
                         <a href="/tags/urxvt.html">urxvt</a>
                         
                         <a href="/tags/deploy.html">deploy</a>
+                        
+                        <a href="/tags/cryogen.html">cryogen</a>
                         
                         <a href="/tags/github.html">github</a>
                         

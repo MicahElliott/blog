@@ -2,9 +2,6 @@
 <rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
 <channel>
 <atom:link href='http://micahelliott.com/' rel='self' type='application/rss+xml'/>
-<generator>
-clj-rss
-</generator>
 <title>
 Micah Elliott
 </title>
@@ -15,8 +12,11 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Mon, 14 Dec 2015 11:43:02 -0800
+Wed, 16 Dec 2015 19:16:25 -0800
 </lastBuildDate>
+<generator>
+clj-rss
+</generator>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-12-03-clojure-annoyances.html
@@ -33,11 +33,8 @@ Clojure Annoyances
 &lt;/div&gt;
 &lt;div class=&quot;quoteblock&quot;&gt;
 &lt;blockquote&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;“You have to be quite heavily invested in someone to do them the honour of
-  telling them you’re annoyed with them.”
-  ― Alain de Botton&lt;/p&gt;
-&lt;/div&gt;
+“You have to be quite heavily invested in someone to do them the honour of
+telling them you’re annoyed with them.” &lt;em&gt;― Alain de Botton&lt;/em&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -181,46 +178,40 @@ LightTable, and Cursive.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect2&quot;&gt;
 &lt;h3 id=&quot;_docstrings_require_an_extra_line&quot;&gt;Docstrings require an extra line&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Python supports this style of coding:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Python supports this style of coding:&lt;/div&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;def fetch(dog):
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;def fetch(dog):
     &quot;Get dog to grab my slippers.&quot;
-    dog.walk_to_bedroom() ...&lt;/pre&gt;
+    dog.walk_to_bedroom() ...&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;In Clojure, we have to write:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;In Clojure, we have to write:&lt;/div&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;1 (defn fetch
-2   &quot;Get dog to grab my slippers.&quot;
-3   [dog]
-4   (walk-to-bedroom ...) ...)&lt;/pre&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;(defn fetch
+  &quot;Get dog to grab my slippers.&quot;
+  [dog]
+  (walk-to-bedroom ...) ...)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;But it would be much nicer to write:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;But it would be much nicer to write:&lt;/div&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;1 (defn fetch [dog]
-2   &quot;Get dog to grab my slippers.&quot;
-3   (walk-to-bedroom ...) ...)&lt;/pre&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;(defn fetch [dog]
+  &quot;Get dog to grab my slippers.&quot;
+  (walk-to-bedroom ...) ...)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;This, of course, is due to multiple arity support, but still annoying. So I find
 myself resorting to:&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;1 \;\; Get dog to grab my slippers.
-2 (defn fetch [dog]
-3   (walk-to-bedroom ...) ...)&lt;/pre&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;;; Get dog to grab my slippers.
+(defn fetch [dog]
+  (walk-to-bedroom ...) ...)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -228,7 +219,7 @@ myself resorting to:&lt;/p&gt;
 &lt;h2 id=&quot;_but_clojure_is_still_the_best&quot;&gt;But Clojure is still the best&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_only_two_compare&quot;&gt;Only two compare&lt;/h3&gt;
+&lt;h3 id=&quot;_the_criteria_only_three_really_in_the_race&quot;&gt;The Criteria: Only three really in the race&lt;/h3&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;img src=&quot;../img/annoyances/trinity.jpg&quot; alt=&quot;trinity&quot;&gt;
@@ -386,6 +377,9 @@ sensibility says a lot&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 03 Dec 2015 00:00:00 -0800
 </pubDate>
@@ -406,9 +400,9 @@ Programming Heroes
 &lt;/div&gt;
 &lt;div class=&quot;quoteblock&quot;&gt;
 &lt;blockquote&gt;
-To be a hero, you have to learn to be a deviant, because you’re always going
+“To be a hero, you have to learn to be a deviant, because you’re always going
 against the conformity of the group. Heroes are ordinary people whose social
-actions are extraordinary. Who act.  — Philip Zimbardo
+actions are extraordinary. Who act.”  &lt;em&gt;— Philip Zimbardo&lt;/em&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -594,6 +588,9 @@ pain.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 15 Oct 2015 00:00:00 -0700
 </pubDate>
@@ -791,6 +788,9 @@ it’s a little too beastly to be promoting for student adoption.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 10 Sep 2015 00:00:00 -0700
 </pubDate>
@@ -868,6 +868,9 @@ Interesting. Install &lt;code&gt;archey&lt;/code&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Tue, 01 Sep 2015 00:00:00 -0700
 </pubDate>
@@ -1066,6 +1069,9 @@ ysiw&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Tue, 01 Sep 2015 00:00:00 -0700
 </pubDate>
@@ -1343,6 +1349,9 @@ set lisp&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Tue, 01 Sep 2015 00:00:00 -0700
 </pubDate>
@@ -1592,6 +1601,9 @@ copied from others.)&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Sun, 30 Aug 2015 00:00:00 -0700
 </pubDate>
@@ -1714,6 +1726,9 @@ for this.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 27 Aug 2015 00:00:00 -0700
 </pubDate>
@@ -1862,6 +1877,9 @@ firewalld.icmptype            firewalld.zones&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 27 Aug 2015 00:00:00 -0700
 </pubDate>
@@ -2119,6 +2137,9 @@ arrow keys, forcing an atrocious hand move. Oh, for shame.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 20 Aug 2015 00:00:00 -0700
 </pubDate>
@@ -2152,6 +2173,9 @@ really improve your comfort level and productivity.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 20 Aug 2015 00:00:00 -0700
 </pubDate>
@@ -2624,6 +2648,9 @@ since it takes them both together to make the &quot;full&quot; key.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Sat, 08 Aug 2015 00:00:00 -0700
 </pubDate>
@@ -2735,6 +2762,9 @@ upvoting your real posts.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Mon, 20 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -2891,6 +2921,9 @@ the mode that its last pane/window was in.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Mon, 20 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -2994,6 +3027,9 @@ on &lt;a href=&quot;/posts/2015-01-10-choosing-an-os.html&quot;&gt;choosing an O
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Fri, 17 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3143,6 +3179,9 @@ tmux is running)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Mon, 13 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3165,6 +3204,9 @@ Awesome Awk
 &lt;p&gt;This should be a video.&lt;/p&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 09 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3188,6 +3230,9 @@ browser. The required hardware is a TV and a NUC.&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- more --&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 09 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3259,6 +3304,9 @@ meta, so I’ll put most of it into a video.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Wed, 08 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3294,6 +3342,9 @@ Zsh Tab Completion Demo
 &lt;div class=&quot;title&quot;&gt;Figure 2. Backtick expansion in double-quotes&lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Tue, 07 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3382,6 +3433,9 @@ display.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Tue, 07 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3686,6 +3740,9 @@ end&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Sun, 05 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3726,6 +3783,9 @@ Interesting Modern Vulnerabilities
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Sun, 05 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -3785,6 +3845,9 @@ nmon&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Sun, 05 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -4010,6 +4073,9 @@ explicit is less susceptible to ambiguous translating.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 02 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -4205,6 +4271,9 @@ before) I don’t see much need for it for a blog. It could be added.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Thu, 02 Jul 2015 00:00:00 -0700
 </pubDate>
@@ -4866,6 +4935,9 @@ ClojureScript wins, partly because of my other biases toward Clojure.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Sun, 01 Feb 2015 00:00:00 -0800
 </pubDate>
@@ -5044,8 +5116,91 @@ your way with your first machine of many in your lucrative career.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
+<enclosure>
+
+</enclosure>
 <pubDate>
 Sat, 10 Jan 2015 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2014-10-10-adoc-post.html
+</guid>
+<link>
+http://micahelliott.com/posts/2014-10-10-adoc-post.html
+</link>
+<title>
+Adoc Post
+</title>
+<description>
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_example_asciidoc_post&quot;&gt;Example Asciidoc Post&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This is an example asciidoc post.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can use a manually placed table of contents by setting &lt;code&gt;:toc false&lt;/code&gt; in the front matter, but use &lt;code&gt;:toc: macro&lt;/code&gt; at the top of the post, and &lt;code&gt;toc::[]&lt;/code&gt; where the table of contents is supposed to be, like here:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
+&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Table of Contents&lt;/div&gt;
+&lt;ul class=&quot;sectlevel1&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_example_asciidoc_post&quot;&gt;Example Asciidoc Post&lt;/a&gt;
+&lt;ul class=&quot;sectlevel2&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;#_section_1&quot;&gt;Section 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#_section_2&quot;&gt;Section 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_section_1&quot;&gt;Section 1&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Heading&lt;/div&gt;
+&lt;p&gt;With some text and maybe even a bulleted list:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Thing 1&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Thing 2&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Or how about some &lt;strong&gt;bold&lt;/strong&gt; or &lt;em&gt;italicized&lt;/em&gt; text?&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_section_2&quot;&gt;Section 2&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Will a code snippet work?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;bash&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ echo &quot;foo&quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;clojure&lt;/div&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;(defn echo [s]
+  (println s))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Fri, 10 Oct 2014 00:00:00 -0700
 </pubDate>
 </item>
 </channel>

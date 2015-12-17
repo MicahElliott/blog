@@ -18,4 +18,9 @@
  :keep-files       [".git" "favicon.png" "pubkey.mde@micahelliott.com.gpg.asc" "robots.txt"]
  :disqus?          false
  :disqus-shortname ""
- :ignored-files    [#"\.#.*" #".*\.swp$"]}
+ :ignored-files    [#"\.#.*" #".*\.swp$"]
+
+ :posts-per-page     5
+ :blocks-per-preview 2
+ :previews?          true
+}

@@ -11,7 +11,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
     /* text-transform: uppercase; */
     margin-bottom: 0px;
-    font-family: 'shadows into light';
+    /* font-family: 'shadows into light'; */
+    font-family: 'denk one';
     /* font-style: italic; */
     font-weight: bold;
     text-shadow: 1px 1px 0 #ee6, 2px 2px 0 #ccc;
@@ -19,7 +20,9 @@ h1 {
 
 h2, h3, h4, h5, h6 {
     /* margin-top: 10px; */
-    font-family: 'shadows into light';
+    /* font-family: 'shadows into light'; */
+    font-family: 'denk one';
+    /* font-family: 'pt sans'; */
     margin: 18px 0 6px 0;
 }
 
@@ -80,6 +83,7 @@ body {
     font-family: 'cabin';
     font-family: 'pt sans';
     font-family: 'shadows into light';
+    font-family: 'denk one';
     font-family: 'pt serif';
     font-family: 'pt mono';
     /* text-transform: uppercase; */
@@ -129,9 +133,16 @@ body {
     margin-top: 50px;
 }
 
-#sidebar h3 {
-    font-family: 'shadows into light';
+#sidebar ul {
+  padding-left: 24px;
 }
+
+#sidebar h3 {
+    /* font-family: 'shadows into light'; */
+    font-family: 'denk one';
+}
+
+.flourish { color: #8652D4; }
 
 #content {
     background-color: #fff;
@@ -201,6 +212,7 @@ i.fa {
 
 a {
     color: dodgerblue;
+    /* color: #337AB7; */
 }
 
 blockquote p {
@@ -213,7 +225,8 @@ pre, code, .hljs {
 }
 
 pre {
-  border: 1px solid #c7254e;
+  /* border: 1px solid #c7254e; */
+  border: 1px solid #ccc;
 }
 
 
