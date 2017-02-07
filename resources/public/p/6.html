@@ -118,91 +118,101 @@
 <div id="post">
     
     <div class="post-header">
-        <h2>Cryogen Blog Setup</h2>
+        <!-- <h2>Vi-Mode Ubiquitous Cursor Indicator</h2> -->
+        <h2><a href="/posts/2015-07-20-vim-zsh-tmux-cursor.html">Vi-Mode Ubiquitous Cursor Indicator</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 2, 2015</div>
+            <div class="date">July 20, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>The tech running this blog is described on the <a href="/about.html" shape="rect">About page</a>. This
-recipes explains what I did to set it all up.</p></div><div class="sect1"><h2 id="_infrastructure">Infrastructure</h2><div class="sectionbody"><div class="paragraph"><p>You can set up a static site easily enough with Github pages, but I think it’s
-nice to manage a server yourself. You might want it for other things, and you
-get to control it completely. Your learnings there will apply to any other
-site/server you host.</p></div><div class="paragraph"><p>You can get yourself a “Droplet” at <a href="http://digitalocean.com" shape="rect">DigitalOcean</a> for $5
-USD per month. That’s cheap. It’s just a matter of a few clicks on their simple
-control panel. I’m somewhat near San Francisco, so I chose that data center.
-<a href="/posts/2015-07-17-why-centos.html" shape="rect">I like CentOS</a> quite a bit as a server
-OS, but I also like to play around with FreeBSD, so I chose that. It’s a recent
-addition to the DO arsenal, and is a rock-solid OS with a fantastic security
-record and a very famous file system: ZFS.</p></div></div></div>
-    <a href="/posts/2015-07-02-cryogen-on-freebsd-with-ansible.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>programmers</em></p></div><div class="paragraph"><p>It should be as easy as possible to tell if you’re in normal or insert mode.
+Your eye tends to be on your cursor, so you’ll find the cursor to be the best
+indicator of your mode. Of course, you’re effectively in Vim when in Zsh
+(<code>bindkey -v</code>, right?), too, so it should have the same cursor indicator.</p></div><div class="paragraph"><p>This recipe has been described scattershot in various places, but never
+comprehensively. This version will give you a solid block cursor in normal
+mode, and a blinking, gray underscore cursor in insert mode. I’ve also set it to
+green block for Zsh, blue for Vim. Change it to whatever you like. It’s big and
+bright so you can easily find it. Then it’s small and flashing to remind you to
+get out of insert mode. Whatever colors/styles you choose, rejoice that it now
+works!</p></div><div class="paragraph"><p>I worked for a couple years without having this working in Tmux and it drove me
+crazy. Now that it works well, I find myself using Tmux much more often.</p></div>
+    <a href="/posts/2015-07-20-vim-zsh-tmux-cursor.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>LiveScript vs ClojureScript</h2>
+        <!-- <h2>CentOS vs the Rest</h2> -->
+        <h2><a href="/posts/2015-07-17-why-centos.html">CentOS vs the Rest</a></h2>
         <div id="post-meta">
             
-            <div class="date">February 1, 2015</div>
+            <div class="date">July 17, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>The following are my pros/cons notes comparing LiveScript (which I really loved
-using) to Clojure(Script), and eventually to Racket. The conclusion was that
-ClojureScript wins, partly because of my other biases toward Clojure.</p></div><div class="sect1"><h2 id="_ls">LS</h2><div class="sectionbody"><div class="sect2"><h3 id="_pros">Pros</h3><div class="ulist"><ul><li><p>concise, haskell-like</p></li><li><p>improved coffee, a very popular language</p></li><li><p>npm</p></li><li><p>node is fast</p></li><li><p>beautifully simple standard node lib</p></li><li><p>brunch et al</p></li><li><p>jade (hiccup might suffice, but there is clj-jade)</p></li><li><p>angular/backbone</p></li><li><p>express</p></li><li><p>socket.io</p></li><li><p>d3 (but c2)</p></li><li><p>native json</p></li><li><p>many lessons/projects already written in ls</p></li><li><p>put into any proj that uses coffee</p></li><li><p>testing frameworks</p></li><li><p>plugs into everything where js is used with minimal change</p></li></ul></div></div><div class="sect2"><h3 id="_cons">Cons</h3><div class="ulist"><ul><li><p>callback hell</p></li><li><p>impossible async recursion (and no tco)</p></li><li><p>not multi-threaded so maybe harder to scale for production</p></li><li><p>poor repl</p></li><li><p>too many npm pkgs to choose from</p></li><li><p>won’t paste into browser repl</p></li><li><p>bad vim syntax highlighting (fixable)</p></li><li><p>node won’t go on windows (anyone care?)</p></li><li><p>prelude confused with underscore/lodash/async/nimble</p></li><li><p>obscure</p></li><li><p>syntax heavy; a bit quirky</p></li><li><p>surprising scope issues</p></li><li><p>JavaScript\* community fragmented among langs/tools</p></li></ul></div></div></div></div>
-    <a href="/posts/2015-02-01-livescript-vs-clojurescript-vs-racket.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p>I’ve been hooked on CentOS for servers for a couple years now. We used to use
+Ubuntu, but I see several advantages to choosing CentOS over Ubuntu and others.
+Here’s why:</p></div><div class="paragraph"><p>UPDATE 2017:</p></div><div class="paragraph"><p><strong>Smooth updates.</strong> Since starting all our servers out on CentOS 7.0,
+  they’ve all been cleanly upgraded to 7.3 without any fuss or
+  ceremony.  Looked like any other daily update.</p></div><div class="paragraph"><p><strong>Our Consultancies use CentOS.</strong> We’ve been in a couple data centers
+  that encourage using their supported platforms based on CentOS.  We
+  also work with a MySQL team that knows and prefers CentOS to any
+  other.</p></div>
+    <a href="/posts/2015-07-17-why-centos.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Choosing your Everyday Operating System</h2>
+        <!-- <h2>Clojure, Vim, nREPL, Fireplace, REDL Setup</h2> -->
+        <h2><a href="/posts/2015-07-13-clojure-vim-setup.html">Clojure, Vim, nREPL, Fireplace, REDL Setup</a></h2>
         <div id="post-meta">
             
-            <div class="date">January 10, 2015</div>
+            <div class="date">July 13, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>Three great operating systems are recommended for growing your programming
-chops: Arch Linux, Gentoo Linux, and FreeBSD/PC-BSD. You’re welcome to go with
-a more mainstream UNIX like Ubuntu or OSX, but these have a tendency to hide
-lower level OS details; you’ll learn a lot more by choosing one of our
-recommendations. Your preference for control, speed, licensing, and
-mainstreamedness will determine your choice. All three are bleeding edge
-rolling release, highly open, fast, minimalist, configurable via text files,
-and security conscious. And all have uniquely fantastic package managers.</p></div><div class="sect1"><h2 id="_linux_or_bsd">Linux or BSD?</h2><div class="sectionbody"><div class="quoteblock"><div class="title">A wise person on some podcast I once heard said something like …​</div><blockquote><div class="paragraph"><p>Linux is a PC OS ported to UNIX, BSD is a UNIX ported to the PC.</p></div></blockquote></div><div class="paragraph"><p>The first consideration is what license model appeals to you. Linux is
-<a href="http://en.wikipedia.org/wiki/GNU_General_Public_License" shape="rect">GPL</a> (v2), which
-means that many of the tools you’ll use are going to be GPL, and changes that
-you make to code should be shared back with the community. BSD’s stance on
-licensing is that you can do whatever you want with changing of code. For some
-business cases this may be a preferable model. You may not be augmenting your
-system tools or kernel, but some day you very well may.</p></div><div class="paragraph"><p>Linux is more popular than BSD, but that doesn’t mean it’s better. BSD powers
-much of the internet today, including sites like Netflix and Yahoo. It’s even
-what’s underneath OSX.</p></div><div class="paragraph"><p>Linux has broader reach, particularly in mobile and embedded computing. It’s
-what powers your Android phone. It’s in your router, and probably even in your
-microwave. There are literally
-<a href="http://distrowatch.com/" shape="rect">hundreds of distributions</a> out there that you could
-install on your laptop right now, many of which are in widespread use in data
-centers and as desktops.</p></div><div class="paragraph"><p>When you start up your shiny new service on an affordable VPS, most of your
-options are going to be Linux based. Popular VPS hosting services include
-Linode, DigitalOcean, and Rackspace, all of which primarily offer Linux (and
-only Linux). There are BSD hosts out there, but the paucity is something to
-keep in mind. If you have some idea of what OS you’ll want to eventually host
-your apps on, you probably want to choose that OS as what you’ll run for your
-home/development systems. IOW, if you decide to go with a Mac (or PC-BSD) for
-your daily development, you may want to go with FreeBSD in the cloud.
-Otherwise, choose a Linux family for both.</p></div><div class="paragraph"><p>Linuxes nowadays are mostly based on systemd. This gives you sophisticated
-control of running services, fancy journaling/logging, and super-fast booting.
-BSDs have a simpler init startup system (but sometimes simple is a feature).</p></div><div class="paragraph"><p>More details on
-<a href="http://www.techrepublic.com/blog/10-things/10-differences-between-linux-and-bsd/" shape="rect">this TechRepublic post</a>.</p></div></div></div>
-    <a href="/posts/2015-01-10-choosing-an-os.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p>These are the steps I take to set up a new Arch system with a Clojure
+environment for vim.</p></div><div class="ulist"><ul><li><p>Get lein up to date</p><div class="literalblock"><div class="content"><pre>lein update</pre></div></div></li><li><p>Install new version of clojure, eg, Arch: <code>yaourt -S clojure</code></p></li><li><p>Update lein search index: <code>lein search whatever</code></p></li><li><p>Set up fireplace, highlighting, mappings, sexp into <code>.vimrc</code> with Vundle:</p><div class="literalblock"><div class="content"><pre>Plugin 'guns/vim-clojure-static.git'
+Plugin 'guns/vim-clojure-highlight.git'
+Plugin 'tpope/vim-leiningen.git'
+Plugin 'tpope/vim-dispatch.git'
+Plugin 'tpope/vim-fireplace.git'
+Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'guns/vim-sexp'
+Plugin 'guns/vim-slamhound'
+Plugin 'dgrnbrg/redl'</pre></div></div></li><li><p>Add to <code>~/.lein/profiles.clj</code>:</p><div class="literalblock"><div class="content"><pre>{:user {:plugins [...
+                  [cider/cider-nrepl "0.10.0"] ]
+        :dependencies [...
+                       [spyscope "0.1.5"]
+                       [redl "0.2.4"] ]
+        :injections [...
+                     (require 'spyscope.core)
+                     (require '[redl complete core]) ]}}</pre></div></div></li><li><p>Create new project:</p><div class="literalblock"><div class="content"><pre>lein new foo</pre></div></div></li><li><p>Add to each project:</p><div class="literalblock"><div class="content"><pre>:main foo.core
+:repl-options {:init-ns foo.core})</pre></div></div></li><li><p>Run <code>lein deps</code></p></li><li><p>Start tmux? Maybe not; slime not working now anyway</p></li></ul></div><div class="paragraph"><p>Now you need an nrepl running <em>somewhere</em>. You can either:</p></div><div class="ulist"><ul><li><p>Start <code>lein repl</code> in a terminal</p></li><li><p>Or, in vim, run: <code>:Console</code> to fire up nrepl in a new shell (or tmux window if
+tmux is running)</p></li></ul></div>
+    <a href="/posts/2015-07-13-clojure-vim-setup.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Adoc Post</h2>
+        <!-- <h2>Awesome Awk</h2> -->
+        <h2><a href="/posts/2015-07-09-awesome-awk.html">Awesome Awk</a></h2>
         <div id="post-meta">
             
-            <div class="date">October 10, 2014</div>
+            <div class="date">July 9, 2015</div>
         </div>
     </div>
-    <div class="sect1"><h2 id="_example_asciidoc_post">Example Asciidoc Post</h2><div class="sectionbody"><div class="paragraph"><p>This is an example asciidoc post.</p></div><div class="paragraph"><p>You can use a manually placed table of contents by setting <code>:toc false</code> in the front matter, but use <code>:toc: macro</code> at the top of the post, and <code>toc::[]</code> where the table of contents is supposed to be, like here:</p></div><div class="toc" id="toc"><div class="title" id="toctitle">Table of Contents</div><ul class="sectlevel1"><li><a href="#_example_asciidoc_post" shape="rect">Example Asciidoc Post</a><ul class="sectlevel2"><li><a href="#_section_1" shape="rect">Section 1</a></li><li><a href="#_section_2" shape="rect">Section 2</a></li></ul></li></ul></div><div class="sect2"><h3 id="_section_1">Section 1</h3><div class="paragraph"><div class="title">Heading</div><p>With some text and maybe even a bulleted list:</p></div><div class="ulist"><ul><li><p>Thing 1</p></li><li><p>Thing 2</p></li></ul></div><div class="paragraph"><p>Or how about some <strong>bold</strong> or <em>italicized</em> text?</p></div></div><div class="sect2"><h3 id="_section_2">Section 2</h3><div class="paragraph"><p>Will a code snippet work?</p></div><div class="listingblock"><div class="title">bash</div><div class="content"><pre class="highlight"><code class="language-bash" data-lang="bash">$ echo "foo"</code></pre></div></div><div class="listingblock"><div class="title">clojure</div><div class="content"><pre class="highlight"><code class="language-clojure" data-lang="clojure">(defn echo [s]
-  (println s))</code></pre></div></div></div></div></div>
-    <a href="/posts/2014-10-10-adoc-post.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong></p></div><div class="paragraph"><p>This should be a video.</p></div>
+    <a href="/posts/2015-07-09-awesome-awk.html">Continue reading &#8594;</a>
+    <hr>
+    
+    <div class="post-header">
+        <!-- <h2>Live Office Dashboard with i3 and a NUC</h2> -->
+        <h2><a href="/posts/2015-07-09-i3-nuc-office-dashboard.html">Live Office Dashboard with i3 and a NUC</a></h2>
+        <div id="post-meta">
+            
+            <div class="date">July 9, 2015</div>
+        </div>
+    </div>
+    <div class="paragraph"><p>In this post I’ll show you how to set up a live dashboard to display your
+company (or house) metrics. It’s as simple as writing a little i3 script to
+rotate through a set of open browsers. You’ll need to run X, i3, a fast
+browser. The required hardware is a TV and a NUC.</p></div>
+    <a href="/posts/2015-07-09-i3-nuc-office-dashboard.html">Continue reading &#8594;</a>
     <hr>
     
 
@@ -210,6 +220,8 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
         
         <a class="left" href="/p/5.html">&laquo; Prev</a>
         
+        
+        <a class="right" href="/p/7.html">Next &raquo;</a>
         
     </div>
 </div>
@@ -227,7 +239,7 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                   entrepreneur interested in education, functional programming
                   (Clojure, Racket, OCaml), Linux, FreeBSD,
                   Vim, Ansible, and lots of other FOSS. Most of the content
-                  herein takes the form of recipes and biased opinions. See the
+                  herein takes the form of recipes and opinions. See the
                   <a href="/pages/about.html">README</a> for more.</p>
 
                 <h3><i class="fa fa-external-link-square"></i> Links</h3>
@@ -252,15 +264,15 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-12-03-clojure-annoyances.html">Clojure Annoyances</a></li>
+                        <li><a href="/posts/2016-07-02-emacs-cider-howto.html">Emacs Cider Quick-Start</a></li>
                         
-                        <li><a href="/posts/2015-10-15-programming-heroes.html">Programming Heroes</a></li>
+                        <li><a href="/posts/2016-02-26-emacs-hackers.html">Who Uses Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
+                        <li><a href="/posts/2016-02-16-should-i-run-today.html">Should I Run Today?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
+                        <li><a href="/posts/2016-02-11-why-emacs.html">Why Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
+                        <li><a href="/posts/2016-02-10-the-outage-log.html">The Outage Log</a></li>
                         
                     </ul>
                 </div>
@@ -276,7 +288,11 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         <!--  -->
                         <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/sysadmin.html">sysadmin</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/cryogen.html">cryogen</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/aliases.html">aliases</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
                         <!--  -->
@@ -288,6 +304,8 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         <!--  -->
                         <!-- <li><a href="/tags/zsh.html">zsh</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/health.html">health</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
@@ -298,7 +316,11 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/formatting.html">formatting</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/racket.html">racket</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/outages.html">outages</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
                         <!--  -->
@@ -308,7 +330,11 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         <!--  -->
                         <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/emacs.html">emacs</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/setup.html">setup</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/time.html">time</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
                         <!--  -->
@@ -328,11 +354,15 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/date.html">date</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/lisp.html">lisp</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/habits.html">habits</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/notes.html">notes</a></li> -->
                         <!--  -->
@@ -344,6 +374,8 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         <!--  -->
                         <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/art.html">art</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
                         <!--  -->
                         
@@ -353,7 +385,11 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         
                         <a href="/tags/deploy.html">deploy</a>
                         
+                        <a href="/tags/sysadmin.html">sysadmin</a>
+                        
                         <a href="/tags/cryogen.html">cryogen</a>
+                        
+                        <a href="/tags/aliases.html">aliases</a>
                         
                         <a href="/tags/github.html">github</a>
                         
@@ -365,6 +401,8 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         
                         <a href="/tags/zsh.html">zsh</a>
                         
+                        <a href="/tags/health.html">health</a>
+                        
                         <a href="/tags/ansible.html">ansible</a>
                         
                         <a href="/tags/i3.html">i3</a>
@@ -375,7 +413,11 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         
                         <a href="/tags/draft.html">draft</a>
                         
+                        <a href="/tags/formatting.html">formatting</a>
+                        
                         <a href="/tags/racket.html">racket</a>
+                        
+                        <a href="/tags/outages.html">outages</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
                         
@@ -385,7 +427,11 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         
                         <a href="/tags/asciidoc.html">asciidoc</a>
                         
+                        <a href="/tags/emacs.html">emacs</a>
+                        
                         <a href="/tags/setup.html">setup</a>
+                        
+                        <a href="/tags/time.html">time</a>
                         
                         <a href="/tags/networking.html">networking</a>
                         
@@ -405,11 +451,15 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         
                         <a href="/tags/awk.html">awk</a>
                         
+                        <a href="/tags/date.html">date</a>
+                        
                         <a href="/tags/markdown.html">markdown</a>
                         
                         <a href="/tags/lisp.html">lisp</a>
                         
                         <a href="/tags/nuc.html">nuc</a>
+                        
+                        <a href="/tags/habits.html">habits</a>
                         
                         <a href="/tags/notes.html">notes</a>
                         
@@ -420,6 +470,8 @@ BSDs have a simpler init startup system (but sometimes simple is a feature).</p>
                         <a href="/tags/systemd.html">systemd</a>
                         
                         <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/art.html">art</a>
                         
                         <a href="/tags/bcp.html">bcp</a>
                         

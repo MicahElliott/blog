@@ -118,80 +118,85 @@
 <div id="post">
     
     <div class="post-header">
-        <h2>Clojure, Vim, nREPL, Fireplace, REDL Setup</h2>
+        <!-- <h2>AUR Getting Started Guide</h2> -->
+        <h2><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 13, 2015</div>
+            <div class="date">September 1, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>These are the steps I take to set up a new Arch system with a Clojure
-environment for vim.</p></div><div class="ulist"><ul><li><p>Get lein up to date</p><div class="literalblock"><div class="content"><pre>lein update</pre></div></div></li><li><p>Install new version of clojure, eg, Arch: <code>yaourt -S clojure</code></p></li><li><p>Update lein search index: <code>lein search whatever</code></p></li><li><p>Set up fireplace, highlighting, mappings, sexp into <code>.vimrc</code> with Vundle:</p><div class="literalblock"><div class="content"><pre>Plugin 'guns/vim-clojure-static.git'
-Plugin 'guns/vim-clojure-highlight.git'
-Plugin 'tpope/vim-leiningen.git'
-Plugin 'tpope/vim-dispatch.git'
-Plugin 'tpope/vim-fireplace.git'
-Plugin 'tpope/vim-sexp-mappings-for-regular-people'
-Plugin 'guns/vim-sexp'
-Plugin 'guns/vim-slamhound'
-Plugin 'dgrnbrg/redl'</pre></div></div></li><li><p>Add to <code>~/.lein/profiles.clj</code>:</p><div class="literalblock"><div class="content"><pre>{:user {:plugins [...
-                  [cider/cider-nrepl "0.10.0"] ]
-        :dependencies [...
-                       [spyscope "0.1.5"]
-                       [redl "0.2.4"] ]
-        :injections [...
-                     (require 'spyscope.core)
-                     (require '[redl complete core]) ]}}</pre></div></div></li><li><p>Create new project:</p><div class="literalblock"><div class="content"><pre>lein new foo</pre></div></div></li><li><p>Add to each project:</p><div class="literalblock"><div class="content"><pre>:main foo.core
-:repl-options {:init-ns foo.core})</pre></div></div></li><li><p>Run <code>lein deps</code></p></li><li><p>Start tmux? Maybe not; slime not working now anyway</p></li></ul></div>
-    <a href="/posts/2015-07-13-clojure-vim-setup.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>intermediate</em></p></div><div class="paragraph"><p>There are many options to access Arch’s User Repository (AUR). The AUR is one of
+the most compelling features of Arch Linux. I’ll walk you through the simplest
+path to getting started with the AUR, with minimal bootstrapping effort.</p></div><div class="paragraph"><p>The most primitive yet useful tool I’ve found for first accessing the AUR is
+<a href="https://aur.archlinux.org/packages/cower/" shape="rect">cower</a>. On the right side of that page
+you’ll see a link to “Download snapshot”. It’s
+<a href="https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz" shape="rect">https://aur.archlinux.org/cgit/aur.git/snapshot/cower.tar.gz</a></p></div><div class="paragraph"><p>Grab/extract/install it with:</p></div>
+    <a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Awesome Awk</h2>
+        <!-- <h2>Vim Anti-Patterns</h2> -->
+        <h2><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 9, 2015</div>
+            <div class="date">September 1, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p><strong>Audience:</strong></p></div><div class="paragraph"><p>This should be a video.</p></div>
-    <a href="/posts/2015-07-09-awesome-awk.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>intermediate</em></p></div><div class="quoteblock"><blockquote><div class="paragraph"><p>Some quote</p></div></blockquote></div><div class="paragraph"><p>Vim is such a rich editor. So rich that there are many ways to do things. And
+many ways some wrong ways, or at least inefficient ways.</p></div><div class="sect1"><h2 id="_not_understanding_transactional_editing">Not understanding transactional editing</h2><div class="sectionbody"></div></div>
+    <a href="/posts/2015-09-01-vim-anti-patterns.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Live Office Dashboard with i3 and a NUC</h2>
+        <!-- <h2>Vim Bare Essentials for Editing Lisp</h2> -->
+        <h2><a href="/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html">Vim Bare Essentials for Editing Lisp</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 9, 2015</div>
+            <div class="date">September 1, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>In this post I’ll show you how to set up a live dashboard to display your
-company (or house) metrics. It’s as simple as writing a little i3 script to
-rotate through a set of open browsers. You’ll need to run X, i3, a fast
-browser. The required hardware is a TV and a NUC.</p></div>
-    <a href="/posts/2015-07-09-i3-nuc-office-dashboard.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>beginners</em></p></div><div class="paragraph"><p>Vim can feel daunting when you first hop into it. But there’s not all that much you
+need to learn in order to be able to do very powerful operations with complex
+code. This is a whirlwind tour of the essentials of Vim for total noobs to
+competently edit things with lots of parentheses.</p></div><div class="sect1"><h2 id="_navigation">Navigation</h2><div class="sectionbody"><div class="literalblock"><div class="content"><pre>hjkl
+w b e
+W B E</pre></div></div><div class="literalblock"><div class="content"><pre>C-f C-b
+C-e C-y</pre></div></div><div class="literalblock"><div class="content"><pre>gg
+G
+12G
+H M L
+zz</pre></div></div><div class="literalblock"><div class="content"><pre>( )
+{ }</pre></div></div></div></div><div class="sect1"><h2 id="_insert_mode">Insert mode</h2><div class="sectionbody"><div class="literalblock"><div class="content"><pre>i a o/O
+Esc</pre></div></div><div class="literalblock"><div class="content"><pre>C-w C-h</pre></div></div></div></div>
+    <a href="/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Give the Gift of GIFs</h2>
+        <!-- <h2>Lisp Jargon</h2> -->
+        <h2><a href="/posts/2015-08-30-lisp-glossary.html">Lisp Jargon</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 8, 2015</div>
+            <div class="date">August 30, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p><strong>Audience:</strong><em>programmers</em></p></div><div class="paragraph"><p>Animated GIFs can be really helpful for demonstrating in a small area how
-something actually works. Where books may require pages of explaining, you can
-fit a whole lot of action into a 300x80px GIF.</p></div>
-    <a href="/posts/2015-07-08-the-gift-of-gifs.html">Continue reading &#8594;</a>
+    <div class="sect1"><h2 id="_lisp_jargon">Lisp Jargon</h2><div class="sectionbody"><div class="paragraph"><p> — <a class="bare" href="http://www.lispworks.com/documentation/lw51/CLHS/Body/26_glo_b.htm" shape="rect">http://www.lispworks.com/documentation/lw51/CLHS/Body/26_glo_b.htm</a></p></div><div class="paragraph"><p>The following is a glossary of fundamental lisp terms that may be somewhat
+foreign to someone who is not versed in a lisp. I have cherry-picked the terms
+that I find to be most productive.</p></div><div class="paragraph"><p>They are intentionally not alphabetical, but are ordered and grouped into
+logical sections.</p></div><div class="dlist"><dl><dt class="hdlist1">sexp</dt><dd><p>s-expression, symbolic expression</p></dd><dt class="hdlist1">statement</dt><dd><p>nothing — everything is an expression</p></dd><dt class="hdlist1">expression</dt><dt class="hdlist1">form</dt><dd><p>(vim)</p></dd><dt class="hdlist1">string</dt><dd><p>(vim)</p></dd><dt class="hdlist1">element</dt><dd><p>like atom (vim)</p></dd><dt class="hdlist1">redex</dt><dd><p>reducible expression</p></dd><dt class="hdlist1">regex(p)</dt><dd><p>regular expression</p></dd><dt class="hdlist1">lisp</dt><dd><p>list processor</p></dd><dt class="hdlist1">list</dt><dd><p>()</p></dd><dt class="hdlist1">sequence</dt><dt class="hdlist1">singleton</dt><dd><p>a sequence with only one element</p></dd><dt class="hdlist1">pair</dt><dt class="hdlist1">rpn</dt><dd><p>reverse polish notation: operator first</p></dd><dt class="hdlist1">quoting</dt><dt class="hdlist1">boolean</dt><dt class="hdlist1">homoiconic</dt><dd><p>code is data</p></dd><dt class="hdlist1">scheme</dt><dd><p>academic lisp dialect</p></dd><dt class="hdlist1">racket</dt><dd><p>another scheme implementation</p></dd><dt class="hdlist1">clojure</dt><dd><p>modern lisp on java/javascript</p></dd><dt class="hdlist1">clisp</dt><dd><p>common lisp; old, robust lisp dialect/implementation</p></dd><dt class="hdlist1">repl</dt><dd><p>read, eval, print, loop</p></dd><dt class="hdlist1">emacs</dt><dd><p>most common way to edit lisp</p></dd><dt class="hdlist1">vim</dt><dd><p>another powerful editor</p></dd><dt class="hdlist1">slime</dt><dd><p>an editor mode that enables immediate transfer of forms from editor to repl</p></dd><dt class="hdlist1">tree</dt><dd><p>leaves, nodes</p></dd><dt class="hdlist1">recursion</dt><dt class="hdlist1">iteration</dt><dt class="hdlist1">loop</dt><dt class="hdlist1">tco</dt><dd><p>tail call optimization for recursive functions</p></dd><dt class="hdlist1">lexical (scoping)</dt><dd><p>referring to scope of visibility, done through <em>textual analysis</em></p></dd><dt class="hdlist1">formal parameter</dt><dt class="hdlist1">actual argument</dt><dt class="hdlist1">splice</dt><dt class="hdlist1">slurp</dt><dt class="hdlist1">barf</dt><dt class="hdlist1">name</dt><dd><p>an identifier bound to an object</p></dd><dt class="hdlist1">object</dt><dd><p>any lisp datum</p></dd><dt class="hdlist1">atom</dt><dt class="hdlist1">identifier</dt><dd><p>a symbol used to identify names</p></dd><dt class="hdlist1">variable</dt><dt class="hdlist1">symbol</dt><dt class="hdlist1">value</dt><dd><p>the result of an evaluation</p></dd><dt class="hdlist1">reference</dt><dd><p>refer to an object or binding by name</p></dd><dt class="hdlist1">binding</dt><dd><p>association between a name and its value (e.g., “let-binding”)</p></dd><dt class="hdlist1">literal</dt><dt class="hdlist1">keyword</dt><dt class="hdlist1">vector</dt><dt class="hdlist1">hash table</dt><dd><p>mapping of keys to values</p></dd><dt class="hdlist1">macro</dt><dt class="hdlist1">reader</dt><dt class="hdlist1">eval</dt><dt class="hdlist1">immutable</dt><dt class="hdlist1">concurrency</dt><dt class="hdlist1">parallelism</dt><dt class="hdlist1">primitive/built-in</dt><dd><p>ex: car, cdr, cond, cons, map, null?, add1, sub1</p></dd><dt class="hdlist1">null</dt><dt class="hdlist1">map</dt><dt class="hdlist1">apply</dt><dt class="hdlist1">rest list</dt><dd><p>cdr</p></dd><dt class="hdlist1">operator/operand</dt><dt class="hdlist1">predicate</dt><dt class="hdlist1">lambda</dt><dt class="hdlist1">function</dt><dt class="hdlist1">procedure</dt><dt class="hdlist1">application</dt><dt class="hdlist1">continuation</dt><dt class="hdlist1">signature</dt><dd><p>descirption of the parameters of a method</p></dd><dt class="hdlist1">block</dt><dt class="hdlist1">begin/do</dt><dt class="hdlist1">implicit block</dt><dd><p><code>if</code> has these</p></dd><dt class="hdlist1">currying</dt><dt class="hdlist1">closure</dt><dt class="hdlist1">hof</dt><dd><p>higher-order function, passed in to another func or returned</p></dd><dt class="hdlist1">declaration</dt><dt class="hdlist1">definition</dt><dt class="hdlist1">htdp</dt><dt class="hdlist1">tls</dt><dt class="hdlist1">sicp</dt><dt class="hdlist1">ror</dt><dt class="hdlist1">exception</dt><dt class="hdlist1">environment</dt><dd><p>set of bindings</p></dd><dt class="hdlist1">package</dt><dd><p>bundle of reusable, installable code</p></dd><dt class="hdlist1">rank</dt><dd><p>number of dimensions of an array</p></dd><dt class="hdlist1">R5RS</dt><dd><p>revision 5 report on scheme</p></dd><dt class="hdlist1">fingernail clippings and oatmeal</dt><dt class="hdlist1">lambda calculus</dt><dt class="hdlist1">srfi</dt><dd><p>scheme requests for implementation; see the <a href="http://srfi.schemers.org/srfi-faq.html" shape="rect">SRFI FAQs</a></p></dd></dl></div><div class="paragraph"><p><em>(The definitions herein are mostly my own, but much of what I know is inevitably
+copied from others.)</em></p></div></div></div>
+    <a href="/posts/2015-08-30-lisp-glossary.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Zsh Tab Completion Demo</h2>
+        <!-- <h2>Ansible Best Practices</h2> -->
+        <h2><a href="/posts/2015-08-27-ansible-best-practices.html">Ansible Best Practices</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 7, 2015</div>
+            <div class="date">August 27, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>Here is a sampling of animated GIFs showing off some Zsh completion features.</p></div><div class="paragraph"><p>You can tab your way around to go from functions and aliases to full paths.</p></div>
-    <a href="/posts/2015-07-07-handy-zsh-tabbing.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>sysadmins</em></p></div><div class="paragraph"><p>Ansible lets you set things up somewhat flexibly.</p></div><div class="sect1"><h2 id="_create_a_multi_purpose_ssh_config_file">Create a multi-purpose ssh config file</h2><div class="sectionbody"></div></div><div class="sect1"><h2 id="_editor_shortcuts">Editor shortcuts</h2><div class="sectionbody"></div></div>
+    <a href="/posts/2015-08-27-ansible-best-practices.html">Continue reading &#8594;</a>
     <hr>
     
 
@@ -218,7 +223,7 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                   entrepreneur interested in education, functional programming
                   (Clojure, Racket, OCaml), Linux, FreeBSD,
                   Vim, Ansible, and lots of other FOSS. Most of the content
-                  herein takes the form of recipes and biased opinions. See the
+                  herein takes the form of recipes and opinions. See the
                   <a href="/pages/about.html">README</a> for more.</p>
 
                 <h3><i class="fa fa-external-link-square"></i> Links</h3>
@@ -243,15 +248,15 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-12-03-clojure-annoyances.html">Clojure Annoyances</a></li>
+                        <li><a href="/posts/2016-07-02-emacs-cider-howto.html">Emacs Cider Quick-Start</a></li>
                         
-                        <li><a href="/posts/2015-10-15-programming-heroes.html">Programming Heroes</a></li>
+                        <li><a href="/posts/2016-02-26-emacs-hackers.html">Who Uses Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
+                        <li><a href="/posts/2016-02-16-should-i-run-today.html">Should I Run Today?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
+                        <li><a href="/posts/2016-02-11-why-emacs.html">Why Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
+                        <li><a href="/posts/2016-02-10-the-outage-log.html">The Outage Log</a></li>
                         
                     </ul>
                 </div>
@@ -267,7 +272,11 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/sysadmin.html">sysadmin</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/cryogen.html">cryogen</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/aliases.html">aliases</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
                         <!--  -->
@@ -279,6 +288,8 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/zsh.html">zsh</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/health.html">health</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
@@ -289,7 +300,11 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/formatting.html">formatting</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/racket.html">racket</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/outages.html">outages</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
                         <!--  -->
@@ -299,7 +314,11 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/emacs.html">emacs</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/setup.html">setup</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/time.html">time</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
                         <!--  -->
@@ -319,11 +338,15 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/date.html">date</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/lisp.html">lisp</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/habits.html">habits</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/notes.html">notes</a></li> -->
                         <!--  -->
@@ -335,6 +358,8 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/art.html">art</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
                         <!--  -->
                         
@@ -344,7 +369,11 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         
                         <a href="/tags/deploy.html">deploy</a>
                         
+                        <a href="/tags/sysadmin.html">sysadmin</a>
+                        
                         <a href="/tags/cryogen.html">cryogen</a>
+                        
+                        <a href="/tags/aliases.html">aliases</a>
                         
                         <a href="/tags/github.html">github</a>
                         
@@ -356,6 +385,8 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         
                         <a href="/tags/zsh.html">zsh</a>
                         
+                        <a href="/tags/health.html">health</a>
+                        
                         <a href="/tags/ansible.html">ansible</a>
                         
                         <a href="/tags/i3.html">i3</a>
@@ -366,7 +397,11 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         
                         <a href="/tags/draft.html">draft</a>
                         
+                        <a href="/tags/formatting.html">formatting</a>
+                        
                         <a href="/tags/racket.html">racket</a>
+                        
+                        <a href="/tags/outages.html">outages</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
                         
@@ -376,7 +411,11 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         
                         <a href="/tags/asciidoc.html">asciidoc</a>
                         
+                        <a href="/tags/emacs.html">emacs</a>
+                        
                         <a href="/tags/setup.html">setup</a>
+                        
+                        <a href="/tags/time.html">time</a>
                         
                         <a href="/tags/networking.html">networking</a>
                         
@@ -396,11 +435,15 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         
                         <a href="/tags/awk.html">awk</a>
                         
+                        <a href="/tags/date.html">date</a>
+                        
                         <a href="/tags/markdown.html">markdown</a>
                         
                         <a href="/tags/lisp.html">lisp</a>
                         
                         <a href="/tags/nuc.html">nuc</a>
+                        
+                        <a href="/tags/habits.html">habits</a>
                         
                         <a href="/tags/notes.html">notes</a>
                         
@@ -411,6 +454,8 @@ fit a whole lot of action into a 300x80px GIF.</p></div>
                         <a href="/tags/systemd.html">systemd</a>
                         
                         <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/art.html">art</a>
                         
                         <a href="/tags/bcp.html">bcp</a>
                         

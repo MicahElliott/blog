@@ -118,74 +118,86 @@
 <div id="post">
     
     <div class="post-header">
-        <h2>Vim Bare Essentials for Editing Lisp</h2>
+        <!-- <h2>Spry on the CLI</h2> -->
+        <h2><a href="/posts/2016-01-29-spry-on-the-cli.html">Spry on the CLI</a></h2>
         <div id="post-meta">
             
-            <div class="date">September 1, 2015</div>
+            <div class="date">January 29, 2016</div>
         </div>
     </div>
-    <div class="paragraph"><p><strong>Audience:</strong><em>beginners</em></p></div><div class="paragraph"><p>Vim can feel daunting when you first hop into it. But there’s not all that much you
-need to learn in order to be able to do very powerful operations with complex
-code. This is a whirlwind tour of the essentials of Vim for total noobs to
-competently edit things with lots of parentheses.</p></div>
-    <a href="/posts/2015-09-01-vim-bare-essentials-for-editing-lisp.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>sysadmins</em></p></div><div class="quoteblock"><blockquote>
+“Some quote” <em>—Someone</em></blockquote></div><div class="paragraph"><p>If you have to choose between power and speed and it often turns out you have to
+make that choice, you’ve got to go for speed.
+~ Sparky Anderson</p></div><div class="paragraph"><p>Speed is a great asset; but it’s greater when it’s combined with quickness - and
+there’s a big difference.
+~ Ty Cobb</p></div>
+    <a href="/posts/2016-01-29-spry-on-the-cli.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Lisp Jargon</h2>
+        <!-- <h2>Bare Metal vs The Cloud</h2> -->
+        <h2><a href="/posts/2016-01-20-why-bare-metal.html">Bare Metal vs The Cloud</a></h2>
         <div id="post-meta">
             
-            <div class="date">August 30, 2015</div>
+            <div class="date">January 20, 2016</div>
         </div>
     </div>
-    <div class="sect1"><h2 id="_lisp_jargon">Lisp Jargon</h2><div class="sectionbody"><div class="paragraph"><p> — <a class="bare" href="http://www.lispworks.com/documentation/lw51/CLHS/Body/26_glo_b.htm" shape="rect">http://www.lispworks.com/documentation/lw51/CLHS/Body/26_glo_b.htm</a></p></div><div class="paragraph"><p>The following is a glossary of fundamental lisp terms that may be somewhat
-foreign to someone who is not versed in a lisp. I have cherry-picked the terms
-that I find to be most productive.</p></div><div class="paragraph"><p>They are intentionally not alphabetical, but are ordered and grouped into
-logical sections.</p></div><div class="dlist"><dl><dt class="hdlist1">sexp</dt><dd><p>s-expression, symbolic expression</p></dd><dt class="hdlist1">statement</dt><dd><p>nothing — everything is an expression</p></dd><dt class="hdlist1">expression</dt><dt class="hdlist1">form</dt><dd><p>(vim)</p></dd><dt class="hdlist1">string</dt><dd><p>(vim)</p></dd><dt class="hdlist1">element</dt><dd><p>like atom (vim)</p></dd><dt class="hdlist1">redex</dt><dd><p>reducible expression</p></dd><dt class="hdlist1">regex(p)</dt><dd><p>regular expression</p></dd><dt class="hdlist1">lisp</dt><dd><p>list processor</p></dd><dt class="hdlist1">list</dt><dd><p>()</p></dd><dt class="hdlist1">sequence</dt><dt class="hdlist1">singleton</dt><dd><p>a sequence with only one element</p></dd><dt class="hdlist1">pair</dt><dt class="hdlist1">rpn</dt><dd><p>reverse polish notation: operator first</p></dd><dt class="hdlist1">quoting</dt><dt class="hdlist1">boolean</dt><dt class="hdlist1">homoiconic</dt><dd><p>code is data</p></dd><dt class="hdlist1">scheme</dt><dd><p>academic lisp dialect</p></dd><dt class="hdlist1">racket</dt><dd><p>another scheme implementation</p></dd><dt class="hdlist1">clojure</dt><dd><p>modern lisp on java/javascript</p></dd><dt class="hdlist1">clisp</dt><dd><p>common lisp; old, robust lisp dialect/implementation</p></dd><dt class="hdlist1">repl</dt><dd><p>read, eval, print, loop</p></dd><dt class="hdlist1">emacs</dt><dd><p>most common way to edit lisp</p></dd><dt class="hdlist1">vim</dt><dd><p>another powerful editor</p></dd><dt class="hdlist1">slime</dt><dd><p>an editor mode that enables immediate transfer of forms from editor to repl</p></dd><dt class="hdlist1">tree</dt><dd><p>leaves, nodes</p></dd><dt class="hdlist1">recursion</dt><dt class="hdlist1">iteration</dt><dt class="hdlist1">loop</dt><dt class="hdlist1">tco</dt><dd><p>tail call optimization for recursive functions</p></dd><dt class="hdlist1">lexical (scoping)</dt><dd><p>referring to scope of visibility, done through <em>textual analysis</em></p></dd><dt class="hdlist1">formal parameter</dt><dt class="hdlist1">actual argument</dt><dt class="hdlist1">splice</dt><dt class="hdlist1">slurp</dt><dt class="hdlist1">barf</dt><dt class="hdlist1">name</dt><dd><p>an identifier bound to an object</p></dd><dt class="hdlist1">object</dt><dd><p>any lisp datum</p></dd><dt class="hdlist1">atom</dt><dt class="hdlist1">identifier</dt><dd><p>a symbol used to identify names</p></dd><dt class="hdlist1">variable</dt><dt class="hdlist1">symbol</dt><dt class="hdlist1">value</dt><dd><p>the result of an evaluation</p></dd><dt class="hdlist1">reference</dt><dd><p>refer to an object or binding by name</p></dd><dt class="hdlist1">binding</dt><dd><p>association between a name and its value (e.g., “let-binding”)</p></dd><dt class="hdlist1">literal</dt><dt class="hdlist1">keyword</dt><dt class="hdlist1">vector</dt><dt class="hdlist1">hash table</dt><dd><p>mapping of keys to values</p></dd><dt class="hdlist1">macro</dt><dt class="hdlist1">reader</dt><dt class="hdlist1">eval</dt><dt class="hdlist1">immutable</dt><dt class="hdlist1">concurrency</dt><dt class="hdlist1">parallelism</dt><dt class="hdlist1">primitive/built-in</dt><dd><p>ex: car, cdr, cond, cons, map, null?, add1, sub1</p></dd><dt class="hdlist1">null</dt><dt class="hdlist1">map</dt><dt class="hdlist1">apply</dt><dt class="hdlist1">rest list</dt><dd><p>cdr</p></dd><dt class="hdlist1">operator/operand</dt><dt class="hdlist1">predicate</dt><dt class="hdlist1">lambda</dt><dt class="hdlist1">function</dt><dt class="hdlist1">procedure</dt><dt class="hdlist1">application</dt><dt class="hdlist1">continuation</dt><dt class="hdlist1">signature</dt><dd><p>descirption of the parameters of a method</p></dd><dt class="hdlist1">block</dt><dt class="hdlist1">begin/do</dt><dt class="hdlist1">implicit block</dt><dd><p><code>if</code> has these</p></dd><dt class="hdlist1">currying</dt><dt class="hdlist1">closure</dt><dt class="hdlist1">hof</dt><dd><p>higher-order function, passed in to another func or returned</p></dd><dt class="hdlist1">declaration</dt><dt class="hdlist1">definition</dt><dt class="hdlist1">htdp</dt><dt class="hdlist1">tls</dt><dt class="hdlist1">sicp</dt><dt class="hdlist1">ror</dt><dt class="hdlist1">exception</dt><dt class="hdlist1">environment</dt><dd><p>set of bindings</p></dd><dt class="hdlist1">package</dt><dd><p>bundle of reusable, installable code</p></dd><dt class="hdlist1">rank</dt><dd><p>number of dimensions of an array</p></dd><dt class="hdlist1">R5RS</dt><dd><p>revision 5 report on scheme</p></dd><dt class="hdlist1">fingernail clippings and oatmeal</dt><dt class="hdlist1">lambda calculus</dt><dt class="hdlist1">srfi</dt><dd><p>scheme requests for implementation; see the <a href="http://srfi.schemers.org/srfi-faq.html" shape="rect">SRFI FAQs</a></p></dd></dl></div><div class="paragraph"><p><em>(The definitions herein are mostly my own, but much of what I know is inevitably
-copied from others.)</em></p></div></div></div>
-    <a href="/posts/2015-08-30-lisp-glossary.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>devops</em></p></div><div class="quoteblock"><blockquote>
+Only you can decide if the cloud is flipping you the bird.
+</blockquote></div><div class="imageblock"><div class="content"><img alt="title" src="/img/cloud/title.jpg" width="600" /></div></div><div class="paragraph"><p>Most of us start our fledgling apps in the cloud, on EC2 or Linode or
+DigitalOcean or ASmallOrange or whatever. With Membean, we’ve bounced around
+on all of those. But we eventually ended up in real data centers, for a lot of
+reasons.</p></div>
+    <a href="/posts/2016-01-20-why-bare-metal.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Ansible Best Practices</h2>
+        <!-- <h2>How to Structure a .zshrc</h2> -->
+        <h2><a href="/posts/2016-01-16-how-to-structure-zshrc.html">How to Structure a .zshrc</a></h2>
         <div id="post-meta">
             
-            <div class="date">August 27, 2015</div>
+            <div class="date">January 16, 2016</div>
         </div>
     </div>
-    <div class="paragraph"><p><strong>Audience:</strong><em>sysadmins</em></p></div><div class="paragraph"><p>Ansible lets you set things up somewhat flexibly.</p></div>
-    <a href="/posts/2015-08-27-ansible-best-practices.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>intermediate</em></p></div><div class="imageblock"><div class="content"><img alt="organizized" src="/img/zshrc/organizized.jpg" width="600" /></div></div><div class="paragraph"><p>I often recommend that people “stick this-or-that in their <code>.zshrc</code>.” But what I
+really mean is to “put this-or-that into <em>the appropriate subfile that makes up a
+bit of their grander Zsh configuration</em>.” There are some great benefits to
+piecing apart a single monolithic <code>.zshrc</code> file into individual files.</p></div><div class="paragraph"><p>At the top level, you still have your <code>~/.zshrc</code>, but it’s mostly just responsible
+for `source`ing the meatier files.</p></div>
+    <a href="/posts/2016-01-16-how-to-structure-zshrc.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Firewalld Best Practices</h2>
+        <!-- <h2>Art Related Experience</h2> -->
+        <h2><a href="/posts/2016-01-15-art-related-experience.html">Art Related Experience</a></h2>
         <div id="post-meta">
             
-            <div class="date">August 27, 2015</div>
+            <div class="date">January 15, 2016</div>
         </div>
     </div>
-    <div class="paragraph"><p><strong>Audience:</strong><em>sysadmins</em></p></div><div class="paragraph"><p>Firewalld is the replacement for iptables in RedHat-family distros. Like it or
-not, you’ll probably end up having to wrestle with it at some point. I’ve read
-several articles describing it with an overview, but most miss out on
-important subtleties of a tool that’s in production but maybe not friendly
-enough for prime time. Here you’ll find my guide to getting the most out of
-Firewalld and avoiding its gotchas.</p></div>
-    <a href="/posts/2015-08-27-firewalld-best-practices.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>anyone</em>  // noob, experts, intermediate</p></div><div class="paragraph"><p><strong>(Wow, this one is going to take some serious time and thought. Not sure it will
+really get fleshed out.)</strong></p></div><div class="quoteblock"><blockquote>
+“Tell us something about an experience you’ve had with art.”
+</blockquote></div><div class="paragraph"><p>That question is asked by Craig of every guest on the
+<a href="http://blog.cognitect.com/cognicast/" shape="rect">Cognicast Clojure Podcast</a>, so it’s a good
+exploratory topic.</p></div>
+    <a href="/posts/2016-01-15-art-related-experience.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Vim Sexp Cheat Sheet</h2>
+        <!-- <h2>The 14-Digit Timestamp, et al</h2> -->
+        <h2><a href="/posts/2016-01-14-the-14-digit-timestamp.html">The 14-Digit Timestamp, et al</a></h2>
         <div id="post-meta">
             
-            <div class="date">August 20, 2015</div>
+            <div class="date">January 14, 2016</div>
         </div>
     </div>
-    <div class="paragraph"><p>There are two fantastic Vim plugins that make it delightful to edit
-parentheses-heavy Lisp code (e.g., Racket or Clojure). I don’t know
-how I lived without making much use of these for years: <em>parentheses can be
-terribly unwieldy</em>.</p></div><div class="ulist"><ul><li><p><a href="https://github.com/guns/vim-sexp" shape="rect">Vim-Sexp</a></p></li><li><p><a href="https://github.com/tpope/vim-sexp-mappings-for-regular-people" shape="rect">Sexp for Regular People</a>,
-aka SRP, pronounced “Syrup”</p></li></ul></div>
-    <a href="/posts/2015-08-20-vim-sexp-cheat-sheet.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>anyone</em></p></div><div class="paragraph"><p>The so-called “14-digit timestamp” is turning up in more and more places. For
+those unfamiliar, it takes the form of:</p></div><div class="literalblock"><div class="content"><pre>YYYYMMDDhhmmss</pre></div></div><div class="paragraph"><p>I’ve seen it recently in <a href="https://github.com/yogthos/migratus" shape="rect">Migratus</a> and
+Rails/Cap deploys (<code>current</code> symlink), and it’s been used widely by MySQL.
+They’re pretty handy for setting to-the-second precision for ordering of things,
+like database migrations. And, they’re fairly human-parsable.</p></div>
+    <a href="/posts/2016-01-14-the-14-digit-timestamp.html">Continue reading &#8594;</a>
     <hr>
     
 
@@ -212,7 +224,7 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                   entrepreneur interested in education, functional programming
                   (Clojure, Racket, OCaml), Linux, FreeBSD,
                   Vim, Ansible, and lots of other FOSS. Most of the content
-                  herein takes the form of recipes and biased opinions. See the
+                  herein takes the form of recipes and opinions. See the
                   <a href="/pages/about.html">README</a> for more.</p>
 
                 <h3><i class="fa fa-external-link-square"></i> Links</h3>
@@ -237,15 +249,15 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-12-03-clojure-annoyances.html">Clojure Annoyances</a></li>
+                        <li><a href="/posts/2016-07-02-emacs-cider-howto.html">Emacs Cider Quick-Start</a></li>
                         
-                        <li><a href="/posts/2015-10-15-programming-heroes.html">Programming Heroes</a></li>
+                        <li><a href="/posts/2016-02-26-emacs-hackers.html">Who Uses Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
+                        <li><a href="/posts/2016-02-16-should-i-run-today.html">Should I Run Today?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
+                        <li><a href="/posts/2016-02-11-why-emacs.html">Why Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
+                        <li><a href="/posts/2016-02-10-the-outage-log.html">The Outage Log</a></li>
                         
                     </ul>
                 </div>
@@ -261,7 +273,11 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         <!--  -->
                         <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/sysadmin.html">sysadmin</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/cryogen.html">cryogen</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/aliases.html">aliases</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
                         <!--  -->
@@ -273,6 +289,8 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         <!--  -->
                         <!-- <li><a href="/tags/zsh.html">zsh</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/health.html">health</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
@@ -283,7 +301,11 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/formatting.html">formatting</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/racket.html">racket</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/outages.html">outages</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
                         <!--  -->
@@ -293,7 +315,11 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         <!--  -->
                         <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/emacs.html">emacs</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/setup.html">setup</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/time.html">time</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
                         <!--  -->
@@ -313,11 +339,15 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/date.html">date</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/lisp.html">lisp</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/habits.html">habits</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/notes.html">notes</a></li> -->
                         <!--  -->
@@ -329,6 +359,8 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         <!--  -->
                         <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/art.html">art</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
                         <!--  -->
                         
@@ -338,7 +370,11 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         
                         <a href="/tags/deploy.html">deploy</a>
                         
+                        <a href="/tags/sysadmin.html">sysadmin</a>
+                        
                         <a href="/tags/cryogen.html">cryogen</a>
+                        
+                        <a href="/tags/aliases.html">aliases</a>
                         
                         <a href="/tags/github.html">github</a>
                         
@@ -350,6 +386,8 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         
                         <a href="/tags/zsh.html">zsh</a>
                         
+                        <a href="/tags/health.html">health</a>
+                        
                         <a href="/tags/ansible.html">ansible</a>
                         
                         <a href="/tags/i3.html">i3</a>
@@ -360,7 +398,11 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         
                         <a href="/tags/draft.html">draft</a>
                         
+                        <a href="/tags/formatting.html">formatting</a>
+                        
                         <a href="/tags/racket.html">racket</a>
+                        
+                        <a href="/tags/outages.html">outages</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
                         
@@ -370,7 +412,11 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         
                         <a href="/tags/asciidoc.html">asciidoc</a>
                         
+                        <a href="/tags/emacs.html">emacs</a>
+                        
                         <a href="/tags/setup.html">setup</a>
+                        
+                        <a href="/tags/time.html">time</a>
                         
                         <a href="/tags/networking.html">networking</a>
                         
@@ -390,11 +436,15 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         
                         <a href="/tags/awk.html">awk</a>
                         
+                        <a href="/tags/date.html">date</a>
+                        
                         <a href="/tags/markdown.html">markdown</a>
                         
                         <a href="/tags/lisp.html">lisp</a>
                         
                         <a href="/tags/nuc.html">nuc</a>
+                        
+                        <a href="/tags/habits.html">habits</a>
                         
                         <a href="/tags/notes.html">notes</a>
                         
@@ -405,6 +455,8 @@ aka SRP, pronounced “Syrup”</p></li></ul></div>
                         <a href="/tags/systemd.html">systemd</a>
                         
                         <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/art.html">art</a>
                         
                         <a href="/tags/bcp.html">bcp</a>
                         

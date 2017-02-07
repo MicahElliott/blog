@@ -118,77 +118,96 @@
 <div id="post">
     
     <div class="post-header">
-        <h2>Using Gist As Your Blog</h2>
+        <!-- <h2>Firewalld Best Practices</h2> -->
+        <h2><a href="/posts/2015-08-27-firewalld-best-practices.html">Firewalld Best Practices</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 7, 2015</div>
+            <div class="date">August 27, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>Github’s Gist is almost good enough as a blog. If you don’t want to take the
-time to set up your own blog, you could probably get away with using gists. As
-an example, <a href="https://gist.github.com/MicahElliott" shape="rect">this</a> is a pretty decent index
-display.</p></div><div class="sect1"><h2 id="_where_it_shines">Where it shines</h2><div class="sectionbody"><div class="ulist"><ul><li><p>nice comment system (<a href="https://gist.github.com/MicahElliott/3048622" shape="rect">example</a>)</p></li><li><p>markdown support</p></li><li><p>auto-abstracts (shortened posts in index)</p></li><li><p>built-in editor or use git</p></li><li><p>store associated files with your article in a real git repo</p></li><li><p>nothing to host yourself</p></li></ul></div></div></div>
-    <a href="/posts/2015-07-07-gists-as-blog.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>sysadmins</em></p></div><div class="paragraph"><p>Firewalld is the replacement for iptables in RedHat-family distros. Like it or
+not, you’ll probably end up having to wrestle with it at some point. I’ve read
+several articles describing it with an overview, but most miss out on
+important subtleties of a tool that’s in production but maybe not friendly
+enough for prime time. Here you’ll find my guide to getting the most out of
+Firewalld and avoiding its gotchas.</p></div><div class="paragraph"><p>The commands get long, long, and very long to type frequently. What’s worse is
+that it seems you usually need to repeat them with a <code>--permanent</code> option, which
+is painful and easy to forget.</p></div><div class="sect1"><h2 id="_command_line_completion">Command line completion</h2><div class="sectionbody"><div class="paragraph"><p>There appears to be a bash completer. I haven’t tried it since I’m fully in Zsh
+land these days for all activities. It’s not any RH repo I’m aware of anyway, so
+let’s forget it.</p></div><div class="paragraph"><p>Firewalld supports a poor man’s version of completion. Instead of typing
+<code>--zone</code>, you can just type <code>--zo</code> or even <code>--z</code>. You’d have to memorize how
+much of each option is unambiguous. So you still have to type <code>--list-all-z</code> to
+get <code>--list-all-zones</code>.</p></div><div class="paragraph"><p>So aliases are the way to go.</p></div><div class="paragraph"><p>I did write a Zsh completer here, if you want to use it.</p></div></div></div>
+    <a href="/posts/2015-08-27-firewalld-best-practices.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Docker as a Full CentOS</h2>
+        <!-- <h2>Vim Sexp Cheat Sheet</h2> -->
+        <h2><a href="/posts/2015-08-20-vim-sexp-cheat-sheet.html">Vim Sexp Cheat Sheet</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 5, 2015</div>
+            <div class="date">August 20, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>Docker has arrived. It’s a "container" system for isolating services. It’s
-simpler and lighter than a VM, yet easier to use than a jail. But it’s not
-quite a full OS: it usually lacks things like systemd, cron, sshd, syslog, etc.
-<a href="http://phusion.github.io/baseimage-docker/" shape="rect">Some folks are trying to address this for Ubuntu</a>.
-It turns out that this can also be done with CentOS 7! This all-in-one docker
-instance becomes a great vehicle for testing deploys (and probably much more).</p></div><div class="paragraph"><p>Ubuntu wasn’t going to work for my needs, but I found
-<a href="https://github.com/maci0/docker-systemd-unpriv" shape="rect">a minimal CentOS 7</a>
-version of the Ubuntu approach. So now Docker can actually be used for testing
-deployments with almost real full OSs.</p></div>
-    <a href="/posts/2015-07-05-docker-systemd-ansible.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p>There are two fantastic Vim plugins that make it delightful to edit
+parentheses-heavy Lisp code (e.g., Racket or Clojure). I don’t know
+how I lived without making much use of these for years: <em>parentheses can be
+terribly unwieldy</em>.</p></div><div class="ulist"><ul><li><p><a href="https://github.com/guns/vim-sexp" shape="rect">Vim-Sexp</a></p></li><li><p><a href="https://github.com/tpope/vim-sexp-mappings-for-regular-people" shape="rect">Sexp for Regular People</a>,
+aka SRP, pronounced “Syrup”</p></li></ul></div><div class="paragraph"><p>Install them both now if you haven’t already! And read on for <strong>the cheat sheet
+that makes wrangling parentheses a walk in the park</strong>.</p></div><div class="paragraph"><p>If you don’t grok Vim yet, there is surprisingly little you need to know to get
+started editing a Lisp with Vim. [Read this post to get started.]</p></div>
+    <a href="/posts/2015-08-20-vim-sexp-cheat-sheet.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Interesting Modern Vulnerabilities</h2>
+        <!-- <h2>Keyboard Remapping for Lisp</h2> -->
+        <h2><a href="/posts/2015-08-20-remap-lisp-keys.html">Keyboard Remapping for Lisp</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 5, 2015</div>
+            <div class="date">August 20, 2015</div>
         </div>
     </div>
-    <div class="sect1"><h2 id="_heartbleed">Heartbleed</h2><div class="sectionbody"></div></div><div class="sect1"><h2 id="_ghost">GHOST</h2><div class="sectionbody"></div></div>
-    <a href="/posts/2015-07-05-interesting-major-vulnerabilities.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p>Do you find that <code>(</code> and <code>)</code> are a pain to constantly reach for? You may have
+already swapped your <em>Ctrl</em> and <em>CapsLock</em> keys, but in the post I’ll show you a
+sensible way to take it to the next level. Rearranging a few important keys can
+really improve your comfort level and productivity.</p></div><div class="paragraph"><p>I keep a personal script file that takes care of all my mappings:
+<code>~/bin/modmap</code>.</p></div><div class="sect1"><h2 id="_how_code_xmodmap_code_works">How <code>xmodmap</code> works</h2><div class="sectionbody"></div></div>
+    <a href="/posts/2015-08-20-remap-lisp-keys.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>Networking Tools</h2>
+        <!-- <h2>GPG Howto</h2> -->
+        <h2><a href="/posts/2015-08-08-gpg-howto.html">GPG Howto</a></h2>
         <div id="post-meta">
             
-            <div class="author">Micah</div>
-            
-            <div class="date">July 5, 2015</div>
+            <div class="date">August 8, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>Ansible snippets to install these.</p></div><div class="paragraph"><p><code>iperf3</code> is a great tool for testing transfer speed. With its help, I was able to convince a network engineer at our data center that there was an issue. She eventually got our rate up to nearly 1 Gbps across remote centers.</p></div>
-    <a href="/posts/2015-07-05-networking-tools.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>anyone</em></p></div><div class="paragraph"><p><strong>Keywords:</strong><em>gpg security privacy encryption</em></p></div><div class="paragraph"><p>❧❧❧</p></div><div class="quoteblock"><blockquote><div class="paragraph"><p>At one point I thought changing my name might help with privacy, but that was
+before the Internet. <em>— Olivia Wilde</em></p></div></blockquote></div>
+    <a href="/posts/2015-08-08-gpg-howto.html">Continue reading &#8594;</a>
     <hr>
     
     <div class="post-header">
-        <h2>From Markdown to Asciidoc</h2>
+        <!-- <h2>Stack Overflow’s Motivation Engine</h2> -->
+        <h2><a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Stack Overflow’s Motivation Engine</a></h2>
         <div id="post-meta">
             
-            <div class="date">July 2, 2015</div>
+            <div class="date">July 20, 2015</div>
         </div>
     </div>
-    <div class="paragraph"><p>Markdown has become the de facto standard for plain text syntax. It’s supported
-in the webform editors of Stack Overflow, Github, and many blogs, wikis, and
-forums. It’s built into most static site generators. You can even use it to
-write a book. It’s fantastic that it has raised awareness of text-based markup,
-but it’s not enough.</p></div><div class="paragraph"><p>Asciidoc fills in many of the shortcomings of Markdown. Here’s a
-<a href="http://powerman.name/doc/asciidoc" shape="rect">cheat-sheet</a> to give you a feel for its
-syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
-    <a href="/posts/2015-07-02-stop-using-markdown.html">Continue reading &#8594;</a>
+    <div class="paragraph"><p><strong>Audience:</strong><em>programmers</em></p></div><div class="paragraph"><p>You’ve spent plenty of time on Stack Overflow. Google loves it. Several visits
+per day? But unless you’re one who answers questions there, you’re probably not
+aware of how they get so much participation.</p></div><div class="paragraph"><p>I’ve recently been answering questions on Stack Overflow. Well, I <em>had to</em> in
+order to be able to do things like upvoting. Aren’t we obligated to upvote when
+someone has taken the time to teach us something valuable? And that was the
+first hook. But it turns out that SO has a very sophisticated set of motivators
+to keep you participating …​ <em>frequently</em>!</p></div><div class="paragraph"><p>What first puzzled me was how so many other users there had such high
+reputation. You might think that 1,000 points came from answering 1,000
+questions. But it’s an elaborate point system. You feel yourself growing points
+at a fairly rapid clip. It would sure be nice to have a <em>k</em> (thousand) next to
+your name!</p></div>
+    <a href="/posts/2015-07-20-stackoverflow-motivation-engine.html">Continue reading &#8594;</a>
     <hr>
     
 
@@ -215,7 +234,7 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                   entrepreneur interested in education, functional programming
                   (Clojure, Racket, OCaml), Linux, FreeBSD,
                   Vim, Ansible, and lots of other FOSS. Most of the content
-                  herein takes the form of recipes and biased opinions. See the
+                  herein takes the form of recipes and opinions. See the
                   <a href="/pages/about.html">README</a> for more.</p>
 
                 <h3><i class="fa fa-external-link-square"></i> Links</h3>
@@ -240,15 +259,15 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-12-03-clojure-annoyances.html">Clojure Annoyances</a></li>
+                        <li><a href="/posts/2016-07-02-emacs-cider-howto.html">Emacs Cider Quick-Start</a></li>
                         
-                        <li><a href="/posts/2015-10-15-programming-heroes.html">Programming Heroes</a></li>
+                        <li><a href="/posts/2016-02-26-emacs-hackers.html">Who Uses Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
+                        <li><a href="/posts/2016-02-16-should-i-run-today.html">Should I Run Today?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
+                        <li><a href="/posts/2016-02-11-why-emacs.html">Why Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
+                        <li><a href="/posts/2016-02-10-the-outage-log.html">The Outage Log</a></li>
                         
                     </ul>
                 </div>
@@ -264,7 +283,11 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/sysadmin.html">sysadmin</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/cryogen.html">cryogen</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/aliases.html">aliases</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
                         <!--  -->
@@ -276,6 +299,8 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/zsh.html">zsh</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/health.html">health</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
@@ -286,7 +311,11 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/formatting.html">formatting</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/racket.html">racket</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/outages.html">outages</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
                         <!--  -->
@@ -296,7 +325,11 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/emacs.html">emacs</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/setup.html">setup</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/time.html">time</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
                         <!--  -->
@@ -316,11 +349,15 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/date.html">date</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/lisp.html">lisp</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/habits.html">habits</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/notes.html">notes</a></li> -->
                         <!--  -->
@@ -332,6 +369,8 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         <!--  -->
                         <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/art.html">art</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
                         <!--  -->
                         
@@ -341,7 +380,11 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         
                         <a href="/tags/deploy.html">deploy</a>
                         
+                        <a href="/tags/sysadmin.html">sysadmin</a>
+                        
                         <a href="/tags/cryogen.html">cryogen</a>
+                        
+                        <a href="/tags/aliases.html">aliases</a>
                         
                         <a href="/tags/github.html">github</a>
                         
@@ -353,6 +396,8 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         
                         <a href="/tags/zsh.html">zsh</a>
                         
+                        <a href="/tags/health.html">health</a>
+                        
                         <a href="/tags/ansible.html">ansible</a>
                         
                         <a href="/tags/i3.html">i3</a>
@@ -363,7 +408,11 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         
                         <a href="/tags/draft.html">draft</a>
                         
+                        <a href="/tags/formatting.html">formatting</a>
+                        
                         <a href="/tags/racket.html">racket</a>
+                        
+                        <a href="/tags/outages.html">outages</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
                         
@@ -373,7 +422,11 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         
                         <a href="/tags/asciidoc.html">asciidoc</a>
                         
+                        <a href="/tags/emacs.html">emacs</a>
+                        
                         <a href="/tags/setup.html">setup</a>
+                        
+                        <a href="/tags/time.html">time</a>
                         
                         <a href="/tags/networking.html">networking</a>
                         
@@ -393,11 +446,15 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         
                         <a href="/tags/awk.html">awk</a>
                         
+                        <a href="/tags/date.html">date</a>
+                        
                         <a href="/tags/markdown.html">markdown</a>
                         
                         <a href="/tags/lisp.html">lisp</a>
                         
                         <a href="/tags/nuc.html">nuc</a>
+                        
+                        <a href="/tags/habits.html">habits</a>
                         
                         <a href="/tags/notes.html">notes</a>
                         
@@ -408,6 +465,8 @@ syntax. It’s almost as simple as Markdown, and thus quick to learn.</p></div>
                         <a href="/tags/systemd.html">systemd</a>
                         
                         <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/art.html">art</a>
                         
                         <a href="/tags/bcp.html">bcp</a>
                         

@@ -12,11 +12,1410 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Wed, 16 Dec 2015 19:16:25 -0800
+Mon, 06 Feb 2017 11:22:25 -0800
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-07-02-emacs-cider-howto.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-07-02-emacs-cider-howto.html
+</link>
+<title>
+Emacs Cider Quick-Start
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;programmers&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_starting_it_up&quot;&gt;Starting it up&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;C-c M-j  --  jack into cider
+C-c C-c  -- eval at point
+C-x C-s C-c C-k  --  save and (re)load buffer&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_testing&quot;&gt;Testing&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Cider is geared toward &lt;a href=&quot;https://github.com/clojure-emacs/cider/issues/992&quot;&gt;&lt;code&gt;clojure.test&lt;/code&gt;, not Midje&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;C-c C-e  --  eval sexp
+C-c C-c  C-c C-t C-t  --  eval and test at point&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Add a dependency.  Then:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;M-x cider-restart&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_in_the_repl&quot;&gt;In the REPL&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;,  --  show commands&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Sat, 02 Jul 2016 00:00:00 -0700
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-02-26-emacs-hackers.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-02-26-emacs-hackers.html
+</link>
+<title>
+Who Uses Emacs?
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It has been a difficult decision to consider moving to Emacs. I had a niggling feeling that the world was already there, without me.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;In my recent impetuous web crawling to learn as much as I can about Emacs, it struck me that a lot of great programmers use Emacs. This is a survey of them.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;admonitionblock warning&quot;&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td class=&quot;icon&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;Warning&lt;/div&gt;
+&lt;/td&gt;
+&lt;td class=&quot;content&quot;&gt;
+appeal to celebrity, [accomplishment](&lt;a href=&quot;https://en.wikipedia.org/wiki/Appeal_to_accomplishment&quot; class=&quot;bare&quot;&gt;https://en.wikipedia.org/wiki/Appeal_to_accomplishment&lt;/a&gt;)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Eric Raymond (ESR)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Richard Stallman (RMS)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Jamie Zawinsky (JWZ)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Linux Torvalds (Creator of Linux, uses micro-emacs)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Neal Stephenson (author)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Steve Yegge&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Avdi Grimm (and other Ruby Rogues)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Vernor Vinge&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_language_creators&quot;&gt;Language Creators&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Matz (Ruby creator)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Rich Hickey (Clojure creator)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Guido van Rossum (GvR, Python creator)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Donald Knuth (TeX, Algo books)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Michael Widenius (MySQL creator)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Joe Armstrong (Erlang creator)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Xavier Leroy (OCaml creator)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Guy Steele (creator of many languages)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;James Gosling (Java creator)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Peter Norvig&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Evan Czaplicki (Elm creator) [maybe](&lt;a href=&quot;https://groups.google.com/forum/#!msg/elm-discuss/t82zCnn89Ps/QFNzson_5MwJ&quot; class=&quot;bare&quot;&gt;https://groups.google.com/forum/#!msg/elm-discuss/t82zCnn89Ps/QFNzson_5MwJ&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Mentioned: Norvig, Andreesen, Guy Steele, Martin Fowler, Knuth, Julian Assange&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;45% of Clojure devs&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://wenshanren.org/?p=418&quot; class=&quot;bare&quot;&gt;http://wenshanren.org/?p=418&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_who_surprisingly_does_not_use_emacs&quot;&gt;Who (surprisingly) does not use Emacs&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Paul Graham (lisp hacker)&amp;#8201;&amp;#8212;&amp;#8201;vim&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Larry Wall&amp;#8201;&amp;#8212;&amp;#8201;vim&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Rob Pike&amp;#8201;&amp;#8212;&amp;#8201;acme&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;[Brendan Eich](&lt;a href=&quot;https://twitter.com/BrendanEich/status/65515883644203008)&amp;#8201;&amp;#8212;&amp;#8201;vim&quot; class=&quot;bare&quot;&gt;https://twitter.com/BrendanEich/status/65515883644203008)&amp;#8201;&amp;#8212;&amp;#8201;vim&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Fri, 26 Feb 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-02-16-should-i-run-today.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-02-16-should-i-run-today.html
+</link>
+<title>
+Should I Run Today?
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;Probably&amp;#8230;&amp;#8203;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It is not downpouring.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I have (semi-)waterproof shoes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;My running gear is nearby.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;My phone is charged and GPS is working.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nothing is hurting too badly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I am not sick, injured, or hung over.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It is not too late or too early.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Those are a lot of things that have worked out today. Better get out there.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;If I don&amp;#8217;t&amp;#8230;&amp;#8203;&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I will lose progress.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;My stats will suffer.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I will gain weight.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I will not feel great.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The next event will hurt even worse.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I won&amp;#8217;t get to listen to a podcast.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Tue, 16 Feb 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-02-11-why-emacs.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-02-11-why-emacs.html
+</link>
+<title>
+Why Emacs?
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;sysadmins&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&quot;Evil mode? What&amp;#8217;s that?&quot; says a colleague as he glances at my screen.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&quot;Oh, it&amp;#8217;s a vi emulator for emacs. I just wanted to, uh, see what&amp;#8217;s on the other side.&quot;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Well, here&amp;#8217;s an explanation of what really behind my thinking about switching over to the dark side.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_better_multi_font_support&quot;&gt;Better Multi-Font Support&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_org_outline_mode&quot;&gt;Org &amp;amp; Outline Mode&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_better_repl_integration&quot;&gt;Better REPL integration&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_more_of_clojure_community_is_into_emacs&quot;&gt;More of Clojure community is into Emacs&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;vs Vim&amp;#8217;s 15%. That alone doesn&amp;#8217;t necessarily warrant a switch, but it does mean that much more effort is going into refining the Emacs tools.
+&lt;a href=&quot;http://blog.cognitect.com/blog/2016/1/28/state-of-clojure-2015-survey-results&quot; class=&quot;bare&quot;&gt;http://blog.cognitect.com/blog/2016/1/28/state-of-clojure-2015-survey-results&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_encourages_keeping_a_journal&quot;&gt;Encourages keeping a journal&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.emacswiki.org/emacs/OrgJournal&quot; class=&quot;bare&quot;&gt;https://www.emacswiki.org/emacs/OrgJournal&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_emacs_is_a_workflow&quot;&gt;Emacs is a workflow&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Start out in my journal, pull up a blog entry, edit a presentation, hack some Clojure, remote-connect to a server.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_some_emacsen_have_en_eschewed_the_shell&quot;&gt;Some Emacsen have en eschewed the shell&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;As much as I love Zsh, I&amp;#8217;d be okay with letting it go if my editor could do all it does.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_elisp_is_a_lisp_and_that_s_beautiful&quot;&gt;Elisp is a lisp, and that&amp;#8217;s beautiful&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_asciidoc_looks_amazing&quot;&gt;Asciidoc looks amazing!&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_presentations&quot;&gt;Presentations&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_dired&quot;&gt;Dired&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_better_linting_and_spell_checking&quot;&gt;Better linting and spell checking&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Support for &lt;code&gt;couldn&amp;#8217;t&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_magit&quot;&gt;Magit&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_modes&quot;&gt;Modes&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Look at markdown as example.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_stackoverflow_sx_mode&quot;&gt;StackOverflow (sx) mode&lt;/h3&gt;
+
+&lt;/div&gt;
+&lt;div class=&quot;sect2&quot;&gt;
+&lt;h3 id=&quot;_configure_a_dsl_for_others&quot;&gt;Configure a DSL for others&lt;/h3&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There have been times that I&amp;#8217;ve written a very simple DSL that is
+custom colored to show different parts.  With vim, it wasn&amp;#8217;t possible
+to tell an content person to just install vim and my plugin.  With
+emacs, it is possible thanks to it&amp;#8217;s short learning curve to do simple
+editing.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Thu, 11 Feb 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-02-10-the-outage-log.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-02-10-the-outage-log.html
+</link>
+<title>
+The Outage Log
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;sysadmins&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Also consider writing a post on the Sysadmin’s Monthly Checklist.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+“Some quote” &lt;em&gt;—Someone&lt;/em&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Intro para&amp;#8230;&amp;#8203;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/img/annoyances/title.jpg&quot; alt=&quot;title&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;[Jan 13 18:14] 18m: db network failure; VIP disappeared (link to full report)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Wed, 10 Feb 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-01-29-spry-on-the-cli.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-01-29-spry-on-the-cli.html
+</link>
+<title>
+Spry on the CLI
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;sysadmins&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+“Some quote” &lt;em&gt;—Someone&lt;/em&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you have to choose between power and speed and it often turns out you have to
+make that choice, you’ve got to go for speed.
+~ Sparky Anderson&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Speed is a great asset; but it’s greater when it’s combined with quickness - and
+there’s a big difference.
+~ Ty Cobb&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;What good is speed if the brain has oozed out on the way?
+~ Karl Kraus.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Most of us can get by on the command line with a set of commands that we use
+daily. But I believe that being highly adept with a set of key commands is super
+important for a &lt;a href=&quot;http:///posts/the-outage-log&quot;&gt;critical down situation&lt;/a&gt;. When you
+risk dropping a 9 from your uptime, you’re fighting for every second.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This is why I deploy Zsh onto all my servers with a pretty comfortable custom
+setup, including lots of aliases, clear prompts, and things that speed me up.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/img/annoyances/title.jpg&quot; alt=&quot;title&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_aliases&quot;&gt;Aliases&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_long_shell_history_for_key_users&quot;&gt;Long Shell History for Key Users&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Fri, 29 Jan 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-01-20-why-bare-metal.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-01-20-why-bare-metal.html
+</link>
+<title>
+Bare Metal vs The Cloud
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;devops&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+Only you can decide if the cloud is flipping you the bird.
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/img/cloud/title.jpg&quot; alt=&quot;title&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Most of us start our fledgling apps in the cloud, on EC2 or Linode or
+DigitalOcean or ASmallOrange or whatever. With Membean, we’ve bounced around
+on all of those. But we eventually ended up in real data centers, for a lot of
+reasons.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_tl_dr&quot;&gt;TL;DR&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’ve had servers spread around several VPS providers for the last eight years.
+The last three years have been mostly colocated on hardware I’ve purchased, and
+that HW has served us well. Granted, a lot of my time (and thus salary)
+is spent on taking care of machines, but it’s not much more (if any) than we’d
+be spending if we had stuck fully to the cloud. I think it’s a lot less.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_cases_for_the_vps_cloud&quot;&gt;Cases for the VPS Cloud&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;You’ll need multiple servers before long, for scale and redundancy. So, early
+on, two little VPSs are much cheaper than two physical servers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;It’s really easy to create nodes through a web UI.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Don’t need to know much about data centers.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;In some cases, theoretically cheaper if you spin down servers, and your
+off-peak hours are long. I believe the &lt;em&gt;spin-down-to-save&lt;/em&gt; model is unique
+to EC2. A Droplet incurs the same price whether running or powered off.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Backups are simple. Just check a box when you create your Droplet, and you’re
+probably safe enough.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_war_stories_beware_the_cloud&quot;&gt;War Stories (Beware the Cloud)&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Linode was down for days.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I have seen more than a few emails from DO and Linode saying that a node has
+been rebooted due to an unknown issue. If these had been production systems,
+OUCH!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;There are times where CPU has spiked for no apparent reason.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;CPU availability may be unpredictable.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_vmware_lock_in&quot;&gt;VMWare Lock-in&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’ve stayed away from virtualization, particularly proprietary offerings.
+Running servers is expensive enough as it is.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I don’t see what the big gains are from virtualization for SMBs. If hardware is
+going to fail, it’ll wipe out the whole machine and all its virtualized nodes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It’s yet another thing to understand and monitor. Plus, there are potentially
+some performance costs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_cost&quot;&gt;Cost&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’m not convinced that paying 10x for a RHEL licensed Megacorp Certified
+System gets you much more than a more standard off-brand setup.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You can find beefy servers for as low as $1500.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_performance&quot;&gt;Performance&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_latency&quot;&gt;Latency&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Nodes won’t be right next to each other. Maybe there are tactics to control
+this, but I haven’t found many yet.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_risks&quot;&gt;Risks&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;DDoS is always a concern, whether Cloud or Data Center. After moving to a DC, we
+got hit hard enough by a DDoS that it took down the whole data center. That was
+the worst outage we’ve had, and resulted in 8 hours of downtime. We never
+found out why we were targeted, but learned some good lessons from it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I actually think we’re less likely to be impacted by DDoS in a DC. It seems to
+be the bigger players, like Linode and Amazon who get targeted. I hope DO is
+prepared for what happened to Linode. The DCs we’ve been in have few
+high-profile customers in them. So a whole network outage seems less likely.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_common_objections&quot;&gt;Common Objections&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;“The cloud gives me snapshots so I can just build up one server and then
+duplicate them from the single good snapshot.”&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You’ll still want to get your setup into a configuration management system, like
+Ansible or Chef or Puppet.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;“The cloud takes care of monitoring for me.”&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You’ll still need to come up with monitoring solutions, like monit, monitorix,
+nagios, etc.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;“I’m not comfortable running servers myself.”&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That’s a valid concern, but you need to learn a lot about them anyway, even if
+you’re in the cloud. The cloud does kind of save you from dealing with HW
+failures, but the still certainly happen in the cloud.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And, failures are often not something you have to handle all on your own. The DC
+folks are very knowledgable about networking issues, and swapping out failed
+disks is something they do a lot of.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;“But I don’t live anywhere near a good data center.”&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;We started out in a nearby DC thinking that we’d want to get inside when horror
+struck. That lasted a year before we looked outside to find a better DC
+thousands of miles away. It’s possible to do everything remotely. &lt;em&gt;Remote hands&lt;/em&gt;
+are pretty cheap, usually around $25/hr.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’ve had them replace disks, rebuild machines, install OSs, reconfigure RAIDs,
+figure out my network blunderings, and much more.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;They’ve even tuned network routes so that our cross-DC transfers are much
+improved.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_downsides&quot;&gt;Downsides&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Wed, 20 Jan 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-01-16-how-to-structure-zshrc.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-01-16-how-to-structure-zshrc.html
+</link>
+<title>
+How to Structure a .zshrc
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;intermediate&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;imageblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;img src=&quot;/img/zshrc/organizized.jpg&quot; alt=&quot;organizized&quot; width=&quot;600&quot;&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I often recommend that people “stick this-or-that in their &lt;code&gt;.zshrc&lt;/code&gt;.” But what I
+really mean is to “put this-or-that into &lt;em&gt;the appropriate subfile that makes up a
+bit of their grander Zsh configuration&lt;/em&gt;.” There are some great benefits to
+piecing apart a single monolithic &lt;code&gt;.zshrc&lt;/code&gt; file into individual files.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;At the top level, you still have your &lt;code&gt;~/.zshrc&lt;/code&gt;, but it’s mostly just responsible
+for `source`ing the meatier files.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;It looks something like:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;# Some envars
+my_fname=micah
+my_shdir=~/config/shell
+my_configs=(
+    envars.sh
+    actions.sh  # super fast
+    options.zsh # potential to be slow
+    aliases.sh
+    aliases.zsh
+    functions.sh
+)
+my_plugins=( $my_shdir/zsh/plugins/*.zsh )
+
+# Time the stuff.
+integer t0=$(date '+%s')
+
+# Source all the Zsh-specific and sh-generic files.
+for f in $my_configs; do
+    ##print starting $f
+    [[ -f $my_shdir/$f ]] &amp;amp;&amp;amp; . $my_shdir/$f
+    ##print finished $f
+done
+
+# Plugin stuff omitted
+# Site-specific stuff omitted
+
+function {
+    local -i t1 startup
+    t1=$(date '+%s')
+    startup=$(( t1 - t0 ))
+    [[ $startup -gt 1 ]] &amp;amp;&amp;amp; print &quot;Hmm, poor shell startup time: $startup&quot;
+    ##print &quot;startup time: $startup&quot;
+}
+unset t0&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This is helpful in that it:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;keeps things well organized&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;enables reloading of any particular piece&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The key commands I use to change, say, a single alias or function in a config
+file are aliases themselves:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;alias re-env=&quot;. $my_shdir/envars.sh&quot;
+alias re-funcs=&quot;. $my_shdir/functions.sh&quot;
+re-aliases() { . $my_shdir/aliases.sh; . $my_shdir/aliases.zsh }
+alias re-opts=&quot;. $my_shdir/options.zsh&quot;
+
+# Bonus
+alias a=alias
+alias fn='declare -f'&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;If you are simply re-&lt;code&gt;source&lt;/code&gt;-ing a giant &lt;code&gt;.zshrc&lt;/code&gt;, you’re possibly overriding
+or double-setting environment variables, or undoing setting you’ve made manually
+in your shell session.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I recommend you come up with your own, mostly from scratch, but
+&lt;a href=&quot;https://github.com/MicahElliott/dotfiles/blob/master/config/zshrc&quot;&gt;here’s mine&lt;/a&gt;
+if you’re curious.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/a/30791711/326516&quot;&gt;This StackOverflow answer&lt;/a&gt; has more
+details about how to profile your shell start-up time.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Sat, 16 Jan 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-01-15-art-related-experience.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-01-15-art-related-experience.html
+</link>
+<title>
+Art Related Experience
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;anyone&lt;/em&gt;  // noob, experts, intermediate&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;(Wow, this one is going to take some serious time and thought. Not sure it will
+really get fleshed out.)&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+“Tell us something about an experience you’ve had with art.”
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That question is asked by Craig of every guest on the
+&lt;a href=&quot;http://blog.cognitect.com/cognicast/&quot;&gt;Cognicast Clojure Podcast&lt;/a&gt;, so it’s a good
+exploratory topic.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;He usually asks something like: &lt;em&gt;“Share some experience related to art on any
+topic you see fit related to books, movies, music, etc.”&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_bach_counterpoint&quot;&gt;Bach Counterpoint&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_art_in_nature&quot;&gt;Art in Nature&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_in_manuscript_and_acting&quot;&gt;In Manuscript and Acting&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Curb Your Enthusiasm&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Toeing the line between discord and&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Fri, 15 Jan 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-01-14-the-14-digit-timestamp.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-01-14-the-14-digit-timestamp.html
+</link>
+<title>
+The 14-Digit Timestamp, et al
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;anyone&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The so-called “14-digit timestamp” is turning up in more and more places. For
+those unfamiliar, it takes the form of:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;YYYYMMDDhhmmss&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’ve seen it recently in &lt;a href=&quot;https://github.com/yogthos/migratus&quot;&gt;Migratus&lt;/a&gt; and
+Rails/Cap deploys (&lt;code&gt;current&lt;/code&gt; symlink), and it’s been used widely by MySQL.
+They’re pretty handy for setting to-the-second precision for ordering of things,
+like database migrations. And, they’re fairly human-parsable.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;At the time of this writing, the 14-digit time is &lt;code&gt;20160114180301&lt;/code&gt;. If you find
+that hard to eye-parse, here’s a (really ugly) shell function to help:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;dt14p() { sed -r 's/([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})/\1-\2-\3 \4:\5:\6/' &amp;lt;&amp;lt;&amp;lt; $1 }&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;% dt14p 20160114184117
+2016-01-14 18:41:17&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This enables &lt;code&gt;date&lt;/code&gt; (and your eyes) to parse it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Something I see missed on occasion is the use of UTC on such stamps. That seems
+pretty important if you’re using these for ordering, and have a time
+zone-distributed team.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;14s are not to be confused with the 10-digit epoch-second-stamp, or
+&lt;a href=&quot;https://docs.mongodb.org/manual/reference/bson-types/#document-bson-type-date&quot;&gt;MongoDB’s&lt;/a&gt;
+similar 64-bit 13-digit stamp (1452758412345).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;You might also find &lt;a href=&quot;https://en.wikipedia.org/wiki/ISO_week_date&quot;&gt;weekstamps&lt;/a&gt;
+useful for writing weekly reports and other organization.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_generating_a_14_digit_stamp&quot;&gt;Generating a 14-digit stamp&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;date --utc +%Y%m%d%H%M%S&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Why not make it an alias?&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;alias dt14='date --utc +%Y%m%d%H%M%S'&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;And use it often:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;mkdir `dt14`-something&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;(I usually find the 8-digit datestamp &lt;code&gt;dt8&lt;/code&gt; to be sufficient for directory
+names.)&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;While we’re at it, here are some other useful stamping aliases. I use the &lt;code&gt;dt&lt;/code&gt;
+prefix to make them easy to both remember and tab-complete. Some of these I use
+every day. Put them in your &lt;a href=&quot;/posts/2016-01-16-how-to-structure-zshrc.html&quot;&gt;.zshrc&lt;/a&gt;
+and enjoy!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;alias dt='date +%Y%m%d'    # frequent 8-digit stamp: 20160114
+alias dt8=dt
+alias day=dt
+alias dts='date +%s'       # seconds since epoch: 1452795263
+alias dte=dts
+alias dt10=dts
+alias dtep='print &quot;use this to parse: date -d @123...&quot;'  # parse the epoch
+alias dtp='date -d '       # parse
+alias dttm='date --utc +%Y%m%d%H%M%S'  # datetime: 20160114192940
+alias dt14=dttm
+alias dt13=dtb
+alias dto='date +%Y%j'     # ordinal date: 2016016 (16th day of year)
+alias dt7=dto
+# https://en.wikipedia.org/wiki/ISO_week_date
+alias dtwk='date +W%V'     # week date: W02
+alias dtyrwk='date +%GW%V' # year week date: 2016W02
+# ISO 8601
+alias dtw='date +%G-W%V-%' # year week: 2016-W02-4
+alias dti='date -I'        # ISO-8601: 2016-01-14
+alias dt-=dti
+alias dti='date -u +%Y%m%dT%H%M%S'        # 20160111T173110Z
+alias dti-='date -u +%Y-%m-%dT%H:%M:%SZ'  # 2016-01-11T17:31:10Z
+alias dti0='date -u -Iseconds'            # 2016-01-11T17:31:10+0000
+alias dto-='date +%Y-%j'                  # ordinal date: 2016-016
+alias dtb=&quot;date-iso2bson.rb &amp;lt;&amp;lt;&amp;lt;\&quot;'`dt-`'\&quot;&quot;  # for mongo bson&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;em&gt;(Note: this is using &lt;code&gt;date&lt;/code&gt; from GNU Coreutils. Yours may be different if you’re
+not on Linux.)&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Thu, 14 Jan 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2016-01-05-centos-7-networking-tools.html
+</guid>
+<link>
+http://micahelliott.com/posts/2016-01-05-centos-7-networking-tools.html
+</link>
+<title>
+CentOS 7 Networking Tools
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;sysadmins&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+“Networking is an essential part of building wealth.”  &lt;em&gt;— Armstrong Williams&lt;/em&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The networking toolchain is a bit different on every OS. I’ve been spending
+enough time on CentOS 7 lately that its specifics are worth recording.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’ll assume you don’t care about OSs that deviate much from RH-derived. I’m also
+leaving out anything to do with IPv6.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Wireless networking is not something you do much on servers, so it (&lt;code&gt;iw&lt;/code&gt;) is
+mostly omitted, too.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_packages&quot;&gt;Packages&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;iproute2&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_commands&quot;&gt;Commands&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The &lt;code&gt;ip&lt;/code&gt; command has replaced some of the trusty old guard. If you use Zsh, the
+&lt;code&gt;ip&lt;/code&gt; tab-completion is excellent for quickly using various subcommands.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;wolfram cidr&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ethtool&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ip a&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ip link&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ifconfig&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ifstat&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ifup/ifdown&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;nmcli/nmtui&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;nmcli d s&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;NetworkManager (need it for firewalld)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;sys&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;netstat -tulpn
+netstat -pn tcp
+netstat -ln4
+netstat -naf inet&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ss (socket stat)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;netcat&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;arp&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;route&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;iotop&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;iostat&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;iperf3&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;host&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;whois/dig&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ping&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;lsof -ni&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;tcpdump&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ipcalc&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;ifrename&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;sockstack -4&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Although &lt;code&gt;traceroute&lt;/code&gt; is the old standard, the netadmins I’ve worked with tend
+to ask for &lt;code&gt;mtr&lt;/code&gt; output.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;mtr/tracepath&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;firewall-cmd&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;iostat -xdm 5&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_files&quot;&gt;Files&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;/etc/sysconfig/network-scripts/ifcfg-e*
+/etc/services
+/etc/resolv.conf&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_normal_things&quot;&gt;Normal Things&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;pinging local Gb network: 0.15 ms&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_antiquated_deprecated&quot;&gt;Antiquated/Deprecated&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/&quot; class=&quot;bare&quot;&gt;https://dougvitale.wordpress.com/2011/12/21/deprecated-linux-networking-commands-and-their-replacements/&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;arp
+iptunnel
+iwconfig
+nameif
+netstat
+route
+ifconfig
+traceroute
+tcpdump&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;yum install net-tools (last release 2001
+&lt;a href=&quot;https://lists.debian.org/debian-devel/2009/03/msg00780.html&quot; class=&quot;bare&quot;&gt;https://lists.debian.org/debian-devel/2009/03/msg00780.html&lt;/a&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_glossary&quot;&gt;Glossary&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;dlist&quot;&gt;
+&lt;dl&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;uplink&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;incoming network drop&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;layers (physical, datalink, network, transport, app)&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;tcp/ip&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;nat&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;private addresses&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Private_network&quot; class=&quot;bare&quot;&gt;https://en.wikipedia.org/wiki/Private_network&lt;/a&gt;&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;arp/mac address&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;cidr&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;lan&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;vlan (multi-homing)&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;netmask&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;broadcast&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;gateway&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;icmp&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;mtu&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;ttl&lt;/dt&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;snmp&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;simple network management protocol&lt;/p&gt;
+&lt;/dd&gt;
+&lt;dt class=&quot;hdlist1&quot;&gt;cat5e&lt;/dt&gt;
+&lt;dd&gt;
+&lt;p&gt;the only cable you probably want to use&lt;/p&gt;
+&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_resources&quot;&gt;Resources&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.michaelwlucas.com/nonfiction/n4sa&quot;&gt;Networking for Systems Administrators&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html-single/Networking_Guide/&quot;&gt;Red Hat Networking Guide&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This could become a short ebook: DevOps Practical Guide to Modern Linux Networking&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Tue, 05 Jan 2016 00:00:00 -0800
+</pubDate>
+</item>
+<item>
+<guid>
+http://micahelliott.com/posts/2015-12-22-slow-keyboard-repeat-rate.html
+</guid>
+<link>
+http://micahelliott.com/posts/2015-12-22-slow-keyboard-repeat-rate.html
+</link>
+<title>
+No More Holding Down Keys
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Audience:&lt;/strong&gt; &lt;em&gt;button holders&lt;/em&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;quoteblock&quot;&gt;
+&lt;blockquote&gt;
+“The chains of habit are too weak to be felt until they are too strong to be
+broken.” &lt;em&gt;― Samuel Johnson&lt;/em&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I’m trying an experiment where I’ve turned my keyboard repeat rate way down.
+This should force me to never hold down a key for repetition, but rather use a
+prefix like &lt;code&gt;4w&lt;/code&gt; (vim) or &lt;code&gt;Ctrl-Backspace&lt;/code&gt; (browsers). I’m learning some
+interesting things!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;This is done easily across X with:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;#              msdelay rate
+#exec xset r rate 250    60    # super fast keyboard cursor delay and rate!
+exec xset r rate 250    2     # super slow (vim training)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;More details
+&lt;a href=&quot;https://wiki.archlinux.org/index.php/Keyboard_configuration_in_Xorg#Using_xset&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That line is from my &lt;code&gt;~/.i3/config&lt;/code&gt;. Remove the &lt;code&gt;exec&lt;/code&gt; to put in in &lt;code&gt;~/.xinitrc&lt;/code&gt;
+or the CLI.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_other_experiments&quot;&gt;Other Experiments&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Reverse your &lt;code&gt;:;&lt;/code&gt; key&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Turn on your awful beep&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<enclosure>
+
+</enclosure>
+<pubDate>
+Tue, 22 Dec 2015 00:00:00 -0800
+</pubDate>
+</item>
 <item>
 <guid>
 http://micahelliott.com/posts/2015-12-03-clojure-annoyances.html
@@ -46,7 +1445,7 @@ environment to work in for many years to come.&lt;/p&gt;
 &lt;!-- more --&gt;
 &lt;div class=&quot;imageblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;../img/annoyances/title.jpg&quot; alt=&quot;title&quot; width=&quot;600&quot;&gt;
+&lt;img src=&quot;/img/annoyances/title.jpg&quot; alt=&quot;title&quot; width=&quot;600&quot;&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;sect2&quot;&gt;
@@ -2946,6 +4345,21 @@ Here’s why:&lt;/p&gt;
 &lt;/div&gt;
 &lt;!-- more --&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;UPDATE 2017:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Smooth updates.&lt;/strong&gt; Since starting all our servers out on CentOS 7.0,
+  they&amp;#8217;ve all been cleanly upgraded to 7.3 without any fuss or
+  ceremony.  Looked like any other daily update.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Our Consultancies use CentOS.&lt;/strong&gt; We&amp;#8217;ve been in a couple data centers
+  that encourage using their supported platforms based on CentOS.  We
+  also work with a MySQL team that knows and prefers CentOS to any
+  other.&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;CentOS (and Fedora) have had Systemd in production releases for over a year.&lt;/strong&gt;
 This is probably the biggest reason. Ubuntu is getting it eventually, but CentOS
 has had it and it’s working well. You’ll have to adopt it with Linux anyway, so
@@ -2956,7 +4370,8 @@ why not now?&lt;/p&gt;
 recently acquired by Red Hat and now benefit from lots of company resources.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;strong&gt;Vendors will install CentOS for you.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Vendors will install CentOS for you.&lt;/strong&gt; It was EC2’s default OS for a while
+(still?), and is found widely available on other VPSs.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;More hardware is certified for Red Hat.&lt;/strong&gt;&lt;/p&gt;
@@ -2998,6 +4413,13 @@ just a front end to iptables.&lt;/p&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;&lt;strong&gt;EPEL provides many extra packages.&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;strong&gt;Arch is very similar.&lt;/strong&gt; Arch is a popular and powerful development Linux OS.
+It’s cutting edge, and the AUR is the easiest way to quickly install the widest
+variety of tools. Hopping onto a CentOS server from the comforts of your Arch
+setup is not much of a leap. Generally, you’ll find the same standard tools on
+both.&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
 &lt;h2 id=&quot;_shortcomings&quot;&gt;Shortcomings&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
@@ -3010,12 +4432,13 @@ of Nginx, Redis, Ruby, and others.&lt;/p&gt;
 &lt;p&gt;The security update story is also a bit lacking. The simplest way I have found
 to stay up-to-date on vulnerability patching is to watch the daily mail list,
 and simply update every server late on Saturday nights. No, it’s not my idea of
-a good time.&lt;/p&gt;
+a good time. Reboots are rarely needed: a few per year, when kernels or glibc
+updates.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
 &lt;p&gt;Yum is the package manager and it is in flux, and essentially
 &lt;a href=&quot;http://dnf.baseurl.org/2015/05/11/yum-is-dead-long-live-dnf/&quot;&gt;pronounced dead&lt;/a&gt;.
-Fortunately, it appears to have some backward compatibility with yum and should
+Fortunately, dnf appears to have some backward compatibility with yum and should
 provide a clean transition.&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;
@@ -3531,6 +4954,23 @@ dk inspect 097241cd8024 |grep IPAddress&lt;/pre&gt;
 # Oops. Wipe existing/offending key.
 sed -i '47d' ~/.ssh/known_hosts
 sshpass -p root ssh dk1&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Manually update the system:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;yum update&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Optionally save as latest/greatest
+(&lt;a href=&quot;http://stackoverflow.com/questions/19585028/i-lose-my-data-when-the-container-exits&quot;&gt;see also&lt;/a&gt;):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;dk commit c0d3c28f5a86 mde/centos71&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -5189,7 +6629,8 @@ Adoc Post
 &lt;div class=&quot;title&quot;&gt;clojure&lt;/div&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;(defn echo [s]
-  (println s))&lt;/code&gt;&lt;/pre&gt;
+  (println s))
+--&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

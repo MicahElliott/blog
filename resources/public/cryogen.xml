@@ -12,7 +12,7 @@ http://micahelliott.com/
 A Tech Journal
 </description>
 <lastBuildDate>
-Wed, 16 Dec 2015 19:16:25 -0800
+Mon, 06 Feb 2017 11:22:25 -0800
 </lastBuildDate>
 <generator>
 clj-rss
@@ -83,7 +83,8 @@ Adoc Post
 &lt;div class=&quot;title&quot;&gt;clojure&lt;/div&gt;
 &lt;div class=&quot;content&quot;&gt;
 &lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;(defn echo [s]
-  (println s))&lt;/code&gt;&lt;/pre&gt;
+  (println s))
+--&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

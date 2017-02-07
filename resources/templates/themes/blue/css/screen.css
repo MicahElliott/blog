@@ -89,7 +89,7 @@ body {
     /* text-transform: uppercase; */
 }
 
-.zshprompt { color: red; }
+.zshprompt { color: #c7254e; }
 .zshcursor { color: lightgreen; }
 
 .navbar-default .navbar-brand:hover {
@@ -131,6 +131,7 @@ body {
 #sidebar {
     margin-left: 15px;
     margin-top: 50px;
+    font-family: 'pt sans';
 }
 
 #sidebar ul {
@@ -142,7 +143,10 @@ body {
     font-family: 'denk one';
 }
 
-.flourish { color: #8652D4; }
+.flourish {
+    /* color: dodgerblue; */
+    color: #c7254e; 
+}
 
 #content {
     background-color: #fff;

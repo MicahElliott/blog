@@ -6,6 +6,10 @@
 
 #git push
 
-cd provn
+cd ./provn
+
+unset ANSIBLE_INVENTORY
+unset ANSIBLE_SSH_ARGS
 export ANSIBLE_HOSTS=./hosts
+
 time ansible-playbook site.yaml -b -v -t deploy

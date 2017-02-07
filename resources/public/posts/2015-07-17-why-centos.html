@@ -168,6 +168,21 @@ Here’s why:</p>
 </div>
 <!-- more -->
 <div class="paragraph">
+<p>UPDATE 2017:</p>
+</div>
+<div class="paragraph">
+<p><strong>Smooth updates.</strong> Since starting all our servers out on CentOS 7.0,
+  they&#8217;ve all been cleanly upgraded to 7.3 without any fuss or
+  ceremony.  Looked like any other daily update.</p>
+</div>
+<div class="paragraph">
+<p><strong>Our Consultancies use CentOS.</strong> We&#8217;ve been in a couple data centers
+  that encourage using their supported platforms based on CentOS.  We
+  also work with a MySQL team that knows and prefers CentOS to any
+  other.</p>
+</div>
+<hr>
+<div class="paragraph">
 <p><strong>CentOS (and Fedora) have had Systemd in production releases for over a year.</strong>
 This is probably the biggest reason. Ubuntu is getting it eventually, but CentOS
 has had it and it’s working well. You’ll have to adopt it with Linux anyway, so
@@ -178,7 +193,8 @@ why not now?</p>
 recently acquired by Red Hat and now benefit from lots of company resources.</p>
 </div>
 <div class="paragraph">
-<p><strong>Vendors will install CentOS for you.</strong></p>
+<p><strong>Vendors will install CentOS for you.</strong> It was EC2’s default OS for a while
+(still?), and is found widely available on other VPSs.</p>
 </div>
 <div class="paragraph">
 <p><strong>More hardware is certified for Red Hat.</strong></p>
@@ -220,6 +236,13 @@ just a front end to iptables.</p>
 <div class="paragraph">
 <p><strong>EPEL provides many extra packages.</strong></p>
 </div>
+<div class="paragraph">
+<p><strong>Arch is very similar.</strong> Arch is a popular and powerful development Linux OS.
+It’s cutting edge, and the AUR is the easiest way to quickly install the widest
+variety of tools. Hopping onto a CentOS server from the comforts of your Arch
+setup is not much of a leap. Generally, you’ll find the same standard tools on
+both.</p>
+</div>
 <div class="sect1">
 <h2 id="_shortcomings">Shortcomings</h2>
 <div class="sectionbody">
@@ -232,12 +255,13 @@ of Nginx, Redis, Ruby, and others.</p>
 <p>The security update story is also a bit lacking. The simplest way I have found
 to stay up-to-date on vulnerability patching is to watch the daily mail list,
 and simply update every server late on Saturday nights. No, it’s not my idea of
-a good time.</p>
+a good time. Reboots are rarely needed: a few per year, when kernels or glibc
+updates.</p>
 </div>
 <div class="paragraph">
 <p>Yum is the package manager and it is in flux, and essentially
 <a href="http://dnf.baseurl.org/2015/05/11/yum-is-dead-long-live-dnf/">pronounced dead</a>.
-Fortunately, it appears to have some backward compatibility with yum and should
+Fortunately, dnf appears to have some backward compatibility with yum and should
 provide a clean transition.</p>
 </div>
 <hr>
@@ -289,7 +313,7 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                   entrepreneur interested in education, functional programming
                   (Clojure, Racket, OCaml), Linux, FreeBSD,
                   Vim, Ansible, and lots of other FOSS. Most of the content
-                  herein takes the form of recipes and biased opinions. See the
+                  herein takes the form of recipes and opinions. See the
                   <a href="/pages/about.html">README</a> for more.</p>
 
                 <h3><i class="fa fa-external-link-square"></i> Links</h3>
@@ -314,15 +338,15 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                     <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
                     <ul>
                         
-                        <li><a href="/posts/2015-12-03-clojure-annoyances.html">Clojure Annoyances</a></li>
+                        <li><a href="/posts/2016-07-02-emacs-cider-howto.html">Emacs Cider Quick-Start</a></li>
                         
-                        <li><a href="/posts/2015-10-15-programming-heroes.html">Programming Heroes</a></li>
+                        <li><a href="/posts/2016-02-26-emacs-hackers.html">Who Uses Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-10-why-learn-a-lisp.html">Why Learn a Lisp?</a></li>
+                        <li><a href="/posts/2016-02-16-should-i-run-today.html">Should I Run Today?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-arch-aur-getting-started-guide.html">AUR Getting Started Guide</a></li>
+                        <li><a href="/posts/2016-02-11-why-emacs.html">Why Emacs?</a></li>
                         
-                        <li><a href="/posts/2015-09-01-vim-anti-patterns.html">Vim Anti-Patterns</a></li>
+                        <li><a href="/posts/2016-02-10-the-outage-log.html">The Outage Log</a></li>
                         
                     </ul>
                 </div>
@@ -338,7 +362,11 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/sysadmin.html">sysadmin</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/cryogen.html">cryogen</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/aliases.html">aliases</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/github.html">github</a></li> -->
                         <!--  -->
@@ -350,6 +378,8 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/zsh.html">zsh</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/health.html">health</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/i3.html">i3</a></li> -->
@@ -360,7 +390,11 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/draft.html">draft</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/formatting.html">formatting</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/racket.html">racket</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/outages.html">outages</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
                         <!--  -->
@@ -370,7 +404,11 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/emacs.html">emacs</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/setup.html">setup</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/time.html">time</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/networking.html">networking</a></li> -->
                         <!--  -->
@@ -390,11 +428,15 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/awk.html">awk</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/date.html">date</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/lisp.html">lisp</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/habits.html">habits</a></li> -->
                         <!--  -->
                         <!-- <li><a href="/tags/notes.html">notes</a></li> -->
                         <!--  -->
@@ -406,6 +448,8 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         <!--  -->
                         <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
                         <!--  -->
+                        <!-- <li><a href="/tags/art.html">art</a></li> -->
+                        <!--  -->
                         <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
                         <!--  -->
                         
@@ -415,7 +459,11 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         
                         <a href="/tags/deploy.html">deploy</a>
                         
+                        <a href="/tags/sysadmin.html">sysadmin</a>
+                        
                         <a href="/tags/cryogen.html">cryogen</a>
+                        
+                        <a href="/tags/aliases.html">aliases</a>
                         
                         <a href="/tags/github.html">github</a>
                         
@@ -427,6 +475,8 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         
                         <a href="/tags/zsh.html">zsh</a>
                         
+                        <a href="/tags/health.html">health</a>
+                        
                         <a href="/tags/ansible.html">ansible</a>
                         
                         <a href="/tags/i3.html">i3</a>
@@ -437,7 +487,11 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         
                         <a href="/tags/draft.html">draft</a>
                         
+                        <a href="/tags/formatting.html">formatting</a>
+                        
                         <a href="/tags/racket.html">racket</a>
+                        
+                        <a href="/tags/outages.html">outages</a>
                         
                         <a href="/tags/tmux.html">tmux</a>
                         
@@ -447,7 +501,11 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         
                         <a href="/tags/asciidoc.html">asciidoc</a>
                         
+                        <a href="/tags/emacs.html">emacs</a>
+                        
                         <a href="/tags/setup.html">setup</a>
+                        
+                        <a href="/tags/time.html">time</a>
                         
                         <a href="/tags/networking.html">networking</a>
                         
@@ -467,11 +525,15 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         
                         <a href="/tags/awk.html">awk</a>
                         
+                        <a href="/tags/date.html">date</a>
+                        
                         <a href="/tags/markdown.html">markdown</a>
                         
                         <a href="/tags/lisp.html">lisp</a>
                         
                         <a href="/tags/nuc.html">nuc</a>
+                        
+                        <a href="/tags/habits.html">habits</a>
                         
                         <a href="/tags/notes.html">notes</a>
                         
@@ -482,6 +544,8 @@ on <a href="/posts/2015-01-10-choosing-an-os.html">choosing an OS</a>.</p>
                         <a href="/tags/systemd.html">systemd</a>
                         
                         <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/art.html">art</a>
                         
                         <a href="/tags/bcp.html">bcp</a>
                         

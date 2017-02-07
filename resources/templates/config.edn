@@ -21,6 +21,6 @@
  :ignored-files    [#"\.#.*" #".*\.swp$"]
 
  :posts-per-page     5
- :blocks-per-preview 2
+ :blocks-per-preview 4
  :previews?          true
 }
