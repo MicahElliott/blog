@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Micah Elliott: Bare Metal vs The Cloud</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css">
+    <link href="/favicon.png" rel="shortcut icon">
+    <link href="../css/screen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html" title="Micah Elliott">
+              <span class="whoami">
+                <!-- <img src="/img/mde-50x.png"> -->
+                <!-- Micah Elliott -->
+                <span class="zshprompt">%</span> whoami<span class="zshcursor">_</span>
+              </span>
+
+              </img>
+            </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                  <a href="/index.html">
+                    <i class="fa fa-home"></i>
+                    <!-- Home</a></li> -->
+                    ~</a></li>
+                <li
+                >
+                  <a href="/archives.html">
+                  <i class="fa fa-archive"></i>
+                  <!-- Archives</a></li> -->
+                  ~/doc</a></li>
+
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/about.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   About -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/adoc-page.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   Adoc Page -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/gpg-key.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   GPG Key -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+                <!-- <li -->
+                <!-- > -->
+                <!-- <a href="/pages/projects.html"> -->
+                <!--   <i class="glyphicon glyphicon-new-window"></i> -->
+                <!--   Projects -->
+                <!-- </a> -->
+                <!-- </li> -->
+                <!--  -->
+
+                <li
+                  >
+                  <!-- <a href="/pages/about.html"><i class="fa fa-info-circle"></i> About</a></li> -->
+                  <a href="/pages/about.html"><i class="fa fa-info-circle"></i> README</a></li>
+
+                <li
+                  >
+                  <!-- <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> Projects</a></li> -->
+                  <a href="/pages/projects.html"><i class="fa fa-lightbulb-o"></i> ~/src/proj</a></li>
+
+                <li
+                  >
+                  <!-- <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> GPG Key</a></li> -->
+                  <a href="/pages/gpg-key.html"><i class="fa fa-key"></i> gpg.asc</a></li>
+
+                <!-- <li><a href="/feed.xml"> -->
+                <li><a href="http://feeds.feedburner.com/micahelliott/blog">
+                    <i class="fa fa-rss"></i>
+                    <!-- RSS</a></li> -->
+                    rss.xml</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+
+
+<div class="container">
+
+
+    <div class="row">
+        <div class="col-lg-9">
+            <div id="content">
+                
+<div id="post">
+    <div id="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-8"><b>January 20, 2016</b>
+
+    
+    <span id="post-tags">
+        <!-- <i>tagged:</i> -->
+        <i> — </i>
+        <b><i class="fa fa-tags"></i> </b>
+        <!-- <i class="glyphicon glyphicon-tags"> Tags: </i> -->
+        
+        <a href="/tags/draft.html"> draft</a>
+        
+    </span>
+    
+
+        </div>
+
+        <!--  -->
+
+    </div>
+
+    <!-- <h1>Bare Metal vs The Cloud</h1> -->
+    <h1><span class="flourish">'(</span>Bare Metal vs The Cloud<span class="flourish">)</span</h1>
+
+<!--      -->
+<!--     <div id="post-tags"> -->
+<!--         <b><i class="glyphicon glyphicon-tags"></i> Tags:</b> -->
+<!--          -->
+<!--         <a href="/tags/draft.html"> draft</a> -->
+<!--          -->
+<!--     </div> -->
+<!--      -->
+
+</div>
+<div>
+    
+    <div class="paragraph">
+<p><strong>Audience:</strong> <em>devops</em></p>
+</div>
+<div class="quoteblock">
+<blockquote>
+Only you can decide if the cloud is flipping you the bird.
+</blockquote>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/img/cloud/title.jpg" alt="title" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>Most of us start our fledgling apps in the cloud, on EC2 or Linode or
+DigitalOcean or ASmallOrange or whatever. With Membean, we’ve bounced around
+on all of those. But we eventually ended up in real data centers, for a lot of
+reasons.</p>
+</div>
+<div class="sect1">
+<h2 id="_tl_dr">TL;DR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I’ve had servers spread around several VPS providers for the last eight years.
+The last three years have been mostly colocated on hardware I’ve purchased, and
+that HW has served us well. Granted, a lot of my time (and thus salary)
+is spent on taking care of machines, but it’s not much more (if any) than we’d
+be spending if we had stuck fully to the cloud. I think it’s a lot less.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cases_for_the_vps_cloud">Cases for the VPS Cloud</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>You’ll need multiple servers before long, for scale and redundancy. So, early
+on, two little VPSs are much cheaper than two physical servers.</p>
+</li>
+<li>
+<p>It’s really easy to create nodes through a web UI.</p>
+</li>
+<li>
+<p>Don’t need to know much about data centers.</p>
+</li>
+<li>
+<p>In some cases, theoretically cheaper if you spin down servers, and your
+off-peak hours are long. I believe the <em>spin-down-to-save</em> model is unique
+to EC2. A Droplet incurs the same price whether running or powered off.</p>
+</li>
+<li>
+<p>Backups are simple. Just check a box when you create your Droplet, and you’re
+probably safe enough.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_war_stories_beware_the_cloud">War Stories (Beware the Cloud)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Linode was down for days.</p>
+</div>
+<div class="paragraph">
+<p>I have seen more than a few emails from DO and Linode saying that a node has
+been rebooted due to an unknown issue. If these had been production systems,
+OUCH!</p>
+</div>
+<div class="paragraph">
+<p>There are times where CPU has spiked for no apparent reason.</p>
+</div>
+<div class="paragraph">
+<p>CPU availability may be unpredictable.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_vmware_lock_in">VMWare Lock-in</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I’ve stayed away from virtualization, particularly proprietary offerings.
+Running servers is expensive enough as it is.</p>
+</div>
+<div class="paragraph">
+<p>I don’t see what the big gains are from virtualization for SMBs. If hardware is
+going to fail, it’ll wipe out the whole machine and all its virtualized nodes.</p>
+</div>
+<div class="paragraph">
+<p>It’s yet another thing to understand and monitor. Plus, there are potentially
+some performance costs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_cost">Cost</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I’m not convinced that paying 10x for a RHEL licensed Megacorp Certified
+System gets you much more than a more standard off-brand setup.</p>
+</div>
+<div class="paragraph">
+<p>You can find beefy servers for as low as $1500.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_performance">Performance</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_latency">Latency</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Nodes won’t be right next to each other. Maybe there are tactics to control
+this, but I haven’t found many yet.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_risks">Risks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>DDoS is always a concern, whether Cloud or Data Center. After moving to a DC, we
+got hit hard enough by a DDoS that it took down the whole data center. That was
+the worst outage we’ve had, and resulted in 8 hours of downtime. We never
+found out why we were targeted, but learned some good lessons from it.</p>
+</div>
+<div class="paragraph">
+<p>I actually think we’re less likely to be impacted by DDoS in a DC. It seems to
+be the bigger players, like Linode and Amazon who get targeted. I hope DO is
+prepared for what happened to Linode. The DCs we’ve been in have few
+high-profile customers in them. So a whole network outage seems less likely.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_common_objections">Common Objections</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>“The cloud gives me snapshots so I can just build up one server and then
+duplicate them from the single good snapshot.”</em></p>
+</div>
+<div class="paragraph">
+<p>You’ll still want to get your setup into a configuration management system, like
+Ansible or Chef or Puppet.</p>
+</div>
+<div class="paragraph">
+<p><em>“The cloud takes care of monitoring for me.”</em></p>
+</div>
+<div class="paragraph">
+<p>You’ll still need to come up with monitoring solutions, like monit, monitorix,
+nagios, etc.</p>
+</div>
+<div class="paragraph">
+<p><em>“I’m not comfortable running servers myself.”</em></p>
+</div>
+<div class="paragraph">
+<p>That’s a valid concern, but you need to learn a lot about them anyway, even if
+you’re in the cloud. The cloud does kind of save you from dealing with HW
+failures, but the still certainly happen in the cloud.</p>
+</div>
+<div class="paragraph">
+<p>And, failures are often not something you have to handle all on your own. The DC
+folks are very knowledgable about networking issues, and swapping out failed
+disks is something they do a lot of.</p>
+</div>
+<div class="paragraph">
+<p><em>“But I don’t live anywhere near a good data center.”</em></p>
+</div>
+<div class="paragraph">
+<p>We started out in a nearby DC thinking that we’d want to get inside when horror
+struck. That lasted a year before we looked outside to find a better DC
+thousands of miles away. It’s possible to do everything remotely. <em>Remote hands</em>
+are pretty cheap, usually around $25/hr.</p>
+</div>
+<div class="paragraph">
+<p>I’ve had them replace disks, rebuild machines, install OSs, reconfigure RAIDs,
+figure out my network blunderings, and much more.</p>
+</div>
+<div class="paragraph">
+<p>They’ve even tuned network routes so that our cross-DC transfers are much
+improved.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_downsides">Downsides</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+</div>
+<!--  -->
+<!-- <div id="post-tags"> -->
+<!--     <b>Tags: </b> -->
+<!--      -->
+<!--     <a href="/tags/draft.html">draft</a> -->
+<!--      -->
+<!-- </div> -->
+<!--  -->
+
+    <div id="prev-next">
+        
+        <a href="/posts/2016-01-29-spry-on-the-cli.html">&laquo; Spry on the CLI</a>
+        
+        
+        <a class="right" href="/posts/2016-01-16-how-to-structure-zshrc.html">How to Structure a .zshrc &raquo;</a>
+        
+    </div>
+
+    
+
+
+</div>
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div id="sidebar">
+                <!-- <h3>Links</h3> -->
+                <!-- <h3><i class="fa fa-info-circle"></i> About Micah</h3> -->
+                <h3><i class="fa fa-child"></i> About Micah</h3>
+                <p>
+                  Saluton! Welcome to my blog. I’m a developer, sysadmin, and
+                  entrepreneur interested in education, functional programming
+                  (Clojure, Racket, OCaml), Linux, FreeBSD,
+                  Vim, Ansible, and lots of other FOSS. Most of the content
+                  herein takes the form of recipes and opinions. See the
+                  <a href="/pages/about.html">README</a> for more.</p>
+
+                <h3><i class="fa fa-external-link-square"></i> Links</h3>
+                <ul id="links">
+                    <!-- <li><a href="http://cryogenweb.org/docs/home.html">Cryogen Docs</a></li> -->
+                    <!-- <li><a href="http://carmenla.me/blog/index.html">Carmen's Blog</a></li> -->
+                    <li><a href="http://membean.com/products/Personal/plans">Free Membean</a></li>
+                    <li><a href="https://github.com/MicahElliott">Micah’s Github</a></li>
+                    <li><a href="https://www.linkedin.com/in/micahelliott">Micah’s LinkedIn</a></li>
+                    <li><a href="http://stackoverflow.com/users/326516/micah-elliott">Micah’s Stack Overflow</a></li>
+                    <!--  -->
+                    <!-- <li><a href="/pages/why-freelancing.html">Why Freelancing?</a></li> -->
+                    <!--  -->
+                    <!-- <li><a href="/pages/hireme.html">Hire Me</a></li> -->
+                    <!--  -->
+                    <!-- <li><a href="/pages/topics.html">Future Topics</a></li> -->
+                    <!--  -->
+                </ul>
+                
+                <div id="recent">
+                    <!-- <h3>Recent Posts</h3> -->
+                    <h3><i class="fa fa-clock-o"></i> Recent Posts</h3>
+                    <ul>
+                        
+                        <li><a href="/posts/2016-07-02-emacs-cider-howto.html">Emacs Cider Quick-Start</a></li>
+                        
+                        <li><a href="/posts/2016-02-26-emacs-hackers.html">Who Uses Emacs?</a></li>
+                        
+                        <li><a href="/posts/2016-02-16-should-i-run-today.html">Should I Run Today?</a></li>
+                        
+                        <li><a href="/posts/2016-02-11-why-emacs.html">Why Emacs?</a></li>
+                        
+                        <li><a href="/posts/2016-02-10-the-outage-log.html">The Outage Log</a></li>
+                        
+                    </ul>
+                </div>
+                
+                
+                <div id="tags">
+                    <h3><i class="fa fa-tags"></i> Tags</h3>
+                    <ul>
+                        <!--  -->
+                        <!-- <li><a href="/tags/foo.html">foo</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/urxvt.html">urxvt</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/deploy.html">deploy</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/sysadmin.html">sysadmin</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/cryogen.html">cryogen</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/aliases.html">aliases</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/github.html">github</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/rewards.html">rewards</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/security.html">security</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/clojure.html">clojure</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/zsh.html">zsh</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/health.html">health</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/ansible.html">ansible</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/i3.html">i3</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/linux.html">linux</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/gpg.html">gpg</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/draft.html">draft</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/formatting.html">formatting</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/racket.html">racket</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/outages.html">outages</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/tmux.html">tmux</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/jargon.html">jargon</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/centos.html">centos</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/asciidoc.html">asciidoc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/emacs.html">emacs</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/setup.html">setup</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/time.html">time</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/networking.html">networking</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/teaching.html">teaching</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/docker.html">docker</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/keyboard.html">keyboard</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/aur.html">aur</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/vim.html">vim</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/arch.html">arch</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/firewalld.html">firewalld</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/awk.html">awk</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/date.html">date</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/markdown.html">markdown</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/lisp.html">lisp</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/nuc.html">nuc</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/habits.html">habits</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/notes.html">notes</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/motivation.html">motivation</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/blogging.html">blogging</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/systemd.html">systemd</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/infrastructure.html">infrastructure</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/art.html">art</a></li> -->
+                        <!--  -->
+                        <!-- <li><a href="/tags/bcp.html">bcp</a></li> -->
+                        <!--  -->
+                        
+                        <a href="/tags/foo.html">foo</a>
+                        
+                        <a href="/tags/urxvt.html">urxvt</a>
+                        
+                        <a href="/tags/deploy.html">deploy</a>
+                        
+                        <a href="/tags/sysadmin.html">sysadmin</a>
+                        
+                        <a href="/tags/cryogen.html">cryogen</a>
+                        
+                        <a href="/tags/aliases.html">aliases</a>
+                        
+                        <a href="/tags/github.html">github</a>
+                        
+                        <a href="/tags/rewards.html">rewards</a>
+                        
+                        <a href="/tags/security.html">security</a>
+                        
+                        <a href="/tags/clojure.html">clojure</a>
+                        
+                        <a href="/tags/zsh.html">zsh</a>
+                        
+                        <a href="/tags/health.html">health</a>
+                        
+                        <a href="/tags/ansible.html">ansible</a>
+                        
+                        <a href="/tags/i3.html">i3</a>
+                        
+                        <a href="/tags/linux.html">linux</a>
+                        
+                        <a href="/tags/gpg.html">gpg</a>
+                        
+                        <a href="/tags/draft.html">draft</a>
+                        
+                        <a href="/tags/formatting.html">formatting</a>
+                        
+                        <a href="/tags/racket.html">racket</a>
+                        
+                        <a href="/tags/outages.html">outages</a>
+                        
+                        <a href="/tags/tmux.html">tmux</a>
+                        
+                        <a href="/tags/jargon.html">jargon</a>
+                        
+                        <a href="/tags/centos.html">centos</a>
+                        
+                        <a href="/tags/asciidoc.html">asciidoc</a>
+                        
+                        <a href="/tags/emacs.html">emacs</a>
+                        
+                        <a href="/tags/setup.html">setup</a>
+                        
+                        <a href="/tags/time.html">time</a>
+                        
+                        <a href="/tags/networking.html">networking</a>
+                        
+                        <a href="/tags/teaching.html">teaching</a>
+                        
+                        <a href="/tags/docker.html">docker</a>
+                        
+                        <a href="/tags/keyboard.html">keyboard</a>
+                        
+                        <a href="/tags/aur.html">aur</a>
+                        
+                        <a href="/tags/vim.html">vim</a>
+                        
+                        <a href="/tags/arch.html">arch</a>
+                        
+                        <a href="/tags/firewalld.html">firewalld</a>
+                        
+                        <a href="/tags/awk.html">awk</a>
+                        
+                        <a href="/tags/date.html">date</a>
+                        
+                        <a href="/tags/markdown.html">markdown</a>
+                        
+                        <a href="/tags/lisp.html">lisp</a>
+                        
+                        <a href="/tags/nuc.html">nuc</a>
+                        
+                        <a href="/tags/habits.html">habits</a>
+                        
+                        <a href="/tags/notes.html">notes</a>
+                        
+                        <a href="/tags/motivation.html">motivation</a>
+                        
+                        <a href="/tags/blogging.html">blogging</a>
+                        
+                        <a href="/tags/systemd.html">systemd</a>
+                        
+                        <a href="/tags/infrastructure.html">infrastructure</a>
+                        
+                        <a href="/tags/art.html">art</a>
+                        
+                        <a href="/tags/bcp.html">bcp</a>
+                        
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <footer>Copyright &copy; 2015 Micah Elliott
+        <!-- <p style="text-align: center;">Powered by <a href="http://cryogenweb.org">Cryogen</a></p> -->
+    </footer>
+</div>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="../js/highlight.pack.js" type="text/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-6906344-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+</body>
+</html>
